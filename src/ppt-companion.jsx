@@ -138,7 +138,6 @@ const TABS = [
   { id: "taxonomy", label: "Taxonomy" },
   { id: "sapm", label: "SAPM β_W" },
   { id: "theorems", label: "18 Theorems" },
-  { id: "errata", label: "Errata" },
 ];
 
 export default function PPTCompanion() {
@@ -161,7 +160,7 @@ export default function PPTCompanion() {
             The Private Pareto Trap
           </h1>
           <div style={{ fontFamily: FONTS.serif, fontSize: 14, color: DIM, marginTop: 8, fontStyle: "italic" }}>
-            Computation workbook, SAPM calibration, and errata for Postnieks (2026a)
+            Computation workbook and SAPM calibration for Postnieks (2026a)
           </div>
           <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED, marginTop: 12 }}>
             Erik Postnieks · erik@woosterllc.com · Working Paper v3.3 · March 2026
@@ -364,42 +363,6 @@ export default function PPTCompanion() {
           </div>
         )}
 
-        {/* ═══ ERRATA ═══ */}
-        {tab === "errata" && (
-          <div>
-            <Section number="⚠" title="Errata & Corrections" subtitle="Identified in QC audit, March 22, 2026" />
-            {[
-              { severity: "CRITICAL", title: "LIBOR Act citation: wrong public law number",
-                detail: "Paper cites Pub. L. No. 117-103, div. U, Title II. This is the Inflation Reduction Act. Correct: Adjustable Interest Rate (LIBOR) Act, Pub. L. No. 117-103, div. U, 136 Stat. 825 (2022). Affects both PPT and Hollow Win papers." },
-              { severity: "CRITICAL", title: "T* parameters in Table 5 and D.8 do not produce 5.9 years",
-                detail: "Table 5 states λ ≈ $5B/yr → T* = 2.47 yr. D.8 states λ > $30B (total) → T* = 0.41 yr. The computation requires λ ≈ $2.0B/yr (annual system welfare loss rate). See T* Workbook tab for derivation from primary sources." },
-              { severity: "CRITICAL", title: "Version number mismatch",
-                detail: "Header reads 'v 3.2'; filename is v3.3. Header should read v 3.3." },
-              { severity: "CRITICAL", title: "Table C.5 chronological error",
-                detail: "Entry #9 (Holmström, 1982) precedes entry #10 (Grossman-Stiglitz, 1980). Swap entries or renumber." },
-              { severity: "CRITICAL", title: "I_(B) formatting dropped in Prop 2 proof",
-                detail: "Text reads 'I_(A) ∪ IB' — should be 'I_(A) ∪ I_(B)'." },
-              { severity: "CRITICAL", title: "'First since Condorcet' grammatical ambiguity",
-                detail: "Reads as though Condorcet also addressed private-systemic relationships. Rephrase to: 'the eighteenth impossibility theorem — the canon that began with Condorcet (1785) — and the first to address...'" },
-              { severity: "CROSS-PAPER", title: "Hollow Win paper: T* variable definitions contradictory",
-                detail: "HW §5.2 defines δ as 'system sensitivity' and λ as 'agent's discount rate.' PPT defines δ as net private surplus and λ as system welfare loss rate. PPT definitions are correct (dimensional analysis confirms). Fix HW §5.2." },
-              { severity: "CROSS-PAPER", title: "Hollow Win paper: β_W = 5.5 attributed to LIBOR",
-                detail: "HW states β_W ranges 'from 0.8 to 5.5 (LIBOR manipulation).' β_W = 5.5 is VW Dieselgate, not LIBOR. LIBOR β_W is effectively unbounded." },
-            ].map((e, i) => (
-              <Card key={i} highlight={e.severity === "CRITICAL"}>
-                <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 8 }}>
-                  <span style={{
-                    fontFamily: FONTS.mono, fontSize: 9, padding: "2px 6px", borderRadius: 2,
-                    background: e.severity === "CRITICAL" ? "rgba(220,38,38,0.15)" : "rgba(59,130,246,0.15)",
-                    color: e.severity === "CRITICAL" ? "#DC2626" : "#3B82F6",
-                  }}>{e.severity}</span>
-                  <Mono color="rgba(255,255,255,0.8)">{e.title}</Mono>
-                </div>
-                <div style={{ fontFamily: FONTS.mono, fontSize: 11, color: MUTED, lineHeight: 1.7 }}>{e.detail}</div>
-              </Card>
-            ))}
-          </div>
-        )}
       </main>
 
       <footer style={{ borderTop: `1px solid ${BORDER}`, padding: "20px 0", textAlign: "center" }}>
