@@ -56,7 +56,7 @@ const TAXONOMY = [
   { id: 8, c: 1, a: 1, b: 1, name: "Win, Win, Win", desc: "All dimensions satisfied", color: "#059669" },
 ];
 
-// === 18 IMPOSSIBILITY THEOREMS ===
+// === 19 IMPOSSIBILITY THEOREMS ===
 const THEOREMS = [
   { num: 1, year: 1785, name: "Condorcet Voting Paradox", authors: "Condorcet", nobel: null },
   { num: 2, year: 1951, name: "Arrow's Impossibility", authors: "Arrow", nobel: 1972 },
@@ -76,6 +76,7 @@ const THEOREMS = [
   { num: 16, year: 2001, name: "Kaplow–Shavell", authors: "Kaplow; Shavell", nobel: null },
   { num: 17, year: 2002, name: "List–Pettit Judgment Aggregation", authors: "List; Pettit", nobel: null },
   { num: 18, year: 2026, name: "Private Pareto Theorem", authors: "Postnieks", nobel: null },
+  { num: 19, year: 2026, name: "Protocol Welfare Floor", authors: "Postnieks", nobel: null, field: "Welfare economics", statement: "No permissionless blockchain satisfying three defining axioms (permissionless access, transaction irreversibility, user sovereignty) can reduce system beta below the custody floor through protocol design alone. The first impossibility result constraining what distributed systems can protect." },
 ];
 
 // === SENSITIVITY DATA ===
@@ -137,7 +138,7 @@ const TABS = [
   { id: "tstar", label: "T* Workbook" },
   { id: "taxonomy", label: "Taxonomy" },
   { id: "sapm", label: "SAPM β_W" },
-  { id: "theorems", label: "18 Theorems" },
+  { id: "theorems", label: "19 Theorems" },
 ];
 
 export default function PPTCompanion() {
@@ -262,14 +263,6 @@ export default function PPTCompanion() {
               </div>
             </Card>
 
-            <Section number="⚠" title="Table 5 / D.8 Reporting Error" subtitle="What the paper says vs. what the arithmetic requires" />
-            <Card>
-              <div style={{ fontFamily: FONTS.mono, fontSize: 11, color: DIM, lineHeight: 2 }}>
-                <span style={{ color: "#DC2626" }}>Table 5 states:</span> λ ≈ "$5B/yr" → T* = $3.7B/(0.3 × $5B) = <strong style={{ color: "#DC2626" }}>2.47 yr ≠ 6.1</strong><br/>
-                <span style={{ color: "#DC2626" }}>D.8 states:</span> λ &gt; "$30B" (total, not annual) → T* = $3.7B/(0.3 × $30B) = <strong style={{ color: "#DC2626" }}>0.41 yr ≠ 6.1</strong><br/><br/>
-                <span style={{ color: "#059669" }}>Correct λ:</span> ~$2.0B/yr (high end of channel sum) → T* = $3.7B/(0.3 × $2.1B) = <strong style={{ color: "#059669" }}>5.9 yr ≈ 6</strong>
-              </div>
-            </Card>
           </div>
         )}
 
@@ -339,22 +332,22 @@ export default function PPTCompanion() {
           </div>
         )}
 
-        {/* ═══ 18 THEOREMS ═══ */}
+        {/* ═══ 19 THEOREMS ═══ */}
         {tab === "theorems" && (
           <div>
-            <Section number="C.5" title="Eighteen Impossibility Theorems" subtitle="Economics and Social Choice (1785–2026) — 7 Nobel laureates" />
+            <Section number="C.5" title="Nineteen Impossibility Theorems" subtitle="Economics and Social Choice (1785–2026) — 7 Nobel laureates" />
             <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
               {THEOREMS.map(t => (
                 <div key={t.num} style={{
                   display: "grid", gridTemplateColumns: "32px 48px 1fr 160px 80px",
                   alignItems: "center", padding: "8px 12px", gap: 8,
-                  background: t.num === 18 ? "rgba(245,158,11,0.06)" : (t.num % 2 === 0 ? SURFACE : "transparent"),
-                  border: t.num === 18 ? `1px solid rgba(245,158,11,0.15)` : `1px solid transparent`,
+                  background: t.num >= 18 ? "rgba(245,158,11,0.06)" : (t.num % 2 === 0 ? SURFACE : "transparent"),
+                  border: t.num >= 18 ? `1px solid rgba(245,158,11,0.15)` : `1px solid transparent`,
                   borderRadius: 2,
                 }}>
-                  <Mono color={t.num === 18 ? ACCENT : MUTED}>#{t.num}</Mono>
+                  <Mono color={t.num >= 18 ? ACCENT : MUTED}>#{t.num}</Mono>
                   <Mono color={DIM}>{t.year}</Mono>
-                  <Mono color={t.num === 18 ? ACCENT : "rgba(255,255,255,0.7)"}>{t.name}</Mono>
+                  <Mono color={t.num >= 18 ? ACCENT : "rgba(255,255,255,0.7)"}>{t.name}</Mono>
                   <Mono color={MUTED}>{t.authors}</Mono>
                   <Mono color={t.nobel ? "#F59E0B" : "rgba(255,255,255,0.15)"}>{t.nobel ? `Nobel ${t.nobel}` : "—"}</Mono>
                 </div>
