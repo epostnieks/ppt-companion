@@ -6,7 +6,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, Cartes
 // Postnieks (2026a) Working Paper
 // ══════════════════════════════════════════════════════════════
 
-// === COMPLETE SAPM β_W CALIBRATION (30 domains) ===
+// === COMPLETE SAPM βW CALIBRATION (30 domains) ===
 const ALL_BETAS = [
   { key: "pfas", domain: "PFAS / Forever Chemicals", beta: 35.2, type: "I", slug: "sapm-pfas" },
   { key: "geneDrives", domain: "Gene Drive Deployment", beta: 12.4, type: "I", slug: "sapm-gene-drives" },
@@ -41,7 +41,7 @@ const ALL_BETAS = [
   { key: "nuclear", domain: "Nuclear Fission", beta: 0.53, type: "I", slug: "sapm-nuclear" },
 ];
 
-// Additional dashboards not in β_W table
+// Additional dashboards not in βW table
 const EXTRA_DASHBOARDS = [
   { slug: "sapm-orbital-debris", title: "Orbital Debris & LEO Congestion" },
   { slug: "sapm-upf-impossibility-frontier", title: "UPF: The Impossibility Frontier" },
@@ -147,7 +147,7 @@ const THEOREMS = [
     impossible: "Consistent collective judgment under minimal democratic requirements",
     connection: "Judgment aggregation fails at the group level. PPT shows welfare aggregation fails at the bilateral level." },
   { num: 16, year: 2026, name: "Private Pareto Theorem", authors: "Postnieks", nobel: null,
-    statement: "For any bilateral interaction satisfying three axioms — overlapping interests, system independence, and system dependence — no Nash equilibrium exists in which both private parties gain and system welfare is preserved. The cooperative surplus visible to bilateral analysis is temporally unstable when β_W > 1.",
+    statement: "For any bilateral interaction satisfying three axioms — overlapping interests, system independence, and system dependence — no Nash equilibrium exists in which both private parties gain and system welfare is preserved. The cooperative surplus visible to bilateral analysis is temporally unstable when βW > 1.",
     impossible: "Bilateral Pareto efficiency that preserves system welfare under PST axioms",
     connection: null },
 ];
@@ -217,7 +217,7 @@ const betaLabel = (b) => {
 const TABS = [
   { id: "overview", label: "Program" },
   { id: "dashboards", label: "Dashboards" },
-  { id: "betas", label: "β_W Rankings" },
+  { id: "betas", label: "βW Rankings" },
   { id: "tstar", label: "T* Workbook" },
   { id: "taxonomy", label: "Taxonomy" },
   { id: "theorems", label: "Canon" },
@@ -309,7 +309,7 @@ export default function PPTCompanion() {
                 <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, marginTop: 4 }}>{typeI} Type I · {typeII} Type II · 3 case</div>
               </Card>
               <Card>
-                <Label2>MEAN β_W</Label2>
+                <Label2>MEAN β<sub>W</sub></Label2>
                 <div style={{ fontFamily: FONTS.mono, fontSize: 28, color: betaColor(parseFloat(meanBeta)) }}>{meanBeta}</div>
                 <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, marginTop: 4 }}>Median: {medianBeta}</div>
               </Card>
@@ -331,11 +331,11 @@ export default function PPTCompanion() {
                 For any game satisfying three axioms — bilateral rationality, system-welfare relevance, and
                 non-dictatorial payoff structure — no Nash equilibrium exists in which both private parties
                 gain and system welfare is preserved. The Private Pareto Theorem (Postnieks 2026a) establishes
-                that the cooperative surplus visible to bilateral analysis is temporally unstable when β_W {">"} 1.
+                that the cooperative surplus visible to bilateral analysis is temporally unstable when β<sub>W</sub> {">"} 1.
               </div>
             </Card>
 
-            <Section number="β_W" title="System Beta Distribution" subtitle="β_W = −dW/dΠ — marginal welfare cost per dollar of private gain" />
+            <Section number={<>β<sub>W</sub></>} title="System Beta Distribution" subtitle={<>β<sub>W</sub> = −dW/dΠ — marginal welfare cost per dollar of private gain</>} />
 
             <div style={{ height: 520, marginBottom: 16 }}>
               <ResponsiveContainer>
@@ -393,7 +393,7 @@ export default function PPTCompanion() {
               </Card>
             </a>
 
-            <Label2>DOMAIN DASHBOARDS — SORTED BY β_W (DESCENDING)</Label2>
+            <Label2>DOMAIN DASHBOARDS — SORTED BY β<sub>W</sub> (DESCENDING)</Label2>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 1 }}>
               {ALL_BETAS.filter(d => d.slug).map((d, i) => (
@@ -447,10 +447,10 @@ export default function PPTCompanion() {
           </div>
         )}
 
-        {/* ═══ β_W RANKINGS ═══ */}
+        {/* ═══ βW RANKINGS ═══ */}
         {tab === "betas" && (
           <div>
-            <Section number="§D.2" title="Complete β_W Calibration" subtitle="All 32 domains — marginal welfare cost per dollar of private gain" />
+            <Section number="§D.2" title={<>Complete β<sub>W</sub> Calibration</>} subtitle="All 32 domains — marginal welfare cost per dollar of private gain" />
 
             <Card highlight>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 16, textAlign: "center" }}>
@@ -487,7 +487,7 @@ export default function PPTCompanion() {
               padding: "8px 12px", borderBottom: `1px solid ${BORDER}`,
             }}>
               <Mono color={MUTED}>#</Mono>
-              <Mono color={MUTED}>β_W</Mono>
+              <Mono color={MUTED}>β<sub>W</sub></Mono>
               <Mono color={MUTED}>DOMAIN</Mono>
               <Mono color={MUTED}>CLASS</Mono>
               <Mono color={MUTED}>TYPE</Mono>
