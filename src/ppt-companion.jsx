@@ -77,10 +77,10 @@ const TAXONOMY = [
   { id: 1, c: 0, a: 0, b: 0, name: "Misery", desc: "Total failure", color: "#7F1D1D" },
   { id: 2, c: 0, a: 1, b: 0, name: "C Loses, A Prevails", desc: "A extracts; system degrades", color: "#991B1B" },
   { id: 3, c: 0, a: 0, b: 1, name: "C Loses, B Prevails", desc: "B extracts; system degrades", color: "#B91C1C" },
-  { id: 4, c: 1, a: 0, b: 0, name: "Stable Misery", desc: "System preserved; both lose", color: "#1E3A5F" },
+  { id: 4, c: 1, a: 0, b: 0, name: "Stable Misery", desc: "System preserved; both lose", color: "#6B7280" },
   { id: 5, c: 0, a: 1, b: 1, name: "Hollow Win", desc: "Both gain; system degrades. Temporally unstable.", color: "#DC2626" },
-  { id: 6, c: 1, a: 0, b: 1, name: "C Wins, B Prevails", desc: "System + B preserved; A bears cost", color: "#1D4ED8" },
-  { id: 7, c: 1, a: 1, b: 0, name: "C Wins, A Prevails", desc: "System + A preserved; B bears cost", color: "#2563EB" },
+  { id: 6, c: 1, a: 0, b: 1, name: "C Wins, B Prevails", desc: "System + B preserved; A bears cost", color: "#D97706" },
+  { id: 7, c: 1, a: 1, b: 0, name: "C Wins, A Prevails", desc: "System + A preserved; B bears cost", color: "#F59E0B" },
   { id: 8, c: 1, a: 1, b: 1, name: "Win, Win, Win", desc: "All dimensions satisfied", color: "#059669" },
 ];
 
