@@ -267,7 +267,7 @@ export default function PPTCompanion() {
                 The Private Pareto Theorem
               </h1>
               <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, marginTop: 12 }}>
-                Erik Postnieks · Postnieks Impossibility Program · 2025–2026
+                Erik Postnieks · © 2026 Erik Postnieks · 2025–2026
               </div>
             </div>
             <div style={{ fontFamily: FONTS.mono, fontSize: 13, color: DIM, textAlign: "right", display: "flex", gap: 16, alignItems: "center", marginTop: 8 }}>
@@ -300,7 +300,7 @@ export default function PPTCompanion() {
         {/* ═══ PROGRAM OVERVIEW ═══ */}
         {tab === "overview" && (
           <div>
-            <Section title="Program Overview" subtitle="The Postnieks Impossibility Program quantifies the welfare cost of private optimization" />
+            <Section title="Program Overview" subtitle="The © 2026 Erik Postnieks quantifies the welfare cost of private optimization" />
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 12 }}>
               <Card highlight>
@@ -770,7 +770,7 @@ export default function PPTCompanion() {
       </main>
 
       <footer style={{ borderTop: `1px solid ${BORDER}`, padding: "20px 0", textAlign: "center" }}>
-        <Mono color="rgba(255,255,255,0.2)">© 2026 Erik Postnieks · Postnieks Impossibility Program · All rights reserved</Mono>
+        <Mono color="rgba(255,255,255,0.2)">© 2026 Erik Postnieks · © 2026 Erik Postnieks · All rights reserved</Mono>
       </footer>
     </div>
   );
