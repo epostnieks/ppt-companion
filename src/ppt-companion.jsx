@@ -176,9 +176,9 @@ const CRIMSON = "#DC2626";
 
 const Section = ({ number, title, subtitle }) => (
   <div style={{ marginTop: 48, marginBottom: 24 }}>
-    {number && <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: ACCENT, letterSpacing: 2, marginBottom: 6 }}>{number}</div>}
+    {number && <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: ACCENT, letterSpacing: 2, marginBottom: 6 }}>{number}</div>}
     <h2 style={{ fontFamily: FONTS.serif, fontSize: 24, fontWeight: 400, color: "rgba(255,255,255,0.9)", margin: 0 }}>{title}</h2>
-    {subtitle && <div style={{ fontFamily: FONTS.mono, fontSize: 11, color: MUTED, marginTop: 4 }}>{subtitle}</div>}
+    {subtitle && <div style={{ fontFamily: FONTS.mono, fontSize: 13, color: MUTED, marginTop: 4 }}>{subtitle}</div>}
   </div>
 );
 
@@ -189,11 +189,11 @@ const Card = ({ children, highlight }) => (
 );
 
 const Label2 = ({ children }) => (
-  <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED, letterSpacing: 1, marginBottom: 8 }}>{children}</div>
+  <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, letterSpacing: 1, marginBottom: 8 }}>{children}</div>
 );
 
 const Mono = ({ children, color }) => (
-  <span style={{ fontFamily: FONTS.mono, fontSize: 11, color: color || DIM }}>{children}</span>
+  <span style={{ fontFamily: FONTS.mono, fontSize: 13, color: color || DIM }}>{children}</span>
 );
 
 // Beta color by severity
@@ -262,15 +262,15 @@ export default function PPTCompanion() {
         <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 24px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
             <div>
-              <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: ACCENT, letterSpacing: 3, marginBottom: 12 }}>SYSTEM ASSET PRICING MODEL</div>
+              <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: ACCENT, letterSpacing: 3, marginBottom: 12 }}>SYSTEM ASSET PRICING MODEL</div>
               <h1 style={{ fontFamily: FONTS.serif, fontSize: 32, fontWeight: 300, margin: 0, color: "rgba(255,255,255,0.95)", lineHeight: 1.2 }}>
                 The Private Pareto Theorem
               </h1>
-              <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED, marginTop: 12 }}>
+              <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, marginTop: 12 }}>
                 Erik Postnieks · Postnieks Impossibility Program · 2025–2026
               </div>
             </div>
-            <div style={{ fontFamily: FONTS.mono, fontSize: 11, color: DIM, textAlign: "right", display: "flex", gap: 16, alignItems: "center", marginTop: 8 }}>
+            <div style={{ fontFamily: FONTS.mono, fontSize: 13, color: DIM, textAlign: "right", display: "flex", gap: 16, alignItems: "center", marginTop: 8 }}>
               <span><span className="pulse" style={{ color: ACCENT }}>32</span> DOMAINS</span>
               <span style={{ color: BORDER }}>·</span>
               <span><span className="pulse" style={{ color: ACCENT }}>16</span> THEOREMS</span>
@@ -285,7 +285,7 @@ export default function PPTCompanion() {
         <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 24px", display: "flex", gap: 0, overflowX: "auto" }}>
           {TABS.map(t => (
             <button key={t.id} onClick={() => setTab(t.id)} style={{
-              fontFamily: FONTS.mono, fontSize: 11, padding: "12px 16px", border: "none", cursor: "pointer",
+              fontFamily: FONTS.mono, fontSize: 13, padding: "12px 16px", border: "none", cursor: "pointer",
               background: tab === t.id ? "rgba(245,158,11,0.08)" : "transparent",
               color: tab === t.id ? ACCENT : MUTED,
               borderBottom: tab === t.id ? `2px solid ${ACCENT}` : "2px solid transparent",
@@ -306,28 +306,28 @@ export default function PPTCompanion() {
               <Card highlight>
                 <Label2>CALIBRATED DOMAINS</Label2>
                 <div style={{ fontFamily: FONTS.mono, fontSize: 28, color: ACCENT }}>32</div>
-                <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED, marginTop: 4 }}>{typeI} Type I · {typeII} Type II · 3 case</div>
+                <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, marginTop: 4 }}>{typeI} Type I · {typeII} Type II · 3 case</div>
               </Card>
               <Card>
                 <Label2>MEAN β_W</Label2>
                 <div style={{ fontFamily: FONTS.mono, fontSize: 28, color: betaColor(parseFloat(meanBeta)) }}>{meanBeta}</div>
-                <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED, marginTop: 4 }}>Median: {medianBeta}</div>
+                <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, marginTop: 4 }}>Median: {medianBeta}</div>
               </Card>
               <Card>
                 <Label2>IMPOSSIBILITY THEOREMS</Label2>
                 <div style={{ fontFamily: FONTS.mono, fontSize: 28, color: ACCENT }}>16</div>
-                <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED, marginTop: 4 }}>1785–2026</div>
+                <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, marginTop: 4 }}>1785–2026</div>
               </Card>
               <Card>
                 <Label2>COMPANION DASHBOARDS</Label2>
                 <div style={{ fontFamily: FONTS.mono, fontSize: 28, color: ACCENT }}>37</div>
-                <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED, marginTop: 4 }}>+ C-Adjusted GDP</div>
+                <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, marginTop: 4 }}>+ C-Adjusted GDP</div>
               </Card>
             </div>
 
             <Card highlight>
               <Label2>CORE RESULT</Label2>
-              <div style={{ fontFamily: FONTS.serif, fontSize: 15, color: "rgba(255,255,255,0.85)", lineHeight: 1.8 }}>
+              <div style={{ fontFamily: FONTS.serif, fontSize: 17, color: "rgba(255,255,255,0.85)", lineHeight: 1.8 }}>
                 For any game satisfying three axioms — bilateral rationality, system-welfare relevance, and
                 non-dictatorial payoff structure — no Nash equilibrium exists in which both private parties
                 gain and system welfare is preserved. The Private Pareto Theorem (Postnieks 2026a) establishes
@@ -341,14 +341,14 @@ export default function PPTCompanion() {
               <ResponsiveContainer>
                 <BarChart data={BETA_CHART} layout="vertical" margin={{ left: 180, right: 30, top: 10, bottom: 10 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
-                  <XAxis type="number" tick={{ fill: MUTED, fontFamily: FONTS.mono, fontSize: 10 }} domain={[0, 'auto']} />
-                  <YAxis type="category" dataKey="domain" tick={{ fill: DIM, fontFamily: FONTS.mono, fontSize: 10 }} width={170} interval={0} />
-                  <Tooltip contentStyle={{ background: "#1a1a2e", border: `1px solid ${BORDER}`, fontFamily: FONTS.mono, fontSize: 11, color: DIM }} />
+                  <XAxis type="number" tick={{ fill: MUTED, fontFamily: FONTS.mono, fontSize: 12 }} domain={[0, 'auto']} />
+                  <YAxis type="category" dataKey="domain" tick={{ fill: DIM, fontFamily: FONTS.mono, fontSize: 12 }} width={170} interval={0} />
+                  <Tooltip contentStyle={{ background: "#1a1a2e", border: `1px solid ${BORDER}`, fontFamily: FONTS.mono, fontSize: 13, color: DIM }} />
                   <Bar dataKey="beta" radius={[0, 2, 2, 0]}>
                     {BETA_CHART.map((d, i) => <Cell key={i} fill={d.color} />)}
                   </Bar>
                   <ReferenceLine x={1} stroke="rgba(255,255,255,0.2)" strokeDasharray="5 5">
-                    <Label value="β=1" position="top" fill={MUTED} style={{ fontFamily: FONTS.mono, fontSize: 9 }} />
+                    <Label value="β=1" position="top" fill={MUTED} style={{ fontFamily: FONTS.mono, fontSize: 11 }} />
                   </ReferenceLine>
                 </BarChart>
               </ResponsiveContainer>
@@ -359,13 +359,13 @@ export default function PPTCompanion() {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                 <a href="https://c-adjusted-gdp.vercel.app" target="_blank" rel="noopener noreferrer"
                   style={{ display: "block", padding: "12px 16px", background: "rgba(245,158,11,0.06)", border: `1px solid rgba(245,158,11,0.15)`, borderRadius: 2 }}>
-                  <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: ACCENT, letterSpacing: 1 }}>C-ADJUSTED GDP</div>
-                  <div style={{ fontFamily: FONTS.serif, fontSize: 13, color: DIM, marginTop: 4 }}>Welfare-adjusted national output for 190+ countries</div>
+                  <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: ACCENT, letterSpacing: 1 }}>C-ADJUSTED GDP</div>
+                  <div style={{ fontFamily: FONTS.serif, fontSize: 15, color: DIM, marginTop: 4 }}>Welfare-adjusted national output for 190+ countries</div>
                 </a>
                 <a href="#" onClick={(e) => { e.preventDefault(); setTab("dashboards"); }}
                   style={{ display: "block", padding: "12px 16px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 2 }}>
-                  <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: ACCENT, letterSpacing: 1 }}>ALL DASHBOARDS →</div>
-                  <div style={{ fontFamily: FONTS.serif, fontSize: 13, color: DIM, marginTop: 4 }}>32 domain-specific companion dashboards</div>
+                  <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: ACCENT, letterSpacing: 1 }}>ALL DASHBOARDS →</div>
+                  <div style={{ fontFamily: FONTS.serif, fontSize: 15, color: DIM, marginTop: 4 }}>32 domain-specific companion dashboards</div>
                 </a>
               </div>
             </Card>
@@ -382,13 +382,13 @@ export default function PPTCompanion() {
               <Card highlight>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <div>
-                    <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: ACCENT, letterSpacing: 1, marginBottom: 4 }}>FLAGSHIP</div>
+                    <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: ACCENT, letterSpacing: 1, marginBottom: 4 }}>FLAGSHIP</div>
                     <div style={{ fontFamily: FONTS.serif, fontSize: 18, color: "rgba(255,255,255,0.9)" }}>C-Adjusted GDP Dashboard</div>
-                    <div style={{ fontFamily: FONTS.mono, fontSize: 11, color: MUTED, marginTop: 4 }}>
+                    <div style={{ fontFamily: FONTS.mono, fontSize: 13, color: MUTED, marginTop: 4 }}>
                       Welfare-adjusted national output — 190+ countries, 27 SAPM channels, extraction ratio μ=0.15
                     </div>
                   </div>
-                  <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: ACCENT }}>→</div>
+                  <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: ACCENT }}>→</div>
                 </div>
               </Card>
             </a>
@@ -407,16 +407,16 @@ export default function PPTCompanion() {
                   onMouseEnter={e => e.currentTarget.style.background = "rgba(245,158,11,0.04)"}
                   onMouseLeave={e => e.currentTarget.style.background = i % 2 === 0 ? "rgba(255,255,255,0.015)" : "transparent"}
                   >
-                    <span style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED, width: 28, flexShrink: 0 }}>
+                    <span style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, width: 28, flexShrink: 0 }}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span style={{ fontFamily: FONTS.mono, fontSize: 13, color: betaColor(d.beta), width: 50, flexShrink: 0 }}>
+                    <span style={{ fontFamily: FONTS.mono, fontSize: 15, color: betaColor(d.beta), width: 50, flexShrink: 0 }}>
                       {d.beta}
                     </span>
-                    <span style={{ fontFamily: FONTS.serif, fontSize: 14, color: "rgba(255,255,255,0.8)", flex: 1 }}>
+                    <span style={{ fontFamily: FONTS.serif, fontSize: 16, color: "rgba(255,255,255,0.8)", flex: 1 }}>
                       {d.domain}
                     </span>
-                    <span style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED }}>
+                    <span style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED }}>
                       Type {d.type}
                     </span>
                   </div>
@@ -438,7 +438,7 @@ export default function PPTCompanion() {
                     onMouseEnter={e => e.currentTarget.style.background = "rgba(245,158,11,0.04)"}
                     onMouseLeave={e => e.currentTarget.style.background = SURFACE}
                     >
-                      <span style={{ fontFamily: FONTS.serif, fontSize: 14, color: "rgba(255,255,255,0.8)" }}>{d.title}</span>
+                      <span style={{ fontFamily: FONTS.serif, fontSize: 16, color: "rgba(255,255,255,0.8)" }}>{d.title}</span>
                     </div>
                   </a>
                 ))}
@@ -455,25 +455,25 @@ export default function PPTCompanion() {
             <Card highlight>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 16, textAlign: "center" }}>
                 <div>
-                  <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED }}>EXTREME (β≥10)</div>
+                  <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED }}>EXTREME (β≥10)</div>
                   <div style={{ fontFamily: FONTS.mono, fontSize: 20, color: "#DC2626", marginTop: 4 }}>
                     {ALL_BETAS.filter(d => d.beta >= 10).length}
                   </div>
                 </div>
                 <div>
-                  <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED }}>SEVERE (6–10)</div>
+                  <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED }}>SEVERE (6–10)</div>
                   <div style={{ fontFamily: FONTS.mono, fontSize: 20, color: "#E85D3A", marginTop: 4 }}>
                     {ALL_BETAS.filter(d => d.beta >= 6 && d.beta < 10).length}
                   </div>
                 </div>
                 <div>
-                  <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED }}>ELEVATED (4–6)</div>
+                  <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED }}>ELEVATED (4–6)</div>
                   <div style={{ fontFamily: FONTS.mono, fontSize: 20, color: "#F59E0B", marginTop: 4 }}>
                     {ALL_BETAS.filter(d => d.beta >= 4 && d.beta < 6).length}
                   </div>
                 </div>
                 <div>
-                  <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED }}>MODERATE ({"<"}4)</div>
+                  <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED }}>MODERATE ({"<"}4)</div>
                   <div style={{ fontFamily: FONTS.mono, fontSize: 20, color: "#D97706", marginTop: 4 }}>
                     {ALL_BETAS.filter(d => d.beta < 4).length}
                   </div>
@@ -505,7 +505,7 @@ export default function PPTCompanion() {
                 <div>
                   {d.slug ? (
                     <a href={`https://${d.slug}.vercel.app`} target="_blank" rel="noopener noreferrer"
-                      style={{ fontFamily: FONTS.mono, fontSize: 11, color: "rgba(255,255,255,0.7)" }}>
+                      style={{ fontFamily: FONTS.mono, fontSize: 13, color: "rgba(255,255,255,0.7)" }}>
                       {d.domain}
                     </a>
                   ) : (
@@ -524,7 +524,7 @@ export default function PPTCompanion() {
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <div>
                       <Mono color="rgba(255,255,255,0.8)">{d.domain}</Mono>
-                      <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED, marginTop: 4 }}>{d.note}</div>
+                      <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, marginTop: 4 }}>{d.note}</div>
                     </div>
                     <div style={{ fontFamily: FONTS.mono, fontSize: 20, color: "#DC2626" }}>
                       {d.beta.toLocaleString()}
@@ -546,7 +546,7 @@ export default function PPTCompanion() {
               <div style={{ fontFamily: FONTS.mono, fontSize: 18, color: "rgba(255,255,255,0.9)", textAlign: "center", padding: "12px 0" }}>
                 T* = δ / (η × λ)
               </div>
-              <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED, textAlign: "center" }}>
+              <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, textAlign: "center" }}>
                 dollars / (dimensionless × dollars·yr⁻¹) = years
               </div>
             </Card>
@@ -555,7 +555,7 @@ export default function PPTCompanion() {
               <Card>
                 <Label2>δ — PRIVATE SURPLUS</Label2>
                 <div style={{ fontFamily: FONTS.mono, fontSize: 20, color: ACCENT }}>$3.7B</div>
-                <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED, marginTop: 8, lineHeight: 1.7 }}>
+                <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, marginTop: 8, lineHeight: 1.7 }}>
                   $335/vehicle × 11M vehicles<br/>
                   Source: ICCT (2015)<br/>
                   Conservative: excludes brand premium
@@ -564,7 +564,7 @@ export default function PPTCompanion() {
               <Card>
                 <Label2>η — FEEDBACK COUPLING</Label2>
                 <div style={{ fontFamily: FONTS.mono, fontSize: 20, color: ACCENT }}>0.30</div>
-                <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED, marginTop: 8, lineHeight: 1.7 }}>
+                <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, marginTop: 8, lineHeight: 1.7 }}>
                   ~30% of system damage<br/>
                   feeds back to VW via<br/>
                   regulatory + brand channels
@@ -573,7 +573,7 @@ export default function PPTCompanion() {
               <Card>
                 <Label2>λ — ANNUAL SYSTEM LOSS</Label2>
                 <div style={{ fontFamily: FONTS.mono, fontSize: 20, color: ACCENT }}>{fmt(VW_HIGH)}/yr</div>
-                <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED, marginTop: 8, lineHeight: 1.7 }}>
+                <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, marginTop: 8, lineHeight: 1.7 }}>
                   4 channels summed below<br/>
                   Range: {fmt(VW_LOW)}–{fmt(VW_HIGH)}/yr<br/>
                   Central: {fmt(VW_MID)}/yr
@@ -587,15 +587,15 @@ export default function PPTCompanion() {
               <Card key={key}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <div>
-                    <div style={{ fontFamily: FONTS.mono, fontSize: 11, fontWeight: 600, color: "rgba(255,255,255,0.7)", textTransform: "capitalize" }}>
+                    <div style={{ fontFamily: FONTS.mono, fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.7)", textTransform: "capitalize" }}>
                       {key === "health" ? "Health Damage (NOx → PM2.5, ozone)" :
                        key === "regulatory" ? "Regulatory Integrity Erosion" :
                        key === "competitive" ? "Competitive Distortion" :
                        "Environmental Damage Beyond Health"}
                     </div>
-                    <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED, marginTop: 4 }}>{val.source}</div>
+                    <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, marginTop: 4 }}>{val.source}</div>
                   </div>
-                  <div style={{ fontFamily: FONTS.mono, fontSize: 13, color: ACCENT, textAlign: "right", whiteSpace: "nowrap" }}>
+                  <div style={{ fontFamily: FONTS.mono, fontSize: 15, color: ACCENT, textAlign: "right", whiteSpace: "nowrap" }}>
                     {fmt(val.low)}–{fmt(val.high)}/yr
                   </div>
                 </div>
@@ -604,7 +604,7 @@ export default function PPTCompanion() {
 
             <Card highlight>
               <Label2>TOTAL λ</Label2>
-              <div style={{ fontFamily: FONTS.mono, fontSize: 11, color: DIM, lineHeight: 2 }}>
+              <div style={{ fontFamily: FONTS.mono, fontSize: 13, color: DIM, lineHeight: 2 }}>
                 Low:&nbsp;&nbsp;&nbsp;&nbsp;{fmt(VW_LOW)}/yr → T* = {computeT(VW_PARAMS.delta, VW_PARAMS.eta, VW_LOW).toFixed(1)} years<br/>
                 Central: {fmt(VW_MID)}/yr → T* = {computeT(VW_PARAMS.delta, VW_PARAMS.eta, VW_MID).toFixed(1)} years<br/>
                 High:&nbsp;&nbsp;&nbsp;&nbsp;{fmt(VW_HIGH)}/yr → T* = {computeT(VW_PARAMS.delta, VW_PARAMS.eta, VW_HIGH).toFixed(1)} years<br/>
@@ -624,12 +624,12 @@ export default function PPTCompanion() {
               {TAXONOMY.map(t => (
                 <Card key={t.id}>
                   <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-                    <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: t.c === 0 ? "#DC2626" : "#059669", minWidth: 48 }}>
+                    <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: t.c === 0 ? "#DC2626" : "#059669", minWidth: 48 }}>
                       ({t.c},{t.a},{t.b})
                     </div>
                     <div>
-                      <div style={{ fontFamily: FONTS.mono, fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.8)" }}>{t.name}</div>
-                      <div style={{ fontFamily: FONTS.serif, fontSize: 12, color: MUTED, marginTop: 2, fontStyle: "italic" }}>{t.desc}</div>
+                      <div style={{ fontFamily: FONTS.mono, fontSize: 14, fontWeight: 600, color: "rgba(255,255,255,0.8)" }}>{t.name}</div>
+                      <div style={{ fontFamily: FONTS.serif, fontSize: 14, color: MUTED, marginTop: 2, fontStyle: "italic" }}>{t.desc}</div>
                     </div>
                   </div>
                 </Card>
@@ -637,7 +637,7 @@ export default function PPTCompanion() {
             </div>
             <Card highlight>
               <Label2>THE DANGEROUS CONFLATION (Prop 8a)</Label2>
-              <div style={{ fontFamily: FONTS.serif, fontSize: 13, color: DIM, lineHeight: 1.7 }}>
+              <div style={{ fontFamily: FONTS.serif, fontSize: 15, color: DIM, lineHeight: 1.7 }}>
                 Standard two-dimensional analysis maps both <Mono color="#DC2626">Hollow Win (0,1,1)</Mono> and <Mono color="#059669">Win, Win, Win (1,1,1)</Mono> to the same label: "mutual gain." This conflation allowed LIBOR manipulation, cartel pricing, and algorithmic collusion to be classified identically with legitimate cooperation — for decades.
               </div>
             </Card>
@@ -665,7 +665,7 @@ export default function PPTCompanion() {
                       <div style={{ position: "relative", margin: "32px 0 32px -40px", padding: "20px 0 20px 40px" }}>
                         <div style={{ position: "absolute", left: 0, right: 0, top: "50%", height: 1, background: `linear-gradient(to right, transparent, ${ACCENT}, transparent)` }} />
                         <div style={{ position: "relative", background: BG, display: "inline-block", padding: "8px 16px", marginLeft: 40, border: `1px solid rgba(245,158,11,0.2)`, borderRadius: 2 }}>
-                          <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: ACCENT, lineHeight: 1.6, maxWidth: 500 }}>
+                          <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: ACCENT, lineHeight: 1.6, maxWidth: 500 }}>
                             THE STRUCTURAL BREAK — Theorems 1–15 operate within the bilateral payoff space.<br/>
                             Theorem 16 proves the payoff space itself is blind.
                           </div>
@@ -702,7 +702,7 @@ export default function PPTCompanion() {
                       {t.nobel && (
                         <div style={{
                           position: "absolute", left: isPPT ? -50 : -48, top: isPPT ? 22 : 12,
-                          fontFamily: FONTS.mono, fontSize: 8, color: "#F59E0B",
+                          fontFamily: FONTS.mono, fontSize: 10, color: "#F59E0B",
                           background: "rgba(245,158,11,0.1)", padding: "1px 4px", borderRadius: 2,
                           whiteSpace: "nowrap",
                         }}>
@@ -718,10 +718,10 @@ export default function PPTCompanion() {
                         <span style={{ fontFamily: FONTS.mono, fontSize: isPPT ? 14 : 12, fontWeight: isPPT ? 600 : 400, color: isPPT ? ACCENT : "rgba(255,255,255,0.8)" }}>
                           {t.name}
                         </span>
-                        <span style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED }}>
+                        <span style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED }}>
                           {t.authors}
                         </span>
-                        <span style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED, marginLeft: "auto" }}>
+                        <span style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, marginLeft: "auto" }}>
                           {isExpanded ? "−" : "+"}
                         </span>
                       </div>
@@ -730,29 +730,29 @@ export default function PPTCompanion() {
                       {isExpanded && (
                         <div style={{ marginTop: 12, paddingTop: 12, borderTop: `1px solid ${BORDER}` }}>
                           <div style={{ marginBottom: 10 }}>
-                            <div style={{ fontFamily: FONTS.mono, fontSize: 9, color: MUTED, letterSpacing: 1, marginBottom: 4 }}>STATEMENT</div>
-                            <div style={{ fontFamily: FONTS.serif, fontSize: 13, color: "rgba(255,255,255,0.75)", lineHeight: 1.7 }}>
+                            <div style={{ fontFamily: FONTS.mono, fontSize: 11, color: MUTED, letterSpacing: 1, marginBottom: 4 }}>STATEMENT</div>
+                            <div style={{ fontFamily: FONTS.serif, fontSize: 15, color: "rgba(255,255,255,0.75)", lineHeight: 1.7 }}>
                               {t.statement}
                             </div>
                           </div>
                           <div style={{ marginBottom: 10 }}>
-                            <div style={{ fontFamily: FONTS.mono, fontSize: 9, color: MUTED, letterSpacing: 1, marginBottom: 4 }}>PROVED IMPOSSIBLE</div>
-                            <div style={{ fontFamily: FONTS.mono, fontSize: 11, color: CRIMSON }}>
+                            <div style={{ fontFamily: FONTS.mono, fontSize: 11, color: MUTED, letterSpacing: 1, marginBottom: 4 }}>PROVED IMPOSSIBLE</div>
+                            <div style={{ fontFamily: FONTS.mono, fontSize: 13, color: CRIMSON }}>
                               {t.impossible}
                             </div>
                           </div>
                           {t.connection && (
                             <div>
-                              <div style={{ fontFamily: FONTS.mono, fontSize: 9, color: MUTED, letterSpacing: 1, marginBottom: 4 }}>CONNECTION TO PPT</div>
-                              <div style={{ fontFamily: FONTS.serif, fontSize: 12, color: ACCENT, fontStyle: "italic", lineHeight: 1.6 }}>
+                              <div style={{ fontFamily: FONTS.mono, fontSize: 11, color: MUTED, letterSpacing: 1, marginBottom: 4 }}>CONNECTION TO PPT</div>
+                              <div style={{ fontFamily: FONTS.serif, fontSize: 14, color: ACCENT, fontStyle: "italic", lineHeight: 1.6 }}>
                                 {t.connection}
                               </div>
                             </div>
                           )}
                           {isPPT && (
                             <div style={{ marginTop: 12, padding: "12px 16px", background: "rgba(245,158,11,0.06)", border: `1px solid rgba(245,158,11,0.15)`, borderRadius: 2 }}>
-                              <div style={{ fontFamily: FONTS.mono, fontSize: 9, color: ACCENT, letterSpacing: 1, marginBottom: 4 }}>THE STRUCTURAL DIFFERENCE</div>
-                              <div style={{ fontFamily: FONTS.serif, fontSize: 12, color: DIM, lineHeight: 1.7 }}>
+                              <div style={{ fontFamily: FONTS.mono, fontSize: 11, color: ACCENT, letterSpacing: 1, marginBottom: 4 }}>THE STRUCTURAL DIFFERENCE</div>
+                              <div style={{ fontFamily: FONTS.serif, fontSize: 14, color: DIM, lineHeight: 1.7 }}>
                                 Theorems 1–15 all operate within the bilateral payoff space — constraints on preference aggregation, mechanism design, information structure. Theorem 16 proves the bilateral payoff space itself is structurally blind to a variable that matters. That is a categorically different result.
                               </div>
                             </div>
