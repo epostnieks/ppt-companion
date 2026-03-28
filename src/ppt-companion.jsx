@@ -171,7 +171,7 @@ const BORDER = "rgba(255,255,255,0.06)";
 const MUTED = "rgba(255,255,255,0.35)";
 const DIM = "rgba(255,255,255,0.5)";
 const ACCENT = "#F59E0B";
-const GOLD = "#c9a84c";
+const GOLD = "#F59E0B";
 const CRIMSON = "#DC2626";
 
 const Section = ({ number, title, subtitle }) => (
@@ -201,7 +201,7 @@ const betaColor = (b) => {
   if (b >= 10) return "#DC2626";
   if (b >= 6) return "#E85D3A";
   if (b >= 4) return "#F59E0B";
-  if (b >= 2) return "#3B82F6";
+  if (b >= 2) return "#D97706";
   return "#059669";
 };
 
@@ -474,7 +474,7 @@ export default function PPTCompanion() {
                 </div>
                 <div>
                   <div style={{ fontFamily: FONTS.mono, fontSize: 10, color: MUTED }}>MODERATE ({"<"}4)</div>
-                  <div style={{ fontFamily: FONTS.mono, fontSize: 20, color: "#3B82F6", marginTop: 4 }}>
+                  <div style={{ fontFamily: FONTS.mono, fontSize: 20, color: "#D97706", marginTop: 4 }}>
                     {ALL_BETAS.filter(d => d.beta < 4).length}
                   </div>
                 </div>
