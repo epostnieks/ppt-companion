@@ -643,7 +643,7 @@ const DW_CHART_DATA = [
   { domain: "#2  Coal",                                 dw: 6884, tip: "ΔW=$6,884B. Π=$990B. βW=6.95." },
   { domain: "#3  PFAS / Forever Chemicals",             dw: 6574, tip: "ΔW=$6,574B. Π=$186.7B (Persistence Premium). βW=35.20. Paper-verified." },
   { domain: "#4  Cybercrime & Ransomware",              dw: 6403, tip: "ΔW=$6,403B. Π=$200B criminal revenue. βW=31.10." },
-  { domain: "#5  Tobacco",                              dw: 6300, tip: "ΔW=$6,300B. Π=$965B. βW=6.50. Six channels: VSL mortality $4,500B, healthcare $422B, productivity $446B, secondhand smoke $315B, environment $40B, governance capture $150B." },
+  { domain: "#5  Tobacco",                              dw: 6300, tip: "ΔW=$6,300B. Π=$965B. βW=6.50. Six channels: Value of Statistical Life mortality $4,500B, healthcare $422B, productivity $446B, secondhand smoke $315B, environment $40B, governance capture $150B." },
   { domain: "#6  Oil & Gas",                            dw: 5695, tip: "ΔW=$5,695B. Π=$3,500B. βW=1.63." },
   { domain: "#7  Human Trafficking",                    dw: 5338, tip: "ΔW=$5,338B. Π=$236B. βW=22.62." },
   { domain: "#8  Plastics",                             dw: 3683, tip: "ΔW=$3,683B. Π=$650B. βW=6.67." },
@@ -1032,13 +1032,13 @@ const CSTEPS = [
     libor: "T* ≤ 0 by the time regulators acted — the system had already failed. The Hollow Win had run past its crossover point before detection." },
   { step: 6, title: "MAP THE RESPONSE LADDER", phase: "resolution",
     desc: "Four tiers. Each actor type has a tier. Each tier has a minimum sufficient intervention.",
-    libor: "Tier 1 = CFTC whistleblower (§748). Tier 3 = Regulatory restructuring and $9B+ in penalties. Tier 4 = FSB benchmark reform — the SOFR transition." },
+    libor: "Tier 1 = CFTC whistleblower (§748). Tier 3 = Regulatory restructuring and $9B+ in penalties. Tier 4 = FSB benchmark reform — the Secured Overnight Financing Rate (SOFR) transition." },
   { step: 7, title: "SELECT THE MINIMUM SUFFICIENT INTERVENTION", phase: "resolution",
     desc: "The lowest tier that breaks PST. Overkill wastes resources and creates resistance.",
-    libor: "Minimum sufficient = Tier 4 (sovereign coordination). The SOFR transition required international coordination across all major financial jurisdictions. No lower tier was sufficient." },
+    libor: "Minimum sufficient = Tier 4 (sovereign coordination). The Secured Overnight Financing Rate (SOFR) transition required international coordination across all major financial jurisdictions. No lower tier was sufficient." },
   { step: 8, title: "VERIFY ESCAPE", phase: "resolution",
     desc: "Confirm C flips from 0 to 1. Win-Win-Win is the target.",
-    libor: "LIBOR → SOFR: Benchmark integrity restored. Transaction-based rate replacing panel bank estimates. Classification: Win-Win-Win (1,1,1). Escape confirmed." },
+    libor: "LIBOR → Secured Overnight Financing Rate (SOFR): Benchmark integrity restored. Transaction-based rate replacing panel bank estimates. Classification: Win-Win-Win (1,1,1). Escape confirmed." },
 ];
 
 const WHISTLE = [
@@ -1398,11 +1398,11 @@ function Chapter8() {
 // scope: "Global" = ΔW allocated against global GDP; "US" = US-specific, deducted from US GDP only
 // Pi = annual industry revenue (Iron Law: never profit)
 // ΔW = βW × Pi (Monte Carlo verified or paper-derived)
-// Source: "Monte Carlo" = Monte Carlo simulation in paper; "Paper" = derived from paper text (DA7 extraction overridden); "DA7" = Document Analysis Field 7
+// Source: "Monte Carlo" = Monte Carlo simulation in paper; "Paper" = derived from paper text (Field 7 extraction overridden); "Field 7" = Document Analysis Field 7
 const NOTES_DOMAINS = [
   ["Alcohol",                       "Global", 85,    24.96,  2121.4, "Monte Carlo",    ""],
   ["Algorithmic Pricing",           "Global", 40,    5.38,   215.2,  "Monte Carlo",    ""],
-  ["AMR (Antimicrobial Resistance)","Global", 550,   1.60,   880,    "Paper", "⚠ DA7 extraction had βW=5.84. Paper (weighted avg) = 1.60, marginal = 2.10. Paper is authoritative."],
+  ["AMR (Antimicrobial Resistance)","Global", 550,   1.60,   880,    "Paper", "⚠ Field 7 extraction had βW=5.84. Paper (weighted avg) = 1.60, marginal = 2.10. Paper is authoritative."],
   ["Arms Exports",                  "Global", 29.6,  2.54,   75,     "Monte Carlo",    ""],
   ["Aviation Emissions",            "Global", 100,   4.97,   497.5,  "Monte Carlo",    ""],
   ["Bitcoin / Proof-of-Work",       "Global", 42,    5.00,   210,    "Monte Carlo",    ""],
@@ -1424,7 +1424,7 @@ const NOTES_DOMAINS = [
   ["Fisheries & Coral",             "Global", 38,    4.70,   178.6,  "Monte Carlo",    ""],
   ["Frontier AI",                   "Global", 30,    7.51,   225,    "Monte Carlo",    ""],
   ["Gambling & Casinos",            "Global", 45,    7.30,   328.5,  "Monte Carlo",    ""],
-  ["Gene Drives",                   "Global", 12.4,  5.77,   71.5,   "DA7",   "⚠ CLAUDE.md table showed ΔW=8.0 (error). Correct: 5.77×12.4=71.5"],
+  ["Gene Drives",                   "Global", 12.4,  5.77,   71.5,   "Field 7",   "⚠ CLAUDE.md table showed ΔW=8.0 (error). Correct: 5.77×12.4=71.5"],
   ["Gig Economy",                   "Global", 45,    0.76,   34.4,   "Monte Carlo",    "Troublesome (βW<1.0)"],
   ["Groundwater (Ogallala)",        "US",     null,  3.46,   32.9,   "Monte Carlo",    "US-specific aquifer. Π not extracted (ΔW from Monte Carlo direct)."],
   ["Human Trafficking",             "Global", 236,   22.62,  5338.1, "Monte Carlo",    ""],
@@ -1434,28 +1434,28 @@ const NOTES_DOMAINS = [
   ["LIBOR / FX Fixing",             "Global", 3.2,   5.13,   16.4,   "Cover", "Π = manipulator rents (current). See CLAUDE.md for banking-revenue alternative."],
   ["Mining & Rare Earth",           "Global", 150,   11.15,  322,    "Monte Carlo",    "⚠ Ratio inconsistency flagged in CLAUDE.md (βW×Π≠ΔW by factor 2.1). Unresolved."],
   ["Monoculture / Crop Diversity",  "Global", 340,   7.36,   2503,   "Monte Carlo ✓",   "ΔW derived: 7.36×340=2,503. Tobacco paper cross-cites βW=8.6 (minor discrepancy). Iron Law corrected."],
-  ["Nuclear Power",                 "Global", 150,   0.53,   80,     "Paper", "ΔW from ΠSA: $150B-$80B=+$70B → ΔW=$80B. DA7 had 2.94 (marginal beta, intentional per CLAUDE.md [^38]). βW=0.53 weighted, 0.70 marginal. Troublesome (βW<1.0)."],
+  ["Nuclear Power",                 "Global", 150,   0.53,   80,     "Paper", "ΔW from ΠSA: $150B-$80B=+$70B → ΔW=$80B. Field 7 had 2.94 (marginal beta, intentional per CLAUDE.md [^38]). βW=0.53 weighted, 0.70 marginal. Troublesome (βW<1.0)."],
   ["Oil & Gas",                     "Global", 3500,  1.63,   5694.6, "Monte Carlo",    ""],
   ["Opioid Ecosystem",              "Global", 75,    14.96,  1121.9, "Monte Carlo",    "Predominantly US crisis; classified Global given Canada/UK/Australia opioid epidemics."],
-  ["Orbital Debris",                "Global", 2.2,   4.82,   8,      "DA7",   ""],
+  ["Orbital Debris",                "Global", 2.2,   4.82,   8,      "Field 7",   ""],
   ["Palm Oil",                      "Global", 68,    6.30,   428.3,  "Monte Carlo",    ""],
   ["Payday Lending",                "US",     44,    7.08,   311.7,  "Monte Carlo",    "US-centric industry structure"],
   ["PE in Healthcare",              "US",     31,    5.24,   162.4,  "Monte Carlo",    "Predominantly US. UK/AUS have some PE in healthcare but ΔW calibrated to US."],
-  ["PFAS / Forever Chemicals",      "Global", 186.7, 35.2,   6574,   "Paper", "⚠ DA7 extraction had βW=5.31. Paper = 35.2. CLAUDE.md confirmed list = 35.9. Paper is authoritative. Π = Persistence Premium (revenue attributable to molecular non-degradability, not total chemical industry revenue)."],
+  ["PFAS / Forever Chemicals",      "Global", 186.7, 35.2,   6574,   "Paper", "⚠ Field 7 extraction had βW=5.31. Paper = 35.2. CLAUDE.md confirmed list = 35.9. Paper is authoritative. Π = Persistence Premium (revenue attributable to molecular non-degradability, not total chemical industry revenue)."],
   ["Pharmacy Benefit Management",   "US",     60,    6.35,   381,    "Monte Carlo",    "US health system architecture"],
   ["Platform Monopoly",             "Global", 158,   6.33,   999.4,  "Monte Carlo",    ""],
   ["Plastics",                      "Global", 650,   6.67,   3683,   "Monte Carlo",    ""],
   ["POPs Beyond PFAS",              "Global", 70,    6.23,   435.8,  "Monte Carlo",    ""],
   ["Private Military Contractors",  "Global", 260,   2.06,   536.3,  "Monte Carlo",    ""],
   ["Private Prisons",               "US",     8,     12.08,  96.7,   "Monte Carlo",    "US-centric industry"],
-  ["Proof-of-Stake / Altcoins",     "Global", 12,    3.14,   37.7,   "DA7",   "⚠ CLAUDE.md table showed ΔW=6.0 (error). Correct: 3.14×12=37.7. Used corrected value in totals."],
+  ["Proof-of-Stake / Altcoins",     "Global", 12,    3.14,   37.7,   "Field 7",   "⚠ CLAUDE.md table showed ΔW=6.0 (error). Correct: 3.14×12=37.7. Used corrected value in totals."],
   ["Shipping & Maritime",           "Global", 969,   1.34,   1296,   "Monte Carlo",    ""],
   ["Social Media / Youth MH",       "Global", 68,    5.79,   393.5,  "Monte Carlo",    ""],
   ["Sovereign Debt",                "Global", 35,    4.67,   163.5,  "Monte Carlo",    ""],
   ["Stablecoins / Shadow Banking",  "Global", 56,    2.53,   141.7,  "Monte Carlo",    ""],
   ["Student Loan Securitization",   "US",     46.8,  6.36,   297.6,  "Monte Carlo",    "US federal student loan architecture"],
   ["Tax Havens",                    "Global", 492,   6.27,   3084.7, "Monte Carlo",    ""],
-  ["Tobacco",                       "Global", 965,   6.50,   6300,   "Monte Carlo",    "Π=$965B global revenue. βW confirmed. ΔW=$6.3T (6 channels: VSL mortality $4,500B, healthcare $422B, productivity $446B, secondhand smoke $315B, environment $40B, governance capture $150B). CI [4.5, 9.6]."],
+  ["Tobacco",                       "Global", 965,   6.50,   6300,   "Monte Carlo",    "Π=$965B global revenue. βW confirmed. ΔW=$6.3T (6 channels: Value of Statistical Life mortality $4,500B, healthcare $422B, productivity $446B, secondhand smoke $315B, environment $40B, governance capture $150B). CI [4.5, 9.6]."],
   ["Topsoil Erosion",               "Global", 255,   4.41,   1123,   "Monte Carlo",    ""],
   ["Ultra-Processed Food",          "Global", 450,   4.06,   1829,   "Monte Carlo ✓",   "Iron Law corrected"],
   ["Water Privatization",           "Global", 246,   5.61,   1380.8, "Monte Carlo",    ""],
@@ -1542,7 +1542,7 @@ function Chapter9() {
         <div style={{ fontFamily: M, fontSize: 10, color: MUTED, letterSpacing: 2, marginBottom: 10 }}>ΔW CHANNEL DECOMPOSITION — $86.3T TOTAL</div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 10, marginBottom: 20 }}>
           {[
-            ["VSL", REFORMED_VSL_B, "30.5%", "Mortality & morbidity. Value of statistical life. Welfare improvement — not a GDP flow.", RED],
+            ["Value of Statistical Life", REFORMED_VSL_B, "30.5%", "Mortality & morbidity.  Welfare improvement — not a GDP flow.", RED],
             ["Cleanup GDP", REFORMED_CLEANUP_B, "16.9%", "Healthcare, remediation, enforcement, litigation. Currently counted in GDP. Reform removes them — GDP shrinks but welfare improves.", "#F97316"],
             ["Productivity", REFORMED_PROD_B, "20.7%", "Suppressed output, foregone innovation, market distortion. Currently excluded from GDP. Reform restores them — GDP expands.", GREEN],
             ["Future", REFORMED_FUTURE_B, "31.9%", "Climate, ecosystem, intergenerational, long-run damages. Not current-year GDP. Reform creates a long-run GDP dividend.", "#60A5FA"],
@@ -1607,7 +1607,7 @@ function Chapter9() {
           </div>
           <div style={{ fontFamily: M, fontSize: 10, color: MUTED, marginTop: 10 }}>
             Caveat: Channel proportions for 15 domains (top ΔW contributors) are estimated from partial paper data;
-            46 are paper-extracted. Proportions are conservative — e.g., tobacco VSL classified as welfare (not productivity),
+            46 are paper-extracted. Proportions are conservative — e.g., tobacco Value of Statistical Life classified as welfare (not productivity),
             which understates the productivity gain from reform.
           </div>
         </div>
@@ -1621,7 +1621,7 @@ function Chapter9() {
           ["No double-counting adjustment", "The 61 domains are treated as independent. Some overlap exists (e.g., coal damage and climate insurance claims; plastics and e-waste). No deduction applied. Full-scope figures are therefore an upper bound."],
           ["Flow vs. stock", "All ΔW figures are annual flow costs ($/yr). Cumulative stock damages (e.g., PFAS body burden, topsoil deficit) are not included in the annual figure."],
           ["GDP vintage", "Global GDP: $107T (IMF WEO April 2025). US GDP: $29.2T (BEA 2025 estimate)."],
-          ["βW sources", "Monte Carlo = Monte Carlo simulation in published paper (primary). Paper = derived from paper text where DA7 extraction was overridden. DA7 = Document Analysis Field 7 (fallback). See discrepancy flags below."],
+          ["βW sources", "Monte Carlo = Monte Carlo simulation in published paper (primary). Paper = derived from paper text where Field 7 extraction was overridden. Field 7 = Document Analysis Field 7 (fallback) (fallback). See discrepancy flags below."],
           ["US-specific classification", "6 domains classified US-only: Payday Lending, Private Prisons, Student Loans, Pharmacy Benefit Management, PE Healthcare, Ogallala Groundwater. Their ΔW deducts from US GDP only, not global."],
         ].map(([k,v]) => (
           <div key={k} style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 12, padding: "10px 14px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>
@@ -1635,8 +1635,8 @@ function Chapter9() {
       <div style={{ fontFamily: M, fontSize: 12, color: RED, letterSpacing: 1, margin: "24px 0 12px" }}>⚠ DATA DISCREPANCIES — RESOLVED</div>
       <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 32 }}>
         {[
-          ["PFAS βW", "DA7 extraction: 5.31", "Paper value: 35.2", "CLAUDE.md confirmed list: 35.9. Paper is authoritative. DA7 value was from earlier paper version. ΔW updated from ~$991B → $6,574B."],
-          ["AMR βW", "DA7 extraction: 5.84", "Paper value: 1.60 (weighted)", "Paper is authoritative. Marginal βW = 2.10. DA7 value was from earlier paper version. ΔW updated from ~$3,212B → $880B."],
+          ["PFAS βW", "Field 7 extraction: 5.31", "Paper value: 35.2", "CLAUDE.md confirmed list: 35.9. Paper is authoritative. Field 7 value was from earlier paper version. ΔW updated from ~$991B → $6,574B."],
+          ["AMR βW", "Field 7 extraction: 5.84", "Paper value: 1.60 (weighted)", "Paper is authoritative. Marginal βW = 2.10. Field 7 value was from earlier paper version. ΔW updated from ~$3,212B → $880B."],
           ["Proof-of-Stake ΔW", "Table value: $6B", "Correct: $37.7B (3.14×$12B)", "Arithmetic error in CLAUDE.md table. Corrected in totals here."],
           ["Gene Drives ΔW", "Table value: $8B", "Correct: $71.5B (5.77×$12.4B)", "Arithmetic error in CLAUDE.md table. Corrected in totals here."],
           ["Mining & Rare Earth", "Flagged ⚠ in CLAUDE.md", "βW×Π ratio inconsistency (factor 2.1)", "Unresolved. Using table ΔW=$322B as reported."],
