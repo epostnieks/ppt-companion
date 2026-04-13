@@ -1,0 +1,63 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+
+  "pst": {
+    "title": "PST BREAKER",
+    "headline": "How can you help?",
+    "subtitle": "The goal is to change the game from PST to non-PST. Pick your country. Pick your sector. Find out which axiom breaks — and what you do to break it.",
+    "globalLoss": "$20.9 trillion",
+    "globalLossLabel": "Annual system welfare loss from PST games across 190 countries",
+    "globalLossExplain": "The SAPM model measures welfare destruction across 27 channels and 190 economies. At \u03bc=1.0, the aggregate c-adjusted GDP gap is $20.9T — 19% of conventional world GDP. This is the recoverable welfare: the difference between what the global economy produces and what it delivers to the system. Every PST game converted to a non-PST game closes part of that gap. This tool maps the institutional pathway for each country and sector.",
+    "selectCountry": "SELECT YOUR COUNTRY",
+    "sectorsMapped": "SECTORS MAPPED",
+    "selectSector": "SELECT SECTOR",
+    "fastestPath": "FASTEST PATH TO NON-PST",
+    "fastestPathIn": "In {{country}}'s {{sector}} sector, the fastest path is breaking",
+    "vulnerabilityMap": "PST VULNERABILITY MAP — THREE AXIOMS",
+    "howToBreak": "HOW TO BREAK IT",
+    "whatYouCanDo": "WHAT YOU CAN DO — BY LEVEL",
+    "infrastructure": "INSTITUTIONAL INFRASTRUCTURE",
+    "mostBreakable": "MOST BREAKABLE",
+    "holds": "HOLDS",
+    "broken": "BROKEN",
+    "allCountries": "ALL COUNTRIES",
+    "expanding": "EXPANDING",
+    "expandingText": "190 countries mapped from the SAPM c-adjusted GDP database. Every country's fastest path from PST to non-PST. If you have expertise in a jurisdiction not listed — regulatory frameworks, whistleblower statutes, sector-specific agencies — contribute to make this tool better.",
+    "selfLaceration": "SELF-LACERATION",
+    "selfLacerationText": "This tool provides general guidance based on publicly available regulatory frameworks. It is not legal advice. Whistleblower statutes, enforcement mechanisms, and protection levels vary by jurisdiction and change over time. Before taking action — especially at Level 1 — consult a qualified attorney in your jurisdiction. The institutional infrastructure listed may be incomplete, out of date, or unenforced. Where data is missing, the tool says so. That honesty is itself a finding: the absence of a whistleblower statute IS the gap.",
+    "searchPlaceholder": "Search countries...",
+    "noResults": "No countries match your search.",
+    "break": "BREAK"
+  },
+
+  "nav": {
+    "curriculum": "CURRICULUM",
+    "deepdive": "DEEP DIVE",
+    "policy": "POLICY LAB",
+    "executive": "EXECUTIVE BRIEF",
+    "academic": "ACADEMIC",
+    "sovereign": "SOVEREIGN BRIEF",
+    "pstbreaker": "HOW CAN YOU HELP?"
+  },
+
+  "axioms": {
+    "1": { "name": "Overlapping Interests", "short": "Axiom 1", "desc": "Both parties benefit from cooperating. There is a deal to be made." },
+    "2": { "name": "System Independence", "short": "Axiom 2", "desc": "System welfare W cannot be computed from party payoffs." },
+    "3": { "name": "System Dependence", "short": "Axiom 3", "desc": "Agent activity affects the shared system." }
+  },
+
+  "actors": {
+    "insider":       { "label": "INSIDER / WHISTLEBLOWER",      "desc": "You are inside the system. You break Axiom 2 from within." },
+    "plaintiff":     { "label": "PLAINTIFF / LITIGANT",         "desc": "You break Axiom 2 via discovery. You weaken Axiom 1 via liability." },
+    "regulator":     { "label": "REGULATOR / AGENCY",           "desc": "You break Axiom 2 via disclosure mandates." },
+    "legislator":    { "label": "LEGISLATOR / POLICY MAKER",    "desc": "You break Axiom 1 (ban/cap) or Axiom 2 at statutory level." },
+    "investor":      { "label": "INVESTOR / CAPITAL ALLOCATOR", "desc": "You break Axiom 1 via βW stranded-asset repricing." },
+    "supranational": { "label": "SUPRANATIONAL BODY / TREATY",  "desc": "You enable cross-jurisdictional Coasian and Pigouvian correction." }
+  },
+
+  "language": {
+    "selector": "Language",
+    "current": "English"
+  }
+}
