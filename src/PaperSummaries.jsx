@@ -745,7 +745,7 @@ function FullContent({ paper }) {
       <CollapsibleSection title="LINKS">
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
           <LinkBadge label="SSRN" href="#" disabled note="Coming soon" />
-          <LinkBadge label="MC Repo" href={`https://github.com/epostnieks/sapm-mc-${paper.slug}`} />
+          <LinkBadge label="Simulation Repo" href={`https://github.com/epostnieks/sapm-mc-${paper.slug}`} />
           <LinkBadge label="Companion Site" href="#" disabled note="Coming soon" />
         </div>
       </CollapsibleSection>
@@ -789,7 +789,7 @@ function PlaceholderContent({ paper }) {
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 12 }}>
         <LinkBadge label="SSRN" href="#" disabled note="Coming soon" />
         {paper.type === "domain" && (
-          <LinkBadge label="MC Repo" href={`https://github.com/epostnieks/sapm-mc-${paper.slug}`} />
+          <LinkBadge label="Simulation Repo" href={`https://github.com/epostnieks/sapm-mc-${paper.slug}`} />
         )}
       </div>
     </div>

@@ -907,10 +907,10 @@ export default function ImpossibilityTheorems() {
             SAPM RESEARCH PROGRAM
           </div>
           <h1 style={{ fontFamily: S, fontSize: 34, fontWeight: 300, color: TEXT, margin: 0, lineHeight: 1.3 }}>
-            The 62 Postnieks Impossibility Theorems
+            The Postnieks Impossibility Theorems
           </h1>
           <div style={{ fontFamily: S, fontSize: 17, color: DIM, marginTop: 8, fontStyle: "italic" }}>
-            Proposed Extensions to the Canon &mdash; Grounded in the Natural Sciences
+            23 New Impossibility Results (1 Foundational + 22 Domain) &mdash; Plus 39 Intractability Theorems
           </div>
         </div>
 

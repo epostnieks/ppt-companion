@@ -22,7 +22,7 @@ const NAV_ITEMS = [
   { id: "divider-2", divider: true, section: "data" },
   { id: "tables", label: "Domain Tables", desc: "61 domains ranked", section: "data" },
   { id: "academic", label: "Academic Hub", desc: "Propositions & falsification", section: "data" },
-  { id: "impossibility", label: "Impossibility Canon", desc: "79 theorems (17 prior + 62 new)", section: "data" },
+  { id: "impossibility", label: "Impossibility Canon", desc: "17 prior + 23 new (PPT + 22 domains)", section: "data" },
   { id: "divider-3", divider: true, section: "policy" },
   { id: "policylab", label: "PolicyLab", desc: "190 countries, 61 domains", section: "policy" },
   { id: "pstbreaker", label: "Country Reform Paths", desc: "190 countries, proven models", section: "policy" },

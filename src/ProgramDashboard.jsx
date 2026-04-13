@@ -81,15 +81,15 @@ const CONTRIBUTIONS = [
   },
   {
     title: "System Welfare Beta (βW)",
-    desc: "A new measurement framework — the CAPM of welfare economics. βW quantifies the marginal rate of system destruction per dollar of private gain. Calibrated across 61 domains via Monte Carlo simulation.",
+    desc: "A new measurement framework — the CAPM of welfare economics. The welfare beta (βW) quantifies the marginal rate of system destruction per dollar of private gain. Calibrated across 61 domains via Monte Carlo simulation.",
   },
   {
     title: "61 Domain Theorems",
-    desc: "22 Impossibility Theorems (physical/chemical/biological constraints no policy can override) and 39 Intractability Theorems (institutional constraints with proven policy solutions). Every theorem has domain-specific axioms, a formal proof, and MC-calibrated βW.",
+    desc: "22 Impossibility Theorems (physical/chemical/biological constraints no policy can override) and 39 Intractability Theorems (institutional constraints with proven policy solutions). Every theorem has domain-specific axioms, a formal proof, and Monte Carlo-calibrated welfare beta.",
   },
   {
     title: "Six-Agent Conflictoring Protocol",
-    desc: "A multi-audience architecture that replaces bilateral negotiation. Six agents — Whistleblower, Plaintiff, Regulator, Legislator, Investor, Supranational — impose costs that make PST conformism strictly dominated when k* agents activate simultaneously.",
+    desc: "A multi-audience architecture that replaces bilateral negotiation. Six agents — Whistleblower, Plaintiff, Regulator, Legislator, Investor, Supranational — impose costs that make the Private Surplus Trap strictly dominated when enough agents activate simultaneously.",
   },
   {
     title: "C-Adjusted GDP",
@@ -454,7 +454,7 @@ export default function ProgramDashboard({ onNavigate }) {
               { label: "Deep Dive", desc: "Interactive βW dashboard", view: "deepdive" },
               { label: "Domain Tables", desc: "All 61 domains ranked", view: "tables" },
               { label: "Academic Hub", desc: "Formal propositions & falsification", view: "academic" },
-              { label: "Impossibility Canon", desc: "17 prior + 62 new theorems", view: "impossibility" },
+              { label: "Impossibility Canon", desc: "17 prior + 23 new impossibility theorems", view: "impossibility" },
               { label: "PolicyLab", desc: "190 countries × 61 domains", view: "policylab" },
               { label: "Country Reform Paths", desc: "190 countries, proven models", view: "pstbreaker" },
               { label: "Executive Brief", desc: "Corporate exposure analysis", view: "executive" },

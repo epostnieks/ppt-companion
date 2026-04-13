@@ -81,7 +81,7 @@ const RESEARCH_AGENDA = [
     ]},
   { area: "Empirical Calibration",
     questions: [
-      "61 domains calibrated and published. All 22 Impossibility and 39 Intractability theorems have formal proofs, MC simulations, and falsification bounties. The pipeline of additional domains satisfying PST remains open — suggest new ones.",
+      "61 domains calibrated and published. All 22 Impossibility and 39 Intractability theorems have formal proofs, Monte Carlo simulations, and falsification bounties. The pipeline of additional domains remains open — suggest new ones.",
       "Can βW be estimated from market data alone — event studies around regulatory announcements, litigation outcomes, enforcement actions — rather than from channel decomposition? A revealed-preference βW would be powerful.",
       "Cross-domain coupling: coal combustion (β = 6.95) acidifies oceans, which destroys fisheries (β = 4.70). PFAS (β = 5.31) contaminates water (β = 5.61). Do coupled domains have additive or multiplicative βW?",
       "Temporal dynamics: how does βW change as regulation tightens, technology shifts, or system damage accumulates? Is Bitcoin's β = 5.00 stable, or is it trending as the halving cycle reduces mining rewards?",
