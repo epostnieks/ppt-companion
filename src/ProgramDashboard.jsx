@@ -42,9 +42,9 @@ const STATS = {
   estimatedTables: 200,
 
   // MC simulations
-  mcRepos: 61,
-  mcDrawsPerDomain: 10000,
-  totalMcDraws: 610000,
+  monteCarloRepos: 61,
+  drawsPerDomain: 10000,
+  totalDraws: 610000,
   distributionTypes: 3, // triangular, lognormal, uniform
 
   // Coverage
@@ -107,7 +107,7 @@ const LEARNING_PATHS = [
     icon: "📄",
     title: "Working Papers",
     audience: "Academics & Researchers",
-    desc: "73 full working papers with formal proofs, Monte Carlo simulations, bibliographies, and falsification bounties. 3M+ words. The complete record.",
+    desc: "73 full working papers with formal proofs, Monte Carlo simulations, bibliographies, and falsification bounties. 3 million+ words. The complete record.",
     time: "200+ hours",
     status: "Available",
     color: RED,
@@ -116,7 +116,7 @@ const LEARNING_PATHS = [
     icon: "📊",
     title: "Interactive Dashboards",
     audience: "Visual Learners & Analysts",
-    desc: "35 companion sites with interactive βW charts, domain decomposition, MC histograms, and policy tools. Drill into any domain.",
+    desc: "Interactive companion sites with welfare beta charts, domain decomposition, simulation histograms, and policy tools. Drill into any domain.",
     time: "Self-paced",
     status: "Available",
     color: GOLD,
@@ -127,7 +127,7 @@ const LEARNING_PATHS = [
     audience: "College-Level Readers",
     desc: "Collapsible section-by-section summaries of every paper. Key findings, figures, tables, and FAQs including six-agent advice.",
     time: "15-30 min each",
-    status: "Coming Soon",
+    status: "Available",
     color: PURPLE,
   },
   {
@@ -136,7 +136,7 @@ const LEARNING_PATHS = [
     audience: "Audio & Casual Learners",
     desc: "AI-generated podcast discussions of each paper. Listen on your commute. Covers the core argument, key data, and implications.",
     time: "20-40 min each",
-    status: "Coming Soon",
+    status: "In Development",
     color: CYAN,
   },
   {
@@ -145,7 +145,7 @@ const LEARNING_PATHS = [
     audience: "Visual Learners",
     desc: "45-60 minute narrated walkthroughs with every figure from the papers. Text-to-speech synthesis over the actual working paper figures.",
     time: "45-60 min each",
-    status: "Coming Soon",
+    status: "In Development",
     color: GREEN,
   },
   {
@@ -261,10 +261,10 @@ export default function ProgramDashboard({ onNavigate }) {
           }}>
             <StatCard value={61} label="DOMAIN PAPERS" color={GOLD} />
             <StatCard value={6} label="FRAMEWORK PAPERS" color={PURPLE} />
-            <StatCard value={61} label="MC SIMULATIONS" sublabel="10K draws each" color={CYAN} />
-            <StatCard value="610K" label="MC DRAWS" sublabel="seed=42, reproducible" color={CYAN} />
+            <StatCard value={61} label="MONTE CARLO SIMULATIONS" sublabel="10,000 draws each" color={CYAN} />
+            <StatCard value="610K" label="SIMULATION DRAWS" sublabel="seed=42, reproducible" color={CYAN} />
             <StatCard value={3} label="DISTRIBUTION TYPES" sublabel="triangular, lognormal, uniform" color={DIM} />
-            <StatCard value={61} label="PUBLIC MC REPOS" sublabel="github.com/epostnieks" color={GREEN} />
+            <StatCard value={61} label="PUBLIC REPLICATION REPOS" sublabel="github.com/epostnieks" color={GREEN} />
             <StatCard value={11} label="SECTORS" color={DIM} />
             <StatCard value={6} label="AGENT TYPES" sublabel="Conflictoring Protocol" color={PURPLE} />
             <StatCard value={35} label="COMPANION SITES" sublabel="interactive dashboards" color={GOLD} />
@@ -283,11 +283,11 @@ export default function ProgramDashboard({ onNavigate }) {
             {/* Bar chart */}
             <div style={{ padding: 20, background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>
               <div style={{ fontFamily: M, fontSize: 11, color: MUTED, letterSpacing: 1, marginBottom: 12 }}>62 THEOREMS BY TYPE</div>
-              <ResponsiveContainer width="100%" height={160}>
-                <BarChart data={theoremBarData} layout="vertical" margin={{ left: 90, right: 20 }}>
-                  <XAxis type="number" hide />
-                  <YAxis type="category" dataKey="name" tick={{ fontFamily: M, fontSize: 12, fill: DIM }} width={80} />
-                  <Bar dataKey="count" radius={[0, 4, 4, 0]}>
+              <ResponsiveContainer width="100%" height={180}>
+                <BarChart data={theoremBarData} layout="vertical" margin={{ left: 90, right: 30 }}>
+                  <XAxis type="number" tick={{ fontFamily: M, fontSize: 11, fill: DIM }} label={{ value: "Number of Theorems", position: "insideBottom", offset: -2, style: { fontFamily: M, fontSize: 10, fill: MUTED } }} />
+                  <YAxis type="category" dataKey="name" tick={{ fontFamily: M, fontSize: 12, fill: DIM }} width={80} label={{ value: "Theorem Type", angle: -90, position: "insideLeft", offset: -75, style: { fontFamily: M, fontSize: 10, fill: MUTED } }} />
+                  <Bar dataKey="count" radius={[0, 4, 4, 0]} label={{ position: "right", fontFamily: M, fontSize: 13, fill: TEXT }}>
                     {theoremBarData.map((d, i) => <Cell key={i} fill={d.color} />)}
                   </Bar>
                   <Tooltip
@@ -308,19 +308,22 @@ export default function ProgramDashboard({ onNavigate }) {
               <ResponsiveContainer width="100%" height={160}>
                 <PieChart>
                   <Pie data={theoremPieData} dataKey="value" cx="50%" cy="50%" outerRadius={65} innerRadius={30}
-                    label={({ name, value }) => `${value}`}
+                    label={({ value }) => value}
                     labelLine={false}
                   >
                     {theoremPieData.map((d, i) => <Cell key={i} fill={d.fill} />)}
                   </Pie>
                   <Tooltip
                     contentStyle={{ background: SURFACE, border: `1px solid ${BORDER}`, fontFamily: M, fontSize: 12, color: TEXT }}
+                    formatter={(value, name) => [`${value} theorems`, name]}
                   />
                 </PieChart>
               </ResponsiveContainer>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 8 }}>
+              <div style={{ fontFamily: M, fontSize: 9, color: MUTED, letterSpacing: 1, marginTop: 8, marginBottom: 4 }}>LEGEND</div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "6px 12px" }}>
                 {theoremPieData.map(d => (
-                  <span key={d.name} style={{ fontFamily: M, fontSize: 10, color: d.fill }}>
+                  <span key={d.name} style={{ fontFamily: M, fontSize: 10, color: d.fill, display: "flex", alignItems: "center", gap: 4 }}>
+                    <span style={{ width: 8, height: 8, borderRadius: 2, background: d.fill, display: "inline-block" }} />
                     {d.name} ({d.value})
                   </span>
                 ))}
@@ -360,7 +363,7 @@ export default function ProgramDashboard({ onNavigate }) {
             LEARNING PATHS
           </div>
           <div style={{ fontFamily: S, fontSize: 17, color: DIM, lineHeight: 1.7, marginBottom: 16 }}>
-            3 million words of content, made accessible to every learning style and time budget.
+            Three million words of content, made accessible to every learning style and time budget.
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 12 }}>
             {LEARNING_PATHS.map((p, i) => (
@@ -453,9 +456,10 @@ export default function ProgramDashboard({ onNavigate }) {
               { label: "Academic Hub", desc: "Formal propositions & falsification", view: "academic" },
               { label: "Impossibility Canon", desc: "17 prior + 62 new theorems", view: "impossibility" },
               { label: "PolicyLab", desc: "190 countries × 61 domains", view: "policylab" },
-              { label: "PST Breaker", desc: "Country-specific reform paths", view: "pstbreaker" },
+              { label: "Country Reform Paths", desc: "190 countries, proven models", view: "pstbreaker" },
               { label: "Executive Brief", desc: "Corporate exposure analysis", view: "executive" },
               { label: "Sovereign Brief", desc: "National policy analysis", view: "sovereign" },
+              { label: "Paper Summaries", desc: "73 papers in 15 min each", view: "summaries" },
             ].map(nav => (
               <button
                 key={nav.view}

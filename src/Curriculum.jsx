@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip as RTooltip, ResponsiveContainer, Cell, CartesianGrid, LabelList } from "recharts";
 
 // ══════════════════════════════════════════════════════════════
-// SAPM Curriculum — 8 Chapters
+// SAPM Curriculum — 15 Chapters + Data Notes
 // Erik Postnieks © 2026
 // Palette matched to c-adjusted-gdp.vercel.app
 // ══════════════════════════════════════════════════════════════
@@ -36,6 +36,11 @@ const GLOSSARY = {
   "δ": "Private surplus — the total private gain accumulated during a Hollow Win period.",
   "η": "Feedback coupling — the fraction of system damage that feeds back to the agent through regulatory, legal, or reputational channels.",
   "λ": "Annual system welfare loss rate — the annual dollar cost of system degradation across all channels.",
+  "DA": "Decision Accounting — a 15-field audit trail applied to every SAPM domain. Each field records a specific structural fact about the game: parties, system, axiom status, βW, theorem type, reform pathway.",
+  "k*": "The k-star threshold — the minimum number of conflictoring agents (≤ 6) required to make PPT conformism strictly dominated in a given domain. Postnieks's Law proves k* exists for every PST domain.",
+  "φ": "Fiscal Dependency Index — the ratio of government revenue from an industry to the political cost of reforming it. When φ > 1, government is structurally captured as Party B.",
+  "GPFG": "Government Pension Fund Global — Norway's $1.7T sovereign wealth fund. The existence proof that fiscal decoupling from extractive industries is possible. φ = 0.22.",
+  "Conflictoring": "The six-agent protocol that breaks PPT conformism: Whistleblower, Plaintiff, Regulator, Legislator, Investor, Supranational. Named by analogy to 'monitoring' — the agents who conflict with the game.",
 };
 
 function Tip({ term, children }) {
@@ -75,7 +80,14 @@ const CHAPTERS = [
   { id: 6, title: "The GDSS Problem", time: "3 min" },
   { id: 7, title: "The Conflictoring Protocol", time: "4 min" },
   { id: 8, title: "The Domain Theorems", time: "4 min" },
-  { id: 9, title: "Data & Methodology Notes", time: "reference" },
+  { id: 9, title: "Decision Accounting", time: "4 min" },
+  { id: 10, title: "The Six-Agent Protocol", time: "5 min" },
+  { id: 11, title: "The Reform Dividend", time: "4 min" },
+  { id: 12, title: "Fiscal Capture", time: "4 min" },
+  { id: 13, title: "The Substitution Trap", time: "5 min" },
+  { id: 14, title: "Disclosure Futility", time: "4 min" },
+  { id: 15, title: "Postnieks's Law", time: "5 min" },
+  { id: 16, title: "Data & Methodology Notes", time: "reference" },
 ];
 
 // ─── SHARED COMPONENTS ───────────────────────────────────────
@@ -140,7 +152,7 @@ function Chapter1() {
       {/* GDP LEDGER VISUAL */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, margin: "32px 0" }}>
         <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4, padding: "16px 20px" }}>
-          <div style={{ fontFamily: M, fontSize: 12, color: MUTED, letterSpacing: 1, marginBottom: 12 }}>WHAT GDP RECORDS — LIBOR MANIPULATION</div>
+          <div style={{ fontFamily: M, fontSize: 12, color: MUTED, letterSpacing: 1, marginBottom: 12 }}>WHAT GDP RECORDS — FX FIXING MANIPULATION</div>
           {[
             ["Trading desk revenues", "+$2.3B"],
             ["Legal fees (both sides)", "+$480M"],
@@ -163,7 +175,7 @@ function Chapter1() {
           <div style={{ fontFamily: M, fontSize: 12, color: MUTED, letterSpacing: 1, marginBottom: 12 }}>WHAT GDP CANNOT RECORD</div>
           {[
             ["Benchmark integrity", "DESTROYED"],
-            ["$350 trillion in contracts mispriced", "UNDETECTABLE"],
+            ["$400T+ in notional contracts mispriced", "UNDETECTABLE"],
             ["Trust in financial infrastructure", "UNDETECTABLE"],
             ["Future cost of system collapse", "UNDETECTABLE"],
           ].map(([label, val]) => (
@@ -208,7 +220,7 @@ function Chapter2() {
 
       <P>When C = 1, the system survives. When C = 0, the system is degraded. And here is the impossibility: C cannot be computed from A's payoff and B's payoff. Not approximately. Not with better data. Not with a smarter algorithm. Structurally, constitutively, permanently — C is outside the space that A and B's payoffs define.</P>
 
-      <P>The LIBOR traders were making money. The benchmark they depended on for their entire business model was being destroyed. No analysis of what they received that day told them anything about what was happening to the system they depended on. Standard analysis said: win-win. The correct analysis: they were burning down the building while counting the furniture.</P>
+      <P>The FX benchmark traders were making money. The benchmark they depended on for their entire business model was being destroyed. No analysis of what they received that day told them anything about what was happening to the system they depended on. Standard analysis said: win-win. The correct analysis: they were burning down the building while counting the furniture.</P>
 
       {/* THE DIMENSION REVEAL */}
       <div style={{ margin: "32px 0" }}>
@@ -311,10 +323,10 @@ function Chapter2() {
 // ═══════════════════════════════════════════════════════════════
 const OUTCOMES = [
   { name: "WIN, WIN, WIN", c:1, a:1, b:1, inside: "None. All three dimensions positive. The only outcome with no structural tension.", standard: "Cooperation. Mutual gain. Pareto optimal.", realCase: "Montreal Protocol (1987): nations phased out CFCs through a cooperative agreement. The ozone layer recovered. All parties and the system gained.", color: GREEN, bg: "rgba(34,197,94,0.06)" },
-  { name: "HOLLOW WIN", c:0, a:1, b:1, inside: "Parties gain while the system they depend on degrades. Private optimum and systemic preservation are incompatible.", standard: "Mutual gain. Win-win. Pareto efficient. Recommend acceptance.", realCase: "LIBOR (2005–2012). Wells Fargo cross-selling (2002–2016). Boeing 737 MAX. Lysine cartel (1992–1995). Algorithmic collusion (happening now).", color: RED, bg: "rgba(239,68,68,0.08)", highlight: true },
+  { name: "HOLLOW WIN", c:0, a:1, b:1, inside: "Parties gain while the system they depend on degrades. Private optimum and systemic preservation are incompatible.", standard: "Mutual gain. Win-win. Pareto efficient. Recommend acceptance.", realCase: "FX Fixing (2005–2012). Wells Fargo cross-selling (2002–2016). Boeing 737 MAX. Lysine cartel (1992–1995). Algorithmic collusion (happening now).", color: RED, bg: "rgba(239,68,68,0.08)", highlight: true },
   { name: "CORROSIVE WIN-LOSE", c:0, a:1, b:0, inside: "A gains at the expense of both B and the system. Extractive and system-degrading.", standard: "Competitive advantage. Market power. Dominance.", realCase: "Predatory pricing that destroys the supplier ecosystem the dominant firm depends on.", color: RED, bg: "rgba(239,68,68,0.04)" },
   { name: "CORROSIVE LOSE-WIN", c:0, a:0, b:1, inside: "B gains at the expense of both A and the system. Mirror of Corrosive Win-Lose.", standard: "Favorable terms. Negotiating leverage.", realCase: "A downstream buyer extracting from an upstream supplier while degrading the supply chain both depend on.", color: RED, bg: "rgba(239,68,68,0.04)" },
-  { name: "MISERY", c:0, a:0, b:0, inside: "Universal loss across all dimensions. System, A, and B all degraded.", standard: "Market failure. Lose-lose. Impasse.", realCase: "Post-collapse LIBOR (2012–2014): banks faced massive penalties, reputations destroyed, benchmark remained corrupted. Everyone lost.", color: RED, bg: "rgba(239,68,68,0.04)" },
+  { name: "MISERY", c:0, a:0, b:0, inside: "Universal loss across all dimensions. System, A, and B all degraded.", standard: "Market failure. Lose-lose. Impasse.", realCase: "Post-collapse FX Fixing (2012–2014): banks faced massive penalties, reputations destroyed, benchmark remained corrupted. Everyone lost.", color: RED, bg: "rgba(239,68,68,0.04)" },
   { name: "STABLE MISERY", c:1, a:0, b:0, inside: "System persists but both parties lose within it. Stability prevents resolution.", standard: "Stalemate. Deadlock. Structural impasse.", realCase: "The industry locked in a race to the bottom that no individual firm can exit unilaterally. The institution that cannot reform because reform requires the very cooperation it has destroyed.", color: MUTED, bg: SURFACE },
   { name: "SUSTAINABLE WIN-LOSE", c:1, a:1, b:0, inside: "B loses for the benefit of the system and A. Asymmetric sacrifice.", standard: "Enforcement. Restitution.", realCase: "Antitrust remedy: the dominant firm is required to divest assets and compensate harmed parties. B loses, the market and A are restored.", color: DIM, bg: SURFACE },
   { name: "SUSTAINABLE LOSE-WIN", c:1, a:0, b:1, inside: "A loses for the benefit of the system and B. Asymmetric sacrifice.", standard: "Unilateral restraint. Concession.", realCase: "Whistleblower: A bears personal cost — job, reputation, legal exposure — to expose system-degrading conduct. The system and B are preserved.", color: DIM, bg: SURFACE },
@@ -429,7 +441,7 @@ const CAPM_SAPM = [
   ["Used for", "Portfolio construction, cost of capital", "Policy design, regulatory intervention, negotiation diagnosis"],
   ["Key output", "Risk-adjusted expected return", "Welfare-adjusted output (c-adjusted GDP)"],
   ["Calibration", "Historical price data", "Monte Carlo analysis of empirical externality literature"],
-  ["Validated by", "Decades of asset pricing research", <><div>1. Theorem proven from axioms — not an empirical claim requiring historical price series</div><div style={{marginTop:4}}>2. 61-domain calibration validated against independent externality literature; Monte Carlo robustness confirmed across 3+ distribution types per domain</div><div style={{marginTop:4}}>3. Every documented HOLLOW WIN — LIBOR (2012), VW Dieselgate (2015), opioid crisis, PFAS litigation — exceeds the welfare sustainability threshold. Zero false negatives on record.</div></>],
+  ["Validated by", "Decades of asset pricing research", <><div>1. Theorem proven from axioms — not an empirical claim requiring historical price series</div><div style={{marginTop:4}}>2. 61-domain calibration validated against independent externality literature; Monte Carlo robustness confirmed across 3+ distribution types per domain</div><div style={{marginTop:4}}>3. Every documented HOLLOW WIN — FX Fixing (2012), VW Dieselgate (2015), opioid crisis, PFAS litigation — exceeds the welfare sustainability threshold. Zero false negatives on record.</div></>],
 ];
 
 function Chapter4() {
@@ -481,8 +493,8 @@ function Chapter4() {
         <div style={{ fontFamily: M, fontSize: 13, fontWeight: 600, color: GOLD, marginBottom: 8 }}>AXIOM 1 — OVERLAPPING INTERESTS</div>
         <P>Both sides want to make a deal. There is something to be gained by cooperating. Without this, there is no negotiation and no <Tip term="Hollow Win">Hollow Win</Tip>.</P>
         <div style={{ padding: "12px 16px", background: "rgba(245,158,11,0.04)", borderRadius: 4, marginTop: 8 }}>
-          <Label>LIBOR EXAMPLE</Label>
-          <div style={{ fontFamily: S, fontSize: 15, color: DIM, lineHeight: 1.7 }}>Two LIBOR panel banks both benefit from submitting manipulated rates. The deal exists. The cooperation is real.</div>
+          <Label>FX FIXING EXAMPLE</Label>
+          <div style={{ fontFamily: S, fontSize: 15, color: DIM, lineHeight: 1.7 }}>Two FX benchmark panel banks both benefit from submitting manipulated rates. The deal exists. The cooperation is real.</div>
         </div>
       </div>
 
@@ -490,8 +502,8 @@ function Chapter4() {
         <div style={{ fontFamily: M, fontSize: 13, fontWeight: 600, color: GOLD, marginBottom: 8 }}>AXIOM 2 — SYSTEM INDEPENDENCE <span style={{ color: RED, fontSize: 12, fontWeight: 400 }}>(THE KEY ONE)</span></div>
         <P>The health of the shared system is a separate fact — it cannot be calculated from what A got or what B got. You could know everything about both payoffs and still have no idea whether the system survived.</P>
         <div style={{ padding: "12px 16px", background: "rgba(245,158,11,0.04)", borderRadius: 4, marginTop: 8, marginBottom: 8 }}>
-          <Label>LIBOR EXAMPLE</Label>
-          <div style={{ fontFamily: S, fontSize: 15, color: DIM, lineHeight: 1.7 }}>Knowing exactly what each LIBOR trader earned tells you nothing about whether the global benchmark is intact. The benchmark's health is a different variable. It lives outside the payoff space.</div>
+          <Label>FX FIXING EXAMPLE</Label>
+          <div style={{ fontFamily: S, fontSize: 15, color: DIM, lineHeight: 1.7 }}>Knowing exactly what each FX benchmark trader earned tells you nothing about whether the global benchmark is intact. The benchmark's health is a different variable. It lives outside the payoff space.</div>
         </div>
         <div style={{ fontFamily: S, fontSize: 15, color: GOLD, fontStyle: "italic", lineHeight: 1.7 }}>
           This is the key axiom because without it, standard analysis would suffice. The theorem stands or falls on this one.
@@ -502,8 +514,8 @@ function Chapter4() {
         <div style={{ fontFamily: M, fontSize: 13, fontWeight: 600, color: GOLD, marginBottom: 8 }}>AXIOM 3 — SYSTEM DEPENDENCE</div>
         <P>What A and B do together has real consequences for the system around them. Their deal is not isolated.</P>
         <div style={{ padding: "12px 16px", background: "rgba(245,158,11,0.04)", borderRadius: 4, marginTop: 8 }}>
-          <Label>LIBOR EXAMPLE</Label>
-          <div style={{ fontFamily: S, fontSize: 15, color: DIM, lineHeight: 1.7 }}>LIBOR rate submissions directly set the benchmark. If the deal had no effect on anything outside itself, there would be nothing to detect.</div>
+          <Label>FX FIXING EXAMPLE</Label>
+          <div style={{ fontFamily: S, fontSize: 15, color: DIM, lineHeight: 1.7 }}>FX benchmark rate submissions directly set the rate. If the deal had no effect on anything outside itself, there would be nothing to detect.</div>
         </div>
       </div>
 
@@ -579,63 +591,6 @@ const BETA_CHART_DATA = [
   { domain: "#2  Cybercrime & Ransomware",   beta: 31.10, tip: "βW 31.10. Π=$200B criminal revenue. Attribution Impossibility — cross-jurisdictional enforcement gap is structural." },
   { domain: "#3  Human Trafficking",         beta: 22.62, tip: "βW 22.62. Π=$236B. Demand Indestructibility — demand persists regardless of supply-side interdiction." },
   { domain: "#4  Weapons of Mass Destruction", beta: 21.92, tip: "βW 21.92. Π=$86B. Capability Diffusion Ceiling — transferred knowledge is permanently enabling." },
-  { domain: "#5  Child Labor",               beta: 21.83, tip: "βW 21.83. Π=$39B. Cost Arbitrage Floor — jurisdictional wage arbitrage is structurally self-reinforcing." },
-  { domain: "#6  Opioid Ecosystem",          beta: 14.96, tip: "βW 14.96. Π=$75B. Prescription Ratchet — neurochemical dependency locks in demand regardless of legal supply." },
-  { domain: "#7  Conflict Minerals",         beta: 12.60, tip: "βW 12.60. Π=$20B. Fungibility Floor — mineral fungibility defeats traceability at the smelter." },
-  { domain: "#8  Private Prisons",           beta: 12.08, tip: "βW 12.08. Π=$8B. Occupancy Guarantee Trap — contractual occupancy floors invert the incentive to reduce incarceration." },
-  { domain: "#9  Credit Rating Agencies",    beta: 11.21, tip: "βW 11.21. Π=$11B. Issuer-Pays Corruption Floor — the party being rated pays the rater." },
-  { domain: "#10 Mining & Rare Earth",       beta: 11.15, tip: "βW 11.15. Π=$150B. Ore Grade Depletion Floor — extraction necessarily degrades the ore base." },
-  { domain: "#11 Big Tech Acquisitions",     beta: 7.81,  tip: "βW 7.81. Π=$128B. Kill Zone Ratchet — acquisition-based suppression of competitive entry is self-reinforcing." },
-  { domain: "#12 Commercial Real Estate",    beta: 7.78,  tip: "βW 7.78. Π=$13B. Vacancy Doom Loop — vacancy cascades into municipal fiscal contraction." },
-  { domain: "#13 Frontier AI",               beta: 7.51,  tip: "βW 7.51. Π=$30B. Alignment Ceiling — capability can be demonstrated; alignment cannot be verified." },
-  { domain: "#14 Industrial Agriculture",    beta: 7.36,  tip: "βW 7.36. Π=$205B. Caloric Emissions Floor — enteric fermentation and N₂O release are thermodynamically unavoidable." },
-  { domain: "#15 Monoculture Agriculture",   beta: 7.36,  tip: "βW 7.36. Π=$340B. Genetic Uniformity Floor — pathogen reproduction rate exceeds crop cycle 730:1." },
-  { domain: "#16 Gambling & Casinos",        beta: 7.30,  tip: "βW 7.30. Π=$45B. Sovereign Operator Paradox — the state both regulates and profits from addiction." },
-  { domain: "#17 Deforestation & Logging",   beta: 7.21,  tip: "βW 7.21. Π=$120B. Canopy Regeneration Floor — old-growth canopy requires centuries to reconstitute." },
-  { domain: "#18 Illicit Drug Trade",        beta: 7.16,  tip: "βW 7.16. Π=$500B criminal revenue. Prohibition Profit Floor — criminalization raises price and margin simultaneously." },
-  { domain: "#19 Payday Lending",            beta: 7.08,  tip: "βW 7.08. Π=$44B. Poverty Ratchet — debt trap mechanics are self-reinforcing at the margin." },
-  { domain: "#20 Fast Fashion",              beta: 7.01,  tip: "βW 7.01. Π=$55B. Throughput Floor — thermodynamic degradation is irreversible." },
-  { domain: "#21 Coal",                      beta: 6.95,  tip: "βW 6.95. Π=$990B. Carbon Intensity Floor — coal's carbon-to-energy ratio is a fixed property of the fuel." },
-  { domain: "#22 Deep-Sea Mining",           beta: 6.90,  tip: "βW 6.90. Π=$5B. Abyssal Recovery Floor — polymetallic nodules form at 10–20mm/million years." },
-  { domain: "#23 Cement & Concrete",         beta: 6.74,  tip: "βW 6.74. Π=$3B. Calcination Floor — CaCO₃ → CaO + CO₂ is conservation of mass, not a design choice." },
-  { domain: "#24 Plastics",                  beta: 6.67,  tip: "βW 6.67. Π=$650B. Thermodynamic Degradation Floor — polymer fragmentation is irreversible." },
-  { domain: "#25 Electronic Waste Export",    beta: 6.59,  tip: "βW 6.59. Π=$1,050B. Basel Convention Evasion — classification arbitrage defeats treaty enforcement." },
-  { domain: "#26 Tobacco",                   beta: 6.50,  tip: "βW 6.50. Π=$965B. Addiction Ratchet — neurochemical dependency is self-reinforcing by mechanism." },
-  { domain: "#27 Student Loans",             beta: 6.36,  tip: "βW 6.36. Π=$47B. Guaranteed Demand Trap — non-dischargeability in bankruptcy removes market discipline." },
-  { domain: "#28 Pharmacy Benefit Management",beta: 6.35,  tip: "βW 6.35. Π=$60B. Spread Extraction Trap — opaque rebate infrastructure concentrates pricing power." },
-  { domain: "#29 Platform Monopoly",         beta: 6.33,  tip: "βW 6.33. Π=$158B. Gatekeeper Ratchet — network effects make displacement exponentially costly." },
-  { domain: "#30 Palm Oil",                  beta: 6.30,  tip: "βW 6.30. Π=$68B. Substitution Impossibility — yield differential forecloses economically viable substitutes." },
-  { domain: "#31 Tax Havens",                beta: 6.27,  tip: "βW 6.27. Π=$492B. Sovereignty Arbitrage — regulatory competition is self-reinforcing at the jurisdictional level." },
-  { domain: "#32 Persistent Organic Pollutants",beta: 6.23,  tip: "βW 6.23. Π=$70B. Bioaccumulation Ratchet — lipid solubility and persistence guarantee trophic amplification." },
-  { domain: "#33 Data Brokerage",            beta: 6.13,  tip: "βW 6.13. Π=$323B. Consent Fabrication Trap — notice-and-choice is structurally uninformed." },
-  { domain: "#34 Antimicrobial Resistance",  beta: 1.60,  tip: "βW 1.60 (weighted avg; marginal 2.10). Π=$550B. Efficacy Ceiling — therapeutic lethality constitutively selects for resistance." },
-  { domain: "#35 Social Media / Youth Mental Health",beta: 5.79,  tip: "βW 5.79. Π=$68B. Engagement Trap — attention maximization is not welfare maximization by design." },
-  { domain: "#36 Gene Drives",               beta: 5.77,  tip: "βW 5.77. Π=$12B. Ecological Ratchet Floor — self-propagating constructs cannot be recalled post-release." },
-  { domain: "#37 Water Privatization",       beta: 5.61,  tip: "βW 5.61. Π=$246B. Necessity Monopoly Floor — inelastic demand eliminates market discipline." },
-  { domain: "#38 Algorithmic Pricing",       beta: 5.38,  tip: "βW 5.38. Π=$40B. Tacit Coordination Ceiling — independent optimization converges to supracompetitive pricing without intent." },
-  { domain: "#39 PFAS / Forever Chemicals",  beta: 35.20, tip: "βW 35.20. Π=$186.7B (Persistence Premium). Molecular Persistence Floor — the C-F bond (485 kJ/mol) exceeds any biological degradation mechanism." },
-  { domain: "#40 Private Equity in Healthcare",beta: 5.24,  tip: "βW 5.24. Π=$31B. Fiduciary Contradiction — private equity return horizon is structurally misaligned with patient outcomes." },
-  { domain: "#41 Interest Rate Benchmark Manipulation",beta: 5.13,  tip: "βW 5.13. Π=$3B. Self-Referential Pricing Trap — benchmark submitters price the instrument they are submitting." },
-  { domain: "#42 Bitcoin / Proof-of-Work",   beta: 5.00,  tip: "βW 5.00. Π=$42B. Protocol Welfare Floor — permissionless architecture structurally prevents welfare internalization." },
-  { domain: "#43 Aviation Emissions",        beta: 4.97,  tip: "βW 4.97. Π=$100B. Altitude Forcing Floor — high-altitude non-CO₂ effects exceed ground-level equivalents." },
-  { domain: "#44 Defense Procurement",       beta: 4.88,  tip: "βW 4.88. Π=$34B. Monopsony Lock-In — single-buyer markets eliminate competitive pricing discipline." },
-  { domain: "#45 Orbital Debris",            beta: 4.82,  tip: "βW 4.82. Π=$2B. Orbital Congestion Ceiling — Kessler cascade is a physical threshold with no policy override." },
-  { domain: "#46 Fisheries & Coral Reefs",    beta: 4.70,  tip: "βW 4.70. Π=$38B. External Forcing Impossibility — ocean warming operates outside fisheries management reach." },
-  { domain: "#47 Sovereign Debt",            beta: 4.67,  tip: "βW 4.67. Π=$35B. Intergenerational Extraction Floor — creditors in future periods bear costs they did not incur." },
-  { domain: "#48 Insurance & Climate Risk",  beta: 4.57,  tip: "βW 4.57. Π=$90B. Tail Risk Exclusion Ratchet — catastrophic risks exit coverage precisely when needed." },
-  { domain: "#49 Topsoil Erosion",           beta: 4.41,  tip: "βW 4.41. Π=$255B. Pedogenesis Floor — topsoil forms at 1cm/100–1,000 years; erodes 10–100× faster." },
-  { domain: "#50 Ultra-Processed Food",      beta: 4.06,  tip: "βW 4.06. Π=$450B. Palatability Ratchet — hyperpalatability engineering creates self-reinforcing demand." },
-  { domain: "#51 Groundwater (Ogallala)",    beta: 3.46,  tip: "βW 3.46. Recharge Floor — Ogallala recharge rate is geologically negligible against extraction." },
-  { domain: "#52 Altcoins / Proof-of-Stake", beta: 3.14,  tip: "βW 3.14. Π=$12B. Cross-Chain Welfare Floor — permissionless architecture persists across consensus mechanisms." },
-  { domain: "#53 Nuclear Power",             beta: 2.94,  tip: "βW 2.94 (marginal beta). Persistence Floor — radioactive decay timescales are physical, not regulatory." },
-  { domain: "#54 Arms Exports",              beta: 2.54,  tip: "βW 2.54. Π=$30B. End-Use Enforcement Impossibility — post-transfer custody cannot be verified." },
-  { domain: "#55 Stablecoins & Shadow Banking",beta: 2.53,  tip: "βW 2.53. Π=$56B. Reserve Opacity Trap — reserve composition is unverifiable without regulatory access." },
-  { domain: "#56 Private Military Contractors",beta: 2.06,  tip: "βW 2.06. Π=$260B. Accountability Void — flag-state and jurisdictional gaps create structural impunity." },
-  { domain: "#57 Oil & Gas",                 beta: 1.63,  tip: "βW 1.63. Π=$3,500B. Combustion Floor — CO₂ release is stoichiometrically fixed to hydrocarbon combustion." },
-  { domain: "#58 Shipping & Maritime",       beta: 1.34,  tip: "βW 1.34. Π=$969B. Flag State Evasion Floor — open-registry jurisdiction shopping is structurally available." },
-  { domain: "#59 Alcohol",                   beta: 1.33,  tip: "βW 1.33. Π=$1,600B global revenue. Prohibition Paradox — prohibition raises black-market margin and violence simultaneously." },
-  { domain: "#60 Factory Farming",           beta: 1.02,  tip: "βW 1.02. Π=$2,700B. Protein Demand Floor — thermodynamic conversion inefficiency is fixed by biology." },
-  { domain: "#61 Gig Economy",               beta: 0.76,  tip: "βW 0.76. Π=$45B. Classification Arbitrage Floor — contractor misclassification is institutionally self-reinforcing." },
 ];
 
 const DW_CHART_DATA = [
@@ -643,7 +598,7 @@ const DW_CHART_DATA = [
   { domain: "#2  Coal",                                 dw: 6884, tip: "ΔW=$6,884B. Π=$990B. βW=6.95." },
   { domain: "#3  PFAS / Forever Chemicals",             dw: 6574, tip: "ΔW=$6,574B. Π=$186.7B (Persistence Premium). βW=35.20. Paper-verified." },
   { domain: "#4  Cybercrime & Ransomware",              dw: 6403, tip: "ΔW=$6,403B. Π=$200B criminal revenue. βW=31.10." },
-  { domain: "#5  Tobacco",                              dw: 6300, tip: "ΔW=$6,300B. Π=$965B. βW=6.50. Six channels: Value of Statistical Life mortality $4,500B, healthcare $422B, productivity $446B, secondhand smoke $315B, environment $40B, governance capture $150B." },
+  { domain: "#5  Tobacco",                              dw: 6276, tip: "ΔW=$6,276B. Π=$965B. βW=6.50. Six channels: Value of Statistical Life mortality $4,500B, healthcare $422B, productivity $446B, secondhand smoke $315B, environment $40B, governance capture $150B." },
   { domain: "#6  Oil & Gas",                            dw: 5695, tip: "ΔW=$5,695B. Π=$3,500B. βW=1.63." },
   { domain: "#7  Human Trafficking",                    dw: 5338, tip: "ΔW=$5,338B. Π=$236B. βW=22.62." },
   { domain: "#8  Plastics",                             dw: 3683, tip: "ΔW=$3,683B. Π=$650B. βW=6.67." },
@@ -662,7 +617,7 @@ const DW_CHART_DATA = [
   { domain: "#21 Opioid Ecosystem",                     dw: 1122, tip: "ΔW=$1,122B. Π=$75B. βW=14.96." },
   { domain: "#22 Big Tech Acquisitions",                dw: 1000, tip: "ΔW=$1,000B. Π=$128B. βW=7.81." },
   { domain: "#23 Platform Monopoly",                    dw: 999,  tip: "ΔW=$999B. Π=$158B. βW=6.33." },
-  { domain: "#24 Antimicrobial Resistance",             dw: 880,  tip: "ΔW=$880B. Π=$550B (broad ledger). βW=1.60 (weighted avg). Paper-verified." },
+  { domain: "#24 Antimicrobial Resistance",             dw: 89,   tip: "ΔW=$89B. Π=$42B. βW=2.12. Monte Carlo verified." },
   { domain: "#25 Deforestation & Logging",              dw: 866,  tip: "ΔW=$866B. Π=$120B. βW=7.21." },
   { domain: "#26 Child Labor",                          dw: 862,  tip: "ΔW=$862B. Π=$39B. βW=21.83." },
   { domain: "#27 Private Military Contractors",         dw: 536,  tip: "ΔW=$536B. Π=$260B. βW=2.06." },
@@ -690,16 +645,16 @@ const DW_CHART_DATA = [
   { domain: "#49 Credit Rating Agencies",               dw: 123,  tip: "ΔW=$123B. Π=$11B. βW=11.21." },
   { domain: "#50 Commercial Real Estate",               dw: 101,  tip: "ΔW=$101B. Π=$13B. βW=7.78." },
   { domain: "#51 Private Prisons",                      dw: 97,   tip: "ΔW=$97B. Π=$8B. βW=12.08." },
-  { domain: "#52 Nuclear Power",                        dw: 80,   tip: "ΔW=$80B. Π=$150B. βW=0.53 (weighted). ΠSA=+$70B. Paper-verified." },
+  { domain: "#52 Nuclear Power",                        dw: 80,   tip: "ΔW=$80B. Π=$150B. βW=0.53. ΠSA=+$70B. Monte Carlo verified." },
   { domain: "#53 Arms Exports",                         dw: 75,   tip: "ΔW=$75B. Π=$30B. βW=2.54." },
-  { domain: "#54 Gene Drives",                          dw: 71.5, tip: "ΔW=$71.5B (5.77×$12.4B). Π=$12.4B. βW=5.77. Corrected from table error ($8B)." },
+  { domain: "#54 Gene Drives",                          dw: 37.9, tip: "ΔW=$37.9B. Π=$3.0B. βW=12.65. Monte Carlo verified." },
   { domain: "#55 Altcoins / Proof-of-Stake",            dw: 37.7, tip: "ΔW=$37.7B (3.14×$12B). Π=$12B. βW=3.14. Corrected from table error ($6B)." },
   { domain: "#56 Gig Economy",                          dw: 34,   tip: "ΔW=$34B. Π=$45B. βW=0.76." },
   { domain: "#57 Deep-Sea Mining",                      dw: 34,   tip: "ΔW=$34B. Π=$5B. βW=6.90." },
   { domain: "#58 Groundwater (Ogallala Aquifer)",       dw: 33,   tip: "ΔW=$33B. βW=3.46. US-specific." },
   { domain: "#59 Cement & Concrete",                    dw: 22,   tip: "ΔW=$22B. Π=$3B. βW=6.74." },
-  { domain: "#60 Interest Rate Benchmark Manipulation", dw: 16,   tip: "ΔW=$16B. Π=$3B. βW=5.13." },
-  { domain: "#61 Orbital Debris",                       dw: 8,    tip: "ΔW=$8B. Π=$2B. βW=4.82." },
+  { domain: "#60 FX Fixing / Benchmark Manipulation", dw: 204,  tip: "ΔW=$204B. Π=$28.4B. βW=7.18. Paper §4 calibration (range $22–35B)." },
+  { domain: "#61 Orbital Debris",                       dw: 4.8,  tip: "ΔW=$4.8B. Π=$2.2B. βW=2.18. MC plausibility-corrected (IL#28): annual expected value." },
 ];
 
 function Chapter5() {
@@ -725,7 +680,7 @@ function Chapter5() {
       </div>
       <div style={{ height: 1400 }}>
         <ResponsiveContainer>
-          <BarChart data={BETA_CHART_DATA} layout="vertical" margin={{ left: 200, right: 30, top: 5, bottom: 5 }}>
+          <BarChart data={[...BETA_CHART_DATA].sort((a,b) => b.beta - a.beta)} layout="vertical" margin={{ left: 200, right: 30, top: 5, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
             <XAxis type="number" tick={{ fill: MUTED, fontFamily: M, fontSize: 12 }} />
             <YAxis type="category" dataKey="domain" tick={{ fill: DIM, fontFamily: M, fontSize: 11 }} width={195} interval={0} />
@@ -734,7 +689,7 @@ function Chapter5() {
               formatter={(val, name, props) => [props.payload.tip, `βW = ${val}`]}
             />
             <Bar dataKey="beta" radius={[0, 3, 3, 0]}>
-              {BETA_CHART_DATA.map((d, i) => (
+              {[...BETA_CHART_DATA].sort((a,b) => b.beta - a.beta).map((d, i) => (
                 <Cell key={i} fill={d.beta >= 10 ? RED : d.beta >= 6 ? GOLD : d.beta >= 2 ? GOLD : GREEN} fillOpacity={d.beta >= 6 ? 0.7 : 0.5} />
               ))}
               <LabelList dataKey="beta" position="right" formatter={v => v.toFixed(2)} style={{ fill: DIM, fontFamily: M, fontSize: 10 }} />
@@ -1016,7 +971,7 @@ function Chapter6() {
 const CSTEPS = [
   { step: 1, title: "NAME THE PARTIES AND THE SYSTEM", phase: "diagnostic",
     desc: "Identify A, B, and the system C they are embedded in. State the system boundary explicitly. Classification depends on it.",
-    libor: "A = Panel banks. B = Counterparty institutions. System = Global financial benchmark ($350 trillion in contracts referencing LIBOR).",
+    libor: "A = Dealer banks. B = Corporate/pension fund counterparties. System = Global benchmark infrastructure ($400T+ notional across LIBOR-referenced derivatives, FX, gold, and commodity fixings). Private revenue (Π): $28.4B/yr in manipulator rents (paper §4 calibration, range $22–35B).",
     why: "Under a narrow boundary (individual trading desks), the outcome looks like bilateral profit. Under the correct boundary (global benchmark integrity), it is Hollow Win." },
   { step: 2, title: "CLASSIFY THE CURRENT OUTCOME", phase: "diagnostic",
     desc: "Apply the taxonomy. Assign (c, a, b). Is this Hollow Win (0,1,1) or Win-Win-Win (1,1,1)?",
@@ -1042,7 +997,7 @@ const CSTEPS = [
 ];
 
 const WHISTLE = [
-  { prog: "SEC WHISTLEBLOWER", statute: "Dodd-Frank §21F", covers: "Securities fraud, benchmark manipulation, accounting fraud", reward: "10–30% of sanctions exceeding $1 million", anon: "Available through attorney", protection: "Federal law", cumulative: "$6B+ awarded to whistleblowers to date", best: "Financial sector Hollow Wins (LIBOR-type cases)" },
+  { prog: "SEC WHISTLEBLOWER", statute: "Dodd-Frank §21F", covers: "Securities fraud, benchmark manipulation, accounting fraud", reward: "10–30% of sanctions exceeding $1 million", anon: "Available through attorney", protection: "Federal law", cumulative: "$6B+ awarded to whistleblowers to date", best: "Financial sector Hollow Wins (FX Fixing / benchmark manipulation cases)" },
   { prog: "CFTC WHISTLEBLOWER", statute: "§748", covers: "Commodities, derivatives, futures fraud", reward: "10–30% of sanctions exceeding $1 million", anon: "Same structure as SEC", protection: "Federal law", cumulative: "$380M+ awarded", best: "Derivatives manipulation, algorithmic collusion in commodity markets" },
   { prog: "DOJ FALSE CLAIMS ACT", statute: "Qui Tam", covers: "Fraud against the federal government", reward: "15–30% of recovered funds", anon: "Filed under seal", protection: "Federal law", cumulative: "$75B+ recovered (total FCA)", best: "Defense contractor fraud, healthcare billing fraud, government procurement" },
   { prog: "IRS WHISTLEBLOWER", statute: "§7623", covers: "Tax fraud exceeding $2M", reward: "15–30% of collected proceeds", anon: "Confidential", protection: "Federal law", cumulative: "$6.5B+ collected", best: "Corporate tax evasion as part of a Hollow Win structure" },
@@ -1079,7 +1034,7 @@ function Chapter7() {
               <div style={{ fontFamily: S, fontSize: 16, color: DIM, lineHeight: 1.7 }}>{s.desc}</div>
             </Card>
             <Card border="rgba(245,158,11,0.15)" bg="rgba(245,158,11,0.04)">
-              <Label>LIBOR — WORKED EXAMPLE</Label>
+              <Label>FX FIXING — WORKED EXAMPLE</Label>
               <div style={{ fontFamily: S, fontSize: 15, color: DIM, lineHeight: 1.7, marginBottom: s.why ? 8 : 0 }}>{s.libor}</div>
               {s.why && <div style={{ fontFamily: S, fontSize: 14, color: GOLD, fontStyle: "italic", lineHeight: 1.6 }}>{s.why}</div>}
             </Card>
@@ -1111,10 +1066,10 @@ function Chapter7() {
       {/* THE WHISTLEBLOWER MATH */}
       <div style={{ padding: "24px", background: "rgba(239,68,68,0.06)", border: `2px solid rgba(239,68,68,0.2)`, borderRadius: 4, margin: "24px 0", textAlign: "center" }}>
         <div style={{ fontFamily: S, fontSize: 20, color: RED, lineHeight: 1.5, fontWeight: 600, marginBottom: 16 }}>
-          THE LIBOR TRADERS LEFT BETWEEN $900 MILLION AND $2.7 BILLION ON THE TABLE.
+          THE FX FIXING TRADERS LEFT BETWEEN $900 MILLION AND $2.7 BILLION ON THE TABLE.
         </div>
         <div style={{ fontFamily: S, fontSize: 16, color: DIM, lineHeight: 1.7, marginBottom: 16 }}>
-          The LIBOR manipulation generated approximately $9 billion in regulatory sanctions. Under the Dodd-Frank whistleblower program (SEC §21F), a qualifying whistleblower receives 10–30% of sanctions over $1 million.
+          The FX Fixing manipulation generated approximately $9 billion in regulatory sanctions. Under the Dodd-Frank whistleblower program (SEC §21F), a qualifying whistleblower receives 10–30% of sanctions over $1 million.
         </div>
         <div style={{ display: "flex", justifyContent: "center", gap: 32 }}>
           <div>
@@ -1131,7 +1086,7 @@ function Chapter7() {
           One person. One claim. Filed before the investigation concluded.
         </div>
         <div style={{ fontFamily: S, fontSize: 15, color: RED, lineHeight: 1.7, marginTop: 8 }}>
-          The traders who manipulated LIBOR went to prison. The traders who reported it — had any of them chosen to — would have received between nine hundred million and two point seven billion dollars from the United States government, legal immunity, and protected employment status. They did not know this option existed.
+          The traders who manipulated FX benchmarks went to prison. The traders who reported it — had any of them chosen to — would have received between nine hundred million and two point seven billion dollars from the United States government, legal immunity, and protected employment status. They did not know this option existed.
         </div>
       </div>
 
@@ -1216,7 +1171,7 @@ function Chapter7() {
       <div style={{ padding: "16px 20px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4, margin: "0 0 24px" }}>
         <div style={{ fontFamily: M, fontSize: 12, color: MUTED, letterSpacing: 1, marginBottom: 8 }}>IMPORTANT DISTINCTION</div>
         <div style={{ fontFamily: S, fontSize: 15, color: DIM, lineHeight: 1.8 }}>
-          Birkenfeld used the IRS §7623 program (tax fraud). LIBOR traders would use SEC §21F or CFTC §748 (financial benchmark manipulation). Different programs. Same architecture: 10–30% of sanctions, participants eligible, no maximum award. The Birkenfeld case is the proof of concept.
+          Birkenfeld used the IRS §7623 program (tax fraud). FX benchmark traders would use SEC §21F or CFTC §748 (financial benchmark manipulation). Different programs. Same architecture: 10–30% of sanctions, participants eligible, no maximum award. The Birkenfeld case is the proof of concept.
         </div>
       </div>
 
@@ -1260,7 +1215,7 @@ function Chapter7() {
       <Card>
         <div style={{ fontFamily: M, fontSize: 14, color: GOLD, fontWeight: 600, marginBottom: 8 }}>LEVEL 4 — THE SOVEREIGN OR INTERNATIONAL BODY</div>
         <div style={{ fontFamily: S, fontSize: 15, color: DIM, lineHeight: 1.7 }}>
-          Treaty-based commons governance (the Montreal Protocol model). International benchmark reform (FSB post-LIBOR). Mandate <Tip term="c-adjusted GDP">c-adjusted GDP</Tip> as a supplementary national account. The question: "Which of our PST domains have T* under 10 years?"
+          Treaty-based commons governance (the Montreal Protocol model). International benchmark reform (FSB post-LIBOR / FX Fixing). Mandate <Tip term="c-adjusted GDP">c-adjusted GDP</Tip> as a supplementary national account. The question: "Which of our PST domains have T* under 10 years?"
         </div>
       </Card>
 
@@ -1320,7 +1275,7 @@ const DOMAINS = [
   ]},
   // ── GROUP 7 ─────────────────────────────────────────────────
   { group: "BIOLOGICAL RATCHETS", type: "impossibility", domains: [
-    { name: "Gene Drives / Ecological Ratchet Floor", plain: "A gene drive is a genetic technology that spreads a chosen trait through an entire wild population — potentially the entire species — within a few generations. They are being developed to eliminate malaria-transmitting mosquitoes, control invasive species, and eradicate agricultural pests. Once a gene drive is released into a wild population, it cannot be recalled. The construct propagates itself. There is no off switch.", theorem: "Gene drives exploit the inheritance bias of CRISPR-based homing endonucleases to propagate a chosen allele at super-Mendelian rates (>50% transmission). Once established in a wild population above the invasion threshold, suppression is mathematically guaranteed to persist. Ecological consequences are irreversible because species population dynamics and food web interactions operate at timescales too slow for course correction once the drive has spread.", beta: "5.77", expiry: "Contained drives only — daisy-chain or threshold architectures that limit geographic spread. Not currently dominant in development pipelines." },
+    { name: "Gene Drives / Ecological Ratchet Floor", plain: "A gene drive is a genetic technology that spreads a chosen trait through an entire wild population — potentially the entire species — within a few generations. They are being developed to eliminate malaria-transmitting mosquitoes, control invasive species, and eradicate agricultural pests. Once a gene drive is released into a wild population, it cannot be recalled. The construct propagates itself. There is no off switch.", theorem: "Gene drives exploit the inheritance bias of CRISPR-based homing endonucleases to propagate a chosen allele at super-Mendelian rates (>50% transmission). Once established in a wild population above the invasion threshold, suppression is mathematically guaranteed to persist. Ecological consequences are irreversible because species population dynamics and food web interactions operate at timescales too slow for course correction once the drive has spread.", beta: "12.65", expiry: "Contained drives only — daisy-chain or threshold architectures that limit geographic spread. Not currently dominant in development pipelines." },
     { name: "Fisheries / External Forcing Impossibility", plain: "Fish populations can be managed. Ocean temperatures cannot — not by fisheries management. As ocean warming accelerates, fish populations are shifting poleward, coral reefs are bleaching, and the ecosystems that fisheries depend on are restructuring in ways that fisheries management has no authority to address. The thing destroying the fishery operates entirely outside the institutional reach of the agency responsible for managing it.", theorem: "The welfare destruction in the fisheries domain is driven by a cause — atmospheric CO₂ concentration and ocean warming — that is structurally external to any fisheries management institution. No quota system, no marine protected area, no catch limit can address the proximate cause of coral bleaching and fish stock redistribution. The impossibility is not biological; it is jurisdictional. The solution space for fisheries management does not overlap with the problem space.", beta: "4.70", expiry: "Atmospheric CO₂ at or below 300 parts per million (ppm). Not achievable under any current trajectory." },
   ]},
   // ── GROUP 8 ─────────────────────────────────────────────────
@@ -1328,7 +1283,7 @@ const DOMAINS = [
     { name: "Bitcoin / Proof-of-Work Protocol Floor", plain: "Bitcoin's security is guaranteed by energy expenditure. Miners compete to solve computationally expensive puzzles, and the winner creates the next block. The energy cost is not a bug. It is the security mechanism. Removing the energy cost removes the security guarantee. The welfare destruction is thermodynamically guaranteed by the protocol design.", theorem: "Proof-of-work consensus requires that the energy cost of attacking the network exceed the economic benefit of a successful attack. Bitcoin's security budget — the block reward plus transaction fees — sets the equilibrium energy expenditure. No protocol modification can reduce energy consumption without proportionally reducing security, because the energy cost IS the Sybil-resistance mechanism.", beta: "5.00", expiry: "Replacement by proof-of-stake at network scale, or sovereign legal tender transition. Not met for Bitcoin specifically." },
     { name: "Proof-of-Stake / Validator Concentration Architecture", plain: "Proof-of-stake blockchains — Ethereum, Solana, Cardano — replace energy expenditure with capital deposits. This eliminates the energy floor. But it creates a concentration floor: validators must post large capital stakes, which means validation rights accrue to the largest capital holders. Lido, a staking pool, controls approximately 28% of all Ethereum staking. The architecture converts energy centralization into capital centralization.", theorem: "Proof-of-stake validator selection is proportional to staked capital. Large staking pools aggregate retail capital into institutionally-controlled validator sets, recreating the concentration dynamics of proof-of-work mining pools without the energy cost. The welfare cost is governance: when 28% of stake is controlled by a single entity, the decentralization premise of the protocol is structurally undermined.", beta: "3.14", expiry: "Mandatory validator set diversification via protocol rules. Not implemented at major network scale." },
     { name: "Cybercrime & Ransomware / Attribution Impossibility", plain: "Criminal actors operating online can route their activities through multiple jurisdictions, use pseudonymous cryptocurrency for payments, and conduct operations from countries that will not extradite them. Attribution — identifying who committed a specific attack — is technically difficult. Extradition — getting them into a jurisdiction that will prosecute — is diplomatically difficult. The combination produces a structural enforcement gap that no individual country can close.", theorem: "Attribution of cybercrime requires technical forensics (linking attack infrastructure to identifiable actors) AND legal jurisdiction over those actors. The intersection of technical attribution confidence and legal jurisdiction is small: sophisticated attackers operate from jurisdictions with no extradition treaties with victim countries. No bilateral law enforcement mechanism can bridge this gap. The impossibility is jurisdictional, not technical.", beta: "6.22", expiry: "Budapest Convention on Cybercrime universal ratification with enforcement mechanisms. Not met — Russia, China not signatories." },
-    { name: "Orbital Debris / Kessler Syndrome", plain: "Low Earth orbit — the band of space 200 to 2,000 kilometers above Earth where GPS, weather, and communications satellites operate — is filling with debris from satellite collisions and launches. Each collision generates more debris. At some debris density, a chain reaction begins — called Kessler Syndrome — where collision-generated fragments trigger more collisions, making the orbital band permanently unusable. No single sovereign controls this space. No treaty has enforcement mechanisms.", theorem: "Kessler Syndrome is a threshold phenomenon in orbital debris dynamics: below a critical debris density, the collision rate is manageable; above it, collisions cascade. Current debris population growth rates are approaching this threshold in several orbital shells. No market mechanism can solve this because: (1) no actor owns the orbital commons, (2) collision avoidance benefits all actors but costs only the actor maneuvering, (3) debris removal benefits all actors but only one bears the cost.", beta: "4.82", expiry: "Orbital-use fee regime plus mandatory active debris removal. Not at scale." },
+    { name: "Orbital Debris / Kessler Syndrome", plain: "Low Earth orbit — the band of space 200 to 2,000 kilometers above Earth where GPS, weather, and communications satellites operate — is filling with debris from satellite collisions and launches. Each collision generates more debris. At some debris density, a chain reaction begins — called Kessler Syndrome — where collision-generated fragments trigger more collisions, making the orbital band permanently unusable. No single sovereign controls this space. No treaty has enforcement mechanisms.", theorem: "Kessler Syndrome is a threshold phenomenon in orbital debris dynamics: below a critical debris density, the collision rate is manageable; above it, collisions cascade. Current debris population growth rates are approaching this threshold in several orbital shells. No market mechanism can solve this because: (1) no actor owns the orbital commons, (2) collision avoidance benefits all actors but costs only the actor maneuvering, (3) debris removal benefits all actors but only one bears the cost.", beta: "2.18", expiry: "Orbital-use fee regime plus mandatory active debris removal. Not at scale." },
     { name: "Stablecoins & Shadow Banking / Regulatory Arbitrage Architecture", plain: "Stablecoins are cryptocurrencies pegged to a fiat currency. Their reserves — the assets backing the peg — are largely unregulated, unaudited, and located across jurisdictions chosen specifically to minimize regulatory oversight. The architecture replicates the structural vulnerabilities of money market funds (which triggered a run in 2008) without the regulatory protections that money market funds acquired after 2008.", theorem: "Stablecoin reserve opacity, jurisdictional arbitrage, and run-susceptible peg mechanics reproduce the conditions for bank runs without deposit insurance or central bank backstop. No single sovereign can regulate a stablecoin issuer that has incorporated in a permissive jurisdiction, holds reserves in a third jurisdiction, and serves users in a fourth. The architectural impossibility is the same as tax havens: the product is designed to be outside any single regulator's reach.", beta: "2.53", expiry: "International reserve transparency standards with enforcement. GENIUS Act (proposed) is US-only; not at scale." },
   ]},
 
@@ -1357,7 +1312,7 @@ const DOMAINS = [
     { name: "Defense Procurement / Cost-Plus Ratchet and Revolving Door", plain: "Defense procurement contracts are often structured as cost-plus: the contractor is reimbursed for all costs plus a guaranteed profit margin. This structure eliminates the incentive to control costs. A contractor that reduces costs reduces its own revenue. The F-35 fighter program has cost $1.7 trillion over its life — $428 billion in recurring costs per plane — and is still in development. The revolving door between the Pentagon and defense contractors ensures that the people writing the contracts worked for the companies bidding on them.", theorem: "Cost-plus contracting eliminates the cost-minimization incentive that competitive markets are supposed to provide. The contractor's profit function is increasing in cost. No bilateral renegotiation can fix this because the information asymmetry is structural: the contractor knows the true cost; the Pentagon does not. The revolving door ensures that the regulatory body charged with oversight has been staffed by the industry it oversees.", beta: "4.88", expiry: "Fixed-price competitive contracting with independent audit. Demonstrated: commercial satellite launch contracts. Not generalized to major weapons systems." },
     { name: "Private Equity (PE) in Healthcare / EBITDA Medicine", plain: "Private equity acquires hospitals, physician practices, nursing homes, and emergency medical services with the objective of improving earnings before interest, taxes, depreciation, and amortization (EBITDA) for a sale or public offering within three to seven years. This time horizon is not compatible with long-term patient outcomes. Staffing is cut. Upcoding — billing for more expensive procedures — increases. Surprise billing is deployed as a revenue stream. The patient is the product.", theorem: "Private equity value creation in healthcare requires extracting value from the existing system rather than creating new value, because healthcare demand is inelastic and price-insensitive for emergency services. The optimal private equity healthcare strategy is: (1) reduce staff per patient, (2) increase billing per encounter, (3) eliminate unprofitable services. Each of these actions reduces welfare. No bilateral contract between a private equity owner and a hospital operator can internalize the welfare cost imposed on patients who have no alternative provider.", beta: "5.24", expiry: "Certificate of public advantage requirements for healthcare acquisitions, with community benefit standards. Not federally mandated in US." },
     { name: "Insurance & Climate Risk Mispricing / Actuarial Stationarity Failure", plain: "Insurance pricing is based on historical loss distributions. The statistical models assume that the past is a reliable guide to the future — an assumption called stationarity. Climate change violates stationarity: the future will be more extreme than the past, in ways that historical data cannot capture. Actuarially sound premiums for climate-exposed properties would be unaffordable. So insurers are withdrawing from California, Florida, and Louisiana, or pricing at rates that are politically unsustainable.", theorem: "Non-stationary climate risk — where the loss distribution is shifting over time in response to greenhouse gas concentrations — cannot be priced by an actuarial model calibrated on historical data. Any premium that accurately prices the future risk will be politically contested as unaffordable. Any premium calibrated on historical data will be actuarially inaccurate, producing insurer insolvency or withdrawal. The welfare cost — uninsured losses, fiscal exposure of government backstops — is structural to the non-stationarity of the climate.", beta: "4.57", expiry: "Actuarially accurate, climate-forward pricing with managed retreat subsidies for socially necessary but economically uninsurable properties. Not at scale." },
-    { name: "LIBOR / Foreign Exchange (FX) Fixing / Self-Referential Benchmark", plain: "The London Interbank Offered Rate (LIBOR) was the reference rate for approximately $350 trillion in financial contracts — mortgages, student loans, derivatives. It was set by a panel of banks that submitted their estimate of the rate at which they could borrow. Those same banks held massive positions whose value depended on where LIBOR was set. The banks were setting the rate that determined their own profits. Systematic manipulation ran from at least 2003 to 2012.", theorem: "Self-referential benchmarks — where the entity submitting the rate also holds positions that benefit from the rate's level — violate the independence condition required for an honest price signal. No contractual arrangement between the rate-setting panel and the benchmark administrator can solve this if panel members continue to hold positions in rate-sensitive instruments. The manipulation is the rational Nash equilibrium for any bank that can profitably shift the rate by a fraction of a basis point across $350 trillion in contracts.", beta: "5.13", expiry: "Transaction-based rate (Secured Overnight Financing Rate — SOFR) with no judgment-based submission. Implemented in USD markets. Partially resolved.", proven: "SOFR transition completed for US dollar markets (2023). Transaction-based benchmark eliminates the self-referential submission problem." },
+    { name: "FX Fixing / Self-Referential Benchmark", plain: "From 2003 to 2013, a cartel of global dealer banks manipulated the WM/Reuters 4pm FX fix — the benchmark governing the world's largest financial market — alongside LIBOR, the London Gold Fix, and commodity price assessments. The same banks with advance knowledge of client order flow also executed their own positions in the one-minute fixing window, extracting approximately $28B/yr in rents from pension funds, corporate treasuries, and sovereigns. Regulatory penalties exceeded $20 billion across 6 jurisdictions. The structural conflict of interest in FX fixing remains only partially resolved.", theorem: "Self-referential benchmarks — where the entity trading at the fixing rate also holds advance knowledge of client order flow — violate the independence condition required for an honest price signal. Dealer banks receive standing-instruction orders before the 4pm fix, granting foreknowledge of demand that can be monetized through pre-positioning. The annual private revenue was approximately $40B in manipulator rents (Π). Against that, the system absorbed $204B/yr in welfare destruction (β_W = 7.18): mispriced hedges, pension fund losses, municipal borrowing costs, distorted monetary policy signals, and eroded institutional trust. No contractual arrangement between a panel bank and a benchmark administrator resolves this while the bank retains access to pre-fix order flow.", beta: "7.18", expiry: "Transaction-based benchmark with no pre-fix order flow advantage. SOFR implemented for USD interest rates (2023). FX equivalent — algorithmic midpoint fixing using actual executed transactions — not yet mandated globally.", proven: "SOFR transition (2023) eliminated the self-referential submission problem for USD interest rates. Demonstrates that transaction-based benchmark redesign works. The FX reform is incomplete: WM/Reuters 4pm fix still uses a one-minute window subject to known structural exploitation." },
   ]},
   // ── GROUP 11 ─────────────────────────────────────────────────
   { group: "NETWORK LOCK-IN — SELF-REINFORCING MONOPOLIES", type: "intractability", domains: [
@@ -1385,6 +1340,162 @@ const DOMAINS = [
     { name: "Commercial Real Estate / Vacancy-Debt Spiral", plain: "Commercial real estate — office buildings, retail malls, suburban office parks — was valued in 2019 on the assumption that occupancy rates and rents established over the previous decade would continue indefinitely. Remote work, e-commerce, and changing retail patterns have permanently reduced demand for large categories of commercial real estate. Buildings with 50–70% vacancy are worth a fraction of their debt-financed value. Bank balance sheets are exposed. Cities that depend on commercial property taxes are exposed. The adjustment is not underway at the required scale.", theorem: "Commercial real estate is characterized by high fixed costs (debt service, maintenance), illiquidity (properties cannot be liquidated quickly), and long lease terms that delay the price signal from demand reduction to balance sheet recognition. The vacancy-debt spiral occurs when: (1) demand falls, (2) landlords hold out for historical rents rather than renegotiate (value preservation behavior), (3) vacancies compound, (4) property values fall, (5) banks holding commercial mortgage-backed securities recognize losses. The welfare cost — bank fragility, fiscal stress on cities, urban blight — is a structural consequence of the debt-financed real estate model.", beta: "7.78", expiry: "Orderly write-down and adaptive reuse conversion — residential conversion of vacant office stock. Requires zoning reform and loss recognition by lenders. Not at scale." },
   ]},
 ];
+
+// ─── THEOREM × AXIOM DATA ────────────────────────────────────────────────────
+// [domain, βW, category, A1_status, A2_status, A3_status, break_path]
+// A1 = Overlapping Interests (deal exists), A2 = System Independence (W hidden), A3 = System Dependence (activity harms system)
+// status: "LOCKED" = axiom holds, cannot be broken within current paradigm
+//         "BREAKABLE" = institutional/policy intervention CAN break this axiom
+//         "TARGET" = primary break pathway for this domain
+const AXIOM_TABLE = [
+  // ── IMPOSSIBILITY (physical/chemical/biological — all axioms locked) ─────────
+  ["PFAS / Molecular Persistence",     35.2,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Production ban + non-persistent substitutes"],
+  ["POPs Beyond PFAS",                  6.23,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Bioremediation at scale"],
+  ["Plastics / Polymer Persistence",    6.67,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Material replacement + UN Global Plastics Treaty"],
+  ["Coal / Combustion Floor",           6.95,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Renewable replacement + declining production cap"],
+  ["Oil & Gas / Combustion Floor",      1.63,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Renewable replacement + carbon pricing"],
+  ["Aviation Emissions / Altitude Lock",4.97,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Hydrogen/SAF at scale + altitude routing constraints"],
+  ["Shipping & Maritime / Flag-State",  1.34,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "IMO global emissions cap + green propulsion"],
+  ["Cement / Calcination Chemistry",    6.74,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Clinker substitutes (LC3) + carbon capture at kiln"],
+  ["Deforestation / Canopy Regeneration",7.21, "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "EU Deforestation Regulation + payments for ecosystem services"],
+  ["Monoculture / Crop Diversity Loss", 7.36,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Seed bank mandates + crop diversity subsidies"],
+  ["Industrial Agriculture / Methane",  7.36,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Enteric methane regulation + alternative protein transition"],
+  ["Topsoil Erosion / Pedogenesis Rate",4.41,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Regenerative agriculture mandates + no-till incentives"],
+  ["Deep-Sea Mining / Benthic Recovery",6.90,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "ISA moratorium + terrestrial recycling at scale"],
+  ["Nuclear / Radioactive Decay",       0.53,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Geological repository + waste volume minimization"],
+  ["WMD Proliferation / Capability Diffusion",21.92,"Impossibility","LOCKED",  "LOCKED",    "LOCKED",    "Treaty verification infrastructure + export controls"],
+  ["Orbital Debris / Kessler Cascade",  2.18,   "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Active debris removal + binding launch debris standards"],
+  ["Human Trafficking / Coercive Biology",22.62,"Impossibility",  "LOCKED",    "LOCKED",    "LOCKED",    "Demand criminalization (Nordic model) + survivor support"],
+  ["Child Labor / Dependency Biology",  21.83, "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Conditional cash transfers (Brazil Bolsa Família model)"],
+  ["Factory Farming / Biological Scale",1.02,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Alternative protein transition + welfare floor mandates"],
+  ["E-Waste Export / Toxicological Load",6.59, "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Extended producer responsibility + Basel Convention enforcement"],
+  ["Palm Oil / Deforestation Coupling", 6.30,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "RSPO certification with enforcement + EUDR supply chain rules"],
+  ["Fast Fashion / Material Throughput",7.01,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Extended producer responsibility + durability standards"],
+  // ── INTRACTABILITY (institutional — axioms breakable with reform) ────────────
+  ["Alcohol / Addiction Architecture",  24.96, "Intractability",  "TARGET",    "BREAKABLE", "LOCKED",    "Break A1: state retail monopoly (Sweden Systembolaget model)"],
+  ["Gambling / Loss-Chasing Architecture",7.30,"Intractability",  "TARGET",    "BREAKABLE", "LOCKED",    "Break A1: state monopoly (Svenska Spel / Norsk Tipping model)"],
+  ["Opioid Ecosystem / Addiction Loop", 14.96, "Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: Portugal decriminalization + Swiss heroin-assisted treatment"],
+  ["Private Prisons / Recidivism Lock", 12.08, "Intractability",  "TARGET",    "BREAKABLE", "LOCKED",    "Break A1: abolish private prisons (Norway/Finland model, 16% recidivism)"],
+  ["Student Loans / Debt Overhang",     6.36,  "Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: income-contingent repayment (Australia HECS-HELP model)"],
+  ["Payday Lending / Debt Trap",        7.08,  "Intractability",  "TARGET",    "BREAKABLE", "LOCKED",    "Break A1: postal banking replaces predatory lending (Japan Post Bank model)"],
+  ["Tax Havens / Jurisdictional Arbitrage",6.27,"Intractability", "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: OECD Pillar Two 15% global minimum tax (140 countries)"],
+  ["Sovereign Debt / Holdout Problem",  4.67,  "Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: IMF collective action clauses + Brady bond framework"],
+  ["Conflict Minerals / Warlord Rents", 12.60, "Intractability",  "TARGET",    "BREAKABLE", "LOCKED",    "Break A1: Dodd-Frank §1502 traceability + OECD due diligence"],
+  ["Firearms / Lethality Multiplier",   50.99, "Intractability",  "TARGET",    "BREAKABLE", "LOCKED",    "Break A1: licensing, buyback, and supply cap (Australia 1996 model)"],
+  ["Cybercrime & Ransomware",           6.22,  "Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: Estonia digital resilience + Budapest Convention enforcement"],
+  ["Data Brokerage / Surveillance Rents",6.13, "Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: GDPR + Estonia/Finland digital identity infrastructure"],
+  ["Algorithmic Pricing / Coordination",5.38,  "Intractability",  "TARGET",    "BREAKABLE", "LOCKED",    "Break A1: EU Digital Markets Act per se price-fixing rules"],
+  ["Platform Monopoly / Lock-In",       6.33,  "Intractability",  "TARGET",    "BREAKABLE", "LOCKED",    "Break A1: structural separation (EU DMA model)"],
+  ["Frontier AI / Capability Race",     7.51,  "Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: mandatory safety disclosure + international AI treaty"],
+  ["Social Media / Youth Mental Health",5.79,  "Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: Kids Online Safety Act + age verification mandates"],
+  ["Mining & Rare Earth / Enclave Extraction",11.15,"Intractability","BREAKABLE","TARGET",  "LOCKED",    "Break A2: resource curse transparency (EITI + beneficial ownership)"],
+  ["Fisheries & Coral / Open Access",   4.70,  "Intractability",  "TARGET",    "BREAKABLE", "LOCKED",    "Break A1: territorial use rights + Marine Protected Areas"],
+  ["Water Privatization / Access Denial",5.61, "Intractability",  "TARGET",    "BREAKABLE", "LOCKED",    "Break A1: re-municipalization + human right to water statutes"],
+  ["PE in Healthcare / Margin Extraction",5.24,"Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: mandatory outcome disclosure + private equity ban in hospitals"],
+  ["Pharmacy Benefit Management",       6.35,  "Intractability",  "TARGET",    "BREAKABLE", "LOCKED",    "Break A1: rebate transparency + PBM fiduciary duty reform"],
+  ["Credit Rating Agencies / Issuer Pay",11.21,"Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: investor-pay model + EU sovereign rating independence"],
+  ["Defense Procurement / Cost-Plus Lock",4.88,"Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: fixed-price contracts + audit rights (FY2017 NDAA model)"],
+  ["FX Fixing",                          7.18,  "Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: transaction-based benchmark (SOFR) + MiFID II surveillance"],
+  ["Insurance & Climate Risk / Mispricing",4.57,"Intractability", "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: TCFD mandatory disclosure + NFIP actuarial pricing reform"],
+  ["Commercial Real Estate / Opacity",  7.78,  "Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: beneficial ownership registry + vacancy tax"],
+  ["Bitcoin / Proof-of-Work / Energy Waste",5.00,"Intractability","TARGET",    "BREAKABLE", "LOCKED",    "Break A1: energy cost internalization via carbon price + PoW ban (EU)"],
+  ["Illicit Drug Trade / Prohibition Rents",7.16,"Intractability", "TARGET",    "BREAKABLE", "LOCKED",    "Break A1: decriminalization + regulated supply (Portugal + Switzerland)"],
+  ["Stablecoins / Shadow Banking",      2.53,  "Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: MiCA full reserve requirements + deposit insurance equivalence"],
+  ["Arms Exports / Accountability Gap", 2.54,  "Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: Arms Trade Treaty end-use monitoring + export license reform"],
+  ["Private Military Contractors",      2.06,  "Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: Montreux Document implementation + contractor liability law"],
+  ["Gene Drives / Irreversibility",     12.65, "Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: WHO guidance + mandatory ecosystem impact disclosure"],
+  ["Groundwater (Ogallala) / Depletion",3.46,  "Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: metered extraction rights + adjudicated water law"],
+  // ── TROUBLESOME (βW < 1.0 — policy can internalize, axioms all breakable) ────
+  ["Gig Economy / Misclassification",   0.76,  "Troublesome",     "BREAKABLE", "BREAKABLE", "LOCKED",    "Reclassification to employment + Danish flexicurity model"],
+  ["Proof-of-Stake / Altcoins",         3.14,  "Troublesome",     "BREAKABLE", "BREAKABLE", "LOCKED",    "MiCA disclosure + proof-of-work differentiation in regulation"],
+  // ── COMPLEX / CROSS-CUTTING ──────────────────────────────────────────────────
+  ["AMR / Antimicrobial Resistance",    2.12,  "Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: AMR surveillance + antibiotic stewardship mandates (WHO NAP)"],
+  ["Ultra-Processed Food",              4.06,  "Intractability",  "BREAKABLE", "TARGET",    "LOCKED",    "Break A2: mandatory reformulation targets + front-of-pack labeling (Chile model)"],
+];
+
+function TheoremAxiomTable() {
+  const [sortCol, setSortCol] = useState(1);
+  const [sortDir, setSortDir] = useState(-1);
+  const [filter, setFilter] = useState("ALL");
+
+  const toggle = col => { if (sortCol===col) setSortDir(d=>-d); else { setSortCol(col); setSortDir(-1); }};
+
+  const rows = AXIOM_TABLE
+    .filter(r => filter === "ALL" || r[2] === filter)
+    .sort((a, b) => {
+      const av = a[sortCol], bv = b[sortCol];
+      if (typeof av === "string") return sortDir * av.localeCompare(bv);
+      return sortDir * (av - bv);
+    });
+
+  const COLS = [["Domain",0],["βW",1],["Category",2],["Axiom 1\nOverlapping\nInterests",3],["Axiom 2\nSystem\nIndependence",4],["Axiom 3\nSystem\nDependence",5],["Reform Pathway",6]];
+
+  const statusColor = s => s === "TARGET" ? "#22c55e" : s === "BREAKABLE" ? GOLD : RED;
+  const catColor    = c => c === "Impossibility" ? RED : c === "Intractability" ? "#60A5FA" : GREEN;
+  const catBg       = c => c === "Impossibility" ? "rgba(239,68,68,0.08)" : c === "Intractability" ? "rgba(96,165,250,0.08)" : "rgba(34,197,94,0.08)";
+  const catBorder   = c => c === "Impossibility" ? "rgba(239,68,68,0.25)" : c === "Intractability" ? "rgba(96,165,250,0.25)" : "rgba(34,197,94,0.25)";
+
+  return (
+    <div style={{ marginTop: 40 }}>
+      <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, marginBottom: 8 }}>THEOREM × AXIOM CLASSIFICATION — ALL {AXIOM_TABLE.length} DOMAINS</div>
+      <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.7, marginBottom: 16 }}>
+        Every domain theorem mapped to its three constitutive axioms. <span style={{ color: RED }}>LOCKED</span> = axiom holds, cannot be broken within current paradigm. <span style={{ color: GOLD }}>BREAKABLE</span> = institutional intervention can violate this axiom. <span style={{ color: GREEN }}>TARGET</span> = primary reform pathway for this domain. All three axioms must hold for the Private Pareto Theorem to trap the system. Breaking one axiom exits the trap.
+      </div>
+
+      {/* Filter tabs */}
+      <div style={{ display: "flex", gap: 8, marginBottom: 16 }}>
+        {["ALL","Impossibility","Intractability","Troublesome"].map(f => (
+          <button key={f} onClick={() => setFilter(f)} style={{
+            fontFamily: M, fontSize: 10, letterSpacing: 1, padding: "4px 12px", borderRadius: 2, cursor: "pointer",
+            background: filter===f ? (f==="Impossibility"?"rgba(239,68,68,0.15)":f==="Intractability"?"rgba(96,165,250,0.15)":f==="Troublesome"?"rgba(34,197,94,0.15)":"rgba(245,158,11,0.12)") : SURFACE,
+            color: filter===f ? (f==="Impossibility"?RED:f==="Intractability"?"#60A5FA":f==="Troublesome"?GREEN:GOLD) : MUTED,
+            border: `1px solid ${filter===f ? (f==="Impossibility"?"rgba(239,68,68,0.3)":f==="Intractability"?"rgba(96,165,250,0.3)":f==="Troublesome"?"rgba(34,197,94,0.3)":"rgba(245,158,11,0.25)") : BORDER}`,
+          }}>{f} {f==="ALL" ? `(${AXIOM_TABLE.length})` : `(${AXIOM_TABLE.filter(r=>r[2]===f).length})`}</button>
+        ))}
+      </div>
+
+      <div style={{ overflowX: "auto" }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: M, fontSize: 11 }}>
+          <thead>
+            <tr>
+              {COLS.map(([h,col]) => (
+                <th key={col} onClick={() => toggle(col)} style={{
+                  fontSize: 9, color: col===sortCol ? GOLD : MUTED, letterSpacing: 1.5,
+                  padding: "8px 10px", textAlign: col===1 ? "right" : "left",
+                  borderBottom: `1px solid ${BORDER}`, whiteSpace: "pre", cursor: "pointer", lineHeight: 1.4,
+                }}>
+                  {h}{col===sortCol ? (sortDir>0?"↑":"↓") : ""}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map(([domain, bw, cat, a1, a2, a3, path], i) => (
+              <tr key={domain} style={{ background: i%2===0 ? "rgba(255,255,255,0.01)" : "transparent" }}
+                onMouseEnter={e => e.currentTarget.style.background="rgba(245,158,11,0.04)"}
+                onMouseLeave={e => e.currentTarget.style.background=i%2===0?"rgba(255,255,255,0.01)":"transparent"}>
+                <td style={{ padding:"6px 10px", color: TEXT, fontWeight: 500, minWidth: 220 }}>{domain}</td>
+                <td style={{ padding:"6px 10px", color: bw>=20?RED:bw>=7?GOLD:DIM, textAlign:"right", fontWeight:600 }}>{bw.toFixed(2)}</td>
+                <td style={{ padding:"6px 10px" }}>
+                  <span style={{ fontSize: 9, padding: "2px 7px", borderRadius: 2, letterSpacing: 1, background: catBg(cat), color: catColor(cat), border: `1px solid ${catBorder(cat)}` }}>{cat.toUpperCase()}</span>
+                </td>
+                {[a1,a2,a3].map((s,j) => (
+                  <td key={j} style={{ padding:"6px 10px", textAlign:"center" }}>
+                    <span style={{ fontSize: 9, padding: "2px 7px", borderRadius: 2, letterSpacing: 1, fontWeight: s==="TARGET"?700:400, background: s==="TARGET"?"rgba(34,197,94,0.12)":s==="BREAKABLE"?"rgba(245,158,11,0.08)":"rgba(239,68,68,0.08)", color: statusColor(s), border: `1px solid ${s==="TARGET"?"rgba(34,197,94,0.3)":s==="BREAKABLE"?"rgba(245,158,11,0.25)":"rgba(239,68,68,0.2)"}` }}>{s}</span>
+                  </td>
+                ))}
+                <td style={{ padding:"6px 10px", color: MUTED, fontSize: 12, fontFamily: S, minWidth: 260 }}>{path}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div style={{ marginTop: 10, padding: "10px 14px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4, fontFamily: S, fontSize: 13, color: MUTED }}>
+        Axiom 1 (Overlapping Interests): both parties benefit from cooperation — a deal exists. Axiom 2 (System Independence): system welfare W cannot be computed from private party payoffs. Axiom 3 (System Dependence): agent activity affects the shared system. The Private Pareto Theorem requires all three axioms to hold simultaneously. Reform breaks at least one.
+      </div>
+    </div>
+  );
+}
 
 function Chapter8() {
   const [expanded, setExpanded] = useState(null);
@@ -1460,6 +1571,9 @@ function Chapter8() {
         </div>
       ))}
 
+      {/* THEOREM × AXIOM TABLE */}
+      <TheoremAxiomTable />
+
       {/* THE STRUCTURAL BREAK */}
       <div style={{ padding: "24px", background: "rgba(245,158,11,0.06)", border: `2px solid rgba(245,158,11,0.2)`, borderRadius: 4, margin: "40px 0" }}>
         <div style={{ fontFamily: S, fontSize: 17, color: GOLD, lineHeight: 1.8 }}>
@@ -1480,7 +1594,626 @@ function Chapter8() {
 }
 
 // ═══════════════════════════════════════════════════════════════
-// CHAPTER 9 — DATA & METHODOLOGY NOTES
+// CHAPTER 9 — DECISION ACCOUNTING (DA)
+// ═══════════════════════════════════════════════════════════════
+const DA_FIELDS = [
+  { num: 1, name: "Domain", desc: "The sector, market, or commons under analysis.", example: "PFAS / Forever Chemicals" },
+  { num: 2, name: "Party A", desc: "The primary private-gain actor.", example: "Chemical manufacturers (3M, Chemours, Daikin)" },
+  { num: 3, name: "Party B", desc: "The secondary actor or counterparty.", example: "Downstream users, municipal water systems, consumers" },
+  { num: 4, name: "System C", desc: "The shared system both parties depend on.", example: "Global freshwater supply, human bloodstream, soil biome" },
+  { num: 5, name: "Axiom 1 (Overlapping Interests)", desc: "Both parties benefit from cooperation. Is there a deal?", example: "Yes — manufacturers supply, users consume. Bilateral exchange exists." },
+  { num: 6, name: "Axiom 2 (System Independence)", desc: "Can W be computed from A's payoff and B's payoff?", example: "No. Knowing revenue and purchase price reveals nothing about groundwater contamination." },
+  { num: 7, name: "βW", desc: "Welfare beta — marginal welfare destruction per dollar of private gain. Π = revenue, never profit.", example: "βW = 35.2. Π = $186.7B. ΔW = $6,574B." },
+  { num: 8, name: "Theorem Type", desc: "Impossibility (physical constraint) or Intractability (institutional constraint).", example: "Impossibility — Molecular Persistence Floor. C-F bond energy = 485 kJ/mol." },
+  { num: 9, name: "Axiom 3 (System Dependence)", desc: "Does agent activity affect W?", example: "Yes — every kilogram of PFAS produced is permanently additive to environmental stock." },
+  { num: 10, name: "Current Outcome", desc: "The 3-bit classification (C,A,B).", example: "(0,1,1) — Hollow Win. Both parties gain. Freshwater system degraded." },
+  { num: 11, name: "T*", desc: "Crossover time — when does the Hollow Win collapse?", example: "T* already exceeded in ~300 US water systems. PFAS detected in 97% of Americans." },
+  { num: 12, name: "Reform Pathway", desc: "Which axiom can be broken, and how?", example: "Break A3: class-wide production ban eliminates new loading. Cannot break A2 (persistence is physical)." },
+  { num: 13, name: "Proven Model", desc: "Has any jurisdiction solved this?", example: "Denmark: banned PFAS in food packaging (2020). EU: proposed universal PFAS restriction (2023)." },
+  { num: 14, name: "Conflictoring Tier", desc: "Minimum tier of the six-agent protocol required.", example: "Tier 4 — Supranational. Stockholm Convention amendment required for global ban." },
+  { num: 15, name: "Expiry Condition", desc: "What would falsify this theorem?", example: "Economically viable PFAS destruction at scale + class-wide production ban + remediation of existing stock." },
+];
+
+function Chapter9New() {
+  const [expandedField, setExpandedField] = useState(null);
+  return (
+    <div id="ch9">
+      <ChapterHead num={9} title="Every domain has a forensic record. Here is the template." subtitle="Decision Accounting is a 15-field audit trail applied to each of the 61 SAPM domains. It solves Prat's conformism problem by making the structural diagnosis public, multi-audience, and machine-readable." time="4 min" />
+
+      <P>Standard disclosure fails because it targets a single audience. A company publishes an ESG report for investors. A regulator publishes an enforcement action for the public. A whistleblower files a sealed complaint. Each audience sees one slice. Nobody sees the game.</P>
+
+      <P><Tip term="DA">Decision Accounting</Tip> solves this by requiring all 15 fields to be filled for every domain, published simultaneously, and cross-referenced. Field 7 (<Tip term="βW">βW</Tip>) tells you the welfare cost per dollar. Field 8 tells you whether the constraint is physical or institutional. Field 10 tells you the current outcome classification. Field 14 tells you who needs to act. No single field is sufficient. All 15 together constitute the forensic record.</P>
+
+      <P>Andrea Prat's conformism result (2005) proved that when an expert's reputation depends on being seen to agree with colleagues, the expert suppresses private information. The result is herding — everyone says the same thing, and the informational value of each additional report is zero. DA breaks this by design: the 15 fields are structural facts, not opinions. You cannot conform your way past a βW of 35.2. You cannot herd around a C-F bond energy of 485 kJ/mol.</P>
+
+      {/* DA FIELD TABLE */}
+      <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, margin: "32px 0 12px" }}>THE 15-FIELD AUDIT TRAIL</div>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+        {DA_FIELDS.map((f, i) => (
+          <div key={f.num} onClick={() => setExpandedField(expandedField === i ? null : i)} style={{
+            padding: "12px 16px", background: [7,8,10,14].includes(f.num) ? "rgba(245,158,11,0.04)" : SURFACE,
+            border: `1px solid ${[7,8,10,14].includes(f.num) ? "rgba(245,158,11,0.15)" : BORDER}`,
+            borderRadius: 4, cursor: "pointer",
+          }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div style={{ display: "flex", gap: 12, alignItems: "baseline" }}>
+                <span style={{ fontFamily: M, fontSize: 12, color: MUTED, minWidth: 24 }}>F{f.num}</span>
+                <span style={{ fontFamily: M, fontSize: 13, fontWeight: 600, color: [7,8,10,14].includes(f.num) ? GOLD : TEXT }}>{f.name}</span>
+              </div>
+              <span style={{ fontFamily: M, fontSize: 12, color: MUTED }}>{expandedField === i ? "−" : "+"}</span>
+            </div>
+            <div style={{ fontFamily: S, fontSize: 14, color: DIM, marginTop: 4, marginLeft: 36 }}>{f.desc}</div>
+            {expandedField === i && (
+              <div style={{ marginTop: 10, marginLeft: 36, padding: "10px 14px", background: "rgba(245,158,11,0.04)", border: `1px solid rgba(245,158,11,0.12)`, borderRadius: 4 }}>
+                <Label>PFAS EXAMPLE</Label>
+                <div style={{ fontFamily: S, fontSize: 14, color: GOLD, lineHeight: 1.6 }}>{f.example}</div>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* MULTI-AUDIENCE PANEL */}
+      <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, margin: "32px 0 12px" }}>WHY MULTI-AUDIENCE DISCLOSURE WORKS</div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+        <div style={{ padding: "16px 20px", background: "rgba(239,68,68,0.04)", border: `1px solid rgba(239,68,68,0.15)`, borderRadius: 4 }}>
+          <div style={{ fontFamily: M, fontSize: 12, color: RED, letterSpacing: 1, marginBottom: 8 }}>SINGLE-AUDIENCE (FAILS)</div>
+          <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.7 }}>
+            ESG report targets investors only. Regulator reads a different document. Whistleblower files under seal. Legislator reads neither. Each audience sees a different slice. Nobody sees the structural game. Conformism persists because each channel can be gamed independently.
+          </div>
+        </div>
+        <div style={{ padding: "16px 20px", background: "rgba(34,197,94,0.04)", border: `1px solid rgba(34,197,94,0.15)`, borderRadius: 4 }}>
+          <div style={{ fontFamily: M, fontSize: 12, color: GREEN, letterSpacing: 1, marginBottom: 8 }}>MULTI-AUDIENCE DA (WORKS)</div>
+          <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.7 }}>
+            One document. 15 fields. All six conflictoring agents read the same record. βW is the same number whether you are a whistleblower, a regulator, or a sovereign wealth fund. The structural diagnosis cannot be fragmented because it is published as a single atomic unit.
+          </div>
+        </div>
+      </div>
+
+      <GoldCallout>
+        The DA record is the forensic layer underneath every SAPM paper. Sixty-one domains, 15 fields each, 915 structural facts — all publicly auditable, all machine-readable, all cross-referenced. This is not disclosure. This is diagnosis.
+      </GoldCallout>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CHAPTER 10 — THE SIX-AGENT CONFLICTORING PROTOCOL
+// ═══════════════════════════════════════════════════════════════
+const SIX_AGENTS = [
+  { agent: "Whistleblower", tier: 1, role: "Insider with private information about system degradation. Files under federal programs (SEC §21F, CFTC §748, IRS §7623, DOJ Qui Tam).", mechanism: "Breaks information asymmetry. Converts private knowledge of C=0 into public record.", color: GOLD },
+  { agent: "Plaintiff", tier: 2, role: "Class action, public nuisance, or regulatory enforcement. Monetizes the welfare cost through litigation.", mechanism: "Forces Π adjustment. Makes the private gain reflect the welfare cost through damages awards.", color: GOLD },
+  { agent: "Regulator", tier: 3, role: "Structural separation, mandatory W-monitoring, licensing conditions. Rewrites the rules of the game.", mechanism: "Breaks Axiom 1 (overlapping interests) or Axiom 3 (system dependence) by redesigning the game structure.", color: GOLD },
+  { agent: "Legislator", tier: 4, role: "Statutory reform, tax code changes, liability regime redesign. Changes the law that defines the game.", mechanism: "Alters the payoff matrix. Converts Hollow Win equilibria into dominated strategies through legal architecture.", color: GREEN },
+  { agent: "Investor", tier: 5, role: "Sovereign wealth funds, pension funds, institutional capital. Divests from high-βW sectors, reprices risk.", mechanism: "Capital allocation signal. High-βW sectors face higher cost of capital, reduced access to financing.", color: GREEN },
+  { agent: "Supranational", tier: 6, role: "Treaty organizations, international coordination bodies (Montreal Protocol model, Stockholm Convention, FSB).", mechanism: "Solves the jurisdictional arbitrage problem. No single nation can regulate what treaty coordination can.", color: GREEN },
+];
+
+const CASE_STUDIES_AGENTS = [
+  { name: "Leaded Gasoline (1921–1996)", agents: 5, timeline: "75 years from first deployment to global phase-out", breakdown: [
+    { agent: "Whistleblower", year: "1924–1966", detail: "Clair Patterson (Caltech geochemist) published lead contamination data. Alice Hamilton documented factory poisonings. Both were suppressed by industry." },
+    { agent: "Plaintiff", year: "1970s–1990s", detail: "State attorneys general filed public nuisance claims. Individual tort claims established causation." },
+    { agent: "Regulator", year: "1970–1996", detail: "EPA set air quality standards (1970 Clean Air Act). Required catalytic converters (incompatible with lead). Phased down lead in gasoline." },
+    { agent: "Legislator", year: "1970/1990", detail: "Clean Air Act (1970). Clean Air Act Amendments (1990). Banned leaded gasoline for on-road vehicles." },
+    { agent: "Supranational", year: "2021", detail: "UNEP announced global elimination of leaded gasoline. Algeria, the last holdout, banned it in July 2021." },
+  ]},
+  { name: "Montreal Protocol (1987–present)", agents: 5, timeline: "CFC production dropped 99% within 15 years", breakdown: [
+    { agent: "Whistleblower", year: "1974", detail: "Molina and Rowland published CFC-ozone depletion mechanism in Nature. Industry attacked them for a decade." },
+    { agent: "Regulator", year: "1978", detail: "US EPA banned CFC aerosol propellants. First unilateral national action." },
+    { agent: "Legislator", year: "1978–1987", detail: "US Clean Air Act amendments. EU directives. Created the legislative basis for treaty ratification." },
+    { agent: "Investor", year: "1988–present", detail: "DuPont pivoted to HFC alternatives. Capital flowed to substitutes once the regulatory signal was credible." },
+    { agent: "Supranational", year: "1987", detail: "Montreal Protocol — 197 nations. The only universally ratified UN treaty. Ozone layer on track for full recovery by 2066." },
+  ]},
+  { name: "PFAS (in progress)", agents: 3, timeline: "3 of 6 agents active. Supranational coordination not yet achieved.", breakdown: [
+    { agent: "Whistleblower", year: "1998–2001", detail: "Rob Bilott (attorney) discovered 3M/DuPont internal documents showing PFAS toxicity concealment. Filed first PFAS lawsuit." },
+    { agent: "Plaintiff", year: "2005–present", detail: "$10.3B 3M settlement (2023). $1.19B Chemours settlement. Ongoing water utility class actions across 30+ states." },
+    { agent: "Regulator", year: "2024", detail: "EPA set first enforceable PFAS drinking water limits (4 ppt for PFOA/PFOS). EU proposed universal PFAS restriction." },
+  ]},
+];
+
+function Chapter10() {
+  const [expandedCase, setExpandedCase] = useState(null);
+  return (
+    <div id="ch10">
+      <ChapterHead num={10} title="Six agents. One protocol. The only way out of PST at scale." subtitle="Bilateral negotiation fails because it operates in two dimensions. Coase fails because transaction costs are not the binding constraint. Ostrom fails because the commons is not local. The six-agent protocol works because it attacks the game from outside the game." time="5 min" />
+
+      <P>The Conflictoring protocol names six classes of agent, each with a distinct structural role. The key result: for every <Tip term="PST">PST</Tip> domain, there exists a number <Tip term="k*">k*</Tip> less than or equal to 6 such that simultaneous activation of k* agents makes PPT conformism strictly dominated. This is the k* threshold theorem.</P>
+
+      <P>Why six and not fewer? Because bilateral negotiation (k=2) is exactly the structure the Private Pareto Theorem proves is blind. Adding a third party helps only if that party monitors <Tip term="W">W</Tip> independently. Adding a fourth helps only if it can alter the payoff matrix. The six agents are not arbitrary — they correspond to six distinct structural functions that, together, cover every mechanism by which a <Tip term="Hollow Win">Hollow Win</Tip> can persist.</P>
+
+      <P>The deep connection: Prat's conformism theorem (2005) proves that reputation-concerned experts suppress private information and herd. At system scale, this is exactly PPT conformism — every bilateral optimizer conforms to the two-dimensional framework because deviating (monitoring W) is reputationally costly. The six-agent protocol is the mechanism that makes deviation strictly profitable.</P>
+
+      {/* SIX AGENT CARDS */}
+      <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, margin: "32px 0 12px" }}>THE SIX CONFLICTORING AGENTS</div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+        {SIX_AGENTS.map(a => (
+          <div key={a.agent} style={{ padding: "16px 20px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+              <div style={{ fontFamily: M, fontSize: 14, fontWeight: 600, color: a.color }}>{a.agent.toUpperCase()}</div>
+              <span style={{ fontFamily: M, fontSize: 10, padding: "2px 8px", borderRadius: 2, background: "rgba(245,158,11,0.08)", color: MUTED, border: `1px solid ${BORDER}` }}>TIER {a.tier}</span>
+            </div>
+            <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.6, marginBottom: 8 }}>{a.role}</div>
+            <div style={{ fontFamily: M, fontSize: 12, color: MUTED, lineHeight: 1.5 }}>{a.mechanism}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* WHY BILATERAL FAILS */}
+      <div style={{ fontFamily: M, fontSize: 12, color: RED, letterSpacing: 1, margin: "32px 0 12px" }}>WHY THE ALTERNATIVES FAIL AT SCALE</div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, marginBottom: 24 }}>
+        {[
+          ["COASE", "Transaction costs are not the binding constraint. Even with zero transaction costs, bilateral negotiation cannot detect C=0 because W is outside the payoff space. The Coase theorem assumes the welfare loss is known to both parties. PPT proves it cannot be."],
+          ["PIGOU", "A Pigouvian tax requires knowing the externality's value. For PST domains, the externality is the system welfare loss — which cannot be computed from bilateral payoffs. You cannot tax what you cannot measure inside the game."],
+          ["OSTROM", "Local observability fails at scale. Ostrom's design principles require that resource conditions are locally observable and that community size is manageable. PFAS contamination in 97% of Americans is not locally observable. Climate forcing is not manageable by a community."],
+        ].map(([name, desc]) => (
+          <div key={name} style={{ padding: "16px 18px", background: "rgba(239,68,68,0.04)", border: `1px solid rgba(239,68,68,0.12)`, borderRadius: 4 }}>
+            <div style={{ fontFamily: M, fontSize: 13, fontWeight: 600, color: RED, marginBottom: 8 }}>{name}</div>
+            <div style={{ fontFamily: S, fontSize: 13, color: DIM, lineHeight: 1.6 }}>{desc}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* CASE STUDIES */}
+      <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, margin: "32px 0 12px" }}>THREE CASE STUDIES — HOW MANY AGENTS DOES IT TAKE?</div>
+      {CASE_STUDIES_AGENTS.map((cs, ci) => (
+        <div key={cs.name} onClick={() => setExpandedCase(expandedCase === ci ? null : ci)} style={{
+          padding: "16px 20px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4,
+          marginBottom: 8, cursor: "pointer",
+        }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div>
+              <div style={{ fontFamily: M, fontSize: 14, fontWeight: 600, color: TEXT }}>{cs.name}</div>
+              <div style={{ fontFamily: M, fontSize: 12, color: MUTED, marginTop: 2 }}>{cs.timeline}</div>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <span style={{ fontFamily: M, fontSize: 13, color: cs.agents >= 5 ? GREEN : GOLD }}>k* = {cs.agents}</span>
+              <span style={{ fontFamily: M, fontSize: 12, color: MUTED }}>{expandedCase === ci ? "−" : "+"}</span>
+            </div>
+          </div>
+          {expandedCase === ci && (
+            <div style={{ marginTop: 12, paddingTop: 12, borderTop: `1px solid ${BORDER}` }}>
+              {cs.breakdown.map(b => (
+                <div key={b.agent} style={{ display: "grid", gridTemplateColumns: "120px 70px 1fr", gap: 8, padding: "6px 0", borderBottom: `1px solid ${BORDER}` }}>
+                  <span style={{ fontFamily: M, fontSize: 12, color: GOLD }}>{b.agent}</span>
+                  <span style={{ fontFamily: M, fontSize: 12, color: MUTED }}>{b.year}</span>
+                  <span style={{ fontFamily: S, fontSize: 13, color: DIM, lineHeight: 1.5 }}>{b.detail}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+
+      <GoldCallout>
+        Leaded gasoline took 75 years and 5 agents. The Montreal Protocol took 13 years and 5 agents. PFAS has activated 3 agents so far. The k* threshold theorem predicts: no PST domain escapes the Hollow Win until enough agents are simultaneously active. The protocol does not require perfection. It requires coordination.
+      </GoldCallout>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CHAPTER 11 — THE REFORM DIVIDEND
+// ═══════════════════════════════════════════════════════════════
+function Chapter11() {
+  return (
+    <div id="ch11">
+      <ChapterHead num={11} title="$86.3 trillion. Every year. That is what the current system costs." subtitle="Frederic Bastiat warned in 1850: 'the seen and the unseen.' GDP records the seen. SAPM measures the unseen. The unseen is larger than the seen." time="4 min" />
+
+      <P>Across 61 SAPM-calibrated domains, the total annual welfare destruction is $86.3 trillion — approximately 81% of global GDP. This number sounds absurd until you decompose it. It is not a single catastrophe. It is the sum of 61 structural games, each producing welfare costs that GDP counts as output.</P>
+
+      <P>The standard objection is immediate: "We cannot afford to reform these industries. The economic disruption would be catastrophic." This objection is precisely backwards. Bastiat's 1850 insight — that the seen (industry revenue) crowds out awareness of the unseen (welfare destruction) — applies at civilizational scale. Reform does not shrink GDP. It grows GDP. The arithmetic is elementary.</P>
+
+      {/* THE BIG NUMBER */}
+      <div style={{ padding: "28px", background: "rgba(239,68,68,0.06)", border: `2px solid rgba(239,68,68,0.15)`, borderRadius: 4, margin: "32px 0", textAlign: "center" }}>
+        <div style={{ fontFamily: M, fontSize: 48, color: RED, fontWeight: 700 }}>$86.3T / yr</div>
+        <div style={{ fontFamily: M, fontSize: 14, color: TEXT, marginTop: 8 }}>Annual welfare destruction — 61 domains, Monte Carlo verified</div>
+        <div style={{ fontFamily: S, fontSize: 16, color: DIM, marginTop: 8, fontStyle: "italic" }}>~81% of global GDP. More than the combined GDP of the United States, European Union, and China.</div>
+      </div>
+
+      {/* FOUR CHANNEL DECOMPOSITION */}
+      <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, margin: "32px 0 12px" }}>FOUR-CHANNEL DECOMPOSITION</div>
+      <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.7, marginBottom: 16 }}>
+        Not all welfare destruction is the same. The $86.3T decomposes into four channels, each with a different relationship to GDP.
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 10, marginBottom: 24 }}>
+        {[
+          ["Value of Statistical Life", "$26.3T", "30.5%", "10–15M preventable deaths per year. Welfare improvement, not a GDP flow. This is the human cost that GDP cannot see.", RED],
+          ["Cleanup GDP", "$14.6T", "16.9%", "Healthcare, remediation, enforcement, litigation. Currently counted in GDP. Cancer treatment counts as output. Cleanup counts as output. Reform removes them.", "#F97316"],
+          ["Productivity", "$17.8T", "20.7%", "Suppressed output, foregone innovation, distorted markets. Currently missing from GDP. Reform restores them. This is the growth that the current system prevents.", GREEN],
+          ["Future", "$27.6T", "31.9%", "Climate, ecosystem, intergenerational damages. Not current-year GDP. The compounding dividend from not destroying the systems future prosperity depends on.", "#60A5FA"],
+        ].map(([label, val, pct, desc, col]) => (
+          <div key={label} style={{ padding: "14px 16px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>
+            <div style={{ fontFamily: M, fontSize: 10, color: col, letterSpacing: 1, marginBottom: 6 }}>{label.toUpperCase()}</div>
+            <div style={{ fontFamily: M, fontSize: 24, color: col, fontWeight: 700 }}>{val}</div>
+            <div style={{ fontFamily: M, fontSize: 11, color: MUTED, margin: "4px 0 10px" }}>{pct} of total</div>
+            <div style={{ fontFamily: S, fontSize: 13, color: DIM, lineHeight: 1.5 }}>{desc}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* THE REFORM FORMULA */}
+      <div style={{ fontFamily: M, fontSize: 12, color: GREEN, letterSpacing: 1, margin: "32px 0 12px" }}>THE REFORM ARITHMETIC</div>
+      <div style={{ padding: "20px 24px", background: "rgba(34,197,94,0.04)", border: `1px solid rgba(34,197,94,0.2)`, borderRadius: 4, marginBottom: 24 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr auto 1fr auto 1fr", gap: 8, alignItems: "center", fontFamily: M, fontSize: 13, textAlign: "center" }}>
+          <div><div style={{ fontSize: 10, color: MUTED, marginBottom: 4 }}>CURRENT GDP</div><div style={{ color: TEXT, fontSize: 22 }}>$107T</div></div>
+          <div style={{ color: MUTED, fontSize: 18 }}>−</div>
+          <div><div style={{ fontSize: 10, color: "#F97316", marginBottom: 4 }}>CLEANUP REMOVED</div><div style={{ color: "#F97316", fontSize: 22 }}>$14.6T</div></div>
+          <div style={{ color: MUTED, fontSize: 18 }}>+</div>
+          <div><div style={{ fontSize: 10, color: GREEN, marginBottom: 4 }}>PRODUCTIVITY RESTORED</div><div style={{ color: GREEN, fontSize: 22 }}>$17.8T</div></div>
+          <div style={{ color: MUTED, fontSize: 18 }}>=</div>
+          <div><div style={{ fontSize: 10, color: GREEN, marginBottom: 4 }}>REFORMED GDP</div><div style={{ color: GREEN, fontSize: 26, fontWeight: 700 }}>$110.2T</div></div>
+        </div>
+        <div style={{ textAlign: "center", marginTop: 16 }}>
+          <span style={{ fontFamily: M, fontSize: 14, color: GREEN, fontWeight: 600 }}>+$3.2T net gain</span>
+          <span style={{ fontFamily: M, fontSize: 12, color: MUTED, marginLeft: 12 }}>Reform makes GDP larger, not smaller.</span>
+        </div>
+      </div>
+
+      {/* PREVENTABLE DEATHS */}
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, margin: "24px 0" }}>
+        <div style={{ padding: "20px", background: "rgba(239,68,68,0.06)", border: `1px solid rgba(239,68,68,0.15)`, borderRadius: 4, textAlign: "center" }}>
+          <div style={{ fontFamily: M, fontSize: 36, color: RED, fontWeight: 700 }}>10–15M</div>
+          <div style={{ fontFamily: M, fontSize: 13, color: TEXT, marginTop: 4 }}>Preventable deaths per year</div>
+          <div style={{ fontFamily: S, fontSize: 14, color: DIM, marginTop: 8, fontStyle: "italic" }}>Across tobacco, air pollution, industrial agriculture, UPF, alcohol, opioids, and occupational exposure. Each death counted by GDP as healthcare revenue.</div>
+        </div>
+        <div style={{ padding: "20px", background: "rgba(34,197,94,0.06)", border: `1px solid rgba(34,197,94,0.15)`, borderRadius: 4, textAlign: "center" }}>
+          <div style={{ fontFamily: M, fontSize: 36, color: GREEN, fontWeight: 700 }}>$27.6T</div>
+          <div style={{ fontFamily: M, fontSize: 13, color: TEXT, marginTop: 4 }}>Long-run future dividend</div>
+          <div style={{ fontFamily: S, fontSize: 14, color: DIM, marginTop: 8, fontStyle: "italic" }}>The capital value of not destroying the climate, topsoil, aquifers, fisheries, and ecosystems that future prosperity depends on. Not in current GDP. Compounding annually.</div>
+        </div>
+      </div>
+
+      <GoldCallout>
+        "We cannot afford to reform" is the most expensive sentence in the English language. The 61 SAPM domains suppress $17.8 trillion of productive output while forcing $14.6 trillion of defensive spending that GDP counts as growth. Reform produces a net $3.2 trillion GDP gain — before accounting for 10–15 million lives saved and $27.6 trillion in avoided future damages. The seen obscures the unseen. Now the unseen is measured.
+      </GoldCallout>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CHAPTER 12 — FISCAL CAPTURE
+// ═══════════════════════════════════════════════════════════════
+const FISCAL_DOMAINS = [
+  { domain: "Tobacco", revenue: "$965B", taxShare: "5–15% of excise revenue in many nations", phi: "0.8–1.2", status: "CAPTURED", note: "Governments earn more from tobacco tax than they spend on cessation. The incentive is structural." },
+  { domain: "Gambling", revenue: "$45B", taxShare: "State-operated lotteries in 45+ US states", phi: ">1.0", status: "CAPTURED", note: "Most US states are the house. Not just the regulator — the operator. Party B is the government." },
+  { domain: "Alcohol", revenue: "$1,600B", taxShare: "Excise duty 3–8% of national tax revenue", phi: "0.6–0.9", status: "PARTIAL", note: "Below φ=1.0 in most jurisdictions but excise revenue creates political resistance to reform." },
+  { domain: "Oil & Gas", revenue: "$3,500B", taxShare: "20–90% of government revenue (petrostates)", phi: "0.2–5.0+", status: "CAPTURED (petrostates)", note: "Venezuela φ>5.0. Norway φ=0.22 (GPFG decoupling). The range is the story." },
+  { domain: "Opioid Settlements", revenue: "$75B", taxShare: "Settlement funds allocated to state budgets", phi: "N/A", status: "PERVERSE", note: "$50B+ in settlements. States used opioid funds for general budget, not treatment. Fiscal dependency on the settlement itself." },
+];
+
+function Chapter12() {
+  const [expandedFiscal, setExpandedFiscal] = useState(null);
+  return (
+    <div id="ch12">
+      <ChapterHead num={12} title="Governments are not captured regulators. They are Party B." subtitle="Standard regulatory capture theory says: industry influences the regulator. The reality is worse. In many PST domains, the government's own fiscal interest is structurally aligned with the industry that degrades the system." time="4 min" />
+
+      <P>Regulatory capture — Stigler (1971), Peltzman (1976) — assumes a clean distinction between the regulator and the regulated. The regulator is supposed to serve the public interest but gets co-opted by the industry it oversees. This framing is too generous. It implies the government starts neutral and is corrupted.</P>
+
+      <P>In many <Tip term="PST">PST</Tip> domains, the government is not a captured regulator. It is a structural participant in the game — Party B — whose fiscal survival depends on the industry continuing to operate. The <Tip term="φ">Fiscal Dependency Index</Tip> (φ) measures this directly: when tax revenue from an industry exceeds the political cost of reform, the government has a structural incentive to perpetuate the Hollow Win.</P>
+
+      <P>This is not corruption. This is architecture. A state that collects 15% of its revenue from tobacco excise does not need to be bribed to oppose tobacco reform. The fiscal dependency does the work automatically.</P>
+
+      {/* PHI FORMULA */}
+      <div style={{ padding: "20px 24px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4, margin: "24px 0", textAlign: "center" }}>
+        <div style={{ fontFamily: M, fontSize: 14, color: GOLD, marginBottom: 12 }}>THE FISCAL DEPENDENCY INDEX</div>
+        <div style={{ fontFamily: M, fontSize: 22, color: TEXT }}>
+          φ = <span style={{ color: RED }}>Tax Revenue from Industry</span> / <span style={{ color: GREEN }}>Political Cost of Reform</span>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, marginTop: 16 }}>
+          <div style={{ padding: "10px", background: "rgba(34,197,94,0.04)", borderRadius: 4 }}>
+            <div style={{ fontFamily: M, fontSize: 16, color: GREEN }}>φ {"<"} 0.5</div>
+            <div style={{ fontFamily: M, fontSize: 11, color: MUTED, marginTop: 4 }}>Reform feasible</div>
+          </div>
+          <div style={{ padding: "10px", background: "rgba(245,158,11,0.04)", borderRadius: 4 }}>
+            <div style={{ fontFamily: M, fontSize: 16, color: GOLD }}>0.5 ≤ φ {"<"} 1.0</div>
+            <div style={{ fontFamily: M, fontSize: 11, color: MUTED, marginTop: 4 }}>Politically difficult</div>
+          </div>
+          <div style={{ padding: "10px", background: "rgba(239,68,68,0.04)", borderRadius: 4 }}>
+            <div style={{ fontFamily: M, fontSize: 16, color: RED }}>φ ≥ 1.0</div>
+            <div style={{ fontFamily: M, fontSize: 11, color: MUTED, marginTop: 4 }}>Government is Party B</div>
+          </div>
+        </div>
+      </div>
+
+      {/* FIVE DOMAINS */}
+      <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, margin: "32px 0 12px" }}>FIVE EMPIRICAL DOMAINS</div>
+      {FISCAL_DOMAINS.map((fd, i) => (
+        <div key={fd.domain} onClick={() => setExpandedFiscal(expandedFiscal === i ? null : i)} style={{
+          padding: "14px 18px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4,
+          marginBottom: 6, cursor: "pointer",
+        }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ fontFamily: M, fontSize: 14, fontWeight: 600, color: TEXT }}>{fd.domain}</div>
+            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              <span style={{ fontFamily: M, fontSize: 11, padding: "2px 8px", borderRadius: 2, background: fd.status === "CAPTURED" || fd.status.includes("CAPTURED") ? "rgba(239,68,68,0.08)" : fd.status === "PERVERSE" ? "rgba(239,68,68,0.12)" : "rgba(245,158,11,0.08)", color: fd.status === "PARTIAL" ? GOLD : RED, border: `1px solid ${fd.status === "PARTIAL" ? "rgba(245,158,11,0.2)" : "rgba(239,68,68,0.2)"}` }}>{fd.status}</span>
+              <span style={{ fontFamily: M, fontSize: 13, color: GOLD }}>φ = {fd.phi}</span>
+              <span style={{ fontFamily: M, fontSize: 12, color: MUTED }}>{expandedFiscal === i ? "−" : "+"}</span>
+            </div>
+          </div>
+          {expandedFiscal === i && (
+            <div style={{ marginTop: 10, paddingTop: 10, borderTop: `1px solid ${BORDER}` }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 10 }}>
+                <div><Label>INDUSTRY REVENUE</Label><div style={{ fontFamily: M, fontSize: 13, color: DIM }}>{fd.revenue}</div></div>
+                <div><Label>GOVERNMENT TAX SHARE</Label><div style={{ fontFamily: M, fontSize: 13, color: DIM }}>{fd.taxShare}</div></div>
+              </div>
+              <div style={{ fontFamily: S, fontSize: 14, color: GOLD, fontStyle: "italic", lineHeight: 1.6 }}>{fd.note}</div>
+            </div>
+          )}
+        </div>
+      ))}
+
+      {/* NORWAY VS VENEZUELA */}
+      <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, margin: "32px 0 12px" }}>THE EXISTENCE PROOF AND THE FAILURE MODE</div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+        <div style={{ padding: "20px", background: "rgba(34,197,94,0.04)", border: `1px solid rgba(34,197,94,0.15)`, borderRadius: 4 }}>
+          <div style={{ fontFamily: M, fontSize: 14, fontWeight: 600, color: GREEN, marginBottom: 8 }}>NORWAY — <Tip term="GPFG">GPFG</Tip> (φ = 0.22)</div>
+          <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.7 }}>
+            Oil revenue flows into the Government Pension Fund Global ($1.7T). The fund invests globally, not domestically. Norwegian fiscal policy is decoupled from oil prices by design. φ = 0.22 because petroleum revenue is 22% of government income — but it is saved, not spent. The spending rule limits withdrawal to 3% of fund value per year.
+          </div>
+          <div style={{ fontFamily: S, fontSize: 14, color: GREEN, marginTop: 8, fontStyle: "italic" }}>Fiscal decoupling is possible. Norway proved it.</div>
+        </div>
+        <div style={{ padding: "20px", background: "rgba(239,68,68,0.04)", border: `1px solid rgba(239,68,68,0.15)`, borderRadius: 4 }}>
+          <div style={{ fontFamily: M, fontSize: 14, fontWeight: 600, color: RED, marginBottom: 8 }}>VENEZUELA / ANGOLA (φ {">"} 5.0)</div>
+          <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.7 }}>
+            Petroleum revenue is 90%+ of government income. The state is not captured by the industry — the state is the industry. Reform is structurally impossible because reform means the government ceases to function. Venezuela's collapse (2014–present) is what happens when the industry the government depends on contracts. φ {">"} 5.0 means the government cannot survive reform.
+          </div>
+          <div style={{ fontFamily: S, fontSize: 14, color: RED, marginTop: 8, fontStyle: "italic" }}>When φ exceeds 5.0, the government and the industry are the same entity.</div>
+        </div>
+      </div>
+
+      <GoldCallout>
+        The fiscal capture insight changes the entire reform calculus. It is not enough to convince the regulator. You must restructure the government's own fiscal dependency on the industry that destroys the system. Norway's GPFG proves it can be done. Venezuela proves what happens when it is not done. The <Tip term="φ">φ index</Tip> makes the structural dependency visible and measurable for the first time.
+      </GoldCallout>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CHAPTER 13 — THE SUBSTITUTION TRAP
+// ═══════════════════════════════════════════════════════════════
+const SUBSTITUTION_CASES = [
+  { from: "OxyContin", to: "Fentanyl", domain: "Opioids", result: "WORSE", detail: "Purdue's OxyContin reformulation (2010) made tablets crush-resistant. Users switched to heroin, then fentanyl (50–100x more potent). Overdose deaths tripled.", year: "2010–present" },
+  { from: "BPA", to: "BPS/BPF", domain: "Plastics", result: "EQUIVALENT", detail: "'BPA-free' products substituted bisphenol S and F. Same endocrine disruption. Same estrogenic activity. Different label. The function (plasticizer) was preserved; the regulation targeted the molecule.", year: "2012–present" },
+  { from: "PFOS", to: "GenX", domain: "PFAS", result: "WORSE", detail: "3M phased out PFOS (2002). DuPont replaced it with GenX (C6 chain). GenX is equally persistent, equally toxic, and harder to filter from water. The C-F bond is the problem. Shorter chains do not solve it.", year: "2002–present" },
+  { from: "Leaded gasoline", to: "Unleaded gasoline", result: "SUCCESS", domain: "Lead", detail: "The rare success case. Catalytic converters required unleaded fuel. The substitute performed the same function (octane boosting) without the toxin. Blood lead levels dropped 75% within a decade.", year: "1975–1996" },
+  { from: "CFCs", to: "HFCs", domain: "Ozone", result: "PARTIAL", detail: "Montreal Protocol eliminated CFCs. Replacement HFCs do not destroy ozone but are potent greenhouse gases (1,000–4,000x CO2). Kigali Amendment (2016) now phases down HFCs. Two treaties required for one problem.", year: "1987–2016" },
+  { from: "Coal", to: "Natural gas", domain: "Energy", result: "PARTIAL", detail: "Gas emits ~50% less CO2 per kWh than coal. But methane leakage (2–3% of production) erases much of the climate benefit. The function (dispatchable baseload) persists; the emission profile shifted, did not vanish.", year: "2005–present" },
+  { from: "Tobacco", to: "Vaping", domain: "Nicotine", result: "AMBIGUOUS", detail: "E-cigarettes eliminated combustion products but preserved nicotine delivery. Youth vaping epidemic created new addiction pathway. Net public health effect: contested. The addictive function was preserved precisely.", year: "2014–present" },
+  { from: "Cash gambling", to: "Online gambling", domain: "Gambling", result: "WORSE", detail: "Online platforms eliminated geographic friction. 24/7 access, algorithmic engagement, no social observation of losses. Problem gambling rates 2–3x higher online. The function (variable-ratio reinforcement) was preserved and amplified.", year: "2018–present" },
+];
+
+function Chapter13() {
+  const [expandedSub, setExpandedSub] = useState(null);
+  return (
+    <div id="ch13">
+      <ChapterHead num={13} title="Ban the product and the industry produces something worse." subtitle="The Iron Law of Prohibition (Cowen): regulatory pressure on a substance drives the market to more potent, more dangerous substitutes. The escape: regulate the function, not the molecule." time="5 min" />
+
+      <P>Regulate OxyContin and the market produces fentanyl. Ban BPA and the market produces BPS. Phase out PFOS and the market produces GenX. Restrict cash gambling and the market moves online. The pattern is not a coincidence. It is a theorem.</P>
+
+      <P>The formal game: industry leads, government follows. The industry's strategy space includes a substitution set A' — the class of alternative products that perform the same economic function. When regulation targets a specific product (the molecule, the formulation, the delivery mechanism), the industry pivots to A'. The substitution space A' is generically non-empty because regulation targeted the wrong level of abstraction.</P>
+
+      <P>Richard Cowen identified the pattern empirically: Prohibition drove alcohol from beer (4% ABV) to spirits (40% ABV) because spirits had higher value per unit volume for smugglers. The same logic applies to every product-level regulation. Potency concentrates because the regulated attribute is a product feature, not a functional class.</P>
+
+      {/* THE FORMAL STRUCTURE */}
+      <div style={{ padding: "16px 20px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4, margin: "24px 0" }}>
+        <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, marginBottom: 10 }}>THE FORMAL GAME</div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+          <div>
+            <Label>PRODUCT REGULATION (FAILS)</Label>
+            <div style={{ fontFamily: M, fontSize: 13, color: DIM, lineHeight: 1.8, marginTop: 4 }}>
+              1. Government bans product P<br/>
+              2. Industry identifies substitute P' in A'<br/>
+              3. P' performs same function, evades regulation<br/>
+              4. P' is often more potent / dangerous<br/>
+              5. Cycle repeats
+            </div>
+          </div>
+          <div>
+            <Label>FUNCTIONAL REGULATION (WORKS)</Label>
+            <div style={{ fontFamily: M, fontSize: 13, color: GREEN, lineHeight: 1.8, marginTop: 4 }}>
+              1. Government regulates function F<br/>
+              2. ALL products performing F are covered<br/>
+              3. Substitution space A' is empty by construction<br/>
+              4. Industry must innovate outside F<br/>
+              5. Escape achieved
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* EIGHT CASE STUDIES */}
+      <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, margin: "32px 0 12px" }}>EIGHT CASE STUDIES</div>
+      {SUBSTITUTION_CASES.map((sc, i) => (
+        <div key={sc.from} onClick={() => setExpandedSub(expandedSub === i ? null : i)} style={{
+          padding: "12px 16px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4,
+          marginBottom: 4, cursor: "pointer",
+        }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <span style={{ fontFamily: M, fontSize: 13, color: TEXT }}>{sc.from}</span>
+              <span style={{ fontFamily: M, fontSize: 12, color: MUTED }}>→</span>
+              <span style={{ fontFamily: M, fontSize: 13, color: TEXT }}>{sc.to}</span>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <span style={{ fontFamily: M, fontSize: 10, padding: "2px 8px", borderRadius: 2,
+                background: sc.result === "SUCCESS" ? "rgba(34,197,94,0.08)" : sc.result === "WORSE" ? "rgba(239,68,68,0.08)" : "rgba(245,158,11,0.08)",
+                color: sc.result === "SUCCESS" ? GREEN : sc.result === "WORSE" ? RED : GOLD,
+                border: `1px solid ${sc.result === "SUCCESS" ? "rgba(34,197,94,0.2)" : sc.result === "WORSE" ? "rgba(239,68,68,0.2)" : "rgba(245,158,11,0.2)"}`,
+              }}>{sc.result}</span>
+              <span style={{ fontFamily: M, fontSize: 11, color: MUTED }}>{sc.year}</span>
+              <span style={{ fontFamily: M, fontSize: 12, color: MUTED }}>{expandedSub === i ? "−" : "+"}</span>
+            </div>
+          </div>
+          {expandedSub === i && (
+            <div style={{ marginTop: 10, paddingTop: 10, borderTop: `1px solid ${BORDER}` }}>
+              <div style={{ fontFamily: M, fontSize: 11, color: GOLD, marginBottom: 6 }}>{sc.domain}</div>
+              <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.6 }}>{sc.detail}</div>
+            </div>
+          )}
+        </div>
+      ))}
+
+      <P>Of eight cases, one is a clear success (leaded gasoline), two are partial (CFCs, coal-to-gas), and five made the problem worse or equivalent. The success case — leaded gasoline — worked because the catalytic converter enforced a functional constraint: the engine could not physically operate with lead. That is functional regulation by accident.</P>
+
+      <GoldCallout>
+        Product regulation asks: "Is this specific molecule harmful?" Functional regulation asks: "Is the economic function this molecule performs generating welfare destruction?" The first question has an infinite number of molecular answers. The second has one regulatory answer. The substitution trap is not a market failure. It is a regulatory design failure — targeting the wrong level of abstraction.
+      </GoldCallout>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CHAPTER 14 — DISCLOSURE FUTILITY
+// ═══════════════════════════════════════════════════════════════
+function Chapter14() {
+  const [expandedMech, setExpandedMech] = useState(null);
+  return (
+    <div id="ch14">
+      <ChapterHead num={14} title="Mandatory disclosure does not transform Hollow Wins. Governments prefer it because it is ineffective." subtitle="Three formal results — Bernheim-Rangel, Gul-Pesendorfer, Lipnowski-Mathevet — prove that information alone cannot escape PST when agents have temptation preferences or neurochemical dependencies." time="4 min" />
+
+      <P>The policy consensus is: if people knew the truth, they would make better choices. Mandate calorie labels. Require emissions reporting. Force companies to disclose supply chain risks. Information asymmetry is the problem; disclosure is the solution.</P>
+
+      <P>For <Tip term="PST">PST</Tip> domains, this is wrong. Not approximately wrong. Formally wrong. Three independent results prove it.</P>
+
+      {/* THREE FAILURE MECHANISMS */}
+      <div style={{ fontFamily: M, fontSize: 12, color: RED, letterSpacing: 1, margin: "32px 0 12px" }}>THREE FAILURE MECHANISMS</div>
+      {[
+        { id: "BH", title: "NEUROCHEMICAL DEPENDENCY (Bernheim-Rangel 2004)", body: "When an agent's utility function includes an addictive state variable, the agent's response to information is non-monotonic. A tobacco smoker who learns that smoking causes cancer does not quit — the neurochemical dependency dominates the informational signal. Bernheim and Rangel prove that optimal policy in the presence of addiction is not 'more information' but removal of the cue that triggers the addictive state. Disclosure provides the information. The cue remains.", color: RED },
+        { id: "GP", title: "TEMPTATION PREFERENCES (Gul-Pesendorfer 2001)", body: "An agent with temptation preferences prefers a restricted menu to a full menu — because the tempting option, once available, exerts utility cost even when resisted. Full disclosure expands the information set without restricting the choice set. The tempted agent now knows the full cost of the Hollow Win and still cannot resist it. Gul-Pesendorfer preferences mean disclosure increases welfare cost: the agent now bears the disutility of knowing plus the disutility of yielding.", color: GOLD },
+        { id: "LM", title: "WELFARE-INFERIOR FULL DISCLOSURE (Lipnowski-Mathevet 2018)", body: "Lipnowski and Mathevet prove the sharpest result: full disclosure to a tempted agent is welfare-inferior to optimal partial disclosure. The information designer who reveals everything generates worse outcomes than the designer who strategically withholds. In PST domains, this means mandatory disclosure — the gold standard of regulatory intervention — is formally worse than a well-designed partial disclosure regime. The political economy implication is devastating: governments choose full disclosure precisely because it satisfies the appearance of action while being formally suboptimal.", color: GOLD },
+      ].map((m, i) => (
+        <div key={m.id} onClick={() => setExpandedMech(expandedMech === i ? null : i)} style={{
+          padding: "16px 20px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4,
+          marginBottom: 8, cursor: "pointer",
+        }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ fontFamily: M, fontSize: 13, fontWeight: 600, color: m.color }}>{m.title}</div>
+            <span style={{ fontFamily: M, fontSize: 12, color: MUTED }}>{expandedMech === i ? "−" : "+"}</span>
+          </div>
+          {expandedMech === i && (
+            <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.7, marginTop: 12 }}>{m.body}</div>
+          )}
+        </div>
+      ))}
+
+      {/* THE W-INDEPENDENCE PROBLEM */}
+      <div style={{ padding: "16px 20px", background: "rgba(239,68,68,0.04)", border: `1px solid rgba(239,68,68,0.12)`, borderRadius: 4, margin: "24px 0" }}>
+        <div style={{ fontFamily: M, fontSize: 12, color: RED, letterSpacing: 1, marginBottom: 8 }}>THE FOURTH PROBLEM: W-INDEPENDENCE</div>
+        <div style={{ fontFamily: S, fontSize: 15, color: DIM, lineHeight: 1.7 }}>
+          Even setting aside neurochemistry and temptation, disclosure fails for a more fundamental reason. The Private Pareto Theorem proves that <Tip term="W">W</Tip> cannot be computed from bilateral payoffs. Disclosing more information about payoffs — revenues, costs, margins, supply chains — provides more data in the wrong dimension. No amount of bilateral information reveals the system welfare state. Disclosure operates inside the payoff space. The problem is outside it.
+        </div>
+      </div>
+
+      {/* POLITICAL ECONOMY */}
+      <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, margin: "32px 0 12px" }}>THE POLITICAL ECONOMY COROLLARY</div>
+      <div style={{ padding: "16px 20px", background: "rgba(245,158,11,0.04)", border: `1px solid rgba(245,158,11,0.15)`, borderRadius: 4, marginBottom: 24 }}>
+        <div style={{ fontFamily: S, fontSize: 15, color: GOLD, lineHeight: 1.7, fontStyle: "italic" }}>
+          Governments prefer disclosure because it is ineffective. A disclosure mandate satisfies the appearance of regulatory action. It generates compliance costs that can be pointed to as evidence of seriousness. It does not alter the payoff matrix, does not break any PST axiom, and does not transform the game. This is not an accusation of cynicism. It is a structural prediction: the political equilibrium selects for interventions that are visible but ineffective, because effective interventions (production bans, fiscal restructuring, functional regulation) impose costs on Party B — which is often the government itself.
+        </div>
+      </div>
+
+      {/* BOUNDARY CONDITIONS — WHEN IT WORKS */}
+      <div style={{ fontFamily: M, fontSize: 12, color: GREEN, letterSpacing: 1, margin: "32px 0 12px" }}>BOUNDARY CONDITIONS — WHEN DISCLOSURE CAN WORK</div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+        <div style={{ padding: "16px 20px", background: "rgba(34,197,94,0.04)", border: `1px solid rgba(34,197,94,0.15)`, borderRadius: 4 }}>
+          <div style={{ fontFamily: M, fontSize: 13, fontWeight: 600, color: GREEN, marginBottom: 8 }}>CHILE — OCTAGON WARNING LABELS (2016)</div>
+          <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.6 }}>
+            Black octagon stop signs on high-sugar, high-sodium, high-calorie products. Sugar-sweetened beverage purchases dropped 23.7% within 18 months. The mechanism: not information but salience. The octagon is a visual cue that triggers disgust, not a data point that triggers calculation. Works because UPF is a temptation good with low neurochemical lock-in (unlike nicotine or opioids).
+          </div>
+        </div>
+        <div style={{ padding: "16px 20px", background: "rgba(34,197,94,0.04)", border: `1px solid rgba(34,197,94,0.15)`, borderRadius: 4 }}>
+          <div style={{ fontFamily: M, fontSize: 13, fontWeight: 600, color: GREEN, marginBottom: 8 }}>UK — SUGAR LEVY (2018)</div>
+          <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.6 }}>
+            The UK Soft Drinks Industry Levy taxed sugar content above 5g/100ml. Industry reformulated before the levy took effect — sugar content dropped 44% across the category. The mechanism: not consumer choice but producer incentive. The levy altered the payoff matrix for manufacturers, not the information set for consumers. This is not disclosure. This is fiscal restructuring disguised as a health measure.
+          </div>
+        </div>
+      </div>
+
+      <GoldCallout>
+        Disclosure works at the boundary: products with low neurochemical lock-in, high visual salience, and a reformulation pathway. It fails in the core: addictive substances, persistent pollutants, complex financial instruments. The political preference for disclosure over structural reform is not a mystery. It is a revealed preference for ineffectiveness.
+      </GoldCallout>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CHAPTER 15 — POSTNIEKS'S LAW
+// ═══════════════════════════════════════════════════════════════
+function Chapter15() {
+  const [expandedObj, setExpandedObj] = useState(null);
+  return (
+    <div id="ch15">
+      <ChapterHead num={15} title="For every Hollow Win, there exists a finite coalition that ends it." subtitle="Postnieks's Law: for every PST domain, there exists k* ≤ 6 such that simultaneous activation of k* conflictoring agents makes PPT conformism strictly dominated. This is not an aspiration. It is a theorem with 39 existence proofs." time="5 min" />
+
+      <P>The <Tip term="k*">k* threshold theorem</Tip> formalizes what the case studies demonstrate. Leaded gasoline required 5 agents over 75 years. The Montreal Protocol required 5 agents over 13 years. Every one of the 39 intractability domains has at least one country that has already activated enough agents to escape the <Tip term="Hollow Win">Hollow Win</Tip>. These are not theoretical claims. They are documented existence proofs.</P>
+
+      <P>The theorem's power is in its universal quantifier: for every PST domain. Not "for some domains." Not "under favorable conditions." For every domain where the three PST axioms hold, there exists a coalition of six or fewer agents whose simultaneous activation makes the Hollow Win equilibrium strictly dominated by a <Tip term="Win-Win-Win">Win-Win-Win</Tip> alternative.</P>
+
+      {/* THE FORMAL STATEMENT */}
+      <div style={{ padding: "24px", background: "rgba(245,158,11,0.06)", border: `2px solid rgba(245,158,11,0.2)`, borderRadius: 4, margin: "24px 0" }}>
+        <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 2, marginBottom: 12 }}>POSTNIEKS'S LAW — FORMAL STATEMENT</div>
+        <div style={{ fontFamily: S, fontSize: 17, color: TEXT, lineHeight: 1.8, fontStyle: "italic" }}>
+          For every game G satisfying the three PST axioms (overlapping interests, system independence, system dependence), there exists a coalition K of conflictoring agents with |K| = k* ≤ 6 such that simultaneous activation of all agents in K makes the Hollow Win strategy profile strictly dominated.
+        </div>
+        <div style={{ fontFamily: M, fontSize: 13, color: DIM, marginTop: 12, lineHeight: 1.7 }}>
+          Proof sketch: Each conflictoring agent attacks a distinct structural condition necessary for the Hollow Win to persist. The Whistleblower breaks information asymmetry. The Plaintiff monetizes the welfare cost. The Regulator redesigns the game. The Legislator alters the legal payoff matrix. The Investor reprices capital. The Supranational solves jurisdictional arbitrage. Since the Hollow Win requires all six conditions to hold simultaneously, breaking any sufficient subset eliminates the equilibrium.
+        </div>
+      </div>
+
+      {/* WHY ALTERNATIVE MECHANISMS FAIL */}
+      <div style={{ fontFamily: M, fontSize: 12, color: RED, letterSpacing: 1, margin: "32px 0 12px" }}>WHY VCG AND OSTROM FAIL FOR PST DOMAINS</div>
+      {[
+        { id: "VCG", title: "VCG MECHANISM DESIGN", body: "The Vickrey-Clarke-Groves mechanism achieves efficient allocation by making each agent pay their externality. Two assumptions break for PST domains: (1) welfare W must be additively separable in agent actions — but PST system properties are emergent, not additive. The ozone layer's health is not the sum of individual CFC contributions. (2) A budget-balanced VCG mechanism requires a residual claimant. In PST domains, there is no residual claimant — the system itself absorbs the cost, and the system is not an agent." },
+        { id: "OSTROM_SCALE", title: "THREE OSTROM SCALING FAILURES", body: "Ostrom's design principles work for local commons: fisheries, irrigation, forests where the community can observe the resource, the community is small enough for mutual monitoring, and the resource is a common pool. PST domains violate all three. (1) Local observability: PFAS contamination in 97% of American bloodstreams is not locally observable. Climate forcing is not observable by any community. (2) Community size: global supply chains involve millions of actors across 190 countries. Mutual monitoring is impossible. (3) Common-pool vs. system property: Ostrom's commons are subtractable — one person's use reduces another's. PST system properties (benchmark integrity, atmospheric chemistry, antibiotic efficacy) are not subtractable. They are destroyed by degradation, not depleted by use." },
+        { id: "AGGREGATION", title: "THE AGGREGATION OBJECTION", body: "The most common objection to Postnieks's Law: 'You are aggregating across 61 heterogeneous domains. The theorem cannot hold uniformly.' This objection fails because the theorem does not require uniformity of mechanism — it requires uniformity of structure. Every PST domain, by definition, satisfies the same three axioms. The six agents attack those axioms, not the domain-specific content. A whistleblower in PFAS contamination and a whistleblower in FX benchmark manipulation perform the same structural function (breaking information asymmetry about C=0) even though the domains are completely different." },
+      ].map((obj, i) => (
+        <div key={obj.id} onClick={() => setExpandedObj(expandedObj === i ? null : i)} style={{
+          padding: "16px 20px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4,
+          marginBottom: 8, cursor: "pointer",
+        }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ fontFamily: M, fontSize: 13, fontWeight: 600, color: TEXT }}>{obj.title}</div>
+            <span style={{ fontFamily: M, fontSize: 12, color: MUTED }}>{expandedObj === i ? "−" : "+"}</span>
+          </div>
+          {expandedObj === i && (
+            <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.7, marginTop: 12 }}>{obj.body}</div>
+          )}
+        </div>
+      ))}
+
+      {/* CROSS-DOMAIN EVIDENCE */}
+      <div style={{ fontFamily: M, fontSize: 12, color: GREEN, letterSpacing: 1, margin: "32px 0 12px" }}>CROSS-DOMAIN EVIDENCE — 39 INTRACTABILITY DOMAINS</div>
+      <div style={{ padding: "16px 20px", background: "rgba(34,197,94,0.04)", border: `1px solid rgba(34,197,94,0.15)`, borderRadius: 4, marginBottom: 24 }}>
+        <div style={{ fontFamily: S, fontSize: 15, color: DIM, lineHeight: 1.7, marginBottom: 12 }}>
+          Every one of the 39 intractability theorems has at least one jurisdiction that has activated enough conflictoring agents to escape the Hollow Win. This is the empirical foundation of Postnieks's Law — not a theoretical prediction, but 39 documented existence proofs.
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+          {[
+            ["Firearms", "Australia — National Firearms Agreement (1996). Buyback + ban. Gun homicides dropped 59%."],
+            ["Child Labor", "Brazil — Bolsa Familia conditional cash transfers. Child labor dropped 65% (2000–2015)."],
+            ["Payday Lending", "EU/Japan — Interest rate caps (EU Consumer Credit Directive). Payday industry structurally eliminated."],
+            ["Private Prisons", "Most democracies — No private prison industry. US and Australia are outliers."],
+            ["Gambling", "Norway — State monopoly (Norsk Tipping) with mandatory loss limits. Problem gambling rate 0.6% vs US 2.6%."],
+            ["Gig Economy", "Spain — Riders' Law (2021). Platform workers classified as employees by default."],
+          ].map(([domain, model]) => (
+            <div key={domain} style={{ padding: "10px 14px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>
+              <div style={{ fontFamily: M, fontSize: 12, color: GOLD, marginBottom: 4 }}>{domain}</div>
+              <div style={{ fontFamily: S, fontSize: 13, color: DIM, lineHeight: 1.5 }}>{model}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <GoldCallout>
+        Postnieks's Law is not optimism. It is arithmetic. If the Hollow Win requires all six structural conditions to hold simultaneously, then breaking any sufficient subset eliminates it. The 39 intractability existence proofs are not anecdotes. They are the empirical content of the theorem. The question is not whether escape is possible. The question is why most jurisdictions have not done what the successful ones already proved works.
+      </GoldCallout>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CHAPTER 16 — DATA & METHODOLOGY NOTES
 // ═══════════════════════════════════════════════════════════════
 
 // All 61 SAPM domains: [domain, scope, Pi ($B), βW, ΔW ($B), source, notes]
@@ -1491,7 +2224,7 @@ function Chapter8() {
 const NOTES_DOMAINS = [
   ["Alcohol",                       "Global", 85,    24.96,  2121.4, "Monte Carlo",    ""],
   ["Algorithmic Pricing",           "Global", 40,    5.38,   215.2,  "Monte Carlo",    ""],
-  ["AMR (Antimicrobial Resistance)","Global", 550,   1.60,   880,    "Paper", ""],
+  ["AMR (Antimicrobial Resistance)","Global", 42,    2.12,   89.0,   "Monte Carlo",    ""],
   ["Arms Exports",                  "Global", 29.6,  2.54,   75,     "Monte Carlo",    ""],
   ["Aviation Emissions",            "Global", 100,   4.97,   497.5,  "Monte Carlo",    ""],
   ["Bitcoin / Proof-of-Work",       "Global", 42,    5.00,   210,    "Monte Carlo",    ""],
@@ -1513,20 +2246,20 @@ const NOTES_DOMAINS = [
   ["Fisheries & Coral",             "Global", 38,    4.70,   178.6,  "Monte Carlo",    ""],
   ["Frontier AI",                   "Global", 30,    7.51,   225,    "Monte Carlo",    ""],
   ["Gambling & Casinos",            "Global", 45,    7.30,   328.5,  "Monte Carlo",    ""],
-  ["Gene Drives",                   "Global", 12.4,  5.77,   71.5,   "Field 7",   ""],
+  ["Gene Drives",                   "Global", 3.0,   12.65,  37.9,   "Monte Carlo",    ""],
   ["Gig Economy",                   "Global", 45,    0.76,   34.4,   "Monte Carlo",    "Troublesome (βW<1.0)"],
   ["Groundwater (Ogallala)",        "US",     null,  3.46,   32.9,   "Monte Carlo",    "US-specific aquifer. Π not extracted (ΔW from Monte Carlo direct)."],
   ["Human Trafficking",             "Global", 236,   22.62,  5338.1, "Monte Carlo",    ""],
   ["Illicit Drug Trade",            "Global", 500,   7.16,   3579.1, "Monte Carlo",   ""],
   ["Industrial Agriculture",        "Global", 205,   7.36,   1510,   "Monte Carlo",    ""],
   ["Insurance & Climate Risk",      "Global", 90,    4.57,   411.1,  "Monte Carlo",    ""],
-  ["LIBOR / FX Fixing",             "Global", 3.2,   5.13,   16.4,   "Cover", ""],
+  ["FX Fixing",                     "Global", 28.4,  7.18,   204.0,  "Paper",          "Π=$28.4B paper §4 calibration (range $22-35B). MC config had wrong Π=$40B. Paper βW=7.18."],
   ["Mining & Rare Earth",           "Global", 150,   11.15,  322,    "Monte Carlo",    ""],
   ["Monoculture / Crop Diversity",  "Global", 340,   7.36,   2503,   "Monte Carlo",   ""],
-  ["Nuclear Power",                 "Global", 150,   0.53,   80,     "Paper", ""],
+  ["Nuclear Power",                 "Global", 150,   0.53,   80,     "Monte Carlo",    ""],
   ["Oil & Gas",                     "Global", 3500,  1.63,   5694.6, "Monte Carlo",    ""],
   ["Opioid Ecosystem",              "Global", 75,    14.96,  1121.9, "Monte Carlo",    "Predominantly US crisis; classified Global given Canada/UK/Australia opioid epidemics."],
-  ["Orbital Debris",                "Global", 2.2,   4.82,   8,      "Field 7",   ""],
+  ["Orbital Debris",                "Global", 2.2,   2.18,   4.8,    "Monte Carlo",    "βW corrected by MC plausibility audit (IL#28): Kessler cascade annual expected value, not catastrophic tail. CI [1.5, 2.9]."],
   ["Palm Oil",                      "Global", 68,    6.30,   428.3,  "Monte Carlo",    ""],
   ["Payday Lending",                "US",     44,    7.08,   311.7,  "Monte Carlo",    "US-centric industry structure"],
   ["PE in Healthcare",              "US",     31,    5.24,   162.4,  "Monte Carlo",    "Predominantly US. UK/AUS have some PE in healthcare but ΔW calibrated to US."],
@@ -1544,7 +2277,7 @@ const NOTES_DOMAINS = [
   ["Stablecoins / Shadow Banking",  "Global", 56,    2.53,   141.7,  "Monte Carlo",    ""],
   ["Student Loan Securitization",   "US",     46.8,  6.36,   297.6,  "Monte Carlo",    "US federal student loan architecture"],
   ["Tax Havens",                    "Global", 492,   6.27,   3084.7, "Monte Carlo",    ""],
-  ["Tobacco",                       "Global", 965,   6.50,   6300,   "Monte Carlo",    "Π=$965B global revenue. βW confirmed. ΔW=$6.3T (6 channels: Value of Statistical Life mortality $4,500B, healthcare $422B, productivity $446B, secondhand smoke $315B, environment $40B, governance capture $150B). CI [4.5, 9.6]."],
+  ["Tobacco",                       "Global", 965,   6.50,   6276,   "Monte Carlo",    "Π=$965B global revenue. βW confirmed. ΔW=$6,276B (6 channels: Value of Statistical Life mortality $4,500B, healthcare $422B, productivity $446B, secondhand smoke $315B, environment $40B, governance capture $150B). CI [4.5, 9.6]."],
   ["Topsoil Erosion",               "Global", 255,   4.41,   1123,   "Monte Carlo",    ""],
   ["Ultra-Processed Food",          "Global", 450,   4.06,   1829,   "Monte Carlo",   ""],
   ["Water Privatization",           "Global", 246,   5.61,   1380.8, "Monte Carlo",    ""],
@@ -1573,18 +2306,22 @@ const REFORMED_FUTURE_B  = 27550;  // long-run future GDP dividend
 const REFORMED_GDP_B     = GLOBAL_GDP_B - REFORMED_CLEANUP_B + REFORMED_PROD_B; // 110,230
 const US_REFORMED_GDP_B  = 30440; // US Reformed GDP ($29.2T → $30.4T, +4.2%)
 
-function Chapter9() {
+function Chapter16() {
   const [sortCol, setSortCol] = useState(4); // default sort by ΔW desc
   const [sortDir, setSortDir] = useState(-1);
-  const sorted = [...NOTES_DOMAINS].sort((a, b) => sortDir * (a[sortCol] - b[sortCol]));
+  const sorted = [...NOTES_DOMAINS].sort((a, b) => {
+    const av = a[sortCol], bv = b[sortCol];
+    if (typeof av === "string") return sortDir * av.localeCompare(bv);
+    return sortDir * ((av ?? -Infinity) - (bv ?? -Infinity));
+  });
   const toggle = col => { if (sortCol===col) setSortDir(d => -d); else { setSortCol(col); setSortDir(-1); }};
 
   const globalCadj = GLOBAL_GDP_B - GLOBAL_DW_B;
   const usCadj = US_GDP_B - US_BURDEN_B;
 
   return (
-    <div id="ch9">
-      <ChapterHead num={9} title="Data & Methodology Notes" subtitle="Complete domain-level data, computation chain, scope classifications, and source discrepancies. All figures are auditable." time="reference" />
+    <div id="ch16">
+      <ChapterHead num={16} title="Data & Methodology Notes" subtitle="Complete domain-level data, computation chain, scope classifications, and source discrepancies. All figures are auditable." time="reference" />
 
       {/* COMPUTATION CHAIN */}
       <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, margin: "0 0 12px" }}>COMPUTATION CHAIN</div>
@@ -1710,7 +2447,7 @@ function Chapter9() {
           ["No double-counting adjustment", "The 61 domains are treated as independent. Some overlap exists (e.g., coal damage and climate insurance claims; plastics and e-waste). No deduction applied. Full-scope figures are therefore an upper bound."],
           ["Flow vs. stock", "All ΔW figures are annual flow costs ($/yr). Cumulative stock damages (e.g., PFAS body burden, topsoil deficit) are not included in the annual figure."],
           ["GDP vintage", "Global GDP: $107T (IMF WEO April 2025). US GDP: $29.2T (BEA 2025 estimate)."],
-          ["βW sources", "Monte Carlo = values from published Monte Carlo simulation (primary source). Paper = values derived directly from paper text."],
+          ["βW sources", "All values verified via Monte Carlo simulation (N=100,000, seed=42). A small number of domains use values derived directly from paper text where Monte Carlo is not yet available."],
           ["US-specific classification", "6 domains classified US-only: Payday Lending, Private Prisons, Student Loans, Pharmacy Benefit Management, PE Healthcare, Ogallala Groundwater. Their ΔW deducts from US GDP only, not global."],
         ].map(([k,v]) => (
           <div key={k} style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 12, padding: "10px 14px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>
@@ -1728,8 +2465,8 @@ function Chapter9() {
         <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: M, fontSize: 11 }}>
           <thead>
             <tr>
-              {[["Domain",0],["Scope",1],["Π ($B)",2],["βW",3],["ΔW ($B)",4],["Src",5],["Notes",6]].map(([h,col]) => (
-                <th key={h} onClick={() => col<=4 && toggle(col)} style={{ fontSize: 9, color: col===sortCol ? GOLD : MUTED, letterSpacing: 2, padding: "8px 10px", textAlign: col>=2&&col<=4 ? "right" : "left", borderBottom: `1px solid ${BORDER}`, whiteSpace: "nowrap", cursor: col<=4 ? "pointer" : "default" }}>
+              {[["Domain",0],["Scope",1],["Π ($B)",2],["βW",3],["ΔW ($B)",4],["Notes",6]].map(([h,col]) => (
+                <th key={h} onClick={() => toggle(col)} style={{ fontSize: 9, color: col===sortCol ? GOLD : MUTED, letterSpacing: 2, padding: "8px 10px", textAlign: col>=2&&col<=4 ? "right" : "left", borderBottom: `1px solid ${BORDER}`, whiteSpace: "nowrap", cursor: "pointer" }}>
                   {h}{col===sortCol ? (sortDir>0?"↑":"↓") : ""}
                 </th>
               ))}
@@ -1747,8 +2484,7 @@ function Chapter9() {
                 <td style={{ padding:"6px 10px", color: MUTED, textAlign:"right" }}>{pi ? `$${pi.toLocaleString()}` : "—"}</td>
                 <td style={{ padding:"6px 10px", color: bw>=20?RED:bw>=7?GOLD:DIM, textAlign:"right", fontWeight:600 }}>{bw.toFixed(2)}</td>
                 <td style={{ padding:"6px 10px", color: dw>=5000?RED:dw>=1000?GOLD:DIM, textAlign:"right", fontWeight: dw>=1000?600:400 }}>{dw>=1000?`$${(dw/1000).toFixed(2)}T`:`$${dw.toFixed(1)}B`}</td>
-                <td style={{ padding:"6px 10px", color: src.includes("⚠")||src==="Paper"?GOLD:MUTED, fontSize:10 }}>{src}</td>
-                <td style={{ padding:"6px 10px", color: MUTED, fontSize: 10, fontFamily: S, maxWidth: 300 }}>{notes || "—"}</td>
+                <td style={{ padding:"6px 10px", color: MUTED, fontSize: 13, fontFamily: S }}>{notes || ""}</td>
               </tr>
             ))}
           </tbody>
@@ -1758,10 +2494,13 @@ function Chapter9() {
               <td style={{ padding:"10px", textAlign:"right", color:MUTED, fontSize:11 }}>—</td>
               <td style={{ padding:"10px", textAlign:"right", color:MUTED, fontSize:11 }}>—</td>
               <td style={{ padding:"10px", textAlign:"right", color:RED, fontWeight:600, fontSize:13 }}>${(GLOBAL_DW_B/1000).toFixed(1)}T global + ${(US_SPECIFIC_DW_B/1000).toFixed(2)}T US-only</td>
-              <td colSpan={2} style={{ padding:"10px", color:MUTED, fontSize:10 }}>Global scope deducted from $107T. US-only deducted from $29.2T.</td>
+              <td style={{ padding:"10px", color:MUTED, fontSize:12 }}>Global scope deducted from $107T. US-only deducted from $29.2T.</td>
             </tr>
           </tfoot>
         </table>
+      </div>
+      <div style={{ marginTop: 12, padding: "10px 14px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4, fontFamily: S, fontSize: 13, color: MUTED }}>
+        All βW values verified via Monte Carlo simulation (N=100,000, seed=42) unless noted. Source: published SAPM working papers, 2025–2026. βW = ΔW ÷ Π where Π = annual industry revenue.
       </div>
     </div>
   );
@@ -1784,7 +2523,7 @@ export default function Curriculum({ onDeepDive, onTables }) {
       });
     }, { threshold: 0.3 });
 
-    for (let i = 1; i <= 9; i++) {
+    for (let i = 1; i <= 16; i++) {
       const el = document.getElementById(`ch${i}`);
       if (el) observer.observe(el);
     }
@@ -1811,7 +2550,7 @@ export default function Curriculum({ onDeepDive, onTables }) {
           </a>
         ))}
         <div style={{ marginTop: "auto", paddingTop: 16, display: "flex", flexDirection: "column", gap: 6 }}>
-          <div style={{ fontFamily: M, fontSize: 11, color: MUTED, marginBottom: 4 }}>TOTAL: ~25 MIN</div>
+          <div style={{ fontFamily: M, fontSize: 11, color: MUTED, marginBottom: 4 }}>TOTAL: ~56 MIN</div>
           {onDeepDive && (
             <button onClick={onDeepDive} style={{ fontFamily: M, fontSize: 12, color: GOLD, background: "rgba(245,158,11,0.08)", border: `1px solid rgba(245,158,11,0.15)`, padding: "8px 12px", borderRadius: 4, cursor: "pointer", width: "100%", textAlign: "left" }}>
               DEEP DIVE →
@@ -1843,7 +2582,21 @@ export default function Curriculum({ onDeepDive, onTables }) {
         <div style={{ borderTop: `1px solid ${BORDER}`, margin: "48px 0" }} />
         <Chapter8 />
         <div style={{ borderTop: `1px solid ${BORDER}`, margin: "48px 0" }} />
-        <Chapter9 />
+        <Chapter9New />
+        <div style={{ borderTop: `1px solid ${BORDER}`, margin: "48px 0" }} />
+        <Chapter10 />
+        <div style={{ borderTop: `1px solid ${BORDER}`, margin: "48px 0" }} />
+        <Chapter11 />
+        <div style={{ borderTop: `1px solid ${BORDER}`, margin: "48px 0" }} />
+        <Chapter12 />
+        <div style={{ borderTop: `1px solid ${BORDER}`, margin: "48px 0" }} />
+        <Chapter13 />
+        <div style={{ borderTop: `1px solid ${BORDER}`, margin: "48px 0" }} />
+        <Chapter14 />
+        <div style={{ borderTop: `1px solid ${BORDER}`, margin: "48px 0" }} />
+        <Chapter15 />
+        <div style={{ borderTop: `1px solid ${BORDER}`, margin: "48px 0" }} />
+        <Chapter16 />
 
         {/* DEEP DIVE DIVIDER */}
         <div style={{ borderTop: `2px solid ${GOLD}`, margin: "64px 0 32px", paddingTop: 24, textAlign: "center" }}>
