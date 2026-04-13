@@ -77,7 +77,7 @@ const RESEARCH_AGENDA = [
       "The PPT is bilateral. Extend it to n parties. Supply chains have dozens of bilateral interactions, each potentially system-destructive. Does the impossibility compound, or does multi-party structure create escape routes?",
       "The Folk Theorem says patient agents can sustain cooperation. Does patience help against Hollow Wins? If agents are sufficiently patient, can a Hollow Win persist indefinitely — or does T* always arrive?",
       "PST-2 is sharp — W is fully independent of bilateral payoffs. Weaken it. Partial system independence — agents see 10% of W, or 50%. Does the impossibility survive? At what visibility threshold does it break?",
-      "βW = 1.0 is a knife edge. Nuclear is 0.53 — below, net positive. Gene Drives is 42.5 — off the charts. What happens at β = 1.01? Is there a continuous version of the theorem, or is the threshold genuinely discontinuous?",
+      "βW = 1.0 is a knife edge. Gig Economy is 0.76 — close to neutral. Firearms is 50.99 — off the charts. What happens at β = 1.01? Is there a continuous version of the theorem, or is the threshold genuinely discontinuous?",
     ]},
   { area: "Empirical Calibration",
     questions: [
