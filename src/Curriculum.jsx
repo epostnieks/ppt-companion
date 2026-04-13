@@ -596,7 +596,7 @@ const BETA_CHART_DATA = [
 const DW_CHART_DATA = [
   { domain: "#1  Electronic Waste Export",              dw: 6922, tip: "ΔW=$6,922B. Π=$1,050B. βW=6.59." },
   { domain: "#2  Coal",                                 dw: 6884, tip: "ΔW=$6,884B. Π=$990B. βW=6.95." },
-  { domain: "#3  PFAS / Forever Chemicals",             dw: 6574, tip: "ΔW=$6,574B. Π=$186.7B (Persistence Premium). βW=35.20. Paper-verified." },
+  { domain: "#3  PFAS / Forever Chemicals",             dw: 6574, tip: "ΔW=$6,574B. Π=$186.7B (Persistence Premium). βW=5.31." },
   { domain: "#4  Cybercrime & Ransomware",              dw: 6403, tip: "ΔW=$6,403B. Π=$200B criminal revenue. βW=31.10." },
   { domain: "#5  Tobacco",                              dw: 6276, tip: "ΔW=$6,276B. Π=$965B. βW=6.50. Six channels: Value of Statistical Life mortality $4,500B, healthcare $422B, productivity $446B, secondhand smoke $315B, environment $40B, governance capture $150B." },
   { domain: "#6  Oil & Gas",                            dw: 5695, tip: "ΔW=$5,695B. Π=$3,500B. βW=1.63." },
@@ -645,7 +645,7 @@ const DW_CHART_DATA = [
   { domain: "#49 Credit Rating Agencies",               dw: 123,  tip: "ΔW=$123B. Π=$11B. βW=11.21." },
   { domain: "#50 Commercial Real Estate",               dw: 101,  tip: "ΔW=$101B. Π=$13B. βW=7.78." },
   { domain: "#51 Private Prisons",                      dw: 97,   tip: "ΔW=$97B. Π=$8B. βW=12.08." },
-  { domain: "#52 Nuclear Power",                        dw: 80,   tip: "ΔW=$80B. Π=$150B. βW=0.53. ΠSA=+$70B. Monte Carlo verified." },
+  { domain: "#52 Nuclear Power",                        dw: 80,   tip: "ΔW=$80B. Π=$150B. βW=2.94 (marginal). Two-beta architecture." },
   { domain: "#53 Arms Exports",                         dw: 75,   tip: "ΔW=$75B. Π=$30B. βW=2.54." },
   { domain: "#54 Gene Drives",                          dw: 37.9, tip: "ΔW=$37.9B. Π=$3.0B. βW=12.65. Monte Carlo verified." },
   { domain: "#55 Altcoins / Proof-of-Stake",            dw: 37.7, tip: "ΔW=$37.7B (3.14×$12B). Π=$12B. βW=3.14. Corrected from table error ($6B)." },
@@ -662,7 +662,7 @@ function Chapter5() {
     <div id="ch5">
       <ChapterHead num={5} title="Every dollar of apparent output has a welfare cost. Here is what it costs." subtitle="The System Asset Pricing Model calibrates welfare betas for 61 domains across 22 impossibility theorems and 39 intractability theorems. The results are not subtle." time="4 min" />
 
-      <P>Welfare beta (<Tip term="βW">β<sub>W</sub></Tip>) measures the marginal rate of system welfare destruction per dollar of private gain. A sector with β<sub>W</sub> = 1.0 destroys one dollar of social welfare for every dollar of revenue. A sector with β<sub>W</sub> = 35.2 destroys thirty-five.</P>
+      <P>Welfare beta (<Tip term="βW">β<sub>W</sub></Tip>) measures the marginal rate of system welfare destruction per dollar of private gain. A sector with β<sub>W</sub> = 1.0 destroys one dollar of social welfare for every dollar of revenue. A sector with β<sub>W</sub> = 14.96 (Opioids) destroys nearly fifteen.</P>
 
       <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, margin: "24px 0 8px" }}>β<sub>W</sub> RANKINGS — 61 DOMAINS</div>
       <div style={{ display: "flex", gap: 20, marginBottom: 14, flexWrap: "wrap" }}>
@@ -768,7 +768,7 @@ function Chapter5() {
               [34, 1.60,  "Antimicrobial Resistance",                  "Efficacy Ceiling",                "Biological / Evolutionary"],
               [35, 5.79,  "Social Media / Youth Mental Health",        "Engagement Trap",                 "Computational / Developmental"],
               [36, 5.77,  "Gene Drives",                               "Ecological Ratchet Floor",        "Biological / Evolutionary"],
-              [39, 35.20, "PFAS / Forever Chemicals",                  "Molecular Persistence Floor",     "Thermodynamic"],
+              [39, 5.31, "PFAS / Forever Chemicals",                  "Molecular Persistence Floor",     "Thermodynamic"],
               [43, 4.97,  "Aviation Emissions",                        "Altitude Forcing Floor",          "Physical / Thermodynamic"],
               [49, 4.41,  "Topsoil Erosion",                           "Pedogenesis Floor",               "Geochemical"],
               [51, 3.46,  "Groundwater (Ogallala Aquifer)",            "Recharge Floor",                  "Hydrogeological"],
@@ -1235,7 +1235,7 @@ function Chapter7() {
 const DOMAINS = [
   // ── GROUP 1 ─────────────────────────────────────────────────
   { group: "THERMODYNAMIC PERMANENCE", type: "impossibility", domains: [
-    { name: "Per- and Polyfluoroalkyl Substances (PFAS) / Molecular Persistence Floor", plain: "PFAS — per- and polyfluoroalkyl substances — are used in nonstick coatings, firefighting foam, food packaging, and thousands of industrial applications. The carbon-fluorine bond that makes them useful also makes them indestructible by any biological process. They accumulate in soil, water, and human tissue. There is no natural mechanism to break them down.", theorem: "The carbon-fluorine bond energy (485 kJ/mol) exceeds the energy available to any biological degradation mechanism. No market mechanism can reduce PFAS contamination below a structural floor while PFAS production continues. The floor is set by thermodynamics, not regulatory failure.", beta: "35.2", expiry: "Class-wide production ban AND non-persistent substitutes at scale. Not met." },
+    { name: "Per- and Polyfluoroalkyl Substances (PFAS) / Molecular Persistence Floor", plain: "PFAS — per- and polyfluoroalkyl substances — are used in nonstick coatings, firefighting foam, food packaging, and thousands of industrial applications. The carbon-fluorine bond that makes them useful also makes them indestructible by any biological process. They accumulate in soil, water, and human tissue. There is no natural mechanism to break them down.", theorem: "The carbon-fluorine bond energy (485 kJ/mol) exceeds the energy available to any biological degradation mechanism. No market mechanism can reduce PFAS contamination below a structural floor while PFAS production continues. The floor is set by thermodynamics, not regulatory failure.", beta: "5.31", expiry: "Class-wide production ban AND non-persistent substitutes at scale. Not met." },
     { name: "Persistent Organic Pollutants (POPs) Beyond PFAS / Persistence Floor", plain: "Persistent organic pollutants — chlorinated pesticides, polychlorinated biphenyls (PCBs), dioxins, furans — share the same thermodynamic property as PFAS: they resist biological degradation and accumulate through the food chain. Unlike PFAS, many POPs are already banned. The contamination persists anyway, because persistence is a physical property, not a regulatory one.", theorem: "Chlorinated organic compounds with log K_ow > 5 bioaccumulate by conservation of mass through lipid-rich tissues. The regulatory ban eliminates new exposure. It does not eliminate existing body burden or soil/sediment reservoir. The welfare floor persists until natural dilution — measured in decades to centuries.", beta: "6.23", expiry: "Bioremediation at scale for existing reservoirs. Not currently achievable for most legacy compounds." },
     { name: "Plastics / Polymer Persistence Floor", plain: "Plastics do not biodegrade. They photodegrade — breaking into smaller and smaller fragments called microplastics and nanoplastics, which enter the food chain, the water supply, and human tissue. The mass is conserved. The polymer chain shortens. The welfare cost at nanoscale is not yet fully quantified, which means the floor is a lower bound.", theorem: "Synthetic polymer chains (polyethylene, polypropylene, polyethylene terephthalate) have no known enzymatic degradation pathway under ambient environmental conditions. Photodegradation produces microplastics and nanoplastics — fragments that penetrate biological barriers that bulk plastic cannot. The persistence floor is guaranteed by thermodynamics; the toxicity floor is guaranteed by the properties of sub-micron particles.", beta: "6.67", expiry: "Universal compostable substitutes at market parity. Not met." },
     { name: "Fast Fashion / Synthetic Textile Persistence", plain: "Sixty percent of global textiles are synthetic — polyester, nylon, acrylic. Every wash cycle releases microfibers into wastewater. These fibers are too small for standard filtration. They enter rivers, oceans, and ultimately human tissue. Fast fashion's business model — low prices, rapid turnover, disposability — ensures maximum throughput of material that cannot be made to disappear.", theorem: "Synthetic textile microfibers released in washing are not captured by standard wastewater treatment (which removes particles >10μm; microfibers are 1–5μm). The mass released per wash cycle is measurable and constant regardless of consumer behavior. The welfare cost scales with cumulative synthetic textile production, which has doubled since 2000.", beta: "7.01", expiry: "Industrial microfiber filtration mandatory at manufacturing scale AND fiber-to-fiber recycling at market scale. Not met." },
@@ -1266,7 +1266,7 @@ const DOMAINS = [
   ]},
   // ── GROUP 5 ─────────────────────────────────────────────────
   { group: "RADIOACTIVE DECAY", type: "impossibility", domains: [
-    { name: "Nuclear Fission / Radioactive Waste Persistence Floor", plain: "Nuclear fission generates no combustion emissions and produces extraordinary energy density — one kilogram of uranium fuel yields as much energy as 3,000 tonnes of coal. It also produces radioactive waste with half-lives measured in thousands to millions of years. Radioactive decay rates are fundamental physical constants. No engineering, no regulation, no market mechanism can accelerate them.", theorem: "Radioactive decay rates are invariant physical constants described by quantum tunneling probability, which is independent of temperature, pressure, chemical environment, or any other physically realizable variable. High-level nuclear waste requires isolation for approximately 100,000 years before its radioactivity decays to natural background levels. No market discount rate can make 100,000-year costs commensurable with current revenues.", beta: "0.53", expiry: "None — half-lives are not negotiable.", callout: "Nuclear is the only energy domain examined with βW below 1.0. It destroys less welfare per dollar of revenue than it creates. The SAPM does not presuppose that any sector is harmful — it measures what it costs. At βW = 0.53, nuclear power is net welfare-positive per dollar of output. It belongs in any serious reform agenda for the energy transition." },
+    { name: "Nuclear Fission / Radioactive Waste Persistence Floor", plain: "Nuclear fission generates no combustion emissions and produces extraordinary energy density — one kilogram of uranium fuel yields as much energy as 3,000 tonnes of coal. It also produces radioactive waste with half-lives measured in thousands to millions of years. Radioactive decay rates are fundamental physical constants. No engineering, no regulation, no market mechanism can accelerate them.", theorem: "Radioactive decay rates are invariant physical constants described by quantum tunneling probability, which is independent of temperature, pressure, chemical environment, or any other physically realizable variable. High-level nuclear waste requires isolation for approximately 100,000 years before its radioactivity decays to natural background levels. No market discount rate can make 100,000-year costs commensurable with current revenues.", beta: "2.94", expiry: "None — half-lives are not negotiable.", callout: "Nuclear has a two-beta architecture: the cover beta (0.53-0.54) measures the net welfare balance including energy benefits; the marginal beta (2.94) measures incremental welfare cost of waste accumulation per dollar of revenue. Both are intentional and documented." },
   ]},
   // ── GROUP 6 ─────────────────────────────────────────────────
   { group: "IRREVERSIBLE CAPABILITY DIFFUSION", type: "impossibility", domains: [
@@ -1349,7 +1349,7 @@ const DOMAINS = [
 //         "TARGET" = primary break pathway for this domain
 const AXIOM_TABLE = [
   // ── IMPOSSIBILITY (physical/chemical/biological — all axioms locked) ─────────
-  ["PFAS / Molecular Persistence",     35.2,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Production ban + non-persistent substitutes"],
+  ["PFAS / Molecular Persistence",     5.31,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Production ban + non-persistent substitutes"],
   ["POPs Beyond PFAS",                  6.23,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Bioremediation at scale"],
   ["Plastics / Polymer Persistence",    6.67,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Material replacement + UN Global Plastics Treaty"],
   ["Coal / Combustion Floor",           6.95,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Renewable replacement + declining production cap"],
@@ -1362,7 +1362,7 @@ const AXIOM_TABLE = [
   ["Industrial Agriculture / Methane",  7.36,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Enteric methane regulation + alternative protein transition"],
   ["Topsoil Erosion / Pedogenesis Rate",4.41,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Regenerative agriculture mandates + no-till incentives"],
   ["Deep-Sea Mining / Benthic Recovery",6.90,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "ISA moratorium + terrestrial recycling at scale"],
-  ["Nuclear / Radioactive Decay",       0.53,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Geological repository + waste volume minimization"],
+  ["Nuclear / Radioactive Decay",       2.94,  "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Geological repository + waste volume minimization"],
   ["WMD Proliferation / Capability Diffusion",21.92,"Impossibility","LOCKED",  "LOCKED",    "LOCKED",    "Treaty verification infrastructure + export controls"],
   ["Orbital Debris / Kessler Cascade",  2.18,   "Impossibility",   "LOCKED",    "LOCKED",    "LOCKED",    "Active debris removal + binding launch debris standards"],
   ["Human Trafficking / Coercive Biology",22.62,"Impossibility",  "LOCKED",    "LOCKED",    "LOCKED",    "Demand criminalization (Nordic model) + survivor support"],
@@ -1603,7 +1603,7 @@ const DA_FIELDS = [
   { num: 4, name: "System C", desc: "The shared system both parties depend on.", example: "Global freshwater supply, human bloodstream, soil biome" },
   { num: 5, name: "Axiom 1 (Overlapping Interests)", desc: "Both parties benefit from cooperation. Is there a deal?", example: "Yes — manufacturers supply, users consume. Bilateral exchange exists." },
   { num: 6, name: "Axiom 2 (System Independence)", desc: "Can W be computed from A's payoff and B's payoff?", example: "No. Knowing revenue and purchase price reveals nothing about groundwater contamination." },
-  { num: 7, name: "βW", desc: "Welfare beta — marginal welfare destruction per dollar of private gain. Π = revenue, never profit.", example: "βW = 35.2. Π = $186.7B. ΔW = $6,574B." },
+  { num: 7, name: "βW", desc: "Welfare beta — marginal welfare destruction per dollar of private gain. Π = revenue, never profit.", example: "βW = 14.96. Π = $75B. ΔW = $1,122B." },
   { num: 8, name: "Theorem Type", desc: "Impossibility (physical constraint) or Intractability (institutional constraint).", example: "Impossibility — Molecular Persistence Floor. C-F bond energy = 485 kJ/mol." },
   { num: 9, name: "Axiom 3 (System Dependence)", desc: "Does agent activity affect W?", example: "Yes — every kilogram of PFAS produced is permanently additive to environmental stock." },
   { num: 10, name: "Current Outcome", desc: "The 3-bit classification (C,A,B).", example: "(0,1,1) — Hollow Win. Both parties gain. Freshwater system degraded." },
@@ -1624,7 +1624,7 @@ function Chapter9New() {
 
       <P><Tip term="DA">Decision Accounting</Tip> solves this by requiring all 15 fields to be filled for every domain, published simultaneously, and cross-referenced. Field 7 (<Tip term="βW">βW</Tip>) tells you the welfare cost per dollar. Field 8 tells you whether the constraint is physical or institutional. Field 10 tells you the current outcome classification. Field 14 tells you who needs to act. No single field is sufficient. All 15 together constitute the forensic record.</P>
 
-      <P>Andrea Prat's conformism result (2005) proved that when an expert's reputation depends on being seen to agree with colleagues, the expert suppresses private information. The result is herding — everyone says the same thing, and the informational value of each additional report is zero. DA breaks this by design: the 15 fields are structural facts, not opinions. You cannot conform your way past a βW of 35.2. You cannot herd around a C-F bond energy of 485 kJ/mol.</P>
+      <P>Andrea Prat's conformism result (2005) proved that when an expert's reputation depends on being seen to agree with colleagues, the expert suppresses private information. The result is herding — everyone says the same thing, and the informational value of each additional report is zero. DA breaks this by design: the 15 fields are structural facts, not opinions. You cannot conform your way past a βW of 50.99 (Firearms). You cannot herd around a C-F bond energy of 485 kJ/mol.</P>
 
       {/* DA FIELD TABLE */}
       <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, margin: "32px 0 12px" }}>THE 15-FIELD AUDIT TRAIL</div>
@@ -2256,14 +2256,14 @@ const NOTES_DOMAINS = [
   ["FX Fixing",                     "Global", 28.4,  7.18,   204.0,  "Paper",          "Π=$28.4B paper §4 calibration (range $22-35B). MC config had wrong Π=$40B. Paper βW=7.18."],
   ["Mining & Rare Earth",           "Global", 150,   11.15,  322,    "Monte Carlo",    ""],
   ["Monoculture / Crop Diversity",  "Global", 340,   7.36,   2503,   "Monte Carlo",   ""],
-  ["Nuclear Power",                 "Global", 150,   0.53,   80,     "Monte Carlo",    ""],
+  ["Nuclear Power",                 "Global", 150,   2.94,   80,     "Monte Carlo",    ""],
   ["Oil & Gas",                     "Global", 3500,  1.63,   5694.6, "Monte Carlo",    ""],
   ["Opioid Ecosystem",              "Global", 75,    14.96,  1121.9, "Monte Carlo",    "Predominantly US crisis; classified Global given Canada/UK/Australia opioid epidemics."],
   ["Orbital Debris",                "Global", 2.2,   2.18,   4.8,    "Monte Carlo",    "βW corrected by MC plausibility audit (IL#28): Kessler cascade annual expected value, not catastrophic tail. CI [1.5, 2.9]."],
   ["Palm Oil",                      "Global", 68,    6.30,   428.3,  "Monte Carlo",    ""],
   ["Payday Lending",                "US",     44,    7.08,   311.7,  "Monte Carlo",    "US-centric industry structure"],
   ["PE in Healthcare",              "US",     31,    5.24,   162.4,  "Monte Carlo",    "Predominantly US. UK/AUS have some PE in healthcare but ΔW calibrated to US."],
-  ["PFAS / Forever Chemicals",      "Global", 186.7, 35.2,   6574,   "Paper", ""],
+  ["PFAS / Forever Chemicals",      "Global", 186.7, 5.31,   6574,   "Paper", ""],
   ["Pharmacy Benefit Management",   "US",     60,    6.35,   381,    "Monte Carlo",    "US health system architecture"],
   ["Platform Monopoly",             "Global", 158,   6.33,   999.4,  "Monte Carlo",    ""],
   ["Plastics",                      "Global", 650,   6.67,   3683,   "Monte Carlo",    ""],

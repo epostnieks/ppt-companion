@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const SITES = [
   // ─── Hub Sites ─────────────────────────────────────────────
-  { title: "Program Hub (PPT)", url: "https://ppt-companion.vercel.app", beta: null, highlight: true, section: "hub" },
+  { title: "Program Hub (Private Pareto Theorem)", url: "https://ppt-companion.vercel.app", beta: null, highlight: true, section: "hub" },
   { title: "C-Adjusted GDP", url: "https://c-adjusted-gdp.vercel.app", beta: null, highlight: true, section: "hub" },
   { title: "Hollow Win Theorem", url: "https://hw-companion.vercel.app", beta: null, section: "hub" },
 
