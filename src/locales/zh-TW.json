@@ -1,0 +1,80 @@
+{
+  "lang": "zh-TW",
+  "dir": "ltr",
+  "pst": {
+    "title": "PST 破解器",
+    "headline": "您能如何幫助？",
+    "subtitle": "目標是將博弈從PST轉變為非PST。選擇您的國家。選擇您的產業。找出哪個公理可以被打破——以及如何打破它。",
+    "globalLoss": "85.3兆美元",
+    "globalLossLabel": "190個經濟體PST博弈造成的年度系統福祉損失",
+    "globalLossExplain": "這是PST博弈每年給地球造成的損失——佔全球GDP的77%。如果每個人、每家企業、每個監管機構都打破其所在產業的PST，我們將恢復85.3兆美元的真實社會福祉。不是試算表上的GDP。是真正的福祉。清潔的空氣、健康的食品、穩定的氣候、公平的工資。為系統而戰。為地球而戰。我們不需要B計畫。讓A計畫成功。",
+    "selectCountry": "選擇您的國家",
+    "sectorsMapped": "已映射的產業",
+    "selectSector": "選擇產業",
+    "fastestPath": "通往非PST的最快路徑",
+    "fastestPathIn": "在{{country}}的{{sector}}產業中，最快的路徑是打破",
+    "vulnerabilityMap": "PST 脆弱性圖譜 — 三個公理",
+    "howToBreak": "如何打破",
+    "whatYouCanDo": "您能做什麼 — 按層級",
+    "infrastructure": "制度基礎設施",
+    "mostBreakable": "最易打破",
+    "holds": "成立",
+    "broken": "已打破",
+    "allCountries": "所有國家",
+    "expanding": "擴展中",
+    "expandingText": "190個國家已從System Asset Pricing Model c-調整GDP資料庫中映射。",
+    "selfLaceration": "自我審視",
+    "selfLacerationText": "本工具基於公開的監管框架提供一般性指導，不構成法律建議。",
+    "searchPlaceholder": "搜尋國家...",
+    "noResults": "沒有匹配的國家。",
+    "break": "打破"
+  },
+  "nav": {
+    "curriculum": "課程",
+    "deepdive": "深度分析",
+    "policy": "政策實驗室",
+    "executive": "高管簡報",
+    "academic": "學術",
+    "sovereign": "主權簡報",
+    "pstbreaker": "如何幫助？"
+  },
+  "axioms": {
+    "1": {
+      "name": "重疊利益",
+      "short": "公理1",
+      "desc": "雙方都從合作中受益。"
+    },
+    "2": {
+      "name": "系統獨立性",
+      "short": "公理2",
+      "desc": "系統福祉W無法從各方收益中計算。"
+    },
+    "3": {
+      "name": "系統依賴性",
+      "short": "公理3",
+      "desc": "代理人活動影響共享系統。"
+    }
+  },
+  "actors": {
+    "insider": {
+      "label": "內部人員/舉報人",
+      "desc": "您在系統內部。"
+    },
+    "executive": {
+      "label": "高管/董事會",
+      "desc": "您對博弈設計有權力。"
+    },
+    "regulator": {
+      "label": "監管機構/行業組織",
+      "desc": "您制定博弈規則。"
+    },
+    "sovereign": {
+      "label": "主權/國際機構",
+      "desc": "您可以重新設計制度本身。"
+    }
+  },
+  "language": {
+    "selector": "語言",
+    "current": "繁體中文"
+  }
+}

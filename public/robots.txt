@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ppt-companion.vercel.app/sitemap.xml

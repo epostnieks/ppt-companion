@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 
 // ══════════════════════════════════════════════════════════════
@@ -22,7 +23,7 @@ const PROPOSITIONS = [
   { id: "D1", type: "Definition", title: "System Welfare (W)",
     formal: "Let W: Ω → ℝ be a measurable function on the state space Ω of a shared system (market, commons, benchmark, ecosystem). W is system welfare if and only if W cannot be computed as a function of bilateral payoffs: W ≠ f(πᴬ, πᴮ) for any f: ℝ² → ℝ.",
     plain: "W measures whether the system — the market, the benchmark, the ecosystem, the commons — is healthy. The defining property: you cannot compute it from what A got and what B got. It is genuinely independent information. No amount of bilateral data can reconstruct it. That is the whole problem." },
-  { id: "D2", type: "Definition", title: "System Beta (βW)",
+  { id: "D2", type: "Definition", title: "Welfare Beta (βW)",
     formal: "βW = −∂W/∂Π, where Π = πᴬ + πᴮ is the total bilateral payoff. βW measures the marginal rate of system welfare destruction per dollar of private gain.",
     plain: "How many dollars of system welfare does one dollar of private gain destroy? That is βW. Firearms is 50.99. Cybercrime is 31.10. Gig Economy is 0.76 — the lowest. Nuclear is 2.94. 61 domains, calibrated. The number does the work." },
   { id: "D3", type: "Definition", title: "Hollow Win",
@@ -30,18 +31,18 @@ const PROPOSITIONS = [
     plain: "Both parties win. The system loses. Standard analysis calls this 'mutual gain' and moves on. It is not mutual gain. It is mutual extraction from a shared system that is collapsing. Every framework in negotiation theory classifies this identically to Win-Win-Win. That is the blindness the theorem exposes." },
   { id: "A1", type: "Axiom", title: "Overlapping Interests (PST-1)",
     formal: "∃ shared system C such that both A and B derive value from C: ∂πᴬ/∂W > 0 and ∂πᴮ/∂W > 0 for some range of W.",
-    plain: "Both parties need the system to be healthy. The LIBOR traders needed the benchmark to be trusted. The VW dealers needed the emissions regime to be credible. They were destroying the thing they depended on. They did not know it." },
+    plain: "Both parties need the system to be healthy. The Benchmark Rate traders needed the benchmark to be trusted. The VW dealers needed the emissions regime to be credible. They were destroying the thing they depended on. They did not know it." },
   { id: "A2", type: "Axiom", title: "System Independence (PST-2)",
     formal: "The bilateral payoff function Π(sᴬ, sᴮ) does not include W as an argument. Each party's strategy space and payoff computation are independent of system state.",
     plain: "The parties can compute their own payoffs without knowing what is happening to the system. Their spreadsheets do not have a 'system welfare' line item. This is not laziness — it is structure. The payoff function does not take W as an input. W is outside the space the deal lives in." },
   { id: "A3", type: "Axiom", title: "System Dependence (PST-3)",
     formal: "∃ feedback function η: ΔW → ΔΠ with η > 0, such that system degradation eventually reduces private payoffs: if ΔW < 0 persistently, then ∃ T* such that ΔΠ < 0 for t > T*.",
     plain: "The damage comes home. Degrade the system long enough and your own revenue collapses. T* is when. VW's T* was 6 years. Tobacco's was 45. The question is never whether. The question is when." },
-  { id: "T1", type: "Theorem", title: "The Private Pareto Theorem (PPT)",
-    formal: "Under PST-1, PST-2, and PST-3, for any bilateral game with βW > 1: no Nash equilibrium exists in which πᴬ > πᴬ₀, πᴮ > πᴮ₀, and ΔW ≥ 0 simultaneously. The cooperative surplus visible to bilateral analysis is temporally unstable with duration T* = δ/(ηλ).",
+  { id: "T1", type: "Theorem", title: "The Private Pareto Theorem",
+    formal: "Under Private-Systemic Tension-1, Private-Systemic Tension-2, and Private-Systemic Tension-3, for any bilateral game with βW > 1: no Nash equilibrium exists in which πᴬ > πᴬ₀, πᴮ > πᴮ₀, and ΔW ≥ 0 simultaneously. The cooperative surplus visible to bilateral analysis is temporally unstable with duration T* = δ/(ηλ).",
     plain: "Three axioms. One impossibility. If the axioms hold and β is above 1.0, there is no equilibrium where both parties gain and the system survives. Not with better negotiation. Not with better data. Not with a smarter algorithm. Structurally, constitutively, permanently — bilateral efficiency and system preservation are incompatible." },
-  { id: "C1", type: "Corollary", title: "GDSS Blindness",
-    formal: "All existing Group Decision Support Systems (INSPIRE, SmartSettle, Negoisst, GMCR) operate in the bilateral payoff space {πᴬ, πᴮ}. Under PST-2, no GDSS that monitors only bilateral payoffs can detect or prevent a Hollow Win outcome.",
+  { id: "C1", type: "Corollary", title: "Group Decision Support System Blindness",
+    formal: "All existing Group Decision Support Systems (INSPIRE, SmartSettle, Negoisst, GMCR) operate in the bilateral payoff space {πᴬ, πᴮ}. Under Private-Systemic Tension-2, no Group Decision Support System that monitors only bilateral payoffs can detect or prevent a Hollow Win outcome.",
     plain: "Every negotiation support system deployed today — INSPIRE, SmartSettle, Negoisst, GMCR — is structurally blind to system welfare. They optimize for the thing that produces Hollow Wins. The tool designed to help is constitutively incapable of detecting the problem." },
   { id: "C2", type: "Corollary", title: "Temporal Instability",
     formal: "For any Hollow Win with βW > 1, ∃ T* = δ/(ηλ) such that the outcome transitions from (0,1,1) to (0,0,0) or (0,0,1) or (0,1,0) at t = T*. The transition is discontinuous when η is threshold-dependent (regulatory enforcement, market collapse, legal liability).",
@@ -56,39 +57,39 @@ const PROPOSITIONS = [
 
 // ─── FALSIFICATION ──────────────────────────────────────────
 const FALSIFICATION = [
-  { criterion: "Find a bilateral game satisfying PST-1, PST-2, and PST-3 with βW > 1 where a Nash equilibrium preserves W.",
+  { criterion: "Find a bilateral game satisfying Private-Systemic Tension-1, Private-Systemic Tension-2, and Private-Systemic Tension-3 with βW > 1 where a Nash equilibrium preserves W.",
     status: "OPEN", note: "This kills the theorem. The proof shows that system independence (PST-2) structurally excludes W from the bilateral optimization. If you can construct a game where it doesn't — where bilateral rationality somehow preserves a variable it cannot see — the theorem falls. I am asking you to try." },
   { criterion: "Demonstrate that W can be computed from bilateral payoffs (πᴬ, πᴮ) without additional information.",
-    status: "OPEN", note: "This destroys PST-2. If system welfare is derivable from what the parties received, the whole architecture collapses. The LIBOR case is the canonical counterexample: the benchmark's integrity cannot be computed from any trader's P&L. But show me a domain where it can, and I will retract." },
-  { criterion: "Identify a domain where all three PST axioms hold and βW < 1.",
+    status: "OPEN", note: "This destroys Private-Systemic Tension-2. If system welfare is derivable from what the parties received, the whole architecture collapses. The Benchmark Rate case is the canonical counterexample: the benchmark's integrity cannot be computed from any trader's P&L. But show me a domain where it can, and I will retract." },
+  { criterion: "Identify a domain where all three Private-Systemic Tension axioms hold and βW < 1.",
     status: "FOUND", note: "Nuclear fission. βW = 0.53. All three axioms hold. βW is below 1.0. This does not falsify the theorem — it confirms it. The theorem says Hollow Wins occur when βW > 1. Nuclear is below the threshold. The framework correctly identifies the only domain where private activity creates net welfare benefit." },
-  { criterion: "Show that a GDSS monitoring only bilateral payoffs successfully prevented a documented Hollow Win.",
-    status: "OPEN", note: "This disproves Corollary C1. I have reviewed every published GDSS case study across INSPIRE, SmartSettle, Negoisst, and GMCR. None monitors system welfare. None prevented a Hollow Win. None could. The tool cannot detect the thing it was not designed to detect." },
+  { criterion: "Show that a Group Decision Support System monitoring only bilateral payoffs successfully prevented a documented Hollow Win.",
+    status: "OPEN", note: "This disproves Corollary C1. I have reviewed every published Group Decision Support System case study across INSPIRE, SmartSettle, Negoisst, and GMCR. None monitors system welfare. None prevented a Hollow Win. None could. The tool cannot detect the thing it was not designed to detect." },
   { criterion: "Demonstrate systematic bias in the Monte Carlo βW estimates.",
     status: "OPEN", note: "The simulation uses triangular, lognormal, and uniform distributions fitted to published source data. Every channel in every domain has cited sources. Sensitivity analysis shows floor effects — minimum βW under simultaneously hostile assumptions. If you can demonstrate that the channel distributions are systematically wrong, the calibration moves. The classification has not changed under any sensitivity test yet conducted." },
-  { criterion: "Find an impossibility theorem in the canon (1-17) that subsumes or contradicts the PPT.",
-    status: "OPEN", note: "Arrow addresses preference aggregation. Sen addresses rights versus efficiency. Myerson-Satterthwaite addresses bilateral trade under private information. The PPT addresses bilateral efficiency versus system welfare. Different axis. Different impossibility. If you can show that one of the 17 existing theorems already covers this result, I do not need an 18th." },
+  { criterion: "Find an impossibility theorem in the canon (1-17) that subsumes or contradicts the Private Pareto Theorem.",
+    status: "OPEN", note: "Arrow addresses preference aggregation. Sen addresses rights versus efficiency. Myerson-Satterthwaite addresses bilateral trade under private information. The Private Pareto Theorem addresses bilateral efficiency versus system welfare. Different axis. Different impossibility. If you can show that one of the 17 existing theorems already covers this result, I do not need an 18th." },
 ];
 
 // ─── RESEARCH AGENDA ────────────────────────────────────────
 const RESEARCH_AGENDA = [
   { area: "Theoretical Extensions",
     questions: [
-      "The PPT is bilateral. Extend it to n parties. Supply chains have dozens of bilateral interactions, each potentially system-destructive. Does the impossibility compound, or does multi-party structure create escape routes?",
+      "The Private Pareto Theorem is bilateral. Extend it to n parties. Supply chains have dozens of bilateral interactions, each potentially system-destructive. Does the impossibility compound, or does multi-party structure create escape routes?",
       "The Folk Theorem says patient agents can sustain cooperation. Does patience help against Hollow Wins? If agents are sufficiently patient, can a Hollow Win persist indefinitely — or does T* always arrive?",
-      "PST-2 is sharp — W is fully independent of bilateral payoffs. Weaken it. Partial system independence — agents see 10% of W, or 50%. Does the impossibility survive? At what visibility threshold does it break?",
+      "Private-Systemic Tension-2 is sharp — W is fully independent of bilateral payoffs. Weaken it. Partial system independence — agents see 10% of W, or 50%. Does the impossibility survive? At what visibility threshold does it break?",
       "βW = 1.0 is a knife edge. Gig Economy is 0.76 — close to neutral. Firearms is 50.99 — off the charts. What happens at β = 1.01? Is there a continuous version of the theorem, or is the threshold genuinely discontinuous?",
     ]},
   { area: "Empirical Calibration",
     questions: [
       "61 domains calibrated and published. All 22 Impossibility and 39 Intractability theorems have formal proofs, Monte Carlo simulations, and falsification bounties. The pipeline of additional domains remains open — suggest new ones.",
       "Can βW be estimated from market data alone — event studies around regulatory announcements, litigation outcomes, enforcement actions — rather than from channel decomposition? A revealed-preference βW would be powerful.",
-      "Cross-domain coupling: coal combustion (β = 6.95) acidifies oceans, which destroys fisheries (β = 4.70). PFAS (β = 5.31) contaminates water (β = 5.61). Do coupled domains have additive or multiplicative βW?",
+      "Cross-domain coupling: coal combustion (β = 6.95) acidifies oceans, which destroys fisheries (β = 4.70). Forever Chemicals (β = 5.31) contaminates water (β = 5.61). Do coupled domains have additive or multiplicative βW?",
       "Temporal dynamics: how does βW change as regulation tightens, technology shifts, or system damage accumulates? Is Bitcoin's β = 5.00 stable, or is it trending as the halving cycle reduces mining rewards?",
     ]},
   { area: "Mechanism Design",
     questions: [
-      "The three GDSS requirements — R1 (independent W-channel), R2 (decomposed payoffs), R3 (trajectory detection) — are derived from the theorem. Build one. What does a W-aware SmartSettle look like? What does it cost?",
+      "The three Group Decision Support System requirements — R1 (independent W-channel), R2 (decomposed payoffs), R3 (trajectory detection) — are derived from the theorem. Build one. What does a W-aware SmartSettle look like? What does it cost?",
       "Optimal Pigouvian tax for a Hollow Win domain: is it τ = βW × Π, or does the non-linearity of system damage — the step function at T* — require a different functional form?",
       "Partial mechanisms: can you reduce βW without eliminating it? A policy that moves Bitcoin from β = 5.0 to β = 2.5 still leaves a Hollow Win, but cuts the welfare cost in half. Is partial reduction welfare-improving, or does it just extend T*?",
       "The Conflictoring protocol — the 8-step diagnostic for identifying and resolving Hollow Wins — has not been tested experimentally. Run the experiment. What is the compliance rate? Does it work?",
@@ -96,15 +97,15 @@ const RESEARCH_AGENDA = [
   { area: "Political Economy",
     questions: [
       "Tobacco's T* was 45 years. What determines T*? Lobbying ($880M for opioids over two decades), manufactured doubt, regulatory capture, geographic arbitrage. Is T*-extension itself a quantifiable investment with measurable ROI?",
-      "Does the PPT guarantee eventual correction, or can sufficiently powerful actors sustain a Hollow Win indefinitely? Is there a political equilibrium where the system degrades forever? The thermodynamic theorems suggest no — the C-F bond sets a floor that politics cannot override.",
-      "International coordination: the Montreal Protocol worked (ozone). The Paris Agreement has not (climate). What structural features distinguish successful commons governance from unsuccessful? The PPT predicts bilateral agreements fail. Treaty architecture must break PST.",
+      "Does the Private Pareto Theorem guarantee eventual correction, or can sufficiently powerful actors sustain a Hollow Win indefinitely? Is there a political equilibrium where the system degrades forever? The thermodynamic theorems suggest no — the C-F bond sets a floor that politics cannot override.",
+      "International coordination: the Montreal Protocol worked (ozone). The Paris Agreement has not (climate). What structural features distinguish successful commons governance from unsuccessful? The Private Pareto Theorem predicts bilateral agreements fail. Treaty architecture must break Private-Systemic Tension.",
     ]},
   { area: "Interdisciplinary",
     questions: [
       "Is the Hollow Win → collapse transition a phase transition in the complex-systems sense? Is T* related to critical slowing down? If so, early-warning signals from complexity science (rising autocorrelation, variance increase) could detect approaching T*.",
       "Evolutionary biology: is the Hollow Win an evolutionary trap? Organisms that over-exploit their environment collapse when carrying capacity is exceeded. The analogy is structural, not metaphorical — can evolutionary game theory formalize the dynamics?",
-      "Thermodynamics: the domain theorems invoke physical constants — C-F bond energy, radioactive decay rates, pedogenesis. The floor is thermodynamic. Is there a thermodynamic formulation of the PPT? Can entropy production provide a W-channel?",
-      "Accounting standards: can SAPM calibrations be integrated into IFRS or GAAP as supplementary welfare-adjusted metrics? The precedent is carbon accounting. The extension is βW-weighted revenue reporting.",
+      "Thermodynamics: the domain theorems invoke physical constants — C-F bond energy, radioactive decay rates, pedogenesis. The floor is thermodynamic. Is there a thermodynamic formulation of the Private Pareto Theorem? Can entropy production provide a W-channel?",
+      "Accounting standards: can System Asset Pricing Model calibrations be integrated into IFRS or GAAP as supplementary welfare-adjusted metrics? The precedent is carbon accounting. The extension is βW-weighted revenue reporting.",
     ]},
 ];
 
@@ -124,7 +125,7 @@ const METHODOLOGY = [
     params: [
       "βW = W / Π = (Σ channel welfare costs) / (total private payoff)",
       "W = Σᵢ wᵢ, where wᵢ is the annual welfare cost of channel i",
-      "Π = total annual private payoff (revenue, profit, or market size — domain-specific definition, always stated)",
+      "Π = total annual private payoff (annual industry revenue — always revenue, never profit or market size)",
       "Each wᵢ estimated from 3-point range (low, mid, high) fitted to source data",
     ],
     validation: "βW is dimensionless — dollars of welfare cost per dollar of private gain. Cross-domain comparability is ensured by consistent methodology. The ratio, not the absolute cost, is the measurement.",
@@ -172,7 +173,7 @@ export default function AcademicHub() {
             Three axioms. One impossibility. Sixty-one calibrated domains. 22 Impossibility Theorems. 39 Intractability Theorems. Here is the machinery — definitions, axioms, theorems, corollaries. Here is how to break it.
           </div>
           <div style={{ fontFamily: M, fontSize: 14, color: MUTED, marginTop: 12 }}>
-            Postnieks, E. (2026). 73 Working Papers &middot; 62 Theorems &middot; SAPM Program.
+            Postnieks, E. (2026). 75 Working Papers &middot; 62 Theorems &middot; System Asset Pricing Model Program.
           </div>
         </div>
 
@@ -216,7 +217,7 @@ export default function AcademicHub() {
 
             <div style={{ padding: "20px 24px", background: "rgba(245,158,11,0.06)", border: `1px solid rgba(245,158,11,0.15)`, borderRadius: 4, marginTop: 24 }}>
               <div style={{ fontFamily: S, fontSize: 20, color: GOLD, lineHeight: 1.8, fontStyle: "italic", textAlign: "center" }}>
-                Seventeen impossibility theorems preceded this one. Arrow (1951). Sen (1970). Myerson-Satterthwaite (1983). Man-Takayama (2013). Eight Nobel Prizes among the authors. None addressed bilateral efficiency versus system welfare. The PPT is the 18th. The 61 domain theorems that follow it are the 19th through 79th.
+                Seventeen impossibility theorems preceded this one. Arrow (1951). Sen (1970). Myerson-Satterthwaite (1983). Man-Takayama (2013). Eight Nobel Prizes among the authors. None addressed bilateral efficiency versus system welfare. The Private Pareto Theorem is the 18th. The 61 domain theorems that follow it are the 19th through 79th.
               </div>
             </div>
           </div>
@@ -347,10 +348,61 @@ export default function AcademicHub() {
           </div>
         )}
 
+        {/* CITATION GENERATOR */}
+        <div style={{ marginTop: 48, padding: "32px 0", borderTop: `1px solid ${BORDER}` }}>
+          <div style={{ fontFamily: M, fontSize: 14, color: GOLD, letterSpacing: 2, marginBottom: 16 }}>CITATION GENERATOR</div>
+          <div style={{ fontFamily: S, fontSize: 17, color: DIM, lineHeight: 1.8, marginBottom: 20 }}>
+            All 75 papers available on SSRN. Each paper has a public Monte Carlo replication repository.
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+            <div style={{ padding: "16px 20px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>
+              <div style={{ fontFamily: M, fontSize: 11, color: GOLD, letterSpacing: 1, marginBottom: 8 }}>FOUNDATIONAL THEOREM</div>
+              <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.6, marginBottom: 8 }}>
+                Postnieks, E. (2026). The Private Pareto Theorem: Bilateral efficiency and system welfare cannot coexist. <em>Working paper</em>.
+              </div>
+              <a href="https://ssrn.com/abstract=PPT" target="_blank" rel="noopener noreferrer" style={{ fontFamily: M, fontSize: 11, color: GOLD, textDecoration: "none" }}>SSRN →</a>
+              <span style={{ fontFamily: M, fontSize: 11, color: MUTED, marginLeft: 12 }}>|</span>
+              <a href="https://github.com/epostnieks/sapm-mc-ppt" target="_blank" rel="noopener noreferrer" style={{ fontFamily: M, fontSize: 11, color: GOLD, textDecoration: "none", marginLeft: 12 }}>MC REPO →</a>
+            </div>
+            <div style={{ padding: "16px 20px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>
+              <div style={{ fontFamily: M, fontSize: 11, color: GOLD, letterSpacing: 1, marginBottom: 8 }}>DECISION ACCOUNTING</div>
+              <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.6, marginBottom: 8 }}>
+                Postnieks, E. (2026). Decision Accounting: Principles and practice. <em>Working paper</em>.
+              </div>
+              <a href="https://ssrn.com/abstract=DA" target="_blank" rel="noopener noreferrer" style={{ fontFamily: M, fontSize: 11, color: GOLD, textDecoration: "none" }}>SSRN →</a>
+            </div>
+            <div style={{ padding: "16px 20px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>
+              <div style={{ fontFamily: M, fontSize: 11, color: GOLD, letterSpacing: 1, marginBottom: 8 }}>FULL PROGRAM</div>
+              <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.6, marginBottom: 8 }}>
+                Postnieks, E. (2026). The System Asset Pricing Model program: 62 theorems across 61 domains. Available at https://ppt-companion.vercel.app.
+              </div>
+              <a href="https://ppt-companion.vercel.app" style={{ fontFamily: M, fontSize: 11, color: GOLD, textDecoration: "none" }}>WEBSITE →</a>
+            </div>
+            <div style={{ padding: "16px 20px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>
+              <div style={{ fontFamily: M, fontSize: 11, color: GOLD, letterSpacing: 1, marginBottom: 8 }}>PER-DOMAIN CITATION TEMPLATE</div>
+              <pre style={{ fontFamily: M, fontSize: 11, color: DIM, lineHeight: 1.5, margin: 0, whiteSpace: "pre-wrap" }}>
+{`Postnieks, E. (2026). [Theorem Name]:
+  An [Impossibility/Intractability] Theorem
+  for [Domain]. Working paper.
+  SSRN: https://ssrn.com/abstract=[ID]
+  MC: github.com/epostnieks/sapm-mc-[slug]`}
+              </pre>
+            </div>
+          </div>
+        </div>
+
+        {/* REPLICATION */}
+        <div style={{ marginTop: 24, padding: "16px 20px", background: "rgba(245,158,11,0.04)", border: `1px solid rgba(245,158,11,0.15)`, borderRadius: 4 }}>
+          <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, marginBottom: 8 }}>REPLICATION</div>
+          <div style={{ fontFamily: S, fontSize: 15, color: DIM, lineHeight: 1.7 }}>
+            All 61 domain papers have public Monte Carlo replication repositories at github.com/epostnieks/sapm-mc-[slug]. Each repository contains the simulation code, input assumptions, and output data needed to reproduce every βW estimate in the program.
+          </div>
+        </div>
+
         {/* Footer */}
         <div style={{ padding: "32px 0", borderTop: `1px solid ${BORDER}`, marginTop: 48, textAlign: "center" }}>
           <div style={{ fontFamily: M, fontSize: 12, color: MUTED }}>
-            © 2026 Erik Postnieks · SAPM Program
+            © 2026 Erik Postnieks · System Asset Pricing Model Program · Independent Researcher · Salt Lake City
           </div>
         </div>
       </main>

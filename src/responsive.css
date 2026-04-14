@@ -1,0 +1,152 @@
+/* ═══════════════════════════════════════════════════════════════
+   SAPM Global Responsive Styles
+   Handles mobile breakpoints for all inline-styled components
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Base reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+img, svg, table {
+  max-width: 100%;
+}
+
+/* ── Skip to content (accessibility) ────────────────────────── */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10000;
+  padding: 8px 16px;
+  background: #F59E0B;
+  color: #0D0D0D;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-to-content:focus {
+  left: 0;
+}
+
+/* ── Tablet (≤ 1024px) ──────────────────────────────────────── */
+@media (max-width: 1024px) {
+  /* Reduce grid columns from 4 to 2 */
+  div[style*="gridTemplateColumns: \"repeat(4"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ── Mobile (≤ 768px) ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Sidebar collapses — handled in SideNav.jsx + App.jsx */
+
+  /* Force single-column grids */
+  div[style*="grid-template-columns: repeat"],
+  div[style*="gridTemplateColumns: repeat"],
+  div[style*="grid-template-columns: 1fr 1fr"],
+  div[style*="gridTemplateColumns: \"1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Prevent horizontal overflow on tables and pre blocks */
+  pre, code {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Reduce large headings */
+  h1 {
+    font-size: 24px !important;
+  }
+
+  h2 {
+    font-size: 20px !important;
+  }
+
+  /* Reduce padding on content areas */
+  div[style*="padding: 72px"],
+  div[style*="padding: 64px"],
+  div[style*="padding: 48px"] {
+    padding: 24px 16px !important;
+  }
+
+  div[style*="paddingTop: 72px"],
+  div[style*="paddingTop: 64px"],
+  div[style*="paddingTop: 48px"] {
+    padding-top: 24px !important;
+  }
+
+  /* Hero stat numbers — scale down */
+  div[style*="fontSize: 48"],
+  div[style*="fontSize: 36"] {
+    font-size: 28px !important;
+  }
+
+  /* Flexbox wrapping for badges and links */
+  div[style*="display: flex"][style*="gap"] {
+    flex-wrap: wrap !important;
+  }
+
+  /* Reform arithmetic — stack horizontally-laid elements */
+  div[style*="gridTemplateColumns: \"1fr auto 1fr"] {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+
+  /* Hide arithmetic operators on mobile */
+  div[style*="gridTemplateColumns: \"1fr auto 1fr"] > div[style*="fontSize: 18"] {
+    display: none !important;
+  }
+}
+
+/* ── Small mobile (≤ 480px) ─────────────────────────────────── */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px !important;
+  }
+
+  h2 {
+    font-size: 18px !important;
+  }
+
+  /* Further reduce padding */
+  div[style*="padding: 24px"],
+  div[style*="padding: 20px"] {
+    padding: 12px 10px !important;
+  }
+
+  /* Scale down stat boxes */
+  div[style*="fontSize: 28"] {
+    font-size: 22px !important;
+  }
+}
+
+/* ── Focus styles (accessibility) ───────────────────────────── */
+button:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #F59E0B;
+  outline-offset: 2px;
+}
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

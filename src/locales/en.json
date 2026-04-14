@@ -3,18 +3,18 @@
   "dir": "ltr",
 
   "pst": {
-    "title": "PST BREAKER",
+    "title": "REFORM PATHFINDER",
     "headline": "How can you help?",
-    "subtitle": "The goal is to change the game from PST to non-PST. Pick your country. Pick your sector. Find out which axiom breaks — and what you do to break it.",
-    "globalLoss": "$20.9 trillion",
-    "globalLossLabel": "Annual system welfare loss from PST games across 190 countries",
-    "globalLossExplain": "The SAPM model measures welfare destruction across 27 channels and 190 economies. At \u03bc=1.0, the aggregate c-adjusted GDP gap is $20.9T — 19% of conventional world GDP. This is the recoverable welfare: the difference between what the global economy produces and what it delivers to the system. Every PST game converted to a non-PST game closes part of that gap. This tool maps the institutional pathway for each country and sector.",
+    "subtitle": "The goal is to break the Private Systemic Tension — the game where both parties profit while the system they depend on degrades. Pick your country. Pick your sector. Find out which axiom breaks — and what you do to break it.",
+    "globalLoss": "$85.3 trillion",
+    "globalLossLabel": "Annual welfare destruction across 61 domains and 190 countries",
+    "globalLossExplain": "Calibrated welfare betas across 61 domains — from firearms (welfare beta of 51) to gig economy platforms (welfare beta of 0.76) — produce $85.3 trillion in annual system welfare destruction. That is the gap between what the global economy produces and what it actually delivers to the people and systems it depends on. Every welfare-destroying game converted to a sustainable one closes part of that gap. This tool maps the institutional pathway for each country and sector.",
     "selectCountry": "SELECT YOUR COUNTRY",
     "sectorsMapped": "SECTORS MAPPED",
     "selectSector": "SELECT SECTOR",
-    "fastestPath": "FASTEST PATH TO NON-PST",
+    "fastestPath": "FASTEST PATH TO REFORM",
     "fastestPathIn": "In {{country}}'s {{sector}} sector, the fastest path is breaking",
-    "vulnerabilityMap": "PST VULNERABILITY MAP — THREE AXIOMS",
+    "vulnerabilityMap": "VULNERABILITY MAP — THREE AXIOMS",
     "howToBreak": "HOW TO BREAK IT",
     "whatYouCanDo": "WHAT YOU CAN DO — BY LEVEL",
     "infrastructure": "INSTITUTIONAL INFRASTRUCTURE",
@@ -23,7 +23,7 @@
     "broken": "BROKEN",
     "allCountries": "ALL COUNTRIES",
     "expanding": "EXPANDING",
-    "expandingText": "190 countries mapped from the SAPM c-adjusted GDP database. Every country's fastest path from PST to non-PST. If you have expertise in a jurisdiction not listed — regulatory frameworks, whistleblower statutes, sector-specific agencies — contribute to make this tool better.",
+    "expandingText": "190 countries mapped from the welfare-adjusted GDP database. Every country's fastest path to reform. If you have expertise in a jurisdiction not listed — regulatory frameworks, whistleblower statutes, sector-specific agencies — contribute to make this tool better.",
     "selfLaceration": "SELF-LACERATION",
     "selfLacerationText": "This tool provides general guidance based on publicly available regulatory frameworks. It is not legal advice. Whistleblower statutes, enforcement mechanisms, and protection levels vary by jurisdiction and change over time. Before taking action — especially at Level 1 — consult a qualified attorney in your jurisdiction. The institutional infrastructure listed may be incomplete, out of date, or unenforced. Where data is missing, the tool says so. That honesty is itself a finding: the absence of a whistleblower statute IS the gap.",
     "searchPlaceholder": "Search countries...",
@@ -38,7 +38,7 @@
     "executive": "EXECUTIVE BRIEF",
     "academic": "ACADEMIC",
     "sovereign": "SOVEREIGN BRIEF",
-    "pstbreaker": "HOW CAN YOU HELP?"
+    "pstbreaker": "REFORM PATHFINDER"
   },
 
   "axioms": {

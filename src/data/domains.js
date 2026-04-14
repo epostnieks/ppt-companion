@@ -1,5 +1,5 @@
 // ══════════════════════════════════════════════════════════════
-// DOMAINS.JS — Single Source of Truth for All 62 SAPM Domains
+// DOMAINS.JS — Single Source of Truth for All 62 System Asset Pricing Model Domains
 // Erik Postnieks © 2026
 //
 // Every view (PolicyLab, ExecutiveBrief, ImpossibilityTheorems,
@@ -98,12 +98,12 @@ const AGENT_STUB = {
 const DOMAINS = [
 
 // ═══════════════════════════════════════════════════════════════
-// #1 — PPT (Foundational)
+// #1 — Private Pareto Theorem (Foundational)
 // ═══════════════════════════════════════════════════════════════
 {
   id: "ppt",
-  name: "Private Pareto Trap (PPT)",
-  shortName: "PPT",
+  name: "Private Pareto Trap",
+  shortName: "Private Pareto Trap",
   paperNumber: 1,
   beta: null,
   betaCI: null,
@@ -226,12 +226,12 @@ const DOMAINS = [
 },
 
 // ═══════════════════════════════════════════════════════════════
-// #4 — PFAS / Forever Chemicals
+// #4 — Forever Chemicals (PFAS)
 // ═══════════════════════════════════════════════════════════════
 {
   id: "pfas",
-  name: "PFAS / Forever Chemicals",
-  shortName: "PFAS",
+  name: "Forever Chemicals (PFAS)",
+  shortName: "Forever Chemicals",
   paperNumber: 4,
   beta: 5.31,
   betaCI: "[4.02, 6.61]",
@@ -241,7 +241,7 @@ const DOMAINS = [
   classification: "Type 8 Slow Hollow Win",
   classificationType: 8,
   sector: "Chemicals & Materials",
-  revenue: "$187B (PFAS-using industries)",
+  revenue: "$187B (Forever Chemicals-using industries)",
   risk: "Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA) strict liability. Class-wide production ban advancing in EU. Remediation costs projected at $100B+. The carbon-fluorine bond has never lost an arbitration.",
   timeline: "Active",
   jelCodes: ["Q53", "I18", "L65", "D62", "H23"],
@@ -249,7 +249,7 @@ const DOMAINS = [
     id: "III",
     name: "The Molecular Persistence Floor",
     constraint: "Thermodynamic",
-    impossible: "Using PFAS or persistent polymers at scale without irreversible environmental accumulation",
+    impossible: "Using Forever Chemicals or persistent polymers at scale without irreversible environmental accumulation",
     axioms: ["Functional Necessity", "Open-Release Architecture", "Environmental Non-Degradability"],
   },
   paper: { status: PAPER_STATUS.PUBLISHED, version: null, ssrnUrl: null, companionUrl: null, summary: null, citeCode: "2026d", wordCount: 50671, figureCount: 86, tableCount: 170, lastUpdated: null },
@@ -257,9 +257,9 @@ const DOMAINS = [
     jurisdiction: ["Environmental Protection Agency (EPA)", "European Chemicals Agency (ECHA)", "Department of Defense (DOD) (AFFF)", "State Attorneys General"],
     addressable: "low",
     urgency: "critical",
-    intervention: "Class-wide PFAS production ban (EU proposal). CERCLA hazardous substance designation (US, finalized 2024). Manufacturer-funded remediation. Drinking water MCL enforcement.",
-    existing: ["CERCLA Hazardous Substance Designation (2024)", "EPA PFAS Strategic Roadmap", "EU PFAS Restriction Proposal (ECHA)", "Safe Drinking Water Act MCLs (2024)"],
-    gap: "Over 14,000 PFAS compounds exist. EPA has set enforceable limits for six. The carbon-fluorine bond is 485 kJ/mol \u2014 stronger than any enzyme on Earth can break. Remediation is containment, not destruction. The floor is thermodynamic.",
+    intervention: "Class-wide Forever Chemicals production ban (EU proposal). Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA) hazardous substance designation (US, finalized 2024). Manufacturer-funded remediation. Drinking water MCL enforcement.",
+    existing: ["Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA) Hazardous Substance Designation (2024)", "EPA Forever Chemicals Strategic Roadmap", "EU Forever Chemicals Restriction Proposal (ECHA)", "Safe Drinking Water Act MCLs (2024)"],
+    gap: "Over 14,000 Forever Chemicals compounds exist. EPA has set enforceable limits for six. The carbon-fluorine bond is 485 kJ/mol \u2014 stronger than any enzyme on Earth can break. Remediation is containment, not destruction. The floor is thermodynamic.",
     committee: { us: "Environment & Public Works; Energy & Commerce", eu: "ENVI" },
   },
   agents: { ...AGENT_STUB },
@@ -271,7 +271,7 @@ const DOMAINS = [
 {
   id: "amr",
   name: "Antimicrobial Resistance",
-  shortName: "AMR",
+  shortName: "Antimicrobial Resistance",
   paperNumber: 5,
   beta: 5.84,
   betaCI: "[4.43, 7.26]",
@@ -298,7 +298,7 @@ const DOMAINS = [
     addressable: "medium",
     urgency: "critical",
     intervention: "PASTEUR Act (pull incentives for novel antibiotics). Livestock sub-therapeutic use ban. Hospital antibiotic stewardship mandates. Resistance surveillance funding.",
-    existing: ["National Action Plan for Combating Antibiotic-Resistant Bacteria", "WHO Global Action Plan on AMR", "EU ban on growth-promoting antibiotics (2006)"],
+    existing: ["National Action Plan for Combating Antibiotic-Resistant Bacteria", "WHO Global Action Plan on Antimicrobial Resistance", "EU ban on growth-promoting antibiotics (2006)"],
     gap: "Two new antibiotic classes in 40 years. Resistance evolving on 20-minute generation cycles. Livestock sub-therapeutic use drives resistance. PASTEUR Act stalled twice. The pharmaceutical pipeline cannot outrun bacterial evolution.",
     committee: { us: "HELP; Agriculture; Energy & Commerce", eu: "ENVI; AGRI" },
   },
@@ -414,11 +414,11 @@ const DOMAINS = [
   },
   paper: { status: PAPER_STATUS.PUBLISHED, version: null, ssrnUrl: null, companionUrl: null, summary: null, citeCode: null, wordCount: 41002, figureCount: 22, tableCount: 201, lastUpdated: null },
   policyLab: {
-    jurisdiction: ["International Seabed Authority (ISA)", "National Oceanic and Atmospheric Administration (NOAA)", "UN Convention on the Law of the Sea (UNCLOS)"],
+    jurisdiction: ["International Seabed Authority (ISA)", "National Oceanic and Atmospheric Administration (NOAA)", "UN Convention on the Law of the Sea (United Nations Convention on the Law of the Sea (UNCLOS))"],
     addressable: "medium",
     urgency: "high",
-    intervention: "Mining moratorium until ISA Mining Code is finalized. Abyssal ecosystem impact assessment requirements. Moratorium coalition building (32 countries).",
-    existing: ["UNCLOS", "ISA Exploration Regulations", "Deep Sea Mining moratoria (national)"],
+    intervention: "Mining moratorium until International Seabed Authority Mining Code is finalized. Abyssal ecosystem impact assessment requirements. Moratorium coalition building (32 countries).",
+    existing: ["United Nations Convention on the Law of the Sea", "ISA Exploration Regulations", "Deep Sea Mining moratoria (national)"],
     gap: "32 countries calling for moratorium. International Seabed Authority Mining Code not finalized. Nodules form at 10\u201320 mm per million years. There is no sustainable harvest rate.",
     committee: { us: "Foreign Relations; Natural Resources", eu: "ENVI" },
   },
@@ -457,8 +457,8 @@ const DOMAINS = [
     jurisdiction: ["EPA", "EU Emissions Trading System (EU ETS)", "International Energy Agency (IEA)"],
     addressable: "low",
     urgency: "medium",
-    intervention: "CBAM tariffs on cement imports. CCS mandates for new kilns. Alternative binder R&D subsidies (geopolymer, LC3). Process emission floor acknowledgment in climate accounting.",
-    existing: ["EU ETS", "EU CBAM (2026)", "EPA GHG Reporting Program"],
+    intervention: "Carbon Border Adjustment Mechanism tariffs on cement imports. CCS mandates for new kilns. Alternative binder R&D subsidies (geopolymer, LC3). Process emission floor acknowledgment in climate accounting.",
+    existing: ["EU ETS", "EU Carbon Border Adjustment Mechanism (2026)", "EPA GHG Reporting Program"],
     gap: "CaCO\u2083 \u2192 CaO + CO\u2082 is conservation of mass. No fuel switch eliminates the process emission. CCS is the only pathway and it has never been deployed at cement-industry scale. The floor is thermodynamic.",
     committee: { us: "Environment & Public Works; Energy & Commerce", eu: "ENVI; ITRE" },
   },
@@ -466,12 +466,12 @@ const DOMAINS = [
 },
 
 // ═══════════════════════════════════════════════════════════════
-// #10 — WMD Capability Diffusion
+// #10 — Weapons of Mass Destruction
 // ═══════════════════════════════════════════════════════════════
 {
   id: "wmd",
-  name: "WMD Capability Diffusion",
-  shortName: "WMD",
+  name: "Weapons of Mass Destruction",
+  shortName: "Weapons of Mass Destruction",
   paperNumber: 10,
   beta: 21.92,
   betaCI: "[13.80, 36.60]",
@@ -489,7 +489,7 @@ const DOMAINS = [
     id: "IX",
     name: "The Capability Diffusion Ceiling",
     constraint: "Informational",
-    impossible: "Transferring WMD or lethal autonomous weapons capability without permanently enabling independent recipient capability",
+    impossible: "Transferring Weapons of Mass Destruction or lethal autonomous weapons capability without permanently enabling independent recipient capability",
     axioms: ["Security Necessity", "Knowledge Transfer Identity", "Proliferation Ratchet"],
   },
   paper: { status: PAPER_STATUS.PUBLISHED, version: null, ssrnUrl: null, companionUrl: null, summary: null, citeCode: null, wordCount: 46182, figureCount: 11, tableCount: 533, lastUpdated: null },
@@ -578,7 +578,7 @@ const DOMAINS = [
     addressable: "medium",
     urgency: "critical",
     intervention: "Orbital-use fee ($235,000/object-year, Rao et al.). Mandatory deorbit within 5 years. Liability regime for constellation operators.",
-    existing: ["Orbital Debris Mitigation Standard Practices (2019)", "ITU Radio Regulations", "UN Space Debris Mitigation Guidelines"],
+    existing: ["Orbital Debris Mitigation Standard Practices (2019)", "International Telecommunication Union Radio Regulations", "UN Space Debris Mitigation Guidelines"],
     gap: "6,000+ Starlink satellites and no one is charging rent. No binding international debris liability regime. FCC 5-year deorbit rule is new and untested. Kessler Syndrome is a phase transition.",
     committee: { us: "Commerce; Armed Services", eu: "ITRE; Security & Defence" },
   },
@@ -658,7 +658,7 @@ const DOMAINS = [
     addressable: "medium",
     urgency: "high",
     intervention: "Soil health mandates tied to crop insurance subsidies. Cover crop requirements. Conservation tillage incentives. Erosion rate monitoring.",
-    existing: ["Conservation Reserve Program", "NRCS Conservation Programs", "Soil Conservation Act"],
+    existing: ["Conservation Reserve Program", "Natural Resources Conservation Service Conservation Programs", "Soil Conservation Act"],
     gap: "Erosion rates 10\u2013100\u00d7 formation rates. Conservation Reserve Program enrollment is capped. No mandatory soil health standards tied to farm subsidies.",
     committee: { us: "Agriculture", eu: "AGRI" },
   },
@@ -697,9 +697,9 @@ const DOMAINS = [
     jurisdiction: ["Department of Justice (DOJ)", "Federal Trade Commission (FTC)", "EU DG Competition", "EU Digital Markets Act"],
     addressable: "medium",
     urgency: "high",
-    intervention: "Structural separation. Interoperability mandates. Data portability requirements. DMA enforcement.",
+    intervention: "Structural separation. Interoperability mandates. Data portability requirements. Digital Markets Act enforcement.",
     existing: ["Sherman Antitrust Act", "EU Digital Markets Act (2024)", "DOJ v. Google", "FTC v. Meta"],
-    gap: "DOJ v. Google. FTC v. Meta. EU DMA enforcement beginning. The EU moved first. US litigation is years from resolution.",
+    gap: "DOJ v. Google. FTC v. Meta. EU Digital Markets Act enforcement beginning. The EU moved first. US litigation is years from resolution.",
     committee: { us: "Judiciary; Commerce", eu: "IMCO; ECON" },
   },
   agents: { ...AGENT_STUB },
@@ -831,7 +831,7 @@ const DOMAINS = [
 {
   id: "industrial_ag_methane",
   name: "Industrial Agriculture Methane",
-  shortName: "Ag Methane",
+  shortName: "Agriculture Methane",
   paperNumber: 19,
   beta: 7.36,
   betaCI: "[5.70, 9.00]",
@@ -871,7 +871,7 @@ const DOMAINS = [
 {
   id: "pe_healthcare",
   name: "Private Equity in Healthcare",
-  shortName: "PE Healthcare",
+  shortName: "Private Equity Healthcare",
   paperNumber: 20,
   beta: 5.24,
   betaCI: "[4.00, 6.50]",
@@ -978,7 +978,7 @@ const DOMAINS = [
     addressable: "medium",
     urgency: "critical",
     intervention: "Kids Online Safety Act (KOSA). Algorithmic transparency mandates. Age verification requirements. Design code for minors (UK model).",
-    existing: ["COPPA", "EU Digital Services Act", "UK Age Appropriate Design Code", "State AG investigations"],
+    existing: ["Children's Online Privacy Protection Act", "EU Digital Services Act", "UK Age Appropriate Design Code", "State AG investigations"],
     gap: "Engagement optimization algorithms maximize dopaminergic response without regard to user welfare. Internal research suppressed. KOSA advancing but not passed.",
     committee: { us: "Commerce; Judiciary", eu: "IMCO; LIBE" },
   },
@@ -1138,7 +1138,7 @@ const DOMAINS = [
     addressable: "medium",
     urgency: "high",
     intervention: "Tailings dam safety mandates. Acid mine drainage bonding requirements. Rare earth processing environmental standards. Recycling and urban mining incentives.",
-    existing: ["CERCLA", "Surface Mining Control and Reclamation Act", "Global Industry Standard on Tailings Management"],
+    existing: ["Comprehensive Environmental Response, Compensation, and Liability Act", "Surface Mining Control and Reclamation Act", "Global Industry Standard on Tailings Management"],
     gap: "Tailings dam failures. Acid mine drainage persists for centuries. Rare earth processing generates radioactive thorium waste.",
     committee: { us: "Energy & Natural Resources; Environment & Public Works", eu: "ENVI; ITRE" },
   },
@@ -1174,11 +1174,11 @@ const DOMAINS = [
   },
   paper: { status: PAPER_STATUS.PUBLISHED, version: null, ssrnUrl: null, companionUrl: null, summary: null, citeCode: null, wordCount: 48243, figureCount: 49, tableCount: 418, lastUpdated: null },
   policyLab: {
-    jurisdiction: ["State insurance commissioners", "FEMA (NFIP)", "Federal Insurance Office", "IAIS"],
+    jurisdiction: ["State insurance commissioners", "FEMA (National Flood Insurance Program (NFIP))", "Federal Insurance Office", "International Association of Insurance Supervisors"],
     addressable: "medium",
     urgency: "high",
     intervention: "Non-stationary risk modeling mandates. Insurer-of-last-resort reform. Building code climate adaptation. Managed retreat frameworks.",
-    existing: ["National Flood Insurance Program", "State rate regulation", "TCFD/ISSB disclosure"],
+    existing: ["National Flood Insurance Program", "State rate regulation", "Task Force on Climate-Related Financial Disclosures/ISSB disclosure"],
     gap: "Fat-tail climate risk cannot be priced by historical loss models. Insurers withdrawing from highest-risk states. The remaining exposure is socialized.",
     committee: { us: "Banking; Financial Services", eu: "ECON" },
   },
@@ -1186,12 +1186,12 @@ const DOMAINS = [
 },
 
 // ═══════════════════════════════════════════════════════════════
-// #28 — Ultra-Processed Food (UPF)
+// #28 — Ultra-Processed Food
 // ═══════════════════════════════════════════════════════════════
 {
   id: "upf",
-  name: "Ultra-Processed Food (UPF)",
-  shortName: "UPF",
+  name: "Ultra-Processed Food",
+  shortName: "Ultra-Processed Food",
   paperNumber: 28,
   beta: 4.06,
   betaCI: "[3.39, 4.95]",
@@ -1201,8 +1201,8 @@ const DOMAINS = [
   classification: "Type 6 Slow Hollow Win",
   classificationType: 6,
   sector: "Food & Agriculture",
-  revenue: "$2T (global UPF)",
-  risk: "Front-of-pack warning labels \u2014 Chile reduced UPF consumption 25% in two years. Marketing restrictions. School meal reformulation. The US has not tried.",
+  revenue: "$2T (global Ultra-Processed Food)",
+  risk: "Front-of-pack warning labels \u2014 Chile reduced Ultra-Processed Food consumption 25% in two years. Marketing restrictions. School meal reformulation. The US has not tried.",
   timeline: "3\u20137 years",
   jelCodes: ["I12", "L66", "Q18", "D62"],
   theorem: {
@@ -1217,9 +1217,9 @@ const DOMAINS = [
     jurisdiction: ["FDA", "USDA", "FTC (marketing)", "WHO"],
     addressable: "high",
     urgency: "high",
-    intervention: "Front-of-pack warning labels (Chile model). Marketing restrictions to children. School meal UPF limits. Sugar/sodium taxes.",
+    intervention: "Front-of-pack warning labels (Chile model). Marketing restrictions to children. School meal Ultra-Processed Food limits. Sugar/sodium taxes.",
     existing: ["Nutrition Labeling (current)", "Chile Ley de Etiquetado (2016)", "Mexico front-of-pack labels"],
-    gap: "Front-of-pack warning labels \u2014 Chile reduced UPF consumption 25% in two years. The US has not tried. No federal UPF marketing restrictions.",
+    gap: "Front-of-pack warning labels \u2014 Chile reduced Ultra-Processed Food consumption 25% in two years. The US has not tried. No federal Ultra-Processed Food marketing restrictions.",
     committee: { us: "HELP; Agriculture; Energy & Commerce", eu: "ENVI; AGRI" },
   },
   agents: { ...AGENT_STUB },
@@ -1294,7 +1294,7 @@ const DOMAINS = [
   },
   paper: { status: PAPER_STATUS.PUBLISHED, version: null, ssrnUrl: null, companionUrl: null, summary: null, citeCode: null, wordCount: 52170, figureCount: 40, tableCount: 456, lastUpdated: null },
   policyLab: {
-    jurisdiction: ["Department of Labor", "NLRB", "State labor agencies", "EU Platform Work Directive"],
+    jurisdiction: ["Department of Labor", "National Labor Relations Board", "State labor agencies", "EU Platform Work Directive"],
     addressable: "high",
     urgency: "medium",
     intervention: "Worker classification reform (ABC test). Platform transparency mandates. Algorithmic management disclosure. Portable benefits.",
@@ -1306,12 +1306,12 @@ const DOMAINS = [
 },
 
 // ═══════════════════════════════════════════════════════════════
-// #31 — Commercial Real Estate (CRE)
+// #31 — Commercial Real Estate
 // ═══════════════════════════════════════════════════════════════
 {
   id: "cre",
-  name: "Commercial Real Estate (CRE) Urban Hollowing",
-  shortName: "CRE",
+  name: "Commercial Real Estate",
+  shortName: "Commercial Real Estate",
   paperNumber: 31,
   beta: 7.78,
   betaCI: "[6.50, 9.10]",
@@ -1321,7 +1321,7 @@ const DOMAINS = [
   classification: "Type 6 Slow Hollow Win",
   classificationType: 6,
   sector: "Financial Services & Consumer",
-  revenue: "$20T (US CRE market)",
+  revenue: "$20T (US Commercial Real Estate market)",
   risk: "$1.5T in distressed loans carried at 2019 valuations. San Francisco office vacancy: 37%. The loans say the buildings are worth what they were. They are not.",
   timeline: "1\u20133 years",
   jelCodes: ["R33", "G21", "R52", "D62"],
@@ -1337,7 +1337,7 @@ const DOMAINS = [
     jurisdiction: ["Federal Reserve", "OCC", "FDIC", "SEC"],
     addressable: "medium",
     urgency: "critical",
-    intervention: "Mark-to-market enforcement. Stress testing for CRE concentration. Orderly workout frameworks. Adaptive reuse incentives.",
+    intervention: "Mark-to-market enforcement. Stress testing for Commercial Real Estate concentration. Orderly workout frameworks. Adaptive reuse incentives.",
     existing: ["Bank capital adequacy requirements", "Fed stress tests", "Dodd-Frank"],
     gap: "$1.5T in distressed loans carried at 2019 valuations. Extend-and-pretend delays recognition. San Francisco office vacancy: 37%.",
     committee: { us: "Banking; Financial Services", eu: "ECON" },
@@ -1522,7 +1522,7 @@ const DOMAINS = [
   classificationType: 5,
   sector: "Biotech & Environment",
   revenue: "$1T+ (global aviation)",
-  risk: "No zero-emission technology exists for long-haul flight. Sustainable aviation fuel is less than 1% of jet fuel and costs 3\u20135\u00d7 conventional. CORSIA offsets growth from 2019 baseline \u2014 not absolute reduction. Physics of energy density sets the floor.",
+  risk: "No zero-emission technology exists for long-haul flight. Sustainable aviation fuel is less than 1% of jet fuel and costs 3\u20135\u00d7 conventional. Carbon Offsetting and Reduction Scheme for International Aviation (CORSIA) offsets growth from 2019 baseline \u2014 not absolute reduction. Physics of energy density sets the floor.",
   timeline: "5\u201315 years",
   jelCodes: ["R41", "Q54", "L93", "D62"],
   theorem: {
@@ -1537,9 +1537,9 @@ const DOMAINS = [
     jurisdiction: ["FAA", "ICAO", "EPA", "EU ETS (aviation)"],
     addressable: "low",
     urgency: "medium",
-    intervention: "SAF blending mandates. Frequent flyer levy. Short-haul rail substitution. CORSIA strengthening.",
-    existing: ["CORSIA", "EU ETS aviation inclusion", "ReFuelEU Aviation", "IRA SAF tax credit"],
-    gap: "No zero-emission technology for long-haul flight. SAF is <1% of jet fuel. CORSIA offsets growth, not absolute reduction. Physics sets the floor.",
+    intervention: "SAF blending mandates. Frequent flyer levy. Short-haul rail substitution. Carbon Offsetting and Reduction Scheme for International Aviation (CORSIA) strengthening.",
+    existing: ["Carbon Offsetting and Reduction Scheme for International Aviation", "EU ETS aviation inclusion", "ReFuelEU Aviation", "IRA SAF tax credit"],
+    gap: "No zero-emission technology for long-haul flight. SAF is <1% of jet fuel. Carbon Offsetting and Reduction Scheme for International Aviation (CORSIA) offsets growth, not absolute reduction. Physics sets the floor.",
     committee: { us: "Commerce; Transportation", eu: "TRAN; ENVI" },
   },
   agents: { ...AGENT_STUB },
@@ -1654,11 +1654,11 @@ const DOMAINS = [
   },
   paper: { status: PAPER_STATUS.PUBLISHED, version: null, ssrnUrl: null, companionUrl: null, summary: null, citeCode: null, wordCount: 52795, figureCount: 32, tableCount: 356, lastUpdated: null },
   policyLab: {
-    jurisdiction: ["EU EUDR", "RSPO", "Indonesian/Malaysian governments", "USDA"],
+    jurisdiction: ["EU EUDR", "Roundtable on Sustainable Palm Oil", "Indonesian/Malaysian governments", "USDA"],
     addressable: "medium",
     urgency: "high",
-    intervention: "EUDR enforcement. Import tariff differentiation. Satellite-verified traceability. RSPO standard strengthening. Peatland conversion ban.",
-    existing: ["EU Deforestation Regulation", "RSPO Certification", "Indonesia moratorium (expired)"],
+    intervention: "EUDR enforcement. Import tariff differentiation. Satellite-verified traceability. Roundtable on Sustainable Palm Oil standard strengthening. Peatland conversion ban.",
+    existing: ["EU Deforestation Regulation", "Roundtable on Sustainable Palm Oil Certification", "Indonesia moratorium (expired)"],
     gap: "EUDR enforcement beginning. Satellite-verified traceability incomplete. Peatland conversion continues. The forest does not grow back.",
     committee: { us: "Agriculture; Foreign Relations", eu: "ENVI; INTA" },
   },
@@ -1786,12 +1786,12 @@ const DOMAINS = [
 },
 
 // ═══════════════════════════════════════════════════════════════
-// #43 — LIBOR / Financial Benchmark Manipulation
+// #43 — Financial Benchmark Manipulation
 // ═══════════════════════════════════════════════════════════════
 {
   id: "libor",
-  name: "LIBOR / Financial Benchmark Manipulation",
-  shortName: "LIBOR",
+  name: "Financial Benchmark Manipulation",
+  shortName: "Benchmark Rate Fixing",
   paperNumber: 43,
   beta: 5.13,
   betaCI: "[3.42, 8.16]",
@@ -1802,7 +1802,7 @@ const DOMAINS = [
   classificationType: 7,
   sector: "Financial Services & Consumer",
   revenue: "$40B (trading desk revenues)",
-  risk: "Self-referential benchmark: the banks setting the rate were the banks trading on it. $350T in contracts mispriced. Replaced by SOFR but the structural vulnerability \u2014 self-reported benchmarks \u2014 persists in other markets.",
+  risk: "Self-referential benchmark: the banks setting the rate were the banks trading on it. $350T in contracts mispriced. Replaced by Secured Overnight Financing Rate (SOFR) but the structural vulnerability \u2014 self-reported benchmarks \u2014 persists in other markets.",
   timeline: "Partially resolved",
   jelCodes: ["G14", "G28", "D82", "D62"],
   theorem: {
@@ -1814,12 +1814,12 @@ const DOMAINS = [
   },
   paper: { status: PAPER_STATUS.PUBLISHED, version: null, ssrnUrl: null, companionUrl: null, summary: null, citeCode: null, wordCount: 47733, figureCount: 8, tableCount: 204, lastUpdated: null },
   policyLab: {
-    jurisdiction: ["CFTC", "SEC", "FCA (UK)", "IOSCO"],
+    jurisdiction: ["CFTC", "SEC", "FCA (UK)", "International Organization of Securities Commissions"],
     addressable: "high",
     urgency: "low",
-    intervention: "Transaction-based benchmark mandates. Self-reporting elimination. SOFR transition completion. Benchmark administrator regulation.",
-    existing: ["SOFR transition (2023)", "EU Benchmarks Regulation", "IOSCO Principles for Financial Benchmarks", "$9B+ in fines"],
-    gap: "LIBOR replaced by SOFR but the structural vulnerability \u2014 self-reported benchmarks \u2014 persists in other markets. $350T in contracts were mispriced.",
+    intervention: "Transaction-based benchmark mandates. Self-reporting elimination. Secured Overnight Financing Rate (SOFR) transition completion. Benchmark administrator regulation.",
+    existing: ["Secured Overnight Financing Rate (SOFR) transition (2023)", "EU Benchmarks Regulation", "International Organization of Securities Commissions Principles for Financial Benchmarks", "$9B+ in fines"],
+    gap: "Benchmark Rate replaced by Secured Overnight Financing Rate (SOFR) but the structural vulnerability \u2014 self-reported benchmarks \u2014 persists in other markets. $350T in contracts were mispriced.",
     committee: { us: "Banking; Financial Services", eu: "ECON" },
   },
   agents: { ...AGENT_STUB },
@@ -1866,12 +1866,12 @@ const DOMAINS = [
 },
 
 // ═══════════════════════════════════════════════════════════════
-// #45 — POPs Beyond PFAS
+// #45 — Persistent Organic Pollutants
 // ═══════════════════════════════════════════════════════════════
 {
   id: "pops",
-  name: "POPs Beyond PFAS",
-  shortName: "POPs",
+  name: "Persistent Organic Pollutants",
+  shortName: "Persistent Organic Pollutants",
   paperNumber: 45,
   beta: 6.23,
   betaCI: "[4.40, 8.00]",
@@ -1898,7 +1898,7 @@ const DOMAINS = [
     addressable: "medium",
     urgency: "medium",
     intervention: "Stockholm Convention listing acceleration. Regrettable substitution prevention. Essential use framework. Class-based assessment.",
-    existing: ["Stockholm Convention (34 listed POPs)", "REACH Regulation", "TSCA"],
+    existing: ["Stockholm Convention (34 listed Persistent Organic Pollutants)", "REACH Regulation", "Toxic Substances Control Act (TSCA)"],
     gap: "Stockholm Convention listing takes 7\u201310 years per compound. Thousands of persistent chemicals in commerce without adequate assessment.",
     committee: { us: "Environment & Public Works; Energy & Commerce", eu: "ENVI" },
   },
@@ -1934,7 +1934,7 @@ const DOMAINS = [
   },
   paper: { status: PAPER_STATUS.PUBLISHED, version: null, ssrnUrl: null, companionUrl: null, summary: null, citeCode: null, wordCount: 49407, figureCount: 30, tableCount: 336, lastUpdated: null },
   policyLab: {
-    jurisdiction: ["State Dept. (ITAR)", "DOD (DSCA)", "Arms Trade Treaty Secretariat"],
+    jurisdiction: ["State Dept. (ITAR)", "DOD (Defense Security Cooperation Agency)", "Arms Trade Treaty Secretariat"],
     addressable: "low",
     urgency: "medium",
     intervention: "End-use monitoring expansion. ATT ratification campaign. Arms embargo enforcement. Diversion risk assessment mandates.",
@@ -1946,12 +1946,12 @@ const DOMAINS = [
 },
 
 // ═══════════════════════════════════════════════════════════════
-// #47 — Pharmacy Benefit Managers (PBMs)
+// #47 — Pharmacy Benefit Managers
 // ═══════════════════════════════════════════════════════════════
 {
   id: "pbm",
-  name: "Pharmacy Benefit Managers (PBMs)",
-  shortName: "PBMs",
+  name: "Pharmacy Benefit Managers",
+  shortName: "Pharmacy Benefit Managers",
   paperNumber: 47,
   beta: 6.35,
   betaCI: "[4.90, 7.80]",
@@ -1961,7 +1961,7 @@ const DOMAINS = [
   classification: "Type 5 Intermediary Hollow Win",
   classificationType: 5,
   sector: "Pharmaceuticals & Healthcare",
-  revenue: "$600B (US PBM market)",
+  revenue: "$600B (US Pharmacy Benefit Management market)",
   risk: "Structural separation legislation. FTC investigation active. Spread pricing ban. Three companies control 80% of the market \u2014 they are the buyer, the seller, and the middleman.",
   timeline: "2\u20134 years",
   jelCodes: ["I11", "L42", "G22", "D62"],
@@ -1969,7 +1969,7 @@ const DOMAINS = [
     id: "XLVI",
     name: "The Vertical Integration Extraction Floor",
     constraint: "Institutional",
-    impossible: "Operating a vertically integrated PBM \u2014 simultaneously the insurer, the pharmacy, and the formulary manager \u2014 without extracting rents from the opacity created by occupying all three positions",
+    impossible: "Operating a vertically integrated Pharmacy Benefit Management \u2014 simultaneously the insurer, the pharmacy, and the formulary manager \u2014 without extracting rents from the opacity created by occupying all three positions",
     axioms: ["Intermediation Necessity", "Vertical Integration-Opacity Identity", "Regulatory Capture Through Complexity"],
   },
   paper: { status: PAPER_STATUS.PUBLISHED, version: null, ssrnUrl: null, companionUrl: null, summary: null, citeCode: null, wordCount: 53026, figureCount: 39, tableCount: 455, lastUpdated: null },
@@ -1978,7 +1978,7 @@ const DOMAINS = [
     addressable: "high",
     urgency: "critical",
     intervention: "Structural separation legislation. Spread pricing ban. Rebate transparency mandates. FTC enforcement of anticompetitive practices.",
-    existing: ["FTC PBM Investigation (2024)", "State spread pricing bans (growing)", "CMS rebate reform proposals"],
+    existing: ["FTC Pharmacy Benefit Management Investigation (2024)", "State spread pricing bans (growing)", "CMS rebate reform proposals"],
     gap: "Structural separation legislation needed. FTC investigation active. Spread pricing ban advancing. Three companies control 80% of the market \u2014 they are the buyer, the seller, and the middleman.",
     committee: { us: "HELP; Finance; Energy & Commerce; Judiciary", eu: "ENVI" },
   },
@@ -2002,7 +2002,7 @@ const DOMAINS = [
   classificationType: 8,
   sector: "Consumer & Criminal Justice",
   revenue: "$70B (US firearms + ammunition)",
-  risk: "Constitutional Ratchet prevents standard consumer product regulation. Second Amendment entrenchment creates the highest institutional barrier of any SAPM domain. PLCAA shields manufacturers from tort liability.",
+  risk: "Constitutional Ratchet prevents standard consumer product regulation. Second Amendment entrenchment creates the highest institutional barrier of any System Asset Pricing Model domain. PLCAA shields manufacturers from tort liability.",
   timeline: "Generational \u2014 constitutional amendment required for structural change",
   jelCodes: ["K14", "H41", "D62"],
   theorem: {
@@ -2106,12 +2106,12 @@ const DOMAINS = [
 },
 
 // ═══════════════════════════════════════════════════════════════
-// #51 — Illicit Drug Trade (Narco-State System)
+// #51 — Illicit Drug Trade
 // ═══════════════════════════════════════════════════════════════
 {
-  id: "narco-state",
-  name: "Illicit Drug Trade (Narco-State System)",
-  shortName: "Narco-State",
+  id: "illicit-drugs",
+  name: "Illicit Drug Trade",
+  shortName: "Illicit Drugs",
   paperNumber: 51,
   beta: 7.16,
   betaCI: "[5.72, 8.58]",
@@ -2178,7 +2178,7 @@ const DOMAINS = [
     addressable: "medium",
     urgency: "high",
     intervention: "Mandatory breach notification. Cyber insurance reform (ban ransom reimbursement). Critical infrastructure hardening mandates. International attribution cooperation.",
-    existing: ["CFAA (1986)", "CIRCIA (2022)", "EU NIS2 Directive (2022)", "Budapest Convention on Cybercrime (2001)"],
+    existing: ["CFAA (1986)", "Cyber Incident Reporting for Critical Infrastructure Act (CIRCIA) (2022)", "EU NIS2 Directive (2022)", "Budapest Convention on Cybercrime (2001)"],
     gap: "The Attribution Impossibility theorem guarantees \u03b2W \u2265 2.1 \u2014 technical attribution is structurally indeterminate and jurisdictional authority does not extend to attacker locations. Cyber insurance moral hazard increases ransom payments 3.4\u00d7.",
     committee: { us: "Homeland Security; Judiciary; Intelligence", eu: "ITRE; LIBE" },
   },
@@ -2218,7 +2218,7 @@ const DOMAINS = [
     addressable: "medium",
     urgency: "medium",
     intervention: "Federal privacy legislation (comprehensive GDPR-equivalent). Data broker registration requirements. Opt-in consent mandates. Algorithmic auditing requirements.",
-    existing: ["GDPR (EU, 2018)", "CCPA/CPRA (California)", "Vermont Data Broker Registration Act (2018)", "FTC Act \u00a75"],
+    existing: ["GDPR (EU, 2018)", "California Consumer Privacy Act (CCPA)/CPRA (California)", "Vermont Data Broker Registration Act (2018)", "FTC Act \u00a75"],
     gap: "The Consent Fabrication Trap guarantees \u03b2W \u2265 2.0 \u2014 meaningful informed consent is structurally impossible when data use complexity exceeds human cognitive capacity. No comprehensive federal privacy law exists in the US.",
     committee: { us: "Commerce; Judiciary; Energy & Commerce", eu: "LIBE; IMCO" },
   },
@@ -2294,7 +2294,7 @@ const DOMAINS = [
   },
   paper: { status: PAPER_STATUS.PUBLISHED, version: null, ssrnUrl: null, companionUrl: null, summary: null, citeCode: null, wordCount: 46849, figureCount: 38, tableCount: 490, lastUpdated: null },
   policyLab: {
-    jurisdiction: ["SEC", "State Department", "UN Panel of Experts", "EU External Action Service", "OECD"],
+    jurisdiction: ["SEC", "State Department", "UN Panel of Experts", "EU External Action Service", "Organisation for Economic Co-operation and Development"],
     addressable: "medium",
     urgency: "medium",
     intervention: "Mandatory supply chain due diligence. Blockchain-based traceability. Conflict minerals certification reform. Beneficial ownership transparency.",
@@ -2414,11 +2414,11 @@ const DOMAINS = [
   },
   paper: { status: PAPER_STATUS.PUBLISHED, version: null, ssrnUrl: null, companionUrl: null, summary: null, citeCode: null, wordCount: 48543, figureCount: 42, tableCount: 378, lastUpdated: null },
   policyLab: {
-    jurisdiction: ["IRS", "Treasury (FinCEN)", "OECD (BEPS)", "EU (Code of Conduct)", "FATF"],
+    jurisdiction: ["IRS", "Treasury (FinCEN)", "OECD (Base Erosion and Profit Shifting)", "EU (Code of Conduct)", "Financial Action Task Force"],
     addressable: "medium",
     urgency: "medium",
     intervention: "Global minimum tax enforcement (Pillar Two). Country-by-country reporting. Beneficial ownership registries. Withholding taxes on haven-directed payments.",
-    existing: ["OECD BEPS Pillar Two (15% minimum)", "FATCA (2010)", "EU Anti-Tax Avoidance Directives", "Corporate Transparency Act (2021)"],
+    existing: ["OECD Base Erosion and Profit Shifting Pillar Two (15% minimum)", "FATCA (2010)", "EU Anti-Tax Avoidance Directives", "Corporate Transparency Act (2021)"],
     gap: "The Sovereignty Arbitrage theorem shows \u03b2W \u2265 2.0 is sustained as long as tax sovereignty prevents coordinated enforcement. Pillar Two adoption remains incomplete. $427B+ shifted to tax havens annually.",
     committee: { us: "Ways and Means; Finance", eu: "ECON; TAX subcommittee" },
   },
@@ -2442,7 +2442,7 @@ const DOMAINS = [
   classificationType: 7,
   sector: "Food & Agriculture",
   revenue: "$67B (US meat + dairy industry)",
-  risk: "Protein Demand Floor: global demand growth outpaces welfare reform. 80B land animals slaughtered annually. No US federal on-farm welfare law. AMR risk from antibiotic overuse.",
+  risk: "Protein Demand Floor: global demand growth outpaces welfare reform. 80B land animals slaughtered annually. No US federal on-farm welfare law. Antimicrobial Resistance risk from antibiotic overuse.",
   timeline: "10\u201320 years for confinement phase-out",
   jelCodes: ["Q18", "I15", "D62"],
   theorem: {
@@ -2466,12 +2466,12 @@ const DOMAINS = [
 },
 
 // ═══════════════════════════════════════════════════════════════
-// #60 — E-Waste Export and Toxic Dumping
+// #60 — Electronic Waste Export and Toxic Dumping
 // ═══════════════════════════════════════════════════════════════
 {
   id: "e-waste",
-  name: "E-Waste Export and Toxic Dumping",
-  shortName: "E-Waste",
+  name: "Electronic Waste Export and Toxic Dumping",
+  shortName: "Electronic Waste",
   paperNumber: 60,
   beta: 6.59,
   betaCI: "[4.90, 8.30]",
@@ -2534,11 +2534,11 @@ const DOMAINS = [
   },
   paper: { status: PAPER_STATUS.PUBLISHED, version: null, ssrnUrl: null, companionUrl: null, summary: null, citeCode: null, wordCount: 47901, figureCount: 29, tableCount: 437, lastUpdated: null },
   policyLab: {
-    jurisdiction: ["SEC (NRSRO oversight)", "ESMA", "FSB", "IOSCO"],
+    jurisdiction: ["SEC (Nationally Recognized Statistical Rating Organization oversight)", "ESMA", "FSB", "International Organization of Securities Commissions"],
     addressable: "high",
     urgency: "medium",
     intervention: "Issuer-pays model reform (investor-pays alternative). Mandatory rotation. Liability for negligent ratings. Public credit rating agency option.",
-    existing: ["Dodd-Frank \u00a7932-939 (2010)", "EU CRA Regulation (2009, amended)", "SEC NRSRO Rules", "IOSCO Code of Conduct"],
+    existing: ["Dodd-Frank \u00a7932-939 (2010)", "EU CRA Regulation (2009, amended)", "SEC Nationally Recognized Statistical Rating Organization Rules", "International Organization of Securities Commissions Code of Conduct"],
     gap: "The Issuer-Pays Corruption Floor guarantees \u03b2W \u2265 3.0 \u2014 the conflict of interest is structural when the rated entity pays for the rating. Dodd-Frank reforms did not address the issuer-pays model. S&P/Moody\u2019s/Fitch oligopoly persists.",
     committee: { us: "Financial Services; Banking", eu: "ECON" },
   },
@@ -2551,7 +2551,7 @@ const DOMAINS = [
 {
   id: "pmc",
   name: "Private Military Contractors",
-  shortName: "PMCs",
+  shortName: "Private Military Contractors",
   paperNumber: 62,
   beta: 2.06,
   betaCI: "[1.70, 2.40]",
@@ -2562,7 +2562,7 @@ const DOMAINS = [
   classificationType: 5,
   sector: "Defense & Aerospace",
   revenue: "$260B (global private military/security)",
-  risk: "Accountability void: PMC personnel operate in jurisdictional gaps. No binding international treaty. MEJA jurisdiction limited. Nisour Square convictions pardoned.",
+  risk: "Accountability void: Private Military Contractor personnel operate in jurisdictional gaps. No binding international treaty. MEJA jurisdiction limited. Nisour Square convictions pardoned.",
   timeline: "10+ years for international regulatory framework",
   jelCodes: ["H56", "K33", "F51", "D62"],
   theorem: {
@@ -2577,9 +2577,9 @@ const DOMAINS = [
     jurisdiction: ["State Department (ITAR)", "DOD", "DOJ", "ICC", "Montreux Document States"],
     addressable: "low",
     urgency: "medium",
-    intervention: "International regulatory framework for PMCs. Mandatory incident reporting. Criminal jurisdiction extension. Contract transparency requirements.",
+    intervention: "International regulatory framework for Private Military Contractors. Mandatory incident reporting. Criminal jurisdiction extension. Contract transparency requirements.",
     existing: ["Montreux Document (2008)", "International Code of Conduct for PSPs (2010)", "MEJA (2000)", "ITAR regulations"],
-    gap: "The Accountability Void theorem shows \u03b2W \u2265 1.5 \u2014 PMC personnel operate in jurisdictional gaps where neither home-state nor host-state law effectively applies. No binding international treaty. MEJA jurisdiction is limited. Nisour Square convictions were pardoned.",
+    gap: "The Accountability Void theorem shows \u03b2W \u2265 1.5 \u2014 Private Military Contractor personnel operate in jurisdictional gaps where neither home-state nor host-state law effectively applies. No binding international treaty. MEJA jurisdiction is limited. Nisour Square convictions were pardoned.",
     committee: { us: "Armed Services; Foreign Affairs; Oversight", eu: "AFET; SEDE" },
   },
   agents: { ...AGENT_STUB },

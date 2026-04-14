@@ -1,0 +1,80 @@
+{
+  "lang": "ja",
+  "dir": "ltr",
+  "pst": {
+    "title": "PSTブレイカー",
+    "headline": "あなたにできること",
+    "subtitle": "目標はゲームをPSTから非PSTに変えること。国を選んでください。セクターを選んでください。どの公理が壊れるか — そしてそれを壊すために何をすべきかを見つけてください。",
+    "globalLoss": "85.3兆ドル",
+    "globalLossLabel": "190カ国のPSTゲームによる年間システム福祉損失",
+    "globalLossExplain": "System Asset Pricing Modelモデルは27チャネルと190の経済圏にわたる福祉破壊を測定します。μ=1.0で、c調整GDP総合ギャップは85.3兆ドル — 従来の世界GDPの77%。これが回復可能な福祉です。PSTゲームが非PSTに変換されるたびにこのギャップは縮小します。本ツールは各国・各セクターの制度的経路をマッピングします。",
+    "selectCountry": "国を選択",
+    "sectorsMapped": "マッピング済みセクター",
+    "selectSector": "セクターを選択",
+    "fastestPath": "非PSTへの最速経路",
+    "fastestPathIn": "{{country}}の{{sector}}セクターで最速の経路は、壊すこと",
+    "vulnerabilityMap": "PST脆弱性マップ — 3つの公理",
+    "howToBreak": "壊し方",
+    "whatYouCanDo": "できること — レベル別",
+    "infrastructure": "制度的インフラ",
+    "mostBreakable": "最も壊しやすい",
+    "holds": "成立",
+    "broken": "崩壊",
+    "allCountries": "すべての国",
+    "expanding": "拡張中",
+    "expandingText": "System Asset Pricing Model c調整GDPデータベースから190カ国をマッピング。",
+    "selfLaceration": "自己評価",
+    "selfLacerationText": "このツールは公開されている規制枠組みに基づく一般的なガイダンスを提供します。法的助言ではありません。",
+    "searchPlaceholder": "国を検索...",
+    "noResults": "該当する国がありません。",
+    "break": "壊す"
+  },
+  "nav": {
+    "curriculum": "カリキュラム",
+    "deepdive": "深層分析",
+    "policy": "政策ラボ",
+    "executive": "エグゼクティブブリーフ",
+    "academic": "学術",
+    "sovereign": "主権ブリーフ",
+    "pstbreaker": "あなたにできること"
+  },
+  "axioms": {
+    "1": {
+      "name": "重複利益",
+      "short": "公理1",
+      "desc": "両者が協力から利益を得る。"
+    },
+    "2": {
+      "name": "システム独立性",
+      "short": "公理2",
+      "desc": "システム福祉Wは当事者の利得から計算できない。"
+    },
+    "3": {
+      "name": "システム依存性",
+      "short": "公理3",
+      "desc": "エージェントの活動は共有システムに影響する。"
+    }
+  },
+  "actors": {
+    "insider": {
+      "label": "内部者/内部告発者",
+      "desc": "あなたはシステムの内部にいます。"
+    },
+    "executive": {
+      "label": "経営者/取締役会",
+      "desc": "ゲーム設計に対する権限があります。"
+    },
+    "regulator": {
+      "label": "規制当局/業界団体",
+      "desc": "ゲームのルールを設定します。"
+    },
+    "sovereign": {
+      "label": "主権/国際機関",
+      "desc": "制度そのものを再設計できます。"
+    }
+  },
+  "language": {
+    "selector": "言語",
+    "current": "日本語"
+  }
+}

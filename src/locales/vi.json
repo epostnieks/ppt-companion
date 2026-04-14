@@ -1,0 +1,80 @@
+{
+  "lang": "vi",
+  "dir": "ltr",
+  "pst": {
+    "title": "PHÁ VỠ PST",
+    "headline": "Bạn có thể giúp gì?",
+    "subtitle": "Mục tiêu là thay đổi trò chơi từ welfare-trap sang không-PST. Chọn quốc gia của bạn. Chọn ngành của bạn. Tìm hiểu tiên đề nào bị phá vỡ — và phải làm gì để phá vỡ nó.",
+    "globalLoss": "20,9 nghìn tỷ USD",
+    "globalLossLabel": "Tổn thất phúc lợi hệ thống hàng năm từ trò chơi welfare-trap tại 190 quốc gia",
+    "globalLossExplain": "Đó là chi phí mà trò chơi welfare-trap gây ra cho hành tinh hàng năm — 77% GDP toàn cầu. Nếu mọi người, mọi công ty, mọi cơ quan quản lý phá vỡ welfare-trap trong ngành của mình, chúng ta thu hồi 85,3 nghìn tỷ USD phúc lợi xã hội thực sự. Không phải GDP trên bảng tính. Phúc lợi thực sự. Không khí sạch, thực phẩm lành mạnh, khí hậu ổn định, tiền lương công bằng. Chiến đấu vì hệ thống. Chiến đấu vì hành tinh. Chúng ta không cần Kế hoạch B. Hãy làm cho Kế hoạch A thành công.",
+    "selectCountry": "CHỌN QUỐC GIA",
+    "sectorsMapped": "NGÀNH ĐÃ LẬP BẢN ĐỒ",
+    "selectSector": "CHỌN NGÀNH",
+    "fastestPath": "CON ĐƯỜNG NHANH NHẤT ĐẾN KHÔNG-PST",
+    "fastestPathIn": "Trong ngành {{sector}} của {{country}}, con đường nhanh nhất là phá vỡ",
+    "vulnerabilityMap": "BẢN ĐỒ LỖ HỔNG welfare-trap — BA TIÊN ĐỀ",
+    "howToBreak": "CÁCH PHÁ VỠ",
+    "whatYouCanDo": "BẠN CÓ THỂ LÀM GÌ — THEO CẤP ĐỘ",
+    "infrastructure": "HẠ TẦNG THỂ CHẾ",
+    "mostBreakable": "DỄ PHÁ VỠ NHẤT",
+    "holds": "CÒN ĐỨNG",
+    "broken": "ĐÃ PHÁ VỠ",
+    "allCountries": "TẤT CẢ QUỐC GIA",
+    "expanding": "ĐANG MỞ RỘNG",
+    "expandingText": "190 quốc gia từ cơ sở dữ liệu GDP c-điều chỉnh System Asset Pricing Model.",
+    "selfLaceration": "TỰ ĐÁNH GIÁ",
+    "selfLacerationText": "Công cụ này cung cấp hướng dẫn chung dựa trên khung pháp lý công khai. Không phải tư vấn pháp lý.",
+    "searchPlaceholder": "Tìm quốc gia...",
+    "noResults": "Không tìm thấy quốc gia phù hợp.",
+    "break": "PHÁ VỠ"
+  },
+  "nav": {
+    "curriculum": "CHƯƠNG TRÌNH",
+    "deepdive": "PHÂN TÍCH SÂU",
+    "policy": "PHÒNG THÍ NGHIỆM CHÍNH SÁCH",
+    "executive": "TÓM TẮT ĐIỀU HÀNH",
+    "academic": "HỌC THUẬT",
+    "sovereign": "BÁO CÁO CHỦ QUYỀN",
+    "pstbreaker": "GIÚP GÌ ĐƯỢC?"
+  },
+  "axioms": {
+    "1": {
+      "name": "Lợi ích chồng chéo",
+      "short": "Tiên đề 1",
+      "desc": "Cả hai bên đều hưởng lợi từ hợp tác."
+    },
+    "2": {
+      "name": "Tính độc lập hệ thống",
+      "short": "Tiên đề 2",
+      "desc": "Phúc lợi hệ thống W không thể tính từ lợi ích các bên."
+    },
+    "3": {
+      "name": "Sự phụ thuộc hệ thống",
+      "short": "Tiên đề 3",
+      "desc": "Hoạt động của tác nhân ảnh hưởng đến hệ thống chung."
+    }
+  },
+  "actors": {
+    "insider": {
+      "label": "NGƯỜI TRONG CUỘC / TỐ GIÁC",
+      "desc": "Bạn ở bên trong hệ thống."
+    },
+    "executive": {
+      "label": "LÃNH ĐẠO / HỘI ĐỒNG",
+      "desc": "Bạn có quyền với thiết kế trò chơi."
+    },
+    "regulator": {
+      "label": "CƠ QUAN QUẢN LÝ / TỔ CHỨC NGÀNH",
+      "desc": "Bạn đặt ra luật chơi."
+    },
+    "sovereign": {
+      "label": "CHỦ QUYỀN / QUỐC TẾ",
+      "desc": "Bạn có thể thiết kế lại thể chế."
+    }
+  },
+  "language": {
+    "selector": "Ngôn ngữ",
+    "current": "Tiếng Việt"
+  }
+}

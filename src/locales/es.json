@@ -1,0 +1,80 @@
+{
+  "lang": "es",
+  "dir": "ltr",
+  "pst": {
+    "title": "ROMPE-PST",
+    "headline": "¿Cómo puedes ayudar?",
+    "subtitle": "El objetivo es cambiar el juego de welfare-trap a no-PST. Elige tu país. Elige tu sector. Descubre qué axioma se rompe — y qué hacer para romperlo.",
+    "globalLoss": "$20,9 billones",
+    "globalLossLabel": "Pérdida anual de bienestar sistémico por juegos destructores del bienestar en 190 países",
+    "globalLossExplain": "El modelo System Asset Pricing Model mide la destrucción de bienestar en 61 dominios y 190 economías. Con μ=1,0, la brecha agregada del PIB c-ajustado es de $85,3B — 77% del PIB mundial convencional. Este es el bienestar recuperable: la diferencia entre lo que la economía global produce y lo que entrega al sistema. Cada juego welfare-trap convertido en no-PST cierra parte de esa brecha. Esta herramienta mapea la vía institucional para cada país y sector.",
+    "selectCountry": "SELECCIONA TU PAÍS",
+    "sectorsMapped": "SECTORES MAPEADOS",
+    "selectSector": "SELECCIONAR SECTOR",
+    "fastestPath": "CAMINO MÁS RÁPIDO A NO-PST",
+    "fastestPathIn": "En el sector {{sector}} de {{country}}, el camino más rápido es romper",
+    "vulnerabilityMap": "MAPA DE VULNERABILIDAD welfare-trap — TRES AXIOMAS",
+    "howToBreak": "CÓMO ROMPERLO",
+    "whatYouCanDo": "QUÉ PUEDES HACER — POR NIVEL",
+    "infrastructure": "INFRAESTRUCTURA INSTITUCIONAL",
+    "mostBreakable": "MÁS VULNERABLE",
+    "holds": "SE MANTIENE",
+    "broken": "ROTO",
+    "allCountries": "TODOS LOS PAÍSES",
+    "expanding": "EXPANDIENDO",
+    "expandingText": "190 países mapeados desde la base de datos PIB c-ajustado de System Asset Pricing Model. El camino más rápido de cada país de welfare-trap a no-PST. Si tienes experiencia en una jurisdicción no listada — marcos regulatorios, leyes de protección al denunciante, agencias sectoriales — contribuye para mejorar esta herramienta.",
+    "selfLaceration": "AUTO-LACERACIÓN",
+    "selfLacerationText": "Esta herramienta proporciona orientación general basada en marcos regulatorios públicos. No es asesoramiento legal. Las leyes de protección al denunciante, mecanismos de aplicación y niveles de protección varían por jurisdicción y cambian con el tiempo. Antes de actuar — especialmente en el Nivel 1 — consulta a un abogado calificado en tu jurisdicción.",
+    "searchPlaceholder": "Buscar países...",
+    "noResults": "Ningún país coincide con tu búsqueda.",
+    "break": "ROMPER"
+  },
+  "nav": {
+    "curriculum": "CURRÍCULO",
+    "deepdive": "ANÁLISIS PROFUNDO",
+    "policy": "LABORATORIO DE POLÍTICAS",
+    "executive": "RESUMEN EJECUTIVO",
+    "academic": "ACADÉMICO",
+    "sovereign": "INFORME SOBERANO",
+    "pstbreaker": "¿CÓMO PUEDES AYUDAR?"
+  },
+  "axioms": {
+    "1": {
+      "name": "Intereses Superpuestos",
+      "short": "Axioma 1",
+      "desc": "Ambas partes se benefician de cooperar. Hay un trato por hacer."
+    },
+    "2": {
+      "name": "Independencia del Sistema",
+      "short": "Axioma 2",
+      "desc": "El bienestar del sistema W no puede calcularse a partir de los pagos de las partes."
+    },
+    "3": {
+      "name": "Dependencia del Sistema",
+      "short": "Axioma 3",
+      "desc": "La actividad del agente afecta al sistema compartido."
+    }
+  },
+  "actors": {
+    "insider": {
+      "label": "INTERNO / DENUNCIANTE",
+      "desc": "Estás dentro del sistema. Ves el Hollow Win."
+    },
+    "executive": {
+      "label": "EJECUTIVO / JUNTA",
+      "desc": "Tienes autoridad sobre el diseño del juego."
+    },
+    "regulator": {
+      "label": "REGULADOR / ORGANISMO SECTORIAL",
+      "desc": "Tú estableces las reglas del juego."
+    },
+    "sovereign": {
+      "label": "SOBERANO / INTERNACIONAL",
+      "desc": "Puedes rediseñar la institución misma."
+    }
+  },
+  "language": {
+    "selector": "Idioma",
+    "current": "Español"
+  }
+}

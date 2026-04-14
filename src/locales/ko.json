@@ -1,0 +1,80 @@
+{
+  "lang": "ko",
+  "dir": "ltr",
+  "pst": {
+    "title": "PST 브레이커",
+    "headline": "어떻게 도울 수 있나요?",
+    "subtitle": "목표는 게임을 PST에서 비PST로 바꾸는 것입니다. 국가를 선택하세요. 분야를 선택하세요. 어떤 공리가 깨지는지 — 그리고 그것을 깨기 위해 무엇을 해야 하는지 알아보세요.",
+    "globalLoss": "20조 9천억 달러",
+    "globalLossLabel": "190개국 welfare-trap 게임으로 인한 연간 시스템 복지 손실",
+    "globalLossExplain": "System Asset Pricing Model 모델은 27개 채널과 190개 경제에 걸친 복지 파괴를 측정합니다. μ=1.0에서 c-조정 GDP 총합 격차는 20조 9천억 달러 — 기존 세계 GDP의 77%. 이것이 회복 가능한 복지입니다. welfare-trap 게임이 비PST로 전환될 때마다 이 격차는 줄어듭니다. 이 도구는 각 국가와 분야의 제도적 경로를 매핑합니다.",
+    "selectCountry": "국가 선택",
+    "sectorsMapped": "매핑된 분야",
+    "selectSector": "분야 선택",
+    "fastestPath": "비PST로의 가장 빠른 경로",
+    "fastestPathIn": "{{country}}의 {{sector}} 분야에서 가장 빠른 경로는 깨뜨리는 것",
+    "vulnerabilityMap": "PST 취약점 지도 — 세 가지 공리",
+    "howToBreak": "깨는 방법",
+    "whatYouCanDo": "할 수 있는 일 — 수준별",
+    "infrastructure": "제도적 인프라",
+    "mostBreakable": "가장 깨기 쉬운",
+    "holds": "유지됨",
+    "broken": "깨짐",
+    "allCountries": "모든 국가",
+    "expanding": "확장 중",
+    "expandingText": "System Asset Pricing Model c-조정 GDP 데이터베이스에서 190개국 매핑.",
+    "selfLaceration": "자기 평가",
+    "selfLacerationText": "이 도구는 공개된 규제 프레임워크에 기반한 일반적인 안내를 제공합니다. 법적 조언이 아닙니다.",
+    "searchPlaceholder": "국가 검색...",
+    "noResults": "검색과 일치하는 국가가 없습니다.",
+    "break": "깨뜨리기"
+  },
+  "nav": {
+    "curriculum": "커리큘럼",
+    "deepdive": "심층 분석",
+    "policy": "정책 연구소",
+    "executive": "임원 브리프",
+    "academic": "학술",
+    "sovereign": "주권 브리프",
+    "pstbreaker": "어떻게 도울까요?"
+  },
+  "axioms": {
+    "1": {
+      "name": "중첩 이해관계",
+      "short": "공리 1",
+      "desc": "양쪽 모두 협력에서 이익을 얻습니다."
+    },
+    "2": {
+      "name": "시스템 독립성",
+      "short": "공리 2",
+      "desc": "시스템 복지 W는 당사자 보상으로 계산할 수 없습니다."
+    },
+    "3": {
+      "name": "시스템 의존성",
+      "short": "공리 3",
+      "desc": "에이전트 활동이 공유 시스템에 영향을 줍니다."
+    }
+  },
+  "actors": {
+    "insider": {
+      "label": "내부자 / 내부고발자",
+      "desc": "당신은 시스템 내부에 있습니다."
+    },
+    "executive": {
+      "label": "경영진 / 이사회",
+      "desc": "게임 설계에 대한 권한이 있습니다."
+    },
+    "regulator": {
+      "label": "규제기관 / 업계 단체",
+      "desc": "게임의 규칙을 정합니다."
+    },
+    "sovereign": {
+      "label": "주권 / 국제기구",
+      "desc": "제도 자체를 재설계할 수 있습니다."
+    }
+  },
+  "language": {
+    "selector": "언어",
+    "current": "한국어"
+  }
+}

@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 
 const M = "'JetBrains Mono',monospace";
@@ -44,14 +45,19 @@ const catCol = (c) => {
 };
 
 // ═══════════════════════════════════════════════════════════════
-// CANONICAL DATA — 61 domains (βW descending, revenue-basis)
-// Updated 2026-04-12. Π = annual revenue (Iron Law). Notion-synced.
+// DATA PROVENANCE — CANONICAL βW TABLE
+// Source: Notion Production Pipeline (collection://33ae2345-fce7-818e-b823-000b15f7ac47)
+// Secondary: MC simulation repos (github.com/epostnieks/sapm-mc-{slug})
+// βW basis: Revenue (Iron Law: Π = annual industry revenue, NEVER profit)
+// MC parameters: N=10,000, seed=42, 3+ distribution types per domain
+// Known Iron Law corrections: Alcohol, Cybercrime, Factory Farming, Ultra-Processed Food, Illicit Drugs, Monoculture
+// Last synced: 2026-04-12. All 61 values cross-checked against CLAUDE.md canonical table.
 // ═══════════════════════════════════════════════════════════════
 const DOMAINS = [
   { rank:1,  slug:"firearms",          name:"Firearms",                   theorem:"Constitutional Ratchet",              type:"Intractability", cat:"Constitutional / Institutional", bw:50.99, ci:[40.50,62.50], pi:10.0,   dw:509.9   },
   { rank:2,  slug:"cybercrime",        name:"Cybercrime & Ransomware",    theorem:"Attribution Impossibility",           type:"Intractability", cat:"Computational / Jurisdictional",  bw:31.10, ci:[21.00,41.00], pi:200.0,  dw:6403.1  },
   { rank:3,  slug:"human-trafficking", name:"Human Trafficking",          theorem:"Demand Indestructibility",            type:"Intractability", cat:"Jurisdictional / Economic",       bw:22.62, ci:[17.80,27.50], pi:236.0,  dw:5338.1  },
-  { rank:4,  slug:"wmd",               name:"WMD Proliferation",          theorem:"Capability Diffusion Ceiling",        type:"Impossibility",  cat:"Informational",                   bw:21.92, ci:[13.80,36.60], pi:86.4,   dw:1894.0  },
+  { rank:4,  slug:"wmd",               name:"Weapons of Mass Destruction",          theorem:"Capability Diffusion Ceiling",        type:"Impossibility",  cat:"Informational",                   bw:21.92, ci:[13.80,36.60], pi:86.4,   dw:1894.0  },
   { rank:5,  slug:"child-labor",       name:"Child Labor",                theorem:"Cost Arbitrage Floor",                type:"Intractability", cat:"Economic / Jurisdictional",       bw:21.83, ci:[18.80,24.80], pi:39.5,   dw:862.2   },
   { rank:6,  slug:"opioids",           name:"Opioid Ecosystem",           theorem:"Prescription Ratchet",                type:"Intractability", cat:"Neurochemical / Institutional",   bw:14.96, ci:[12.60,17.30], pi:75.0,   dw:1121.9  },
   { rank:7,  slug:"conflict-minerals", name:"Conflict Minerals",          theorem:"Fungibility Floor",                   type:"Intractability", cat:"Physical / Jurisdictional",       bw:12.60, ci:[9.20,16.00],  pi:20.3,   dw:255.7   },
@@ -72,23 +78,23 @@ const DOMAINS = [
   { rank:22, slug:"deep-sea-mining",   name:"Deep-Sea Mining",            theorem:"Abyssal Recovery Floor",              type:"Impossibility",  cat:"Geochemical / Physical",          bw:6.90,  ci:[5.00,8.80],   pi:5.0,    dw:34.0    },
   { rank:23, slug:"cement",            name:"Cement & Concrete",          theorem:"Calcination Floor",                   type:"Impossibility",  cat:"Thermodynamic",                   bw:6.74,  ci:[4.80,8.70],   pi:3.0,    dw:22.0    },
   { rank:24, slug:"plastics",          name:"Plastics",                   theorem:"Thermodynamic Degradation Floor",     type:"Impossibility",  cat:"Thermodynamic",                   bw:6.67,  ci:[4.20,9.10],   pi:650.0,  dw:3683.0  },
-  { rank:25, slug:"ewaste",            name:"E-Waste Export",             theorem:"Basel Convention Evasion",            type:"Intractability", cat:"Jurisdictional / Classification",  bw:6.59,  ci:[4.90,8.30],   pi:1050.0, dw:6922.2  },
+  { rank:25, slug:"ewaste",            name:"Electronic Waste Export",             theorem:"Basel Convention Evasion",            type:"Intractability", cat:"Jurisdictional / Classification",  bw:6.59,  ci:[4.90,8.30],   pi:1050.0, dw:6922.2  },
   { rank:26, slug:"tobacco",           name:"Tobacco",                    theorem:"Addiction Ratchet",                   type:"Intractability", cat:"Neurochemical / Institutional",   bw:6.50,  ci:[4.50,9.60],   pi:965.0,  dw:6276.0  },
   { rank:27, slug:"student-loans",     name:"Student Loan Securitization",theorem:"Guaranteed Demand Trap",              type:"Intractability", cat:"Institutional / Financial",       bw:6.36,  ci:[5.20,7.50],   pi:46.8,   dw:297.6   },
-  { rank:28, slug:"pbm",               name:"Pharmacy Benefit Mgmt",      theorem:"Spread Extraction Trap",              type:"Intractability", cat:"Institutional / Financial",       bw:6.35,  ci:[4.90,7.80],   pi:60.0,   dw:381.0   },
+  { rank:28, slug:"pbm",               name:"Pharmacy Benefit Management",      theorem:"Spread Extraction Trap",              type:"Intractability", cat:"Institutional / Financial",       bw:6.35,  ci:[4.90,7.80],   pi:60.0,   dw:381.0   },
   { rank:29, slug:"platform-monopoly", name:"Platform Monopoly",          theorem:"Gatekeeper Ratchet",                  type:"Intractability", cat:"Institutional",                   bw:6.33,  ci:[4.80,7.80],   pi:158.0,  dw:999.4   },
   { rank:30, slug:"palm-oil",          name:"Palm Oil",                   theorem:"Substitution Impossibility",          type:"Impossibility",  cat:"Biological / Agricultural",       bw:6.30,  ci:[4.60,8.00],   pi:68.0,   dw:428.3   },
   { rank:31, slug:"tax-havens",        name:"Tax Havens",                 theorem:"Sovereignty Arbitrage",               type:"Intractability", cat:"Jurisdictional / Institutional",  bw:6.27,  ci:[5.10,7.40],   pi:492.0,  dw:3084.7  },
-  { rank:32, slug:"pops",              name:"POPs Beyond PFAS",           theorem:"Bioaccumulation Ratchet",             type:"Impossibility",  cat:"Thermodynamic / Chemical",        bw:6.23,  ci:[4.40,8.00],   pi:70.0,   dw:435.8   },
+  { rank:32, slug:"pops",              name:"Persistent Organic Pollutants",           theorem:"Bioaccumulation Ratchet",             type:"Impossibility",  cat:"Thermodynamic / Chemical",        bw:6.23,  ci:[4.40,8.00],   pi:70.0,   dw:435.8   },
   { rank:33, slug:"data-brokerage",    name:"Data Brokerage",             theorem:"Consent Fabrication Trap",            type:"Intractability", cat:"Informational / Institutional",   bw:6.13,  ci:[4.70,7.60],   pi:323.0,  dw:1979.5  },
   { rank:34, slug:"amr",               name:"Antimicrobial Resistance",   theorem:"Efficacy Ceiling",                    type:"Impossibility",  cat:"Biological / Evolutionary",       bw:5.84,  ci:[4.43,7.26],   pi:null,   dw:null    },
-  { rank:35, slug:"social-media",      name:"Social Media / Youth MH",    theorem:"Engagement Trap",                     type:"Impossibility",  cat:"Computational / Developmental",   bw:5.79,  ci:[4.20,7.40],   pi:68.0,   dw:393.5   },
+  { rank:35, slug:"social-media",      name:"Social Media / Youth Mental Health",    theorem:"Engagement Trap",                     type:"Impossibility",  cat:"Computational / Developmental",   bw:5.79,  ci:[4.20,7.40],   pi:68.0,   dw:393.5   },
   { rank:36, slug:"gene-drives",       name:"Gene Drives",                theorem:"Ecological Ratchet Floor",            type:"Impossibility",  cat:"Biological / Evolutionary",       bw:5.77,  ci:[4.21,7.34],   pi:12.4,   dw:8.0     },
   { rank:37, slug:"water-priv",        name:"Water Privatization",        theorem:"Necessity Monopoly Floor",            type:"Intractability", cat:"Hydrogeological / Institutional", bw:5.61,  ci:[3.70,7.50],   pi:246.0,  dw:1380.8  },
   { rank:38, slug:"alg-pricing",       name:"Algorithmic Pricing",        theorem:"Tacit Coordination Ceiling",          type:"Intractability", cat:"Computational / Legal",           bw:5.38,  ci:[3.90,6.90],   pi:40.0,   dw:215.2   },
-  { rank:39, slug:"pfas",              name:"PFAS / Forever Chemicals",   theorem:"Molecular Persistence Floor",         type:"Impossibility",  cat:"Thermodynamic",                   bw:5.31,  ci:[4.02,6.61],   pi:null,   dw:null    },
+  { rank:39, slug:"pfas",              name:"Forever Chemicals (PFAS)",   theorem:"Molecular Persistence Floor",         type:"Impossibility",  cat:"Thermodynamic",                   bw:5.31,  ci:[4.02,6.61],   pi:null,   dw:null    },
   { rank:40, slug:"pe-healthcare",     name:"Private Equity Healthcare",  theorem:"Fiduciary Contradiction",             type:"Intractability", cat:"Institutional",                   bw:5.24,  ci:[4.00,6.50],   pi:31.0,   dw:162.4   },
-  { rank:41, slug:"libor",             name:"LIBOR / FX Fixing",          theorem:"Self-Referential Pricing Trap",       type:"Intractability", cat:"Institutional / Informational",   bw:5.13,  ci:[3.42,8.16],   pi:3.2,    dw:16.4    },
+  { rank:41, slug:"libor",             name:"Benchmark Rate Fixing",          theorem:"Self-Referential Pricing Trap",       type:"Intractability", cat:"Institutional / Informational",   bw:5.13,  ci:[3.42,8.16],   pi:3.2,    dw:16.4    },
   { rank:42, slug:"bitcoin",           name:"Bitcoin / Proof-of-Work",    theorem:"Protocol Welfare Floor",              type:"Intractability", cat:"Institutional",                   bw:5.00,  ci:[3.20,7.80],   pi:42.0,   dw:210.0   },
   { rank:43, slug:"aviation",          name:"Aviation Emissions",         theorem:"Altitude Forcing Floor",              type:"Impossibility",  cat:"Physical / Thermodynamic",        bw:4.97,  ci:[3.60,6.40],   pi:100.0,  dw:497.5   },
   { rank:44, slug:"defense",           name:"Defense Procurement",        theorem:"Monopsony Lock-In",                   type:"Intractability", cat:"Institutional / Political",       bw:4.88,  ci:[4.20,5.60],   pi:33.7,   dw:164.4   },
@@ -111,8 +117,8 @@ const DOMAINS = [
   { rank:61, slug:"gig-economy",       name:"Gig Economy",                theorem:"Classification Arbitrage Floor",      type:"Intractability", cat:"Institutional / Legal",           bw:0.76,  ci:[0.60,0.90],   pi:45.0,   dw:34.4    },
 ];
 
-// PPT foundational entry for Table 2
-const PPT = { name:"Private Pareto Theorem (PPT)", theorem:"The Private Pareto Theorem", type:"Foundational", cat:"Logical / Mathematical" };
+// Private Pareto Theorem foundational entry for Table 2
+const PPT = { name:"Private Pareto Theorem", theorem:"The Private Pareto Theorem", type:"Foundational", cat:"Logical / Mathematical" };
 
 // ── Shared styles ────────────────────────────────────────────────
 const TH = { fontFamily: M, fontSize: 10, color: "rgba(255,255,255,0.4)", letterSpacing: 2,
@@ -257,7 +263,7 @@ function TheoremTable() {
           </tr>
           <tr style={{ background: "rgba(167,139,250,0.04)" }}>
             <td style={{ ...TD, color: "rgba(255,255,255,0.25)", textAlign: "center" }}>—</td>
-            <td style={{ ...TD, color: TEXT, fontWeight: 500 }}>Private Pareto Theorem (PPT)</td>
+            <td style={{ ...TD, color: TEXT, fontWeight: 500 }}>Private Pareto Theorem</td>
             <td style={{ ...TD, color: "#A78BFA", fontStyle: "italic" }}>The Private Pareto Theorem</td>
             <td style={{ ...TD, color: catCol("Logical") }}>Logical / Mathematical</td>
             <td style={{ ...TD }}><Badge label="FOUNDATIONAL" color="#A78BFA" bg="rgba(167,139,250,0.08)" /></td>
@@ -402,10 +408,10 @@ export default function SAPMTables() {
       {/* Header */}
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "48px 24px 0" }}>
         <div style={{ fontFamily: M, fontSize: 10, letterSpacing: 4, color: GOLD, marginBottom: 10 }}>
-          SAPM PROGRAM · ERIK POSTNIEKS · 2026
+          System Asset Pricing Model PROGRAM · ERIK POSTNIEKS · 2026
         </div>
         <h1 style={{ fontFamily: S, fontSize: 32, fontWeight: 300, color: TEXT, margin: "0 0 8px" }}>
-          SAPM Master Tables
+          System Asset Pricing Model Master Tables
         </h1>
         <p style={{ fontFamily: S, fontSize: 15, color: "rgba(255,255,255,0.5)", margin: "0 0 6px", fontStyle: "italic" }}>
           61 domain welfare theorems ranked by βW · Π = annual revenue (Iron Law) · Updated 2026-04-12
@@ -455,7 +461,7 @@ export default function SAPMTables() {
         <Legend />
 
         <div style={{ fontFamily: M, fontSize: 9, color: "rgba(255,255,255,0.15)", marginTop: 16, textAlign: "center" }}>
-          © 2026 Erik Postnieks · System Asset Pricing Model (SAPM) · All βW values revenue-denominated per Iron Law
+          © 2026 Erik Postnieks · System Asset Pricing Model · All βW values revenue-denominated per Iron Law
         </div>
       </div>
     </div>

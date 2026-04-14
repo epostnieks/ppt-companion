@@ -1,0 +1,80 @@
+{
+  "lang": "de",
+  "dir": "ltr",
+  "pst": {
+    "title": "PST-BRECHER",
+    "headline": "Wie können Sie helfen?",
+    "subtitle": "Das Ziel ist es, das Spiel von welfare-trap zu Nicht-PST zu ändern. Wählen Sie Ihr Land. Wählen Sie Ihren Sektor. Finden Sie heraus, welches Axiom bricht — und was Sie tun können, um es zu brechen.",
+    "globalLoss": "20,9 Billionen $",
+    "globalLossLabel": "Jährlicher systemischer Wohlfahrtsverlust durch PST-Spiele in 190 Ländern",
+    "globalLossExplain": "Das System Asset Pricing Model-Modell misst Wohlfahrtszerstörung über 61 Bereiche und 190 Volkswirtschaften. Bei μ=1,0 beträgt die aggregierte c-bereinigte BIP-Lücke 85,3 Billionen $ — 77% des konventionellen Welt-BIP. Dies ist die rückgewinnbare Wohlfahrt. Jedes PST-Spiel, das in ein Nicht-PST-Spiel umgewandelt wird, schließt einen Teil dieser Lücke. Dieses Tool kartiert den institutionellen Weg für jedes Land und jeden Sektor.",
+    "selectCountry": "WÄHLEN SIE IHR LAND",
+    "sectorsMapped": "SEKTOREN KARTIERT",
+    "selectSector": "SEKTOR WÄHLEN",
+    "fastestPath": "SCHNELLSTER WEG ZU NICHT-PST",
+    "fastestPathIn": "Im {{sector}}-Sektor von {{country}} ist der schnellste Weg, zu brechen",
+    "vulnerabilityMap": "PST-VULNERABILITÄTSKARTE — DREI AXIOME",
+    "howToBreak": "WIE MAN ES BRICHT",
+    "whatYouCanDo": "WAS SIE TUN KÖNNEN — NACH EBENE",
+    "infrastructure": "INSTITUTIONELLE INFRASTRUKTUR",
+    "mostBreakable": "AM VERWUNDBARSTEN",
+    "holds": "HÄLT",
+    "broken": "GEBROCHEN",
+    "allCountries": "ALLE LÄNDER",
+    "expanding": "ERWEITERND",
+    "expandingText": "190 Länder kartiert aus der System Asset Pricing Model c-bereinigten BIP-Datenbank.",
+    "selfLaceration": "SELBST-LAZERATION",
+    "selfLacerationText": "Dieses Tool bietet allgemeine Orientierung auf Basis öffentlich zugänglicher regulatorischer Rahmenwerke. Es ist keine Rechtsberatung.",
+    "searchPlaceholder": "Länder suchen...",
+    "noResults": "Keine Länder entsprechen Ihrer Suche.",
+    "break": "BRECHEN"
+  },
+  "nav": {
+    "curriculum": "LEHRPLAN",
+    "deepdive": "TIEFENANALYSE",
+    "policy": "POLITIKLABOR",
+    "executive": "FÜHRUNGSBERICHT",
+    "academic": "AKADEMISCH",
+    "sovereign": "SOUVERÄNITÄTSBERICHT",
+    "pstbreaker": "WIE KÖNNEN SIE HELFEN?"
+  },
+  "axioms": {
+    "1": {
+      "name": "Überlappende Interessen",
+      "short": "Axiom 1",
+      "desc": "Beide Parteien profitieren von der Zusammenarbeit."
+    },
+    "2": {
+      "name": "Systemunabhängigkeit",
+      "short": "Axiom 2",
+      "desc": "Das Systemwohlfahrt W kann nicht aus den Partei-Auszahlungen berechnet werden."
+    },
+    "3": {
+      "name": "Systemabhängigkeit",
+      "short": "Axiom 3",
+      "desc": "Die Agentenaktivität beeinflusst das geteilte System."
+    }
+  },
+  "actors": {
+    "insider": {
+      "label": "INSIDER / WHISTLEBLOWER",
+      "desc": "Sie sind im System. Sie sehen den Hollow Win."
+    },
+    "executive": {
+      "label": "FÜHRUNGSKRAFT / VORSTAND",
+      "desc": "Sie haben Autorität über das Spieldesign."
+    },
+    "regulator": {
+      "label": "REGULATOR / BRANCHENVERBAND",
+      "desc": "Sie setzen die Spielregeln."
+    },
+    "sovereign": {
+      "label": "SOUVERÄN / INTERNATIONAL",
+      "desc": "Sie können die Institution selbst umgestalten."
+    }
+  },
+  "language": {
+    "selector": "Sprache",
+    "current": "Deutsch"
+  }
+}

@@ -1,29 +1,30 @@
+"use client";
 import { useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, CartesianGrid, ReferenceLine, Label } from "recharts";
 
 // ══════════════════════════════════════════════════════════════
-// SAPM Program Hub — Private Pareto Theorem Companion
+// System Asset Pricing Model Program Hub — Private Pareto Theorem Companion
 // Postnieks (2026a) Working Paper
 // ══════════════════════════════════════════════════════════════
 
-// === COMPLETE SAPM βW CALIBRATION — ALL 61 DOMAINS ===
+// === COMPLETE System Asset Pricing Model βW CALIBRATION — ALL 61 DOMAINS ===
 // Source: CLAUDE.md canonical table (2026-04-12, revenue-basis Iron Law corrected)
 // I = Impossibility (physical/chemical/biological), T = Intractability (institutional)
 const ALL_BETAS = [
   { key: "firearms", domain: "Firearms", beta: 50.99, type: "T", slug: "sapm-firearms" },
   { key: "cybercrime", domain: "Cybercrime & Ransomware", beta: 31.10, type: "T", slug: "sapm-cybercrime" },
   { key: "humanTrafficking", domain: "Human Trafficking", beta: 22.62, type: "T", slug: "sapm-human-trafficking" },
-  { key: "wmd", domain: "WMD Proliferation", beta: 21.92, type: "I", slug: "sapm-wmd" },
+  { key: "wmd", domain: "Weapons of Mass Destruction", beta: 21.92, type: "I", slug: "sapm-wmd" },
   { key: "childLabor", domain: "Child Labor", beta: 21.83, type: "T", slug: "sapm-child-labor" },
   { key: "opioid", domain: "Opioid Ecosystem", beta: 14.96, type: "T", slug: "sapm-opioids" },
   { key: "conflictMinerals", domain: "Conflict Minerals", beta: 12.60, type: "T", slug: "sapm-conflict-minerals" },
   { key: "privatePrisons", domain: "Private Prisons", beta: 12.08, type: "T", slug: "sapm-private-prisons" },
   { key: "creditRating", domain: "Credit Rating Agencies", beta: 11.21, type: "T", slug: "sapm-credit-rating" },
   { key: "miningRareEarth", domain: "Mining & Rare Earth", beta: 11.15, type: "I", slug: "sapm-mining-rare-earth" },
-  { key: "bigTech", domain: "Big Tech (legacy)", beta: 7.81, type: "T", slug: "sapm-big-tech" },
+  { key: "bigTech", domain: "Big Tech Acquisitions", beta: 7.81, type: "T", slug: "sapm-big-tech" },
   { key: "cre", domain: "Commercial Real Estate", beta: 7.78, type: "T", slug: "sapm-cre" },
   { key: "frontierAI", domain: "Frontier AI", beta: 7.51, type: "T", slug: "sapm-frontier-ai" },
-  { key: "indAgMethane", domain: "Industrial Ag Methane", beta: 7.36, type: "I", slug: "sapm-industrial-ag-methane" },
+  { key: "indAgMethane", domain: "Industrial Agriculture Methane", beta: 7.36, type: "I", slug: "sapm-industrial-ag-methane" },
   { key: "monoculture", domain: "Monoculture / Crop Diversity", beta: 7.36, type: "I", slug: "sapm-monoculture" },
   { key: "gambling", domain: "Gambling & Casinos", beta: 7.30, type: "T", slug: "sapm-gambling" },
   { key: "deforestation", domain: "Deforestation & Logging", beta: 7.21, type: "I", slug: "sapm-deforestation" },
@@ -34,23 +35,23 @@ const ALL_BETAS = [
   { key: "deepSeaMining", domain: "Deep-Sea Mining", beta: 6.90, type: "I", slug: "sapm-deep-sea-mining" },
   { key: "cement", domain: "Cement & Concrete", beta: 6.74, type: "I", slug: "sapm-cement" },
   { key: "plastics", domain: "Plastics", beta: 6.67, type: "I", slug: "sapm-plastics" },
-  { key: "ewaste", domain: "E-Waste Export", beta: 6.59, type: "T", slug: "sapm-ewaste" },
+  { key: "ewaste", domain: "Electronic Waste Export", beta: 6.59, type: "T", slug: "sapm-ewaste" },
   { key: "tobacco", domain: "Tobacco", beta: 6.50, type: "T", slug: "sapm-tobacco" },
   { key: "studentLoans", domain: "Student Loan Securitization", beta: 6.36, type: "T", slug: "sapm-student-loans" },
-  { key: "pbm", domain: "Pharmacy Benefit Mgmt", beta: 6.35, type: "T", slug: "sapm-pbm" },
+  { key: "pbm", domain: "Pharmacy Benefit Management", beta: 6.35, type: "T", slug: "sapm-pbm" },
   { key: "platformMonopoly", domain: "Platform Monopoly", beta: 6.33, type: "T", slug: "sapm-platform-monopoly" },
   { key: "palmOil", domain: "Palm Oil", beta: 6.30, type: "I", slug: "sapm-palm-oil" },
   { key: "taxHavens", domain: "Tax Havens", beta: 6.27, type: "T", slug: "sapm-tax-havens" },
-  { key: "pops", domain: "POPs Beyond PFAS", beta: 6.23, type: "I", slug: "sapm-pops" },
+  { key: "pops", domain: "Persistent Organic Pollutants", beta: 6.23, type: "I", slug: "sapm-pops" },
   { key: "dataBrokerage", domain: "Data Brokerage / Surveillance", beta: 6.13, type: "T", slug: "sapm-data-brokerage" },
   { key: "amr", domain: "Antimicrobial Resistance", beta: 5.84, type: "I", slug: "sapm-amr" },
-  { key: "socialMedia", domain: "Social Media / Youth MH", beta: 5.79, type: "I", slug: "sapm-social-media" },
+  { key: "socialMedia", domain: "Social Media / Youth Mental Health", beta: 5.79, type: "I", slug: "sapm-social-media" },
   { key: "geneDrives", domain: "Gene Drives", beta: 5.77, type: "I", slug: "sapm-gene-drives" },
   { key: "water", domain: "Water Privatization", beta: 5.61, type: "T", slug: "sapm-water-privatization" },
   { key: "algoPricing", domain: "Algorithmic Pricing", beta: 5.38, type: "T", slug: "sapm-algorithmic-pricing" },
-  { key: "pfas", domain: "PFAS / Forever Chemicals", beta: 5.31, type: "I", slug: "sapm-pfas" },
+  { key: "pfas", domain: "Forever Chemicals (PFAS)", beta: 5.31, type: "I", slug: "sapm-pfas" },
   { key: "peHealthcare", domain: "Private Equity Healthcare", beta: 5.24, type: "T", slug: "sapm-pe-healthcare" },
-  { key: "fxFixing", domain: "LIBOR / FX Fixing", beta: 5.13, type: "T", slug: "sapm-fx-fixing" },
+  { key: "fxFixing", domain: "Benchmark Rate Fixing", beta: 5.13, type: "T", slug: "sapm-fx-fixing" },
   { key: "bitcoin", domain: "Bitcoin / Proof-of-Work", beta: 5.00, type: "T", slug: "sapm-bitcoin" },
   { key: "aviation", domain: "Aviation Emissions", beta: 4.97, type: "I", slug: "sapm-aviation" },
   { key: "defenseProcurement", domain: "Defense Procurement", beta: 4.88, type: "T", slug: "sapm-defense-procurement" },
@@ -73,9 +74,9 @@ const ALL_BETAS = [
   { key: "gigEconomy", domain: "Gig Economy", beta: 0.76, type: "T", slug: "sapm-gig-economy" },
 ];
 
-// Case study domains (original PPT paper)
+// Case study domains (original Private Pareto Theorem paper)
 const CASE_STUDIES = [
-  { domain: "LIBOR", beta: 12, classification: "Extreme", note: "δ=$9B, T*≤0" },
+  { domain: "Benchmark Rate", beta: 12, classification: "Extreme", note: "δ=$9B, T*≤0" },
   { domain: "ERCOT Grid", beta: 2053, classification: "Catastrophic", note: "δ=$95M, off-scale" },
 ];
 
@@ -115,66 +116,66 @@ const THEOREMS = [
   { num: 1, year: 1785, name: "Condorcet Voting Paradox", authors: "Condorcet", nobel: null,
     statement: "Majority voting can produce cycles — A beats B, B beats C, C beats A — even when every voter has rational, transitive preferences.",
     impossible: "A transitive social ordering from majority rule",
-    connection: "First proof that aggregation of rational individual preferences need not be rational. PPT extends this from preferences to welfare." },
+    connection: "First proof that aggregation of rational individual preferences need not be rational. Private Pareto Theorem extends this from preferences to welfare." },
   { num: 2, year: 1951, name: "Arrow's Impossibility", authors: "Arrow", nobel: 1972,
     statement: "No rank-order voting system can convert individual preferences into a community-wide ranking while satisfying unrestricted domain, Pareto, independence of irrelevant alternatives, and non-dictatorship simultaneously.",
     impossible: "A fair social welfare function that satisfies all four axioms",
-    connection: "Arrow showed preference aggregation is impossible under fairness constraints. PPT shows welfare preservation is impossible under bilateral rationality." },
+    connection: "Arrow showed preference aggregation is impossible under fairness constraints. Private Pareto Theorem shows welfare preservation is impossible under bilateral rationality." },
   { num: 3, year: 1970, name: "Sen's Liberal Paradox", authors: "Sen", nobel: 1998,
     statement: "No social welfare function can simultaneously respect individual liberty — each person being decisive over at least one personal choice — and the Pareto principle.",
     impossible: "Simultaneous respect for individual rights and Pareto efficiency",
-    connection: "Sen showed individual rights conflict with efficiency. PPT shows bilateral efficiency conflicts with system welfare." },
+    connection: "Sen showed individual rights conflict with efficiency. Private Pareto Theorem shows bilateral efficiency conflicts with system welfare." },
   { num: 4, year: 1972, name: "Hurwicz Impossibility", authors: "Hurwicz", nobel: 2007,
     statement: "No mechanism can simultaneously achieve Pareto efficiency, incentive compatibility, and individual rationality across all preference environments.",
     impossible: "A mechanism that is efficient, truthful, and individually rational in all settings",
-    connection: "Hurwicz showed mechanisms can't achieve all desirable properties. PPT shows bilateral negotiation can't preserve system welfare." },
+    connection: "Hurwicz showed mechanisms can't achieve all desirable properties. Private Pareto Theorem shows bilateral negotiation can't preserve system welfare." },
   { num: 5, year: 1973, name: "Gibbard's Theorem", authors: "Gibbard", nobel: null,
     statement: "Any non-dictatorial voting scheme with at least three possible outcomes is manipulable — some voter can always improve their outcome by misreporting preferences.",
     impossible: "A non-dictatorial, strategy-proof social choice function over 3+ outcomes",
-    connection: "Gibbard showed honest reporting is not incentive-compatible. PPT shows bilateral honesty cannot protect system welfare." },
+    connection: "Gibbard showed honest reporting is not incentive-compatible. Private Pareto Theorem shows bilateral honesty cannot protect system welfare." },
   { num: 6, year: 1975, name: "Gibbard–Satterthwaite", authors: "Gibbard, Satterthwaite", nobel: null,
     statement: "Every non-dictatorial, surjective social choice function over three or more alternatives is susceptible to strategic manipulation by at least one voter.",
     impossible: "A non-dictatorial, onto, strategy-proof voting rule",
-    connection: "Extends Gibbard to deterministic mechanisms. PPT extends the impossibility from manipulation to welfare blindness." },
+    connection: "Extends Gibbard to deterministic mechanisms. Private Pareto Theorem extends the impossibility from manipulation to welfare blindness." },
   { num: 7, year: 1977, name: "Green–Laffont", authors: "Green, Laffont", nobel: null,
     statement: "In a general preference domain, the only incentive-compatible and efficient mechanisms are Groves mechanisms — and none of them balance the budget.",
     impossible: "Incentive compatibility, allocative efficiency, and budget balance simultaneously",
-    connection: "Budget balance and efficiency are incompatible. PPT proves welfare preservation and bilateral efficiency are incompatible." },
+    connection: "Budget balance and efficiency are incompatible. Private Pareto Theorem proves welfare preservation and bilateral efficiency are incompatible." },
   { num: 8, year: 1979, name: "Holmström Budget-Balance", authors: "Holmström", nobel: 2016,
     statement: "No budget-balanced sharing rule can make every team member's marginal contribution equal to their marginal reward. Free-riding is structurally unavoidable in teams.",
     impossible: "Efficient incentives in teams without an outside budget-breaker",
-    connection: "Teams can't perfectly incentivize members. PPT shows bilateral deals can't internalize system costs." },
+    connection: "Teams can't perfectly incentivize members. Private Pareto Theorem shows bilateral deals can't internalize system costs." },
   { num: 9, year: 1982, name: "Balinski–Young", authors: "Balinski, Young", nobel: null,
     statement: "No apportionment method can simultaneously satisfy quota — each state's share rounded up or down — and avoid the Alabama paradox, where adding a seat causes a state to lose representation.",
     impossible: "A fair apportionment method free of paradoxes",
-    connection: "Fair division requires unavoidable trade-offs. PPT reveals a trade-off that was invisible to bilateral analysis." },
+    connection: "Fair division requires unavoidable trade-offs. Private Pareto Theorem reveals a trade-off that was invisible to bilateral analysis." },
   { num: 10, year: 1982, name: "Roth's Matching", authors: "Roth", nobel: 2012,
     statement: "No stable matching mechanism can be strategy-proof for all participants on both sides of the market. At least one side can always gain by misreporting.",
     impossible: "A stable, two-sided strategy-proof matching",
-    connection: "Matching markets face strategic impossibilities. PPT shows bilateral matches can succeed while destroying the system they operate in." },
+    connection: "Matching markets face strategic impossibilities. Private Pareto Theorem shows bilateral matches can succeed while destroying the system they operate in." },
   { num: 11, year: 1983, name: "Myerson–Satterthwaite", authors: "Myerson, Satterthwaite", nobel: 2007,
     statement: "No mechanism can guarantee efficient bilateral trade under private information about valuations while maintaining individual rationality and budget balance.",
     impossible: "Efficient bilateral trade under private information without subsidy",
-    connection: "Bilateral efficiency under private info requires external subsidy. PPT shows bilateral efficiency under system independence requires welfare destruction." },
+    connection: "Bilateral efficiency under private info requires external subsidy. Private Pareto Theorem shows bilateral efficiency under system independence requires welfare destruction." },
   { num: 12, year: 1988, name: "Moulin's No-Show Paradox", authors: "Moulin", nobel: null,
     statement: "No Condorcet-consistent voting rule can be immune to the no-show paradox — a voter can sometimes obtain a better outcome by not participating at all.",
     impossible: "A Condorcet method where voting is always weakly better than abstaining",
-    connection: "Even non-participation is strategically relevant. PPT shows even successful bilateral participation can be system-destructive." },
+    connection: "Even non-participation is strategically relevant. Private Pareto Theorem shows even successful bilateral participation can be system-destructive." },
   { num: 13, year: 2000, name: "Laffont–Maskin Collusion", authors: "Laffont, Maskin", nobel: 2007,
     statement: "When agents can form side-agreements, no mechanism can simultaneously achieve allocative efficiency, incentive compatibility, and collusion-proofness.",
     impossible: "An efficient, incentive-compatible, collusion-proof mechanism",
-    connection: "Collusion-proofness is incompatible with efficiency. PPT shows collusive outcomes are precisely where bilateral efficiency lives." },
+    connection: "Collusion-proofness is incompatible with efficiency. Private Pareto Theorem shows collusive outcomes are precisely where bilateral efficiency lives." },
   { num: 14, year: 2001, name: "Kaplow–Shavell", authors: "Kaplow, Shavell", nobel: null,
     statement: "Any legal rule that gives weight to fairness considerations beyond welfare will, in some cases, make every individual worse off compared to a pure welfarist rule.",
     impossible: "Non-welfarist legal criteria that are Pareto-compatible",
-    connection: "Non-welfarist criteria impose costs on all. PPT shows bilaterally welfarist criteria impose costs on the system." },
+    connection: "Non-welfarist criteria impose costs on all. Private Pareto Theorem shows bilaterally welfarist criteria impose costs on the system." },
   { num: 15, year: 2002, name: "List–Pettit Judgment Aggregation", authors: "List, Pettit", nobel: null,
     statement: "No group can maintain logically consistent collective judgments across interconnected propositions while satisfying universal domain, systematicity, and anonymity.",
     impossible: "Consistent collective judgment under minimal democratic requirements",
-    connection: "Judgment aggregation fails at the group level. PPT shows welfare aggregation fails at the bilateral level." },
+    connection: "Judgment aggregation fails at the group level. Private Pareto Theorem shows welfare aggregation fails at the bilateral level." },
   { num: 16, year: 2026, name: "Private Pareto Theorem", authors: "Postnieks", nobel: null,
     statement: "For any bilateral interaction satisfying three axioms — overlapping interests, system independence, and system dependence — no Nash equilibrium exists in which both private parties gain and system welfare is preserved. The cooperative surplus visible to bilateral analysis is temporally unstable when βW > 1.",
-    impossible: "Bilateral Pareto efficiency that preserves system welfare under PST axioms",
+    impossible: "Bilateral Pareto efficiency that preserves system welfare under Private-Systemic Tension axioms",
     connection: null },
 ];
 
@@ -293,7 +294,7 @@ export default function PPTCompanion() {
                 The Private Pareto Theorem
               </h1>
               <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, marginTop: 12 }}>
-                Erik Postnieks · © 2026 Erik Postnieks · 2025–2026
+                © 2026 Erik Postnieks
               </div>
             </div>
             <div style={{ fontFamily: FONTS.mono, fontSize: 13, color: DIM, textAlign: "right", display: "flex", gap: 16, alignItems: "center", marginTop: 8 }}>
@@ -361,16 +362,16 @@ export default function PPTCompanion() {
               </div>
             </Card>
 
-            <Section number={<>β<sub>W</sub></>} title="System Beta Distribution" subtitle={<>β<sub>W</sub> = −dW/dΠ — marginal welfare cost per dollar of private gain</>} />
+            <Section number={<>β<sub>W</sub></>} title="Welfare Beta Distribution" subtitle={<>β<sub>W</sub> = −dW/dΠ — marginal welfare cost per dollar of private gain</>} />
 
-            <div style={{ height: 520, marginBottom: 16 }}>
+            <div style={{ height: BETA_CHART.length * 28 + 40, marginBottom: 16 }}>
               <ResponsiveContainer>
-                <BarChart data={BETA_CHART} layout="vertical" margin={{ left: 180, right: 30, top: 10, bottom: 10 }}>
+                <BarChart data={BETA_CHART} layout="vertical" margin={{ left: 200, right: 40, top: 10, bottom: 10 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
                   <XAxis type="number" tick={{ fill: MUTED, fontFamily: FONTS.mono, fontSize: 12 }} domain={[0, 'auto']} />
-                  <YAxis type="category" dataKey="domain" tick={{ fill: DIM, fontFamily: FONTS.mono, fontSize: 12 }} width={170} interval={0} />
+                  <YAxis type="category" dataKey="domain" tick={{ fill: DIM, fontFamily: FONTS.mono, fontSize: 13 }} width={190} interval={0} />
                   <Tooltip contentStyle={{ background: "#1a1a2e", border: `1px solid ${BORDER}`, fontFamily: FONTS.mono, fontSize: 13, color: DIM }} />
-                  <Bar dataKey="beta" radius={[0, 2, 2, 0]}>
+                  <Bar dataKey="beta" radius={[0, 2, 2, 0]} barSize={18}>
                     {BETA_CHART.map((d, i) => <Cell key={i} fill={d.color} />)}
                   </Bar>
                   <ReferenceLine x={1} stroke="rgba(255,255,255,0.2)" strokeDasharray="5 5">
@@ -391,7 +392,7 @@ export default function PPTCompanion() {
                 <a href="#" onClick={(e) => { e.preventDefault(); setTab("dashboards"); }}
                   style={{ display: "block", padding: "12px 16px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 2 }}>
                   <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: ACCENT, letterSpacing: 1 }}>ALL DASHBOARDS →</div>
-                  <div style={{ fontFamily: FONTS.serif, fontSize: 15, color: DIM, marginTop: 4 }}>32 domain-specific companion dashboards</div>
+                  <div style={{ fontFamily: FONTS.serif, fontSize: 15, color: DIM, marginTop: 4 }}>61 domain-specific interactive dashboards</div>
                 </a>
               </div>
             </Card>
@@ -401,7 +402,7 @@ export default function PPTCompanion() {
         {/* ═══ DASHBOARDS ═══ */}
         {tab === "dashboards" && (
           <div>
-            <Section title="Companion Dashboards" subtitle="32 domain-specific SAPM dashboards + C-Adjusted GDP" />
+            <Section title="Companion Dashboards" subtitle="61 domain-specific System Asset Pricing Model dashboards + C-Adjusted GDP" />
 
             <a href="https://c-adjusted-gdp.vercel.app" target="_blank" rel="noopener noreferrer"
               style={{ display: "block", marginBottom: 24 }}>
@@ -411,7 +412,7 @@ export default function PPTCompanion() {
                     <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: ACCENT, letterSpacing: 1, marginBottom: 4 }}>FLAGSHIP</div>
                     <div style={{ fontFamily: FONTS.serif, fontSize: 18, color: "rgba(255,255,255,0.9)" }}>C-Adjusted GDP Dashboard</div>
                     <div style={{ fontFamily: FONTS.mono, fontSize: 13, color: MUTED, marginTop: 4 }}>
-                      Welfare-adjusted national output — 190+ countries, 27 SAPM channels, extraction ratio μ=0.15
+                      Welfare-adjusted national output — 190+ countries, 27 System Asset Pricing Model channels, extraction ratio μ=0.15
                     </div>
                   </div>
                   <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: ACCENT }}>→</div>
@@ -476,7 +477,7 @@ export default function PPTCompanion() {
         {/* ═══ βW RANKINGS ═══ */}
         {tab === "betas" && (
           <div>
-            <Section number="§D.2" title={<>Complete β<sub>W</sub> Calibration</>} subtitle="All 32 domains — marginal welfare cost per dollar of private gain" />
+            <Section number="§D.2" title={<>Complete β<sub>W</sub> Calibration</>} subtitle="All 61 domains — marginal welfare cost per dollar of private gain" />
 
             <Card highlight>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 16, textAlign: "center" }}>
@@ -664,7 +665,7 @@ export default function PPTCompanion() {
             <Card highlight>
               <Label2>THE DANGEROUS CONFLATION (Prop 8a)</Label2>
               <div style={{ fontFamily: FONTS.serif, fontSize: 15, color: DIM, lineHeight: 1.7 }}>
-                Standard two-dimensional analysis maps both <Mono color="#DC2626">Hollow Win (0,1,1)</Mono> and <Mono color="#059669">Win, Win, Win (1,1,1)</Mono> to the same label: "mutual gain." This conflation allowed LIBOR manipulation, cartel pricing, and algorithmic collusion to be classified identically with legitimate cooperation — for decades.
+                Standard two-dimensional analysis maps both <Mono color="#DC2626">Hollow Win (0,1,1)</Mono> and <Mono color="#059669">Win, Win, Win (1,1,1)</Mono> to the same label: "mutual gain." This conflation allowed Benchmark Rate manipulation, cartel pricing, and algorithmic collusion to be classified identically with legitimate cooperation — for decades.
               </div>
             </Card>
           </div>
@@ -769,7 +770,7 @@ export default function PPTCompanion() {
                           </div>
                           {t.connection && (
                             <div>
-                              <div style={{ fontFamily: FONTS.mono, fontSize: 11, color: MUTED, letterSpacing: 1, marginBottom: 4 }}>CONNECTION TO PPT</div>
+                              <div style={{ fontFamily: FONTS.mono, fontSize: 11, color: MUTED, letterSpacing: 1, marginBottom: 4 }}>CONNECTION TO Private Pareto Theorem</div>
                               <div style={{ fontFamily: FONTS.serif, fontSize: 14, color: ACCENT, fontStyle: "italic", lineHeight: 1.6 }}>
                                 {t.connection}
                               </div>

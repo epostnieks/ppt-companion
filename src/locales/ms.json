@@ -1,0 +1,80 @@
+{
+  "lang": "ms",
+  "dir": "ltr",
+  "pst": {
+    "title": "PEMECAH PST",
+    "headline": "Bagaimana anda boleh membantu?",
+    "subtitle": "Matlamatnya ialah menukar permainan dari welfare-trap kepada bukan-PST. Pilih negara anda. Pilih sektor anda. Ketahui aksiom mana yang pecah — dan apa yang perlu dilakukan untuk memecahkannya.",
+    "globalLoss": "$85.3 trilion",
+    "globalLossLabel": "Kerugian kebajikan sistemik tahunan daripada permainan welfare-trap di 190 negara",
+    "globalLossExplain": "Inilah kos permainan welfare-trap kepada planet ini setiap tahun — 77% KDNK dunia. Jika setiap orang, setiap syarikat, setiap pengawal selia memecahkan welfare-trap dalam sektor mereka, kita memulihkan $85.3 trilion kebajikan sosial sebenar. Berjuang untuk sistem. Berjuang untuk planet. Kita tidak perlukan Pelan B. Mari jayakan Pelan A.",
+    "selectCountry": "PILIH NEGARA ANDA",
+    "sectorsMapped": "SEKTOR DIPETAKAN",
+    "selectSector": "PILIH SEKTOR",
+    "fastestPath": "LALUAN TERPANTAS KE BUKAN-PST",
+    "fastestPathIn": "Dalam sektor {{sector}} {{country}}, laluan terpantas ialah memecahkan",
+    "vulnerabilityMap": "PETA KERENTANAN welfare-trap — TIGA AKSIOM",
+    "howToBreak": "CARA MEMECAHKAN",
+    "whatYouCanDo": "APA YANG BOLEH ANDA LAKUKAN — MENGIKUT TAHAP",
+    "infrastructure": "INFRASTRUKTUR INSTITUSI",
+    "mostBreakable": "PALING MUDAH DIPECAHKAN",
+    "holds": "KEKAL",
+    "broken": "PECAH",
+    "allCountries": "SEMUA NEGARA",
+    "expanding": "BERKEMBANG",
+    "expandingText": "190 negara dipetakan dari pangkalan data KDNK c-diselaraskan System Asset Pricing Model.",
+    "selfLaceration": "PENILAIAN KENDIRI",
+    "selfLacerationText": "Alat ini memberikan panduan umum berdasarkan rangka kerja kawal selia awam. Bukan nasihat undang-undang.",
+    "searchPlaceholder": "Cari negara...",
+    "noResults": "Tiada negara yang sepadan.",
+    "break": "PECAHKAN"
+  },
+  "nav": {
+    "curriculum": "KURIKULUM",
+    "deepdive": "ANALISIS MENDALAM",
+    "policy": "MAKMAL DASAR",
+    "executive": "RINGKASAN EKSEKUTIF",
+    "academic": "AKADEMIK",
+    "sovereign": "LAPORAN KEDAULATAN",
+    "pstbreaker": "BAGAIMANA MEMBANTU?"
+  },
+  "axioms": {
+    "1": {
+      "name": "Kepentingan Bertindih",
+      "short": "Aksiom 1",
+      "desc": "Kedua-dua pihak mendapat manfaat."
+    },
+    "2": {
+      "name": "Kebebasan Sistem",
+      "short": "Aksiom 2",
+      "desc": "Kebajikan sistem W tidak boleh dikira dari bayaran pihak."
+    },
+    "3": {
+      "name": "Kebergantungan Sistem",
+      "short": "Aksiom 3",
+      "desc": "Aktiviti agen mempengaruhi sistem bersama."
+    }
+  },
+  "actors": {
+    "insider": {
+      "label": "ORANG DALAM / PEMBERI MAKLUMAT",
+      "desc": "Anda di dalam sistem."
+    },
+    "executive": {
+      "label": "EKSEKUTIF / LEMBAGA PENGARAH",
+      "desc": "Anda mempunyai kuasa ke atas reka bentuk permainan."
+    },
+    "regulator": {
+      "label": "PENGAWAL SELIA / BADAN INDUSTRI",
+      "desc": "Anda menetapkan peraturan permainan."
+    },
+    "sovereign": {
+      "label": "KEDAULATAN / ANTARABANGSA",
+      "desc": "Anda boleh mereka bentuk semula institusi."
+    }
+  },
+  "language": {
+    "selector": "Bahasa",
+    "current": "Bahasa Melayu"
+  }
+}

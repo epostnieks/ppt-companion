@@ -1,7 +1,6 @@
 import { useState } from "react";
 import PPTCompanion from './ppt-companion'
 import Curriculum from './Curriculum'
-import SAPMNav from "./SAPMNav";
 import SAPMTables from "./SAPMTables";
 import ProgramDashboard from "./ProgramDashboard";
 import AcademicHub from "./AcademicHub";
@@ -50,14 +49,14 @@ export default function App() {
 
   return (
     <div style={{ display: "flex", minHeight: "100vh", background: "#0D0D0D" }}>
+      <a className="skip-to-content" href="#main-content">Skip to content</a>
       <SideNav currentView={view} onNavigate={setView} />
-      <div className="sapm-main-content" style={{
+      <div id="main-content" className="sapm-main-content" style={{
         marginLeft: SIDEBAR_WIDTH,
         flex: 1,
         minWidth: 0,
       }}>
         {renderContent()}
-        <SAPMNav />
       </div>
 
       <style>{`

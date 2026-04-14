@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import COUNTRY_REGULATORS from "./countryRegulators";
 
@@ -18,12 +19,21 @@ const MUTED = "rgba(255,255,255,0.35)";
 const BORDER = "rgba(255,255,255,0.1)";
 const DIM = "rgba(255,255,255,0.55)";
 
+// ═══════════════════════════════════════════════════════════════
+// DATA PROVENANCE — POLICY LAB DOMAIN DATA
+// Source: CLAUDE.md canonical βW table (2026-04-12, revenue-basis)
+// Secondary: MC simulation repos (github.com/epostnieks/sapm-mc-{slug})
+// Policy statements: 61 domains × 6 agents × 190 countries = 69,540 entries
+// βW basis: Revenue (Iron Law: Π = annual industry revenue, NEVER profit)
+// MC parameters: N=10,000, seed=42, 3+ distribution types per domain
+// Last synced: 2026-04-12
+// ═══════════════════════════════════════════════════════════════
 // ─── DOMAIN DATA (Monte Carlo calibrated, N=10,000, seed=42) ─────────
 const DOMAINS = [
-  { name: "WMD Capability Diffusion", beta: 21.92, welfCost: 1894, pi: 86.4, jurisdiction: ["Department of Defense (DOD)","State Dept.","National Security Council (NSC)","International Atomic Energy Agency (IAEA)","Chemical Weapons Convention (CWC) / Biological Weapons Convention (BWC)"], addressable: "low", urgency: "critical",
+  { name: "Weapons of Mass Destruction Capability Diffusion", beta: 21.92, welfCost: 1894, pi: 86.4, jurisdiction: ["Department of Defense (DOD)","State Dept.","National Security Council (NSC)","International Atomic Energy Agency (IAEA)","Chemical Weapons Convention (CWC) / Biological Weapons Convention (BWC)"], addressable: "low", urgency: "critical",
     intervention: "Export-control modernization — Wassenaar Arrangement (international export controls) plus AI-specific annexes. Dual-use research oversight expansion. Mandatory capability disclosure for synthesis providers.",
     existing: ["Export Control Reform Act (2018)","Biological Weapons Convention","Chemical Weapons Convention","Wassenaar Arrangement"],
-    gap: "Over 14,000 PFAS compounds exist. EPA has set enforceable limits for six. No enforceable international treaty covers autonomous weapons or AI-enabled bioweapon design. Dual-use AI models fall outside existing export control categories. The gap is not ignorance. It is architecture.",
+    gap: "Over 14,000 Forever Chemicals compounds exist. EPA has set enforceable limits for six. No enforceable international treaty covers autonomous weapons or AI-enabled bioweapon design. Dual-use AI models fall outside existing export control categories. The gap is not ignorance. It is architecture.",
     committee: { us: "Armed Services; Foreign Relations; Intelligence", eu: "Security & Defence; Foreign Affairs" } },
   { name: "Orbital Debris", beta: 4.82, welfCost: 8, pi: 2.2, jurisdiction: ["Federal Communications Commission (FCC)","Federal Aviation Administration (FAA)","United Nations Committee on the Peaceful Uses of Outer Space (UN COPUOS)","International Telecommunication Union (ITU)"], addressable: "medium", urgency: "critical",
     intervention: "Orbital-use fee ($235,000/object-year, Rao et al.). Mandatory deorbit within 5 years. Liability regime for constellation operators — not voluntary guidelines, liability.",
@@ -36,33 +46,33 @@ const DOMAINS = [
     gap: "The pesticide law (FIFRA) was designed for pesticides. A gene drive is not a pesticide — it is an organism that replaces a species. No regulatory framework on Earth was built for self-propagating genetic constructs. The Coordinated Framework is 40 years old. Gene drives did not exist when it was written.",
     committee: { us: "Energy & Commerce; Agriculture; Science", eu: "Environment & Public Health; Agriculture" } },
   { name: "Pharmacy Benefit Managers", beta: 6.35, welfCost: 381, pi: 60, jurisdiction: ["Federal Trade Commission (FTC)","Health and Human Services (HHS)","Centers for Medicare & Medicaid Services (CMS)","State Attorneys General"], addressable: "very high", urgency: "high",
-    intervention: "Structural separation — PBM cannot own the insurer and the pharmacy. Ban spread pricing. Mandate rebate pass-through to patients at point of sale. Three companies control 80% of the market. They are the buyer, the seller, and the middleman.",
-    existing: ["FTC PBM Investigation (2024)","State PBM transparency laws (35+ states)","CMS Medicare Part D rebate rule"],
+    intervention: "Structural separation — Pharmacy Benefit Management cannot own the insurer and the pharmacy. Ban spread pricing. Mandate rebate pass-through to patients at point of sale. Three companies control 80% of the market. They are the buyer, the seller, and the middleman.",
+    existing: ["FTC Pharmacy Benefit Management Investigation (2024)","State Pharmacy Benefit Management transparency laws (35+ states)","CMS Medicare Part D rebate rule"],
     gap: "CVS owns Aetna and Caremark. Cigna owns Express Scripts. UnitedHealth owns Optum Rx. The vertical integration is the problem — and no federal law prohibits it. The FTC investigation is active. The structural separation bill does not exist.",
     committee: { us: "Finance; Health, Education, Labor & Pensions; Energy & Commerce; Judiciary", eu: "N/A (US-specific)" } },
-  { name: "PFAS / Forever Chemicals", beta: 5.31, welfCost: 6582, pi: 187, jurisdiction: ["EPA","FDA","DOD","European Chemicals Agency (ECHA)","Stockholm Convention"], addressable: "high", urgency: "critical",
-    intervention: "Class-wide production ban — not compound-by-compound, class-wide. CERCLA hazardous substance designation for all PFAS. Manufacturer-funded remediation with strict liability. The carbon-fluorine bond does not negotiate. Neither should the regulation.",
-    existing: ["EPA PFAS Strategic Roadmap (2021)","CERCLA designation (PFOA/PFOS, 2024)","EU PFAS restriction proposal (European Chemicals Agency, 2023)","Stockholm Convention listings"],
-    gap: "14,000+ PFAS compounds. EPA has enforceable limits for 6. The EU restriction proposal covers ~10,000 but grants 5–12 year exemptions for 'critical uses.' The compound-by-compound approach guarantees the industry manufactures faster than the regulator can list.",
+  { name: "Forever Chemicals (PFAS)", beta: 5.31, welfCost: 6582, pi: 187, jurisdiction: ["EPA","FDA","DOD","European Chemicals Agency (ECHA)","Stockholm Convention"], addressable: "high", urgency: "critical",
+    intervention: "Class-wide production ban — not compound-by-compound, class-wide. Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA) hazardous substance designation for all Forever Chemicals. Manufacturer-funded remediation with strict liability. The carbon-fluorine bond does not negotiate. Neither should the regulation.",
+    existing: ["EPA Forever Chemicals Strategic Roadmap (2021)","Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA) designation (PFOA/PFOS, 2024)","EU Forever Chemicals restriction proposal (European Chemicals Agency, 2023)","Stockholm Convention listings"],
+    gap: "14,000+ Forever Chemicals compounds. EPA has enforceable limits for 6. The EU restriction proposal covers ~10,000 but grants 5–12 year exemptions for 'critical uses.' The compound-by-compound approach guarantees the industry manufactures faster than the regulator can list.",
     committee: { us: "Environment & Public Works; Energy & Commerce; Armed Services (DOD sites)", eu: "Environment & Public Health; Industry & Energy" } },
   { name: "Opioid Ecosystem", beta: 14.96, welfCost: 1122, pi: 75, jurisdiction: ["Drug Enforcement Administration (DEA)","FDA","HHS","Substance Abuse and Mental Health Services Administration (SAMHSA)","State Attorneys General"], addressable: "medium", urgency: "high",
     intervention: "Federal Prescription Drug Monitoring Program (PDMP) interoperability mandate — not voluntary, mandatory. Naloxone (opioid overdose reversal drug) over-the-counter expansion. Medication-assisted treatment (MAT) access parity enforcement. Distributor quota reform. None of this addresses the fentanyl supply chain, which is entirely illicit and outside pharmaceutical regulation.",
     existing: ["SUPPORT Act (2018)","DEA Automation of Reports and Consolidated Orders System (ARCOS)","State PDMP programs (50 states)","Naloxone Access Laws (48 states)"],
     gap: "No federal prescription drug monitoring mandate. Fifty state systems that don't talk to each other. DEA quotas were designed for shortages, not diversion. And the synthetic supply chain — fentanyl precursors from China, pressed in Mexico, distributed through social media — operates in a jurisdiction that pharmaceutical regulation cannot reach.",
     committee: { us: "Energy & Commerce; Judiciary; Finance; Health, Education, Labor & Pensions", eu: "Environment & Public Health; Civil Liberties" } },
-  { name: "CRE Urban Hollowing", beta: 8.5, welfCost: 111, pi: 14, jurisdiction: ["Federal Reserve","Office of the Comptroller of the Currency (OCC)","Federal Deposit Insurance Corporation (FDIC)","Securities and Exchange Commission (SEC)","Treasury","Municipal"], addressable: "medium", urgency: "high",
-    intervention: "CRE loan stress-testing with mark-to-market — not extend-and-pretend, mark-to-market. Adaptive reuse zoning reform. Commercial mortgage-backed securities (CMBS) transparency requirements. The office vacancy rate in San Francisco is 37%. The loans say the buildings are worth what they were worth in 2019. They are not.",
-    existing: ["Dodd-Frank stress testing (Comprehensive Capital Analysis and Review / Dodd-Frank Act Stress Tests)","Basel III CRE risk weights","Municipal zoning codes"],
-    gap: "$1.5 trillion in distressed CRE loans are being carried at 2019 valuations through extend-and-pretend accounting. No federal adaptive-reuse incentive exists. Commercial mortgage-backed securities servicer conflicts of interest are unaddressed. The banking system is pretending the problem doesn't exist. The buildings are empty.",
+  { name: "Commercial Real Estate Urban Hollowing", beta: 8.5, welfCost: 111, pi: 14, jurisdiction: ["Federal Reserve","Office of the Comptroller of the Currency (OCC)","Federal Deposit Insurance Corporation (FDIC)","Securities and Exchange Commission (SEC)","Treasury","Municipal"], addressable: "medium", urgency: "high",
+    intervention: "Commercial Real Estate loan stress-testing with mark-to-market — not extend-and-pretend, mark-to-market. Adaptive reuse zoning reform. Commercial mortgage-backed securities (CMBS) transparency requirements. The office vacancy rate in San Francisco is 37%. The loans say the buildings are worth what they were worth in 2019. They are not.",
+    existing: ["Dodd-Frank stress testing (Comprehensive Capital Analysis and Review / Dodd-Frank Act Stress Tests)","Basel III Commercial Real Estate risk weights","Municipal zoning codes"],
+    gap: "$1.5 trillion in distressed Commercial Real Estate loans are being carried at 2019 valuations through extend-and-pretend accounting. No federal adaptive-reuse incentive exists. Commercial mortgage-backed securities servicer conflicts of interest are unaddressed. The banking system is pretending the problem doesn't exist. The buildings are empty.",
     committee: { us: "Banking; Financial Services; Ways & Means", eu: "Economic Affairs" } },
-  { name: "Big Tech Platform Monopoly", beta: 6.3, welfCost: 990, pi: 158, jurisdiction: ["FTC","DOJ","European Commission Directorate-General for Competition","Digital Markets Act (DMA)"], addressable: "high", urgency: "high",
+  { name: "Big Tech Platform Monopoly", beta: 6.3, welfCost: 990, pi: 158, jurisdiction: ["FTC","DOJ","European Commission Directorate-General for Competition","Digital Markets Act"], addressable: "high", urgency: "high",
     intervention: "Structural separation — marketplace from private-label. Interoperability mandates. Data portability. Acquisition moratorium for dominant platforms. The EU did this with the Digital Markets Act. The US has not.",
     existing: ["Digital Markets Act (EU, 2023)","American Innovation and Choice Online Act (proposed)","DOJ v. Google (2024)","FTC v. Meta (2024)"],
     gap: "No US equivalent of the Digital Markets Act. The American Innovation and Choice Online Act has been proposed and stalled twice. Current enforcement is case-by-case litigation that takes years. Network effects regenerate market power faster than the Department of Justice can litigate.",
     committee: { us: "Judiciary; Commerce; Intelligence (data/surveillance)", eu: "Internal Market; Legal Affairs; Industry & Energy" } },
   { name: "Palm Oil Deforestation", beta: 6.30, welfCost: 428, pi: 68, jurisdiction: ["USDA","EU Deforestation Regulation","Roundtable on Sustainable Palm Oil (RSPO)","Indonesia/Malaysia national"], addressable: "medium", urgency: "high",
     intervention: "EU Deforestation Regulation enforcement. Satellite-verified supply-chain traceability. Import tariffs on non-certified palm oil.",
-    existing: ["EU Deforestation Regulation (2023)","RSPO Certification","Indonesia/Malaysia moratoria"],
+    existing: ["EU Deforestation Regulation (2023)","Roundtable on Sustainable Palm Oil Certification","Indonesia/Malaysia moratoria"],
     gap: "The EU Deforestation Regulation covers EU imports — about 15% of global production. No equivalent US legislation. The Roundtable on Sustainable Palm Oil certifies 19% of global supply. Indonesia's moratorium has enforcement gaps measured in millions of hectares. The forest does not grow back on human timescales.",
     committee: { us: "Agriculture; Foreign Affairs; Ways & Means", eu: "Environment & Public Health; International Trade" } },
   { name: "Industrial Monoculture", beta: 7.36, welfCost: 447, pi: 340, jurisdiction: ["USDA","EPA","Food and Agriculture Organization (FAO)","Convention on Biological Diversity"], addressable: "medium", urgency: "high",
@@ -72,7 +82,7 @@ const DOMAINS = [
     committee: { us: "Agriculture; Appropriations", eu: "Agriculture; Environment & Public Health" } },
   { name: "Deep-Sea Mining", beta: 6.8, welfCost: 34, pi: 5, jurisdiction: ["International Seabed Authority (ISA)","United Nations Convention on the Law of the Sea (UNCLOS)","EPA","National Oceanic and Atmospheric Administration (NOAA)"], addressable: "high", urgency: "medium",
     intervention: "Mining moratorium until abyssal recovery science exists. Mandatory environmental impact assessments with 100-year modeling horizons. Polymetallic nodules form at 10–20 mm per million years. There is no 'sustainable harvest rate.' There is only permanent removal.",
-    existing: ["UNCLOS Part XI / ISA Mining Code (in development)","Moratorium calls (France, Germany, 32 countries)"],
+    existing: ["United Nations Convention on the Law of the Sea (UNCLOS) Part XI / International Seabed Authority Mining Code (in development)","Moratorium calls (France, Germany, 32 countries)"],
     gap: "The International Seabed Authority Mining Code is not finalized. No agreed environmental threshold. 32 countries have called for a moratorium. The Authority has not granted one. Recovery rates are measured in millimeters per million years. 'Sustainable' is not a word that applies.",
     committee: { us: "Foreign Relations; Commerce; Natural Resources", eu: "Environment & Public Health; Fisheries" } },
   { name: "Gambling", beta: 7.30, welfCost: 329, pi: 45, jurisdiction: ["State Gaming Commissions","FTC","Consumer Financial Protection Bureau (CFPB)","UK Gambling Commission"], addressable: "high", urgency: "medium",
@@ -103,11 +113,11 @@ const DOMAINS = [
   { name: "Ultra-Processed Food", beta: 4.06, welfCost: 1829, pi: 450, jurisdiction: ["FDA","USDA","FTC","World Health Organization (WHO)","Codex Alimentarius (international food standards)"], addressable: "high", urgency: "high",
     intervention: "Front-of-pack warning labels — Chile, Mexico, and Colombia already have them. Marketing restrictions to children. Supplemental Nutrition Assistance Program (SNAP) / Women, Infants, and Children (WIC) nutritional quality criteria. School meal reformulation mandates.",
     existing: ["Chile Ley 20.606 (warning labels, 2016)","Mexico NOM-051","Colombia warning labels (2023)","US Nutrition Facts label"],
-    gap: "No US front-of-pack warning label. Industry self-regulation on children's marketing — the Children's Food and Beverage Advertising Initiative — is voluntary, narrow, and written by the companies it regulates. Food stamps (SNAP) have no nutritional quality restriction. Chile proved warning labels reduce UPF consumption by 25% in two years. The US has not tried.",
+    gap: "No US front-of-pack warning label. Industry self-regulation on children's marketing — the Children's Food and Beverage Advertising Initiative — is voluntary, narrow, and written by the companies it regulates. Food stamps (SNAP) have no nutritional quality restriction. Chile proved warning labels reduce Ultra-Processed Food consumption by 25% in two years. The US has not tried.",
     committee: { us: "Agriculture; Health, Education, Labor & Pensions; Energy & Commerce", eu: "Environment & Public Health; Agriculture" } },
-  { name: "POPs Beyond PFAS", beta: 6.23, welfCost: 436, pi: 70, jurisdiction: ["EPA","European Chemicals Agency","Stockholm Convention","Basel Convention"], addressable: "medium", urgency: "medium",
+  { name: "Persistent Organic Pollutants", beta: 6.23, welfCost: 436, pi: 70, jurisdiction: ["EPA","European Chemicals Agency","Stockholm Convention","Basel Convention"], addressable: "medium", urgency: "medium",
     intervention: "Accelerate Stockholm Convention listing. Pre-market persistence screening mandate. Extended producer responsibility for persistent chemicals.",
-    existing: ["Stockholm Convention (186 parties, 34 listed POPs)","TSCA (reformed 2016)","EU Registration, Evaluation, Authorisation and Restriction of Chemicals (REACH)","Basel Convention"],
+    existing: ["Stockholm Convention (186 parties, 34 listed Persistent Organic Pollutants)","Toxic Substances Control Act (TSCA) (reformed 2016)","EU Registration, Evaluation, Authorisation and Restriction of Chemicals (REACH)","Basel Convention"],
     gap: "Stockholm listing takes 7–10 years per compound. Toxic Substances Control Act (TSCA) reform improved but resource-constrained. Thousands of persistent chemicals in commerce without adequate assessment. The listing process is slower than the manufacturing process. That is the gap.",
     committee: { us: "Environment & Public Works; Energy & Commerce", eu: "Environment & Public Health; Industry & Energy" } },
   { name: "Topsoil Erosion", beta: 4.41, welfCost: 1123, pi: 255, jurisdiction: ["USDA Natural Resources Conservation Service","EPA","Food and Agriculture Organization","United Nations Convention to Combat Desertification"], addressable: "medium", urgency: "high",
@@ -127,7 +137,7 @@ const DOMAINS = [
     committee: { us: "Financial Services; Energy; Agriculture (CFTC)", eu: "Economic Affairs; Industry & Energy" } },
   { name: "Aviation Emissions", beta: 4.97, welfCost: 498, pi: 100, jurisdiction: ["FAA","International Civil Aviation Organization (ICAO)","EPA","EU Emissions Trading System"], addressable: "low", urgency: "medium",
     intervention: "Carbon Offsetting and Reduction Scheme for International Aviation (CORSIA) strengthening. Sustainable aviation fuel (SAF) blending mandates — the EU's ReFuelEU model. Frequent-flyer levy. Short-haul rail substitution. There is no technology pathway to zero-emission long-haul flight. SAF is less than 1% of jet fuel.",
-    existing: ["ICAO carbon offsetting scheme (CORSIA, 2027 mandatory phase)","EU ReFuelEU Aviation (2025)","EU Emissions Trading System (ETS) — aviation, intra-EU"],
+    existing: ["ICAO carbon offsetting scheme (Carbon Offsetting and Reduction Scheme for International Aviation (CORSIA), 2027 mandatory phase)","EU ReFuelEU Aviation (2025)","EU Emissions Trading System (ETS) — aviation, intra-EU"],
     gap: "The aviation carbon offsetting scheme is carbon-neutral growth from a 2019 baseline — not absolute reduction. Sustainable aviation fuel is <1% of jet fuel and costs 3–5× conventional. No battery or hydrogen technology exists for flights over 1,000 miles. The physics of energy density sets the floor.",
     committee: { us: "Commerce; Transportation & Infrastructure; Environment & Public Works", eu: "Transport; Environment & Public Health" } },
   { name: "Student Loan Securitization", beta: 6.36, welfCost: 298, pi: 46.8, jurisdiction: ["Department of Education","Consumer Financial Protection Bureau (CFPB)","SEC","FTC","State Attorneys General"], addressable: "high", urgency: "medium",
@@ -172,7 +182,7 @@ const DOMAINS = [
     committee: { us: "Commerce, Science & Transportation; Intelligence; Armed Services; Judiciary", eu: "Internal Market; Civil Liberties; Industry & Energy; Artificial Intelligence (Special Committee)" } },
   { name: "Antimicrobial Resistance", beta: 5.84, welfCost: 88, pi: 42, jurisdiction: ["Food and Drug Administration (FDA)","Centers for Disease Control and Prevention (CDC)","US Department of Agriculture (USDA)","World Health Organization (WHO)","World Organisation for Animal Health (WOAH)","Food and Agriculture Organization (FAO)"], addressable: "medium", urgency: "critical",
     intervention: "Ban sub-therapeutic antibiotic use in livestock — growth promotion, not treatment. Mandatory antibiotic stewardship programs in all hospitals. Pull incentive reform: transferable exclusivity vouchers or market-entry rewards for novel antibiotic classes. The pipeline is dry because antibiotics are not profitable. Fix the economics or accept the consequences.",
-    existing: ["WHO Global Action Plan on AMR (2015)","US National Action Plan for Combating Antibiotic-Resistant Bacteria","FDA Guidance for Industry #213 (voluntary livestock withdrawal)","EU ban on antibiotic growth promoters (2006)","PASTEUR Act (proposed, not passed)"],
+    existing: ["WHO Global Action Plan on Antimicrobial Resistance (2015)","US National Action Plan for Combating Antibiotic-Resistant Bacteria","FDA Guidance for Industry #213 (voluntary livestock withdrawal)","EU ban on antibiotic growth promoters (2006)","PASTEUR Act (proposed, not passed)"],
     gap: "FDA guidance on livestock antibiotics is voluntary. 'Medically important' antibiotics are still used for disease prevention in healthy animals — the loophole swallows the rule. The PASTEUR Act, which would create pull incentives for novel antibiotics, has been proposed and stalled twice. Two new antibiotic classes have been approved in 40 years. Resistance is evolving on a 20-minute generation cycle. The pharmaceutical pipeline operates on a 10-year development cycle. The math does not work.",
     committee: { us: "Health, Education, Labor & Pensions; Agriculture; Energy & Commerce; Appropriations", eu: "Environment & Public Health; Agriculture" } },
   { name: "Groundwater / Ogallala Aquifer", beta: 3.46, welfCost: 33, pi: 15, jurisdiction: ["US Geological Survey (USGS)","State Water Boards","EPA","Bureau of Reclamation"], addressable: "low", urgency: "critical",
@@ -192,8 +202,8 @@ const DOMAINS = [
     committee: { us: "Finance; Health, Education, Labor & Pensions; Judiciary; Banking", eu: "Environment & Public Health; Economic Affairs" } },
   { name: "Social Media & Youth Mental Health", beta: 5.79, welfCost: 394, pi: 68, jurisdiction: ["FTC","FDA (if reclassified)","National Institute of Mental Health","EU Digital Services Act"], addressable: "high", urgency: "critical",
     intervention: "Algorithmic feed ban for under-16 users. Mandatory design standards for minors (no infinite scroll, no notification bombardment, no social comparison metrics). Age verification. The business model is the harm — engagement maximization exploits dopaminergic reward circuitry in developing brains.",
-    existing: ["COPPA (1998, pre-social media)","UK Age Appropriate Design Code","EU Digital Services Act","US Surgeon General advisory (2023)","Kids Online Safety Act (KOSA, proposed)"],
-    gap: "COPPA was written before social media existed. It applies to children under 13. Instagram's minimum age is 13. The law and the platform conspire to deliver 13-year-olds to the algorithm. No federal design standard for addictive features exists. Meta's internal research showed Instagram worsens body image for 1 in 3 teen girls. They published the research internally and changed nothing.",
+    existing: ["Children's Online Privacy Protection Act (COPPA) (1998, pre-social media)","UK Age Appropriate Design Code","EU Digital Services Act","US Surgeon General advisory (2023)","Kids Online Safety Act (KOSA, proposed)"],
+    gap: "Children's Online Privacy Protection Act (COPPA) was written before social media existed. It applies to children under 13. Instagram's minimum age is 13. The law and the platform conspire to deliver 13-year-olds to the algorithm. No federal design standard for addictive features exists. Meta's internal research showed Instagram worsens body image for 1 in 3 teen girls. They published the research internally and changed nothing.",
     committee: { us: "Commerce; Judiciary; Health, Education, Labor & Pensions", eu: "Internal Market; Civil Liberties; Culture & Education" } },
   { name: "Defense Procurement", beta: 4.88, welfCost: 164, pi: 33.7, jurisdiction: ["Department of Defense","Government Accountability Office (GAO)","Congressional Armed Services Committees"], addressable: "medium", urgency: "medium",
     intervention: "Fixed-price contract expansion. Competitive prototyping mandates. Revolving-door cooling period extension to 4 years. Geographic subcontract reform — award based on capability, not congressional district.",
@@ -240,10 +250,10 @@ const DOMAINS = [
     existing: ["EU Stability and Growth Pact","Swiss debt brake","CBO long-term projections","IMF Article IV surveillance"],
     gap: "US debt-to-GDP is 124% and rising. Interest on the debt will exceed defense spending by 2025. The EU Stability and Growth Pact has been violated by every major member state. No fiscal rule has survived a genuine political test in the US. Current voters externalize costs to future voters who cannot vote on the borrowing. This is not a policy failure. It is a structural impossibility of democratic governance over intergenerational resources.",
     committee: { us: "Budget; Finance; Ways & Means; Appropriations", eu: "Economic Affairs; Budget" } },
-  { name: "LIBOR / Financial Benchmark Manipulation", beta: 5.13, welfCost: 16, pi: 3.2, jurisdiction: ["SEC","CFTC","Financial Conduct Authority (FCA)","European Securities and Markets Authority (ESMA)","DOJ"], addressable: "high", urgency: "medium",
+  { name: "Financial Benchmark Manipulation", beta: 5.13, welfCost: 16, pi: 3.2, jurisdiction: ["SEC","CFTC","Financial Conduct Authority (FCA)","European Securities and Markets Authority (ESMA)","DOJ"], addressable: "high", urgency: "medium",
     intervention: "Transaction-based benchmark mandates. Structural separation of benchmark submitters from benchmark users. Criminal liability for benchmark manipulation executives, not just traders and not just fines.",
-    existing: ["IOSCO Principles for Financial Benchmarks (2013)","EU Benchmarks Regulation","UK Financial Conduct Authority Benchmark Regulation","LIBOR → Secured Overnight Financing Rate (SOFR) transition"],
-    gap: "LIBOR was manipulated for 30 years. $350 trillion in contracts referenced a rate set by the banks that traded on it. The referee was the player. Secured Overnight Financing Rate (SOFR) eliminates the judgment-based submission, but credit-sensitive alternatives (term rate SOFR, BSBY) reintroduce self-referential structure. Goodhart's Law applies: when a measure becomes a target, it ceases to be a good measure. The structural impossibility is not LIBOR-specific. It is benchmark-specific.",
+    existing: ["International Organization of Securities Commissions (IOSCO) Principles for Financial Benchmarks (2013)","EU Benchmarks Regulation","UK Financial Conduct Authority Benchmark Regulation","Benchmark Rate → Secured Overnight Financing Rate (SOFR) transition"],
+    gap: "Benchmark Rate was manipulated for 30 years. $350 trillion in contracts referenced a rate set by the banks that traded on it. The referee was the player. Secured Overnight Financing Rate (SOFR) eliminates the judgment-based submission, but credit-sensitive alternatives (term rate SOFR, BSBY) reintroduce self-referential structure. Goodhart's Law applies: when a measure becomes a target, it ceases to be a good measure. The structural impossibility is not Benchmark Rate-specific. It is benchmark-specific.",
     committee: { us: "Financial Services; Banking; Judiciary", eu: "Economic Affairs; Legal Affairs" } },
 ];
 
@@ -654,7 +664,7 @@ export default function PolicyLab() {
                 steps: [
                   "Use the Triage tab. Find the domains under your committee's jurisdiction.",
                   "Sort by Urgency — five domains are classified CRITICAL. They are not waiting for you.",
-                  "Sort by Addressability — PBM, Algorithmic Pricing, UPF, and Gambling are VERY HIGH or HIGH addressability. Maximum impact per unit of political capital.",
+                  "Sort by Addressability — Pharmacy Benefit Management, Algorithmic Pricing, Ultra-Processed Food, and Gambling are VERY HIGH or HIGH addressability. Maximum impact per unit of political capital.",
                   "The Playbooks tab has intervention language and the existing legislation your bill would amend.",
                   "βW is the number you use in committee testimony. 'This sector destroys $6.58 of system welfare per dollar of private gain.' That is not rhetoric. It is a Monte Carlo estimate with 10,000 draws.",
                 ]},
@@ -663,26 +673,26 @@ export default function PolicyLab() {
                   "Jurisdiction tab — find your domains.",
                   "The 'Gap' field tells you where your existing authority has holes.",
                   "The intervention is the minimum sufficient action. Not the maximum. The minimum.",
-                  "Cross-reference with other agencies. Oil & Gas involves EPA, DOI, FERC, and UNFCCC. PFAS involves EPA, FDA, DOD, European Chemicals Agency (ECHA), and the Stockholm Convention. No high-β domain is single-agency.",
+                  "Cross-reference with other agencies. Oil & Gas involves EPA, DOI, FERC, and UNFCCC. Forever Chemicals involves EPA, FDA, DOD, European Chemicals Agency (ECHA), and the Stockholm Convention. No high-β domain is single-agency.",
                 ]},
               { who: "STATE LEGISLATORS / ATTORNEYS GENERAL",
                 steps: [
-                  "Gambling, PBM, Water Privatization, Student Loans, Gig Economy, Algorithmic Pricing — all have significant state jurisdiction.",
+                  "Gambling, Pharmacy Benefit Management, Water Privatization, Student Loans, Gig Economy, Algorithmic Pricing — all have significant state jurisdiction.",
                   "State AG offices have Section 5-equivalent consumer protection authority and Parens Patriae standing.",
-                  "California AB5, state PBM transparency laws, state gaming regulations — these are replicable models.",
-                  "Federal inaction on online gambling, UPF, and algorithmic pricing creates state-level opportunity. The EU has moved. The US Congress has not. Your state can.",
+                  "California AB5, state Pharmacy Benefit Management transparency laws, state gaming regulations — these are replicable models.",
+                  "Federal inaction on online gambling, Ultra-Processed Food, and algorithmic pricing creates state-level opportunity. The EU has moved. The US Congress has not. Your state can.",
                 ]},
               { who: "EUROPEAN PARLIAMENT / COMMISSION",
                 steps: [
-                  "The EU leads on Big Tech (Digital Markets Act), Palm Oil (EU Deforestation Regulation), PFAS (European Chemicals Agency restriction), Crypto (Markets in Crypto-Assets Regulation), Gig Economy (Platform Work Directive), and Climate (Emissions Trading System (ETS) / Carbon Border Adjustment Mechanism (CBAM)).",
-                  "Use βW to prioritize which existing regulations need strengthening. Digital Markets Act (DMA) covers gatekeepers — but validator concentration in Proof-of-Stake and algorithmic pricing coordination are not yet addressed.",
+                  "The EU leads on Big Tech (Digital Markets Act), Palm Oil (EU Deforestation Regulation), Forever Chemicals (European Chemicals Agency restriction), Crypto (Markets in Crypto-Assets Regulation), Gig Economy (Platform Work Directive), and Climate (Emissions Trading System (ETS) / Carbon Border Adjustment Mechanism (CBAM)).",
+                  "Use βW to prioritize which existing regulations need strengthening. Digital Markets Act covers gatekeepers — but validator concentration in Proof-of-Stake and algorithmic pricing coordination are not yet addressed.",
                   "Carbon Border Adjustment Mechanism (CBAM) applies to cement, steel, and aluminum. Extend it to coal-intensive imports and high-β agricultural commodities.",
                 ]},
               { who: "INTERNATIONAL BODIES (UN, WHO, FAO, IAEA)",
                 steps: [
-                  "Orbital Debris, WMD Diffusion, Gene Drives, and Fisheries (climate forcing) — these cannot be addressed at the national level. The commons is global. The governance must be.",
+                  "Orbital Debris, Weapons of Mass Destruction Diffusion, Gene Drives, and Fisheries (climate forcing) — these cannot be addressed at the national level. The commons is global. The governance must be.",
                   "The Montreal Protocol is the model. Universal participation, binding targets, trade sanctions for non-compliance, dedicated funding mechanism. It worked for ozone. The architecture is transferable.",
-                  "The welfare beta is the argument for treaty prioritization. Higher beta means the commons is being destroyed faster per dollar of private gain. Firearms is 50.99. WMD is 21.92. Opioids are 14.96. The numbers do the work.",
+                  "The welfare beta is the argument for treaty prioritization. Higher beta means the commons is being destroyed faster per dollar of private gain. Firearms is 50.99. Weapons of Mass Destruction is 21.92. Opioids are 14.96. The numbers do the work.",
                 ]},
             ].map(section => (
               <div key={section.who} style={{ marginBottom: 20, padding: "20px 24px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>
@@ -707,7 +717,7 @@ export default function PolicyLab() {
         {/* Footer */}
         <div style={{ padding: "32px 0", borderTop: `1px solid ${BORDER}`, marginTop: 48, textAlign: "center" }}>
           <div style={{ fontFamily: M, fontSize: 12, color: MUTED }}>
-            © 2026 Erik Postnieks · SAPM Program · 10,000-draw Monte Carlo, seed=42
+            © 2026 Erik Postnieks · System Asset Pricing Model Program · 10,000-draw Monte Carlo, seed=42
           </div>
         </div>
       </main>

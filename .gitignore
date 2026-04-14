@@ -1,4 +1,9 @@
 node_modules
 dist
+out
+.next
 .vercel
 .env*.local
+pptx_output
+public/audio
+public/pptx

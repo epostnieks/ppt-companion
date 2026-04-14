@@ -1,7 +1,8 @@
+"use client";
 import { useState } from "react";
 
 // ══════════════════════════════════════════════════════════════
-// SAPM NAV — All 61 Domain Dashboards + Framework Papers
+// System Asset Pricing Model NAV — All 61 Domain Dashboards + Framework Papers
 // βW values from CLAUDE.md canonical table (2026-04-12, revenue-basis)
 // ══════════════════════════════════════════════════════════════
 
@@ -15,7 +16,7 @@ const SITES = [
   { title: "Firearms", beta: 50.99, slug: "firearms", type: "intract" },
   { title: "Cybercrime & Ransomware", beta: 31.10, slug: "cybercrime", type: "intract" },
   { title: "Human Trafficking", beta: 22.62, slug: "human-trafficking", type: "intract" },
-  { title: "WMD Proliferation", beta: 21.92, slug: "wmd", type: "imposs" },
+  { title: "Weapons of Mass Destruction", beta: 21.92, slug: "wmd", type: "imposs" },
   { title: "Child Labor", beta: 21.83, slug: "child-labor", type: "intract" },
   { title: "Opioid Ecosystem", beta: 14.96, slug: "opioids", type: "intract" },
   { title: "Conflict Minerals", beta: 12.60, slug: "conflict-minerals", type: "intract" },
@@ -43,16 +44,16 @@ const SITES = [
   { title: "Platform Monopoly", beta: 6.33, slug: "platform-monopoly", type: "intract" },
   { title: "Palm Oil", beta: 6.30, slug: "palm-oil", type: "imposs" },
   { title: "Tax Havens", beta: 6.27, slug: "tax-havens", type: "intract" },
-  { title: "POPs Beyond PFAS", beta: 6.23, slug: "pops", type: "imposs" },
+  { title: "Persistent Organic Pollutants", beta: 6.23, slug: "pops", type: "imposs" },
   { title: "Data Brokerage", beta: 6.13, slug: "data-brokerage", type: "intract" },
   { title: "Antimicrobial Resistance", beta: 5.84, slug: "amr", type: "imposs" },
   { title: "Social Media / Youth MH", beta: 5.79, slug: "social-media", type: "imposs" },
   { title: "Gene Drives", beta: 5.77, slug: "gene-drives", type: "imposs" },
   { title: "Water Privatization", beta: 5.61, slug: "water-privatization", type: "intract" },
   { title: "Algorithmic Pricing", beta: 5.38, slug: "algorithmic-pricing", type: "intract" },
-  { title: "PFAS / Forever Chemicals", beta: 5.31, slug: "pfas", type: "imposs" },
+  { title: "Forever Chemicals (PFAS)", beta: 5.31, slug: "pfas", type: "imposs" },
   { title: "Private Equity Healthcare", beta: 5.24, slug: "pe-healthcare", type: "intract" },
-  { title: "LIBOR / FX Fixing", beta: 5.13, slug: "fx-fixing", type: "intract" },
+  { title: "Benchmark Rate / FX Fixing", beta: 5.13, slug: "fx-fixing", type: "intract" },
   { title: "Bitcoin / Proof-of-Work", beta: 5.00, slug: "bitcoin", type: "intract" },
   { title: "Aviation Emissions", beta: 4.97, slug: "aviation", type: "imposs" },
   { title: "Defense Procurement", beta: 4.88, slug: "defense-procurement", type: "intract" },
@@ -134,12 +135,12 @@ export default function SAPMNav() {
         }}>
           {/* Header */}
           <div style={{ padding: "24px 20px 12px" }}>
-            <div style={{ fontSize: 10, color: "#F59E0B", letterSpacing: 3, marginBottom: 8 }}>SAPM PROGRAM</div>
+            <div style={{ fontSize: 10, color: "#F59E0B", letterSpacing: 3, marginBottom: 8 }}>System Asset Pricing Model PROGRAM</div>
             <div style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 18, color: "rgba(255,255,255,0.9)", fontWeight: 300 }}>
               61 Domains · 62 Theorems
             </div>
             <div style={{ fontSize: 10, color: "rgba(255,255,255,0.3)", marginTop: 6 }}>
-              Erik Postnieks · 2025-2026
+              Erik Postnieks · 2026
             </div>
           </div>
 
@@ -191,9 +192,9 @@ export default function SAPMNav() {
           <div style={{ padding: "4px 0" }}>
             {domains.map((s, i) => {
               const badge = typeBadge(s.type);
-              const mcUrl = `https://github.com/epostnieks/sapm-mc-${s.slug}`;
+              const paperUrl = `/papers/${s.slug}`;
               return (
-                <a key={i} href={mcUrl} target="_blank" rel="noopener noreferrer"
+                <a key={i} href={paperUrl}
                   style={{
                     display: "flex", alignItems: "center", gap: 6,
                     padding: "5px 20px", textDecoration: "none",

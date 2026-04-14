@@ -1,0 +1,80 @@
+{
+  "lang": "fr",
+  "dir": "ltr",
+  "pst": {
+    "title": "BRISEUR DE PST",
+    "headline": "Comment pouvez-vous aider ?",
+    "subtitle": "L'objectif est de transformer le jeu de welfare-trap en reformed. Choisissez votre pays. Choisissez votre secteur. Découvrez quel axiome se brise — et comment le briser.",
+    "globalLoss": "20 900 milliards $",
+    "globalLossLabel": "Perte annuelle de bien-être systémique par les jeux welfare-trap dans 190 pays",
+    "globalLossExplain": "Le modèle System Asset Pricing Model mesure la destruction du bien-être à travers 61 domaines et 190 économies. À μ=1,0, l'écart agrégé du PIB c-ajusté est de 20 900 milliards $ — 77% du PIB mondial conventionnel. C'est le bien-être récupérable. Chaque jeu welfare-trap converti en reformed réduit cet écart. Cet outil cartographie la voie institutionnelle pour chaque pays et secteur.",
+    "selectCountry": "SÉLECTIONNEZ VOTRE PAYS",
+    "sectorsMapped": "SECTEURS CARTOGRAPHIÉS",
+    "selectSector": "SÉLECTIONNER LE SECTEUR",
+    "fastestPath": "CHEMIN LE PLUS RAPIDE VERS NON-PST",
+    "fastestPathIn": "Dans le secteur {{sector}} de {{country}}, le chemin le plus rapide est de briser",
+    "vulnerabilityMap": "CARTE DE VULNÉRABILITÉ welfare-trap — TROIS AXIOMES",
+    "howToBreak": "COMMENT LE BRISER",
+    "whatYouCanDo": "CE QUE VOUS POUVEZ FAIRE — PAR NIVEAU",
+    "infrastructure": "INFRASTRUCTURE INSTITUTIONNELLE",
+    "mostBreakable": "PLUS VULNÉRABLE",
+    "holds": "TIENT",
+    "broken": "BRISÉ",
+    "allCountries": "TOUS LES PAYS",
+    "expanding": "EN EXPANSION",
+    "expandingText": "190 pays cartographiés à partir de la base de données PIB c-ajusté System Asset Pricing Model. Le chemin le plus rapide de chaque pays de welfare-trap à reformed.",
+    "selfLaceration": "AUTO-LACÉRATION",
+    "selfLacerationText": "Cet outil fournit des orientations générales basées sur les cadres réglementaires publics. Ce n'est pas un conseil juridique. Consultez un avocat qualifié dans votre juridiction avant d'agir.",
+    "searchPlaceholder": "Rechercher des pays...",
+    "noResults": "Aucun pays ne correspond à votre recherche.",
+    "break": "BRISER"
+  },
+  "nav": {
+    "curriculum": "PROGRAMME",
+    "deepdive": "ANALYSE APPROFONDIE",
+    "policy": "LABORATOIRE POLITIQUE",
+    "executive": "RÉSUMÉ EXÉCUTIF",
+    "academic": "ACADÉMIQUE",
+    "sovereign": "RAPPORT SOUVERAIN",
+    "pstbreaker": "COMMENT AIDER ?"
+  },
+  "axioms": {
+    "1": {
+      "name": "Intérêts Chevauchants",
+      "short": "Axiome 1",
+      "desc": "Les deux parties bénéficient de la coopération."
+    },
+    "2": {
+      "name": "Indépendance du Système",
+      "short": "Axiome 2",
+      "desc": "Le bien-être du système W ne peut pas être calculé à partir des gains des parties."
+    },
+    "3": {
+      "name": "Dépendance du Système",
+      "short": "Axiome 3",
+      "desc": "L'activité de l'agent affecte le système partagé."
+    }
+  },
+  "actors": {
+    "insider": {
+      "label": "INITIÉ / LANCEUR D'ALERTE",
+      "desc": "Vous êtes à l'intérieur du système."
+    },
+    "executive": {
+      "label": "DIRIGEANT / CONSEIL",
+      "desc": "Vous avez l'autorité sur la conception du jeu."
+    },
+    "regulator": {
+      "label": "RÉGULATEUR / ORGANISME SECTORIEL",
+      "desc": "Vous fixez les règles du jeu."
+    },
+    "sovereign": {
+      "label": "SOUVERAIN / INTERNATIONAL",
+      "desc": "Vous pouvez reconcevoir l'institution elle-même."
+    }
+  },
+  "language": {
+    "selector": "Langue",
+    "current": "Français"
+  }
+}

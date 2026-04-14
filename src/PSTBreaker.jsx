@@ -1,11 +1,12 @@
+"use client";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AXIOMS, ACTORS } from "./pstBreakerData";
 import { usePSTData } from "./usePSTData";
 
 // ══════════════════════════════════════════════════════════════
-// PST BREAKER — How Can You Help?
-// Interactive tool: Country × Sector × Actor Level → Break PST
+// Reform Pathfinder — How Can You Help?
+// Interactive tool: Country × Sector × Actor Level → Break Private-Systemic Tension
 // Erik Postnieks © 2026
 // ══════════════════════════════════════════════════════════════
 
@@ -81,6 +82,24 @@ export default function PSTBreaker() {
           </div>
         </div>
 
+        {/* AXIOM LEGEND */}
+        <div style={{
+          display: "flex", gap: 20, flexWrap: "wrap", padding: "12px 16px",
+          background: "rgba(255,255,255,0.02)", border: `1px solid ${BORDER}`, borderRadius: 4, marginBottom: 20,
+        }}>
+          <div style={{ fontFamily: M, fontSize: 10, color: MUTED, letterSpacing: 1, alignSelf: "center" }}>AXIOM STATUS:</div>
+          {AXIOMS.map((ax, i) => (
+            <div key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <span style={{ width: 10, height: 10, borderRadius: "50%", background: AXIOM_COLORS[i], display: "inline-block" }} />
+              <span style={{ fontFamily: M, fontSize: 11, color: DIM }}>{ax.short}</span>
+            </div>
+          ))}
+          <div style={{ fontFamily: M, fontSize: 10, color: MUTED, marginLeft: "auto" }}>
+            <span style={{ color: RED }}>●</span> Holds (trap active) &nbsp;
+            <span style={{ color: GREEN }}>●</span> Broken (reform possible)
+          </div>
+        </div>
+
         {/* BREADCRUMB */}
         <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 24, flexWrap: "wrap" }}>
           <span onClick={reset} style={{
@@ -149,7 +168,7 @@ export default function PSTBreaker() {
                   <div style={{ fontFamily: S, fontSize: 15, color: DIM, lineHeight: 1.6 }}>
                     {c.summary.length > 160 ? c.summary.slice(0, 157) + "..." : c.summary}
                   </div>
-                  {/* PST dots for each sector */}
+                  {/* Private-Systemic Tension dots for each sector */}
                   <div style={{ display: "flex", gap: 8, marginTop: 12, flexWrap: "wrap" }}>
                     {c.sectors.map((s, si) => (
                       <div key={si} style={{ display: "flex", alignItems: "center", gap: 4 }}>
@@ -208,7 +227,7 @@ export default function PSTBreaker() {
                       </div>
                     </div>
                     <div style={{ textAlign: "center" }}>
-                      {/* PST status dots */}
+                      {/* Private-Systemic Tension status dots */}
                       <div style={{ display: "flex", gap: 6, marginBottom: 6 }}>
                         {s.pst.map((holds, ai) => (
                           <div key={ai} style={{
@@ -233,7 +252,7 @@ export default function PSTBreaker() {
           </div>
         )}
 
-        {/* ═══ STEP 3: PST VULNERABILITY MAP + ACTOR ACTIONS ═══ */}
+        {/* ═══ STEP 3: Private-Systemic Tension VULNERABILITY MAP + ACTOR ACTIONS ═══ */}
         {sector && (
           <div>
             {/* SECTOR HEADER */}
@@ -349,7 +368,7 @@ export default function PSTBreaker() {
                     {isOpen && !data && (
                       <div style={{ padding: "12px 20px 16px", borderTop: `1px solid ${BORDER}` }}>
                         <div style={{ fontFamily: S, fontSize: 14, color: MUTED, fontStyle: "italic" }}>
-                          Detailed playbook for this agent × {country.name} × {sector.name} coming soon.
+                          Select this agent to explore the reform pathway for {country.name} — {sector.name}.
                         </div>
                       </div>
                     )}
@@ -394,6 +413,41 @@ export default function PSTBreaker() {
             </div>
           </div>
         )}
+
+        {/* AXIOM REFERENCE — always visible */}
+        <div style={{
+          marginTop: 48, padding: "20px 24px", background: SURFACE,
+          border: `1px solid ${BORDER}`, borderRadius: 4,
+        }}>
+          <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 2, marginBottom: 16 }}>
+            THE THREE AXIOMS — QUICK REFERENCE
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
+            {[
+              { num: 1, name: "Overlapping Interests", color: GOLD,
+                desc: "Both parties benefit from cooperating — there is a deal to be made. If you eliminate the profitable deal (ban, cap, substitute), this axiom breaks and the trap collapses.",
+                breaking: "Ban the product, cap output, or remove the subsidy that makes the deal profitable." },
+              { num: 2, name: "System Independence", color: "#627EEA",
+                desc: "System welfare cannot be computed from what the parties exchange. The damage is invisible inside the transaction — neither buyer nor seller sees the cost to the system.",
+                breaking: "Mandatory disclosure, emissions monitoring, or contamination testing — anything that makes the hidden cost visible." },
+              { num: 3, name: "System Dependence", color: RED,
+                desc: "The parties' activity actually damages the shared system. Production, consumption, or disposal degrades the environment, benchmark, commons, or public health.",
+                breaking: "This axiom is hardest to break — it holds whenever the physics, chemistry, or biology of the activity inherently harms the system." },
+            ].map(ax => (
+              <div key={ax.num} style={{ padding: "12px 16px", background: BG, borderRadius: 4, border: `1px solid ${BORDER}` }}>
+                <div style={{ fontFamily: M, fontSize: 13, color: ax.color, fontWeight: 700, marginBottom: 6 }}>
+                  AXIOM {ax.num}: {ax.name.toUpperCase()}
+                </div>
+                <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.7, marginBottom: 8 }}>
+                  {ax.desc}
+                </div>
+                <div style={{ fontFamily: M, fontSize: 11, color: GREEN, lineHeight: 1.5 }}>
+                  BREAKING IT: {ax.breaking}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
       </div>
     </div>

@@ -1,0 +1,80 @@
+{
+  "lang": "sw",
+  "dir": "ltr",
+  "pst": {
+    "title": "MVUNJAJI WA PST",
+    "headline": "Unawezaje kusaidia?",
+    "subtitle": "Lengo ni kubadilisha mchezo kutoka welfare-trap hadi si-PST. Chagua nchi yako. Chagua sekta yako. Gundua ni axiom ipi inavunjika — na nini cha kufanya kuivunja.",
+    "globalLoss": "Dola trilioni 85.3",
+    "globalLossLabel": "Hasara ya ustawi wa mfumo kwa mwaka kutoka michezo ya welfare-trap katika nchi 190",
+    "globalLossExplain": "Hii ndiyo gharama ya michezo ya welfare-trap kwa sayari kila mwaka — 77% ya Pato la Dunia. Ikiwa kila mtu, kila kampuni, kila mdhibiti atavunja welfare-trap katika sekta yake, tunarejesha dola trilioni 85.3 katika ustawi halisi wa jamii. Si Pato katika jedwali. Ustawi halisi. Hewa safi, chakula bora, hali ya hewa thabiti, mishahara ya haki. Pigania mfumo. Pigania sayari. Hatuhitaji Mpango B. Tufanye Mpango A ufanye kazi.",
+    "selectCountry": "CHAGUA NCHI YAKO",
+    "sectorsMapped": "SEKTA ZILIZOCHORWA",
+    "selectSector": "CHAGUA SEKTA",
+    "fastestPath": "NJIA YA HARAKA ZAIDI KWENDA SI-PST",
+    "fastestPathIn": "Katika sekta ya {{sector}} ya {{country}}, njia ya haraka zaidi ni kuvunja",
+    "vulnerabilityMap": "RAMANI YA UDHAIFU WA welfare-trap — AXIOM TATU",
+    "howToBreak": "JINSI YA KUIVUNJA",
+    "whatYouCanDo": "UNACHOWEZA KUFANYA — KWA KIWANGO",
+    "infrastructure": "MIUNDOMBINU YA KITAASISI",
+    "mostBreakable": "RAHISI ZAIDI KUVUNJWA",
+    "holds": "INASHIKILIA",
+    "broken": "IMEVUNJWA",
+    "allCountries": "NCHI ZOTE",
+    "expanding": "INAPANUKA",
+    "expandingText": "Nchi 190 zimechorwa kutoka kwenye hifadhidata ya Pato c-iliyosawazishwa ya System Asset Pricing Model.",
+    "selfLaceration": "KUJITATHMINI",
+    "selfLacerationText": "Zana hii inatoa mwongozo wa jumla kulingana na mifumo ya udhibiti ya umma. Si ushauri wa kisheria.",
+    "searchPlaceholder": "Tafuta nchi...",
+    "noResults": "Hakuna nchi inayolingana.",
+    "break": "VUNJA"
+  },
+  "nav": {
+    "curriculum": "MTAALA",
+    "deepdive": "UCHAMBUZI WA KINA",
+    "policy": "MAABARA YA SERA",
+    "executive": "MUHTASARI WA UTENDAJI",
+    "academic": "KITAALUMA",
+    "sovereign": "RIPOTI YA ENZI KUU",
+    "pstbreaker": "JINSI YA KUSAIDIA?"
+  },
+  "axioms": {
+    "1": {
+      "name": "Maslahi Yanayoingiliana",
+      "short": "Axiom 1",
+      "desc": "Pande zote mbili zinafaidika na ushirikiano."
+    },
+    "2": {
+      "name": "Uhuru wa Mfumo",
+      "short": "Axiom 2",
+      "desc": "Ustawi wa mfumo W hauwezi kuhesabiwa kutoka malipo ya pande."
+    },
+    "3": {
+      "name": "Utegemezi wa Mfumo",
+      "short": "Axiom 3",
+      "desc": "Shughuli za wakala zinaathiri mfumo unaoshirikiwa."
+    }
+  },
+  "actors": {
+    "insider": {
+      "label": "MTU WA NDANI / MTOA TAARIFA",
+      "desc": "Uko ndani ya mfumo."
+    },
+    "executive": {
+      "label": "MKURUGENZI / BODI",
+      "desc": "Una mamlaka juu ya muundo wa mchezo."
+    },
+    "regulator": {
+      "label": "MDHIBITI / CHOMBO CHA SEKTA",
+      "desc": "Wewe ndiye unayeweka sheria za mchezo."
+    },
+    "sovereign": {
+      "label": "ENZI KUU / KIMATAIFA",
+      "desc": "Unaweza kubuni upya taasisi yenyewe."
+    }
+  },
+  "language": {
+    "selector": "Lugha",
+    "current": "Kiswahili"
+  }
+}

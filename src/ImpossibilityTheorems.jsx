@@ -1,3 +1,4 @@
+"use client";
 const M = "'JetBrains Mono',monospace";
 const S = "'Newsreader',serif";
 const BG = "#0D0D0D";
@@ -51,7 +52,7 @@ const CANON = [
 
 // ═══════════════════════════════════════════════════════════════════
 // THE 62 POSTNIEKS IMPOSSIBILITY THEOREMS (PPT + I–LXI)
-// PPT operates in social choice; I–LXI extend into the hard sciences.
+// Private Pareto Theorem operates in social choice; I–LXI extend into the hard sciences.
 // ═══════════════════════════════════════════════════════════════════
 const POSTNIEKS_THEOREMS = [
   {
@@ -77,16 +78,16 @@ const POSTNIEKS_THEOREMS = [
   {
     id: "III", name: "The Molecular Persistence Floor",
     domain: "Per- and Polyfluoroalkyl Substances (PFAS), Microplastics & Persistent Compounds", constraint: "Thermodynamic",
-    impossible: "Using PFAS or persistent polymers at scale without irreversible environmental accumulation",
+    impossible: "Using Forever Chemicals or persistent polymers at scale without irreversible environmental accumulation",
     axioms: [
       { id: "A1", name: "Functional Necessity", text: "The persistent molecular property (carbon-fluorine bond stability, polymer durability) is required for the product\u2019s primary function. No non-persistent substitute achieves cost/performance parity across all application sectors." },
       { id: "A2", name: "Open-Release Architecture", text: "The product is used where environmental release is structurally inevitable during or after the lifecycle. Textiles shed microfibers; food packaging leaches; aqueous film-forming foam (AFFF), the firefighting foam used at airports and military bases, is sprayed directly into groundwater." },
-      { id: "A3", name: "Environmental Non-Degradability", text: "The material does not degrade in any natural process on human-relevant timescales. The carbon-fluorine bond dissociation energy is 485\u2009kJ/mol (kilojoules per mole) \u2014 one of the strongest single bonds in organic chemistry. No known biological pathway can break fully fluorinated carbon chains. The Second Law of Thermodynamics guarantees that collection cost of dispersed PFAS is irreducible." },
+      { id: "A3", name: "Environmental Non-Degradability", text: "The material does not degrade in any natural process on human-relevant timescales. The carbon-fluorine bond dissociation energy is 485\u2009kJ/mol (kilojoules per mole) \u2014 one of the strongest single bonds in organic chemistry. No known biological pathway can break fully fluorinated carbon chains. The Second Law of Thermodynamics guarantees that collection cost of dispersed Forever Chemicals is irreducible." },
     ],
   },
   {
     id: "IV", name: "The Efficacy Ceiling",
-    domain: "Antibiotics / Antimicrobial Resistance (AMR)", constraint: "Biological / Evolutionary",
+    domain: "Antibiotics / Antimicrobial Resistance (Antimicrobial Resistance)", constraint: "Biological / Evolutionary",
     impossible: "Deploying antibiotics therapeutically without generating the selection pressure that produces resistance",
     axioms: [
       { id: "A1", name: "Therapeutic Necessity", text: "Antibiotics are required for the treatment of bacterial infections. No alternative therapeutic class eliminates bacterial pathogens at equivalent efficacy and scale. Withdrawal is not a welfare-preserving option." },
@@ -136,10 +137,10 @@ const POSTNIEKS_THEOREMS = [
   },
   {
     id: "IX", name: "The Capability Diffusion Ceiling",
-    domain: "Weapons of Mass Destruction (WMD) and Lethal Autonomous Weapons Systems (LAWS) Proliferation", constraint: "Informational",
-    impossible: "Transferring WMD or lethal autonomous weapons capability without permanently enabling independent recipient capability",
+    domain: "Weapons of Mass Destruction and Lethal Autonomous Weapons Systems (LAWS) Proliferation", constraint: "Informational",
+    impossible: "Transferring Weapons of Mass Destruction or lethal autonomous weapons capability without permanently enabling independent recipient capability",
     axioms: [
-      { id: "A1", name: "Security Necessity", text: "States and well-resourced non-state actors will continue to seek WMD and lethal autonomous weapons capability under interstate security competition; no single actor can eliminate this demand through unilateral action." },
+      { id: "A1", name: "Security Necessity", text: "States and well-resourced non-state actors will continue to seek Weapons of Mass Destruction and lethal autonomous weapons capability under interstate security competition; no single actor can eliminate this demand through unilateral action." },
       { id: "A2", name: "Knowledge Transfer Identity", text: "Transferring weapons manufacturing knowledge or lethal autonomous weapons targeting capability and permanently enabling the recipient\u2019s independent capability are the same transactional event; knowledge cannot be re-classified into secrecy after diffusion \u2014 the A.Q. Khan uranium-enrichment centrifuge designs transferred to North Korea cannot be deleted." },
       { id: "A3", name: "Proliferation Ratchet", text: "Each capability demonstration creates new demand nodes: 1 nuclear state in 1945 became 9 in 2026 without reversal except South Africa (which required complete regime change). The Kargu-2 drone\u2019s autonomous combat deployment in Libya permanently demonstrated lethal autonomous targeting viability to all defense establishments worldwide." },
     ],
@@ -316,12 +317,12 @@ const POSTNIEKS_THEOREMS = [
   },
   {
     id: "XXVII", name: "The Metabolic Engineering Floor",
-    domain: "Ultra-Processed Food (UPF)", constraint: "Biological",
+    domain: "Ultra-Processed Food", constraint: "Biological",
     impossible: "Engineering food products for maximum palatability and shelf stability without overriding the satiety signaling systems that regulate human energy balance",
     axioms: [
-      { id: "A1", name: "Formulation Necessity", text: "UPF manufacturers compete on palatability, convenience, and shelf life. Shareholder value requires formulations that maximize repeat purchase — which is consumption frequency multiplied by portion size." },
+      { id: "A1", name: "Formulation Necessity", text: "Ultra-Processed Food manufacturers compete on palatability, convenience, and shelf life. Shareholder value requires formulations that maximize repeat purchase — which is consumption frequency multiplied by portion size." },
       { id: "A2", name: "Palatability-Dysregulation Identity", text: "The combination of sugar, fat, salt, and texture engineering that maximizes palatability (the \u2018bliss point\u2019) is the same formulation that overrides hypothalamic satiety signaling, bypasses leptin and ghrelin feedback, and produces hyperphagia. Making food maximally appealing and disrupting metabolic regulation are the same food-science operation." },
-      { id: "A3", name: "Metabolic Ratchet", text: "Chronic UPF consumption produces insulin resistance, altered gut microbiome composition, and neuroadaptive changes to reward circuitry that increase future UPF consumption. The product creates its own demand. Chile\u2019s warning label program reduced consumption 25% in two years — proving the mechanism is reversible at the population level with aggressive intervention." },
+      { id: "A3", name: "Metabolic Ratchet", text: "Chronic Ultra-Processed Food consumption produces insulin resistance, altered gut microbiome composition, and neuroadaptive changes to reward circuitry that increase future Ultra-Processed Food consumption. The product creates its own demand. Chile\u2019s warning label program reduced consumption 25% in two years — proving the mechanism is reversible at the population level with aggressive intervention." },
     ],
   },
   {
@@ -346,11 +347,11 @@ const POSTNIEKS_THEOREMS = [
   },
   {
     id: "XXX", name: "The Extend-and-Pretend Ratchet",
-    domain: "Commercial Real Estate (CRE)", constraint: "Institutional",
+    domain: "Commercial Real Estate", constraint: "Institutional",
     impossible: "Resolving commercial real estate distress without recognizing losses that exceed bank capital adequacy thresholds",
     axioms: [
-      { id: "A1", name: "Valuation Embedding", text: "$20T in US CRE is embedded in bank balance sheets, pension portfolios, CMBS tranches, and insurance company general accounts. The valuation is not an opinion — it is a regulatory input to capital adequacy ratios." },
-      { id: "A2", name: "Recognition-Solvency Identity", text: "Marking $1.5T in distressed CRE loans to market would trigger capital adequacy violations at regional banks, CMBS downgrades, and pension fund impairments. Recognizing the loss and triggering the solvency crisis are the same accounting event. Every quarter of extend-and-pretend increases the gap between book value and market reality." },
+      { id: "A1", name: "Valuation Embedding", text: "$20T in US Commercial Real Estate is embedded in bank balance sheets, pension portfolios, commercial mortgage-backed securities tranches, and insurance company general accounts. The valuation is not an opinion — it is a regulatory input to capital adequacy ratios." },
+      { id: "A2", name: "Recognition-Solvency Identity", text: "Marking $1.5T in distressed Commercial Real Estate loans to market would trigger capital adequacy violations at regional banks, commercial mortgage-backed securities downgrades, and pension fund impairments. Recognizing the loss and triggering the solvency crisis are the same accounting event. Every quarter of extend-and-pretend increases the gap between book value and market reality." },
       { id: "A3", name: "Structural Vacancy Permanence", text: "Remote work has permanently reduced office demand. San Francisco office vacancy: 37%. The buildings are not coming back to 2019 utilization. The loans assume they are. The extend-and-pretend continues because the alternative — recognition — is worse for every party except the system." },
     ],
   },
@@ -359,7 +360,7 @@ const POSTNIEKS_THEOREMS = [
     domain: "Stablecoins & Shadow Banking", constraint: "Institutional / Financial",
     impossible: "Operating a stablecoin at scale with full reserve transparency while maintaining the yield advantage that justifies the business model",
     axioms: [
-      { id: "A1", name: "Peg Maintenance Necessity", text: "Stablecoin utility requires a credible 1:1 peg to the reference currency. Users treat stablecoins as dollar equivalents for trading, remittance, and DeFi collateral. The peg is the product." },
+      { id: "A1", name: "Peg Maintenance Necessity", text: "Stablecoin utility requires a credible 1:1 peg to the reference currency. Users treat stablecoins as dollar equivalents for trading, remittance, and decentralized finance collateral. The peg is the product." },
       { id: "A2", name: "Yield-Transparency Contradiction", text: "Stablecoin issuers generate profit by investing reserves in higher-yielding assets (commercial paper, Treasuries, repo). Full, real-time reserve disclosure would reveal the maturity mismatch, credit risk, and concentration — information that, if processed by a rational market, would price the stablecoin below par during stress." },
       { id: "A3", name: "Run Dynamics Asymmetry", text: "Stablecoin redemption operates at blockchain speed — minutes, not days. Traditional bank runs are slowed by withdrawal limits and deposit insurance. No stablecoin has deposit insurance, withdrawal gates, or a lender of last resort. The run completes before any intervention can begin." },
     ],
@@ -401,7 +402,7 @@ const POSTNIEKS_THEOREMS = [
     axioms: [
       { id: "A1", name: "Aviation Necessity", text: "Commercial aviation connects the global economy. 4.5 billion passengers/year, $8.9T in goods transported. No alternative mode substitutes for long-haul air travel within acceptable time constraints." },
       { id: "A2", name: "Energy Density Identity", text: "Jet fuel: 43 MJ/kg. Best lithium-ion batteries: 0.9 MJ/kg. The 48:1 ratio means battery-electric aircraft cannot achieve range beyond ~500 km with current passengers. Sustainable aviation fuel (SAF) is chemically identical to jet fuel — it burns identically and produces identical CO\u2082. The physics of energy density sets the floor." },
-      { id: "A3", name: "Growth-Offset Asymmetry", text: "CORSIA (Carbon Offsetting and Reduction Scheme for International Aviation) offsets growth from a 2019 baseline — not absolute emissions. Global air traffic is projected to double by 2040. SAF is less than 1% of jet fuel supply and costs 3\u20135\u00d7 conventional. The offset mechanism permits emissions growth while calling it reduction." },
+      { id: "A3", name: "Growth-Offset Asymmetry", text: "Carbon Offsetting and Reduction Scheme for International Aviation (CORSIA) (Carbon Offsetting and Reduction Scheme for International Aviation) offsets growth from a 2019 baseline — not absolute emissions. Global air traffic is projected to double by 2040. SAF is less than 1% of jet fuel supply and costs 3\u20135\u00d7 conventional. The offset mechanism permits emissions growth while calling it reduction." },
     ],
   },
   {
@@ -466,12 +467,12 @@ const POSTNIEKS_THEOREMS = [
   },
   {
     id: "XLII", name: "The Self-Referential Manipulation Floor",
-    domain: "LIBOR / Financial Benchmark Manipulation", constraint: "Institutional / Informational",
+    domain: "Financial Benchmark Manipulation", constraint: "Institutional / Informational",
     impossible: "Operating a self-reported financial benchmark without manipulation when the reporting entities are also the primary traders on the benchmark",
     axioms: [
       { id: "A1", name: "Benchmark Necessity", text: "Financial markets require reference rates for pricing $350T+ in derivatives, loans, and securities. The benchmark is infrastructure — without it, contracts have no reference point." },
-      { id: "A2", name: "Self-Reference Identity", text: "LIBOR was set by the banks that traded on it. The reporter and the beneficiary of the report were the same entity. Self-reported benchmarks where the reporter profits from the reported value create an unfalsifiable incentive to manipulate. The reporting mechanism and the manipulation opportunity are the same institutional structure." },
-      { id: "A3", name: "Replacement Insufficiency", text: "LIBOR was replaced by SOFR (transaction-based, not self-reported). But self-reported benchmarks persist in other markets — commodity indices, credit default swap pricing, carbon credit registries. The structural vulnerability was addressed in one benchmark while remaining unaddressed in dozens of others." },
+      { id: "A2", name: "Self-Reference Identity", text: "Benchmark Rate was set by the banks that traded on it. The reporter and the beneficiary of the report were the same entity. Self-reported benchmarks where the reporter profits from the reported value create an unfalsifiable incentive to manipulate. The reporting mechanism and the manipulation opportunity are the same institutional structure." },
+      { id: "A3", name: "Replacement Insufficiency", text: "Benchmark Rate was replaced by Secured Overnight Financing Rate (SOFR) (transaction-based, not self-reported). But self-reported benchmarks persist in other markets — commodity indices, credit default swap pricing, carbon credit registries. The structural vulnerability was addressed in one benchmark while remaining unaddressed in dozens of others." },
     ],
   },
   {
@@ -486,10 +487,10 @@ const POSTNIEKS_THEOREMS = [
   },
   {
     id: "XLIV", name: "The Persistent Accumulation Floor",
-    domain: "POPs Beyond PFAS", constraint: "Chemical",
+    domain: "Persistent Organic Pollutants", constraint: "Chemical",
     impossible: "Manufacturing persistent organic pollutants for commercial use without irreversible environmental bioaccumulation when molecular persistence is the commercially valued property",
     axioms: [
-      { id: "A1", name: "Persistence as Feature", text: "Persistent organic pollutants (POPs) are commercially valuable precisely because they resist degradation — flame retardants, pesticides, industrial chemicals designed to last. The property that makes them useful and the property that makes them dangerous are the same molecular characteristic." },
+      { id: "A1", name: "Persistence as Feature", text: "Persistent organic pollutants (Persistent Organic Pollutants) are commercially valuable precisely because they resist degradation — flame retardants, pesticides, industrial chemicals designed to last. The property that makes them useful and the property that makes them dangerous are the same molecular characteristic." },
       { id: "A2", name: "Release-Accumulation Identity", text: "Open-system manufacturing and use guarantees environmental release. Once released, the molecular persistence that defines the product class guarantees bioaccumulation. PCBs banned in 1979 are still detected in Arctic wildlife at increasing concentrations. Release and permanent accumulation are the same chemical trajectory." },
       { id: "A3", name: "Listing Latency", text: "The Stockholm Convention listing process takes 7\u201310 years per compound. Chemical innovation produces new persistent compounds faster than the regulatory system can evaluate them. There are an estimated 350,000 chemicals in commerce — fewer than 1% have been assessed for persistence and bioaccumulation." },
     ],
@@ -506,12 +507,12 @@ const POSTNIEKS_THEOREMS = [
   },
   {
     id: "XLVI", name: "The Vertical Integration Extraction Floor",
-    domain: "Pharmacy Benefit Managers (PBMs)", constraint: "Institutional",
-    impossible: "Operating a vertically integrated PBM — simultaneously the insurer, the pharmacy, and the formulary manager — without extracting rents from the opacity created by occupying all three positions",
+    domain: "Pharmacy Benefit Managers", constraint: "Institutional",
+    impossible: "Operating a vertically integrated Pharmacy Benefit Management — simultaneously the insurer, the pharmacy, and the formulary manager — without extracting rents from the opacity created by occupying all three positions",
     axioms: [
-      { id: "A1", name: "Intermediation Necessity", text: "The pharmaceutical supply chain requires formulary management, rebate negotiation, and pharmacy network administration. Three PBMs (CVS Caremark, Express Scripts, OptumRx) control 80% of the market. Their intermediation is structurally embedded." },
-      { id: "A2", name: "Vertical Integration-Opacity Identity", text: "When the PBM owns the insurance company (payer), the pharmacy (dispenser), and the formulary (gatekeeper), it sets the price, negotiates the rebate with itself, and captures the spread at every node. Transparency at any node would reveal the extraction at the others. The vertical integration and the opacity are the same corporate structure." },
-      { id: "A3", name: "Regulatory Capture Through Complexity", text: "PBM contracts contain gag clauses, spread-pricing provisions, and retroactive fees that even the payer-clients cannot fully audit. The FTC investigation (2024) found that PBMs inflate insulin costs by redirecting rebates. The complexity of the intermediation is itself the extraction mechanism — the more opaque the structure, the larger the spread." },
+      { id: "A1", name: "Intermediation Necessity", text: "The pharmaceutical supply chain requires formulary management, rebate negotiation, and pharmacy network administration. Three Pharmacy Benefit Managers (CVS Caremark, Express Scripts, OptumRx) control 80% of the market. Their intermediation is structurally embedded." },
+      { id: "A2", name: "Vertical Integration-Opacity Identity", text: "When the Pharmacy Benefit Management owns the insurance company (payer), the pharmacy (dispenser), and the formulary (gatekeeper), it sets the price, negotiates the rebate with itself, and captures the spread at every node. Transparency at any node would reveal the extraction at the others. The vertical integration and the opacity are the same corporate structure." },
+      { id: "A3", name: "Regulatory Capture Through Complexity", text: "Pharmacy Benefit Management contracts contain gag clauses, spread-pricing provisions, and retroactive fees that even the payer-clients cannot fully audit. The FTC investigation (2024) found that Pharmacy Benefit Managers inflate insulin costs by redirecting rebates. The complexity of the intermediation is itself the extraction mechanism — the more opaque the structure, the larger the spread." },
     ],
   },
   {
@@ -529,7 +530,7 @@ const POSTNIEKS_THEOREMS = [
     domain: "Alcohol", constraint: "Neurochemical / Institutional",
     impossible: "Eliminating alcohol welfare costs through either prohibition or permissive regulation when both strategies produce irreducible harm through different channels",
     axioms: [
-      { id: "A1", name: "Neurochemical Demand Necessity", text: "Ethanol\u2019s anxiolytic and euphoric effects operate on GABA-A receptors with a pharmacological mechanism that no non-intoxicating substitute replicates. Cultural embeddedness across millennia ensures demand persistence independent of any regulatory regime." },
+      { id: "A1", name: "Neurochemical Demand Necessity", text: "Ethanol\u2019s anxiolytic and euphoric effects operate on GABA-A (gamma-aminobutyric acid) receptors with a pharmacological mechanism that no non-intoxicating substitute replicates. Cultural embeddedness across millennia ensures demand persistence independent of any regulatory regime." },
       { id: "A2", name: "Prohibition-Black Market Identity", text: "The 18th Amendment demonstrated that prohibiting alcohol and creating organized crime revenue streams are the same policy event. Prohibition did not eliminate consumption — it transferred supply from regulated to unregulated channels while increasing potency and toxicity." },
       { id: "A3", name: "Regulatory Capture Asymmetry", text: "The alcohol industry spends $30M+/year on US lobbying. State alcohol control boards derive revenue from the product they regulate. The Three-Tier System (producer-distributor-retailer), originally designed as a post-Prohibition safeguard, has become a rent-extraction mechanism that consolidates distributor market power." },
     ],
@@ -546,7 +547,7 @@ const POSTNIEKS_THEOREMS = [
   },
   {
     id: "L", name: "The Prohibition Profit Floor",
-    domain: "Illicit Drug Trade (Narco-State System)", constraint: "Institutional / Economic",
+    domain: "Illicit Drug Trade", constraint: "Institutional / Economic",
     impossible: "Prohibiting drug production without creating the supranormal profit margin that funds the enforcement-resistant organizations prohibition was designed to eliminate",
     axioms: [
       { id: "A1", name: "Demand Inelasticity", text: "Addiction produces price-inelastic demand. Prohibition cannot eliminate consumption because the neurochemical basis of demand operates independently of legal status. Every demand-reduction strategy has failed to reduce global consumption below pre-intervention levels." },
@@ -630,7 +631,7 @@ const POSTNIEKS_THEOREMS = [
     impossible: "Meeting global protein demand at current price points without the concentrated animal feeding operations that produce antimicrobial resistance, zoonotic pandemic risk, and environmental degradation",
     axioms: [
       { id: "A1", name: "Protein Demand Necessity", text: "Global meat consumption: 350 million tons/year, projected to reach 450 million by 2050. Rising incomes in developing economies drive demand growth that no dietary intervention has reversed at population scale." },
-      { id: "A2", name: "Concentration-Externality Identity", text: "Concentrated Animal Feeding Operations (CAFOs) achieve the protein-per-dollar ratio the market demands by concentrating thousands of animals in confined spaces. The density that produces the price point also produces: 73% of global antibiotic consumption (AMR risk), zoonotic pathogen evolution (pandemic risk), and nutrient runoff (dead zones). The efficiency and the externalities are the same production method." },
+      { id: "A2", name: "Concentration-Externality Identity", text: "Concentrated Animal Feeding Operations (CAFOs) achieve the protein-per-dollar ratio the market demands by concentrating thousands of animals in confined spaces. The density that produces the price point also produces: 73% of global antibiotic consumption (Antimicrobial Resistance risk), zoonotic pathogen evolution (pandemic risk), and nutrient runoff (dead zones). The efficiency and the externalities are the same production method." },
       { id: "A3", name: "Thermodynamic Efficiency Ceiling", text: "Feed conversion ratios (FCR) — 2:1 for poultry, 6:1 for beef — are thermodynamic constraints on protein production efficiency. No feeding technology can reduce the FCR below the biological minimum. The caloric loss in converting plant protein to animal protein is a conservation-of-energy identity." },
     ],
   },
@@ -651,7 +652,7 @@ const POSTNIEKS_THEOREMS = [
     axioms: [
       { id: "A1", name: "Rating Necessity", text: "Institutional investors, bank capital adequacy regulations (Basel III), and insurance company portfolio rules require credit ratings from recognized agencies. The rating is not optional — it is a regulatory input. Three agencies (S&P, Moody\u2019s, Fitch) control 95% of the market." },
       { id: "A2", name: "Issuer-Pays Bias Identity", text: "The entity being rated selects which agency to hire and can withdraw the engagement. The agency\u2019s revenue depends on maintaining client relationships. Before 2008, S&P and Moody\u2019s rated 93% of AAA-rated subprime RMBS that subsequently defaulted. The payment model and the bias are the same institutional structure." },
-      { id: "A3", name: "Regulatory Entrenchment", text: "Dodd-Frank \u00a7932\u2013939H attempted reform but left the issuer-pays model intact. The SEC\u2019s NRSRO designation creates a regulatory moat that prevents new entrants from challenging incumbents. The agencies that failed in 2008 remain the only agencies whose ratings carry regulatory force." },
+      { id: "A3", name: "Regulatory Entrenchment", text: "Dodd-Frank \u00a7932\u2013939H attempted reform but left the issuer-pays model intact. The SEC\u2019s Nationally Recognized Statistical Rating Organization designation creates a regulatory moat that prevents new entrants from challenging incumbents. The agencies that failed in 2008 remain the only agencies whose ratings carry regulatory force." },
     ],
   },
   {
@@ -767,7 +768,7 @@ function PPTCard() {
     }}>
       <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 12 }}>
         <div style={{ fontFamily: M, fontSize: 13, color: GOLD, fontWeight: 600 }}>
-          PPT
+          Private Pareto Theorem
         </div>
         <div style={{ fontFamily: M, fontSize: 13, color: MUTED }}>2026</div>
         <div style={{ fontFamily: S, fontSize: 18, color: TEXT }}>
@@ -802,16 +803,16 @@ function PPTCard() {
         borderLeft: `2px solid ${GOLD}33`,
         background: "rgba(245,158,11,0.03)",
       }}>
-        Impossible: Bilateral Pareto efficiency that preserves system welfare under Private-Systemic Tension (PST) axioms.
+        Impossible: Bilateral Pareto efficiency that preserves system welfare under Private-Systemic Tension axioms.
       </div>
 
       <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 2, marginTop: 18, marginBottom: 10 }}>
         AXIOMS
       </div>
       {[
-        { id: "PST-1", name: "Overlapping Interests", text: "Both parties share a joint interest in the outcome of the transaction. Their payoff functions overlap on at least one dimension." },
-        { id: "PST-2", name: "System Independence", text: "Each party\u2019s decision is made without knowledge of, or regard for, system-level welfare consequences. The bilateral payoff space excludes the system." },
-        { id: "PST-3", name: "System Dependence", text: "The system\u2019s welfare is causally affected by the bilateral outcome. The transaction\u2019s externalities are real, not hypothetical." },
+        { id: "Private-Systemic Tension-1", name: "Overlapping Interests", text: "Both parties share a joint interest in the outcome of the transaction. Their payoff functions overlap on at least one dimension." },
+        { id: "Private-Systemic Tension-2", name: "System Independence", text: "Each party\u2019s decision is made without knowledge of, or regard for, system-level welfare consequences. The bilateral payoff space excludes the system." },
+        { id: "Private-Systemic Tension-3", name: "System Dependence", text: "The system\u2019s welfare is causally affected by the bilateral outcome. The transaction\u2019s externalities are real, not hypothetical." },
       ].map(ax => (
         <div key={ax.id} style={{ marginBottom: 12, paddingLeft: 16 }}>
           <div style={{ fontFamily: M, fontSize: 13, color: TEXT, marginBottom: 4 }}>
@@ -824,11 +825,11 @@ function PPTCard() {
         </div>
       ))}
       <div style={{ fontFamily: S, fontSize: 17, color: DIM, lineHeight: 1.85, marginTop: 14 }}>
-        PPT fits naturally into the existing canon. Like its predecessors, it demonstrates a structural
+        Private Pareto Theorem fits naturally into the existing canon. Like its predecessors, it demonstrates a structural
         impossibility in welfare aggregation: individually rational bilateral exchange cannot preserve
         the welfare of the system in which the exchange occurs. Its three axioms are
-        human-behavioral, in the tradition of Arrow, Sen, and Myerson. What distinguishes PPT is that
-        it also points <em>beyond</em> social choice. The PST structure arises wherever private
+        human-behavioral, in the tradition of Arrow, Sen, and Myerson. What distinguishes Private Pareto Theorem is that
+        it also points <em>beyond</em> social choice. The Private-Systemic Tension structure arises wherever private
         transactions affect systems the transacting parties cannot observe &mdash; including systems
         governed by conservation laws, thermodynamic identity, and evolutionary dynamics.
       </div>
@@ -904,7 +905,7 @@ export default function ImpossibilityTheorems() {
         {/* ── HEADER ── */}
         <div style={{ marginBottom: 12 }}>
           <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 3, marginBottom: 8 }}>
-            SAPM RESEARCH PROGRAM
+            System Asset Pricing Model RESEARCH PROGRAM
           </div>
           <h1 style={{ fontFamily: S, fontSize: 34, fontWeight: 300, color: TEXT, margin: 0, lineHeight: 1.3 }}>
             The Postnieks Impossibility Theorems
@@ -1031,13 +1032,13 @@ export default function ImpossibilityTheorems() {
           </div>
           <div style={{ display: "grid", gap: 12 }}>
             {[
-              { cls: "Thermodynamic & Chemical Permanence", ex: "PFAS — carbon-fluorine bond energy of 485 kJ/mol; Cement — CaCO\u2083 \u2192 CaO + CO\u2082 is conservation of mass; Coal and O&G — hydrocarbon combustion is carbon oxidation; Fast Fashion — polyester persistence; POPs — molecular persistence is the commercially valued property; Plastics — polymer stability is environmental persistence" },
-              { cls: "Evolutionary & Biological Arms Races", ex: "Antimicrobial resistance — therapeutic lethality = selection pressure; Monoculture; Gene Drives; Tobacco — nicotine addiction pharmacology; UPF — metabolic dysregulation; Opioids — \u03bc-receptor agonism and dependence are the same molecular event; Industrial Ag Methane — enteric fermentation is a stoichiometric constant; Alcohol — GABA-A pharmacology; Factory Farming — CAFO concentration-externality identity" },
+              { cls: "Thermodynamic & Chemical Permanence", ex: "Forever Chemicals — carbon-fluorine bond energy of 485 kJ/mol; Cement — CaCO\u2083 \u2192 CaO + CO\u2082 is conservation of mass; Coal and O&G — hydrocarbon combustion is carbon oxidation; Fast Fashion — polyester persistence; Persistent Organic Pollutants — molecular persistence is the commercially valued property; Plastics — polymer stability is environmental persistence" },
+              { cls: "Evolutionary & Biological Arms Races", ex: "Antimicrobial resistance — therapeutic lethality = selection pressure; Monoculture; Gene Drives; Tobacco — nicotine addiction pharmacology; Ultra-Processed Food — metabolic dysregulation; Opioids — \u03bc-receptor agonism and dependence are the same molecular event; Industrial Ag Methane — enteric fermentation is a stoichiometric constant; Alcohol — GABA-A pharmacology; Factory Farming — Concentrated Animal Feeding Operation concentration-externality identity" },
               { cls: "Radioactive Decay & Physical Irreversibility", ex: "Nuclear fission — fission products and radiotoxicity are the same nuclear event; Orbital debris — Kessler cascade; Aviation — energy density lock-in at 48:1 jet fuel vs. battery ratio" },
-              { cls: "Irreversible Capability & Knowledge Diffusion", ex: "Frontier AI — demonstrated capability cannot be unlearned; WMD/LAWS — transferred knowledge is permanently enabling; Arms exports — capability diffusion is constitutive" },
+              { cls: "Irreversible Capability & Knowledge Diffusion", ex: "Frontier AI — demonstrated capability cannot be unlearned; Weapons of Mass Destruction/Lethal Autonomous Weapons Systems — transferred knowledge is permanently enabling; Arms exports — capability diffusion is constitutive" },
               { cls: "Geological & Ecological Irreversibility", ex: "Groundwater/Ogallala — recharge on geological timescales; Mining — acid mine drainage persists for centuries; Deforestation — carbon stock release is instantaneous, recovery takes centuries; Palm Oil — peatland drainage is irreversible; Deep-Sea Mining — nodule regeneration at mm/million years; Topsoil — pedogenesis asymmetry" },
-              { cls: "Institutional & Financial Ratchets", ex: "PBMs — vertical integration opacity; CRE — extend-and-pretend; Private Prisons — recidivism incentive; Defense Procurement — cost-plus ratchet; Gig Economy — classification arbitrage; Gambling — algorithmic exploitation; Sovereign Debt — intergenerational extraction; Student Loans — securitization extraction; Firearms — constitutional ratchet; Narco-States — prohibition-profit identity; Credit Ratings — issuer-pays bias; PMCs — jurisdiction gap; Payday Lending — poverty ratchet" },
-              { cls: "Statistical, Jurisdictional & Informational Floors", ex: "Insurance/Climate — fat-tail mispricing under non-stationarity; Shipping — flag state arbitrage separates jurisdiction from enforcement; LIBOR — self-referential benchmarks; Stablecoins — reserve opacity; Algorithmic Pricing — tacit collusion without agreement; Social Media — engagement optimization exploits developmental neurobiology; Cybercrime — attribution impossibility; Data Brokerage — consent fabrication; E-Waste — Basel Convention classification evasion; Tax Havens — sovereignty arbitrage; Conflict Minerals — fungibility floor; Child Labor — cost arbitrage floor; Human Trafficking — demand indestructibility" },
+              { cls: "Institutional & Financial Ratchets", ex: "Pharmacy Benefit Managers — vertical integration opacity; Commercial Real Estate — extend-and-pretend; Private Prisons — recidivism incentive; Defense Procurement — cost-plus ratchet; Gig Economy — classification arbitrage; Gambling — algorithmic exploitation; Sovereign Debt — intergenerational extraction; Student Loans — securitization extraction; Firearms — constitutional ratchet; Illicit Drug Trade — prohibition-profit identity; Credit Ratings — issuer-pays bias; Private Military Contractors — jurisdiction gap; Payday Lending — poverty ratchet" },
+              { cls: "Statistical, Jurisdictional & Informational Floors", ex: "Insurance/Climate — fat-tail mispricing under non-stationarity; Shipping — flag state arbitrage separates jurisdiction from enforcement; Benchmark Rate — self-referential benchmarks; Stablecoins — reserve opacity; Algorithmic Pricing — tacit collusion without agreement; Social Media — engagement optimization exploits developmental neurobiology; Cybercrime — attribution impossibility; Data Brokerage — consent fabrication; E-Waste — Basel Convention classification evasion; Tax Havens — sovereignty arbitrage; Conflict Minerals — fungibility floor; Child Labor — cost arbitrage floor; Human Trafficking — demand indestructibility" },
             ].map((c, i) => (
               <div key={i} style={{
                 padding: "14px 18px", background: SURFACE,
@@ -1084,11 +1085,11 @@ export default function ImpossibilityTheorems() {
         {/* ── THE 16 THEOREMS ── */}
         <Section label="THE 62 PROPOSED POSTNIEKS IMPOSSIBILITY THEOREMS">
           <div style={{ fontFamily: M, fontSize: 12, color: MUTED, letterSpacing: 1, marginBottom: 12 }}>
-            PPT + Theorems I&ndash;LXI. Each follows the Arrow architecture:
+            Private Pareto Theorem + Theorems I&ndash;LXI. Each follows the Arrow architecture:
             three axioms, structural impossibility.
           </div>
 
-          {/* PPT — The Foundational Theorem */}
+          {/* Private Pareto Theorem — The Foundational Theorem */}
           <div style={{
             fontFamily: M, fontSize: 13, color: GOLD,
             letterSpacing: 2, marginBottom: 16, marginTop: 8,
@@ -1175,6 +1176,34 @@ export default function ImpossibilityTheorems() {
                 merits: the defensibility of the axioms, the validity of the proofs, and the significance
                 of the impossibilities they identify.
               </p>
+
+              <p style={{ margin: "0 0 14px", fontFamily: M, fontSize: 11, color: GOLD, letterSpacing: 2, textTransform: "uppercase" }}>
+                A Note on the 39 Intractability Theorems
+              </p>
+              <p style={{ margin: "0 0 14px" }}>
+                A natural question arises: if the 39 intractability domains have a theoretical escape &mdash;
+                a proven policy solution demonstrated by at least one country &mdash; why present them
+                in the formal architecture of an impossibility theorem?
+              </p>
+              <p style={{ margin: "0 0 14px" }}>
+                The answer is that the escape route has been sealed off. Regulatory capture, institutional
+                lock-in, jurisdictional fragmentation, lobbying, and revolving-door dynamics &mdash;
+                most acutely in the United States &mdash; have rendered the theoretical solution practically
+                unreachable for the populations that bear the welfare cost. The formal impossibility
+                structure is not a rhetorical flourish. It is the correct analytical tool: by proving
+                that no mechanism can simultaneously satisfy necessity, identity, and reversibility under
+                the prevailing institutional constraints, the theorem reveals <em>why</em> the escape is
+                so difficult and the problem so deeply intractable.
+              </p>
+              <p style={{ margin: "0 0 14px" }}>
+                Only by understanding the depth of the structural lock-in &mdash; the precise axioms that
+                bind, the specific mechanisms that fail &mdash; can reformers identify what must change
+                and build the political coalition to change it. The Nordic countries, Chile, Estonia, Japan,
+                and Australia did not overcome intractability by accident. They overcame it by understanding
+                the impossibility architecture they were operating within and dismantling the binding
+                constraint. The formal framework is the map.
+              </p>
+
               <p style={{ margin: 0 }}>
                 If the axioms are wrong, the theorems fall. That is as it should be. An impossibility
                 theorem is only as strong as its weakest axiom &mdash; and the author invites scrutiny
@@ -1190,7 +1219,7 @@ export default function ImpossibilityTheorems() {
           borderTop: `1px solid ${BORDER}`,
           fontFamily: M, fontSize: 12, color: MUTED, letterSpacing: 1,
         }}>
-          &copy; 2026 Erik Postnieks &middot; SAPM Research Program
+          &copy; 2026 Erik Postnieks &middot; System Asset Pricing Model Research Program
         </div>
       </div>
     </div>

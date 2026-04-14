@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 
 // ══════════════════════════════════════════════════════════════
@@ -21,36 +22,36 @@ const DIM = "rgba(255,255,255,0.55)";
 
 // ─── COUNTRY DATA (illustrative, from c-adjusted GDP) ───────
 const COUNTRIES = [
-  { name: "United States", gdp: 28700, cAdj: 22900, delta: 5800, pctLoss: 20.2, topDomains: ["Oil & Gas","UPF","Tobacco","Big Tech","PFAS","PBM","Opioids"] },
-  { name: "China", gdp: 18500, cAdj: 14200, delta: 4300, pctLoss: 23.2, topDomains: ["Coal","Cement","Industrial Monoculture","PFAS","Rare Earth (POPs)","Big Tech"] },
-  { name: "European Union", gdp: 18700, cAdj: 15800, delta: 2900, pctLoss: 15.5, topDomains: ["Oil & Gas","Aviation","Coal","UPF","Palm Oil (imports)","Tobacco"] },
-  { name: "India", gdp: 4100, cAdj: 3100, delta: 1000, pctLoss: 24.4, topDomains: ["Coal","Tobacco","Topsoil Erosion","UPF","Water Privatization","Monoculture"] },
-  { name: "Japan", gdp: 4400, cAdj: 3700, delta: 700, pctLoss: 15.9, topDomains: ["Coal","PFAS","Fisheries","Tobacco","UPF","CRE"] },
-  { name: "Germany", gdp: 4500, cAdj: 3900, delta: 600, pctLoss: 13.3, topDomains: ["Coal (Lignite)","Oil & Gas","Cement","Aviation","UPF","PFAS"] },
-  { name: "United Kingdom", gdp: 3500, cAdj: 2900, delta: 600, pctLoss: 17.1, topDomains: ["Oil & Gas","Gambling","Tobacco","UPF","CRE","Big Tech"] },
+  { name: "United States", gdp: 28700, cAdj: 22900, delta: 5800, pctLoss: 20.2, topDomains: ["Oil & Gas","Ultra-Processed Food","Tobacco","Big Tech","Forever Chemicals (PFAS)","Pharmacy Benefit Management","Opioids"] },
+  { name: "China", gdp: 18500, cAdj: 14200, delta: 4300, pctLoss: 23.2, topDomains: ["Coal","Cement","Industrial Monoculture","Forever Chemicals (PFAS)","Rare Earth (Persistent Organic Pollutants)","Big Tech"] },
+  { name: "European Union", gdp: 18700, cAdj: 15800, delta: 2900, pctLoss: 15.5, topDomains: ["Oil & Gas","Aviation","Coal","Ultra-Processed Food","Palm Oil (imports)","Tobacco"] },
+  { name: "India", gdp: 4100, cAdj: 3100, delta: 1000, pctLoss: 24.4, topDomains: ["Coal","Tobacco","Topsoil Erosion","Ultra-Processed Food","Water Privatization","Monoculture"] },
+  { name: "Japan", gdp: 4400, cAdj: 3700, delta: 700, pctLoss: 15.9, topDomains: ["Coal","Forever Chemicals (PFAS)","Fisheries","Tobacco","Ultra-Processed Food","Commercial Real Estate"] },
+  { name: "Germany", gdp: 4500, cAdj: 3900, delta: 600, pctLoss: 13.3, topDomains: ["Coal (Lignite)","Oil & Gas","Cement","Aviation","Ultra-Processed Food","Forever Chemicals (PFAS)"] },
+  { name: "United Kingdom", gdp: 3500, cAdj: 2900, delta: 600, pctLoss: 17.1, topDomains: ["Oil & Gas","Gambling","Tobacco","Ultra-Processed Food","Commercial Real Estate","Big Tech"] },
   { name: "Brazil", gdp: 2200, cAdj: 1700, delta: 500, pctLoss: 22.7, topDomains: ["Palm Oil/Soy Deforestation","Monoculture","Topsoil","Oil & Gas","Tobacco"] },
   { name: "Indonesia", gdp: 1400, cAdj: 950, delta: 450, pctLoss: 32.1, topDomains: ["Palm Oil","Coal","Tobacco","Monoculture","Fisheries","Deep-Sea Mining"] },
-  { name: "Russia", gdp: 2100, cAdj: 1400, delta: 700, pctLoss: 33.3, topDomains: ["Oil & Gas","Coal","Arms Exports","Tobacco","PFAS","Nuclear"] },
-  { name: "Saudi Arabia", gdp: 1100, cAdj: 500, delta: 600, pctLoss: 54.5, topDomains: ["Oil & Gas (dominant)","Cement","Water","UPF"] },
-  { name: "Australia", gdp: 1700, cAdj: 1300, delta: 400, pctLoss: 23.5, topDomains: ["Coal Exports","Oil & Gas","PFAS","Mining (general)","Monoculture"] },
-  { name: "Nigeria", gdp: 470, cAdj: 310, delta: 160, pctLoss: 34.0, topDomains: ["Oil & Gas","Monoculture","Topsoil","Tobacco","UPF"] },
-  { name: "South Korea", gdp: 1800, cAdj: 1500, delta: 300, pctLoss: 16.7, topDomains: ["Coal","PFAS","Cement","Gambling","UPF","Big Tech"] },
-  { name: "Canada", gdp: 2200, cAdj: 1800, delta: 400, pctLoss: 18.2, topDomains: ["Oil Sands","Coal","PFAS","Monoculture","Fisheries","Mining"] },
+  { name: "Russia", gdp: 2100, cAdj: 1400, delta: 700, pctLoss: 33.3, topDomains: ["Oil & Gas","Coal","Arms Exports","Tobacco","Forever Chemicals (PFAS)","Nuclear"] },
+  { name: "Saudi Arabia", gdp: 1100, cAdj: 500, delta: 600, pctLoss: 54.5, topDomains: ["Oil & Gas (dominant)","Cement","Water","Ultra-Processed Food"] },
+  { name: "Australia", gdp: 1700, cAdj: 1300, delta: 400, pctLoss: 23.5, topDomains: ["Coal Exports","Oil & Gas","Forever Chemicals (PFAS)","Mining (general)","Monoculture"] },
+  { name: "Nigeria", gdp: 470, cAdj: 310, delta: 160, pctLoss: 34.0, topDomains: ["Oil & Gas","Monoculture","Topsoil","Tobacco","Ultra-Processed Food"] },
+  { name: "South Korea", gdp: 1800, cAdj: 1500, delta: 300, pctLoss: 16.7, topDomains: ["Coal","Forever Chemicals (PFAS)","Cement","Gambling","Ultra-Processed Food","Big Tech"] },
+  { name: "Canada", gdp: 2200, cAdj: 1800, delta: 400, pctLoss: 18.2, topDomains: ["Oil Sands","Coal","Forever Chemicals (PFAS)","Monoculture","Fisheries","Mining"] },
 ];
 
 // ─── INTERNATIONAL COORDINATION ──────────────────────────────
 const TREATIES = [
   { name: "Montreal Protocol (1987)", domain: "Ozone-Depleting Substances (chemicals that destroy the atmospheric ozone layer)", status: "Success", coverage: "Universal (198 parties)",
     lesson: "The gold standard. Universal participation, binding targets, trade sanctions for defectors, a dedicated funding mechanism. It worked because the conditions were ideal: substitutes existed, the industry was concentrated, the science was unambiguous, and the United States led. None of those conditions hold for most Hollow Win domains — which is why the Protocol is a ceiling, not a floor.",
-    applicability: "Direct model for PFAS — class-wide production ban with transition funding. Adaptable for Gene Drives — moratorium structure. Less applicable to domains with diffuse production. You cannot Montreal-Protocol your way out of coal." },
+    applicability: "Direct model for Forever Chemicals — class-wide production ban with transition funding. Adaptable for Gene Drives — moratorium structure. Less applicable to domains with diffuse production. You cannot Montreal-Protocol your way out of coal." },
   { name: "Stockholm Convention (2001)", domain: "Persistent Organic Pollutants", status: "Partial Success", coverage: "186 parties (not US)",
-    lesson: "Successfully listed and phased out 34 persistent organic pollutants (POPs) — DDT (a pesticide), polychlorinated biphenyls (PCBs, industrial chemicals), and dioxins (toxic byproducts of combustion). The listing process takes 7–10 years per compound. The United States signed but never ratified. PFAS listing is underway but industry resistance is fierce. The Convention demonstrates that persistent chemical governance is achievable. It also demonstrates that achievable and fast are not the same word.",
-    applicability: "Direct model for POPs Beyond PFAS. The listing architecture works — the carbon-fluorine bond does not negotiate with legislators any more than it negotiates with enzymes. The bottleneck is political will, not scientific uncertainty." },
+    lesson: "Successfully listed and phased out 34 persistent organic pollutants (Persistent Organic Pollutants) — DDT (a pesticide), polychlorinated biphenyls (PCBs, industrial chemicals), and dioxins (toxic byproducts of combustion). The listing process takes 7–10 years per compound. The United States signed but never ratified. Forever Chemicals listing is underway but industry resistance is fierce. The Convention demonstrates that persistent chemical governance is achievable. It also demonstrates that achievable and fast are not the same word.",
+    applicability: "Direct model for Persistent Organic Pollutants Beyond Forever Chemicals. The listing architecture works — the carbon-fluorine bond does not negotiate with legislators any more than it negotiates with enzymes. The bottleneck is political will, not scientific uncertainty." },
   { name: "Paris Agreement (2015)", domain: "Climate (Coal, Oil & Gas, Aviation, Cement)", status: "Insufficient", coverage: "Nearly universal",
     lesson: "Voluntary pledges without enforcement. The 1.5°C target requires emission pathways that no major emitter's Nationally Determined Contribution (NDC) reflects. No carbon price coordination. No fossil fuel phase-out language — the word 'fossil' did not appear in a COP final text until Glasgow, 2021. The architecture of voluntary bilateral agreements cannot solve a Hollow Win. The theorem predicts this: bilateral optimization between nations maximizes bilateral payoffs — economic growth — while the system degrades as a structural byproduct. Paris is a coordination exercise that produced coordination failure.",
-    applicability: "Demonstrates the failure mode the PPT predicts. Every domain with diffuse international production and bilateral negotiation structure will reproduce this result. The fix is not more ambitious pledges. The fix is enforcement architecture." },
+    applicability: "Demonstrates the failure mode the Private Pareto Theorem predicts. Every domain with diffuse international production and bilateral negotiation structure will reproduce this result. The fix is not more ambitious pledges. The fix is enforcement architecture." },
   { name: "Arms Trade Treaty (2013)", domain: "Arms Exports", status: "Weak", coverage: "113 parties (not US, Russia, China)",
-    lesson: "The three largest arms exporters either did not ratify or did not sign. Reporting requirements are voluntary. The Treaty is a case study in what happens when the players whose defection matters most are the ones who defect. The PPT explains the mechanism: each exporter's bilateral calculation — private payoff from the sale — does not include the system variable — regional stability, conflict casualties, displaced populations. PST-2 holds at the international level.",
+    lesson: "The three largest arms exporters either did not ratify or did not sign. Reporting requirements are voluntary. The Treaty is a case study in what happens when the players whose defection matters most are the ones who defect. The Private Pareto Theorem explains the mechanism: each exporter's bilateral calculation — private payoff from the sale — does not include the system variable — regional stability, conflict casualties, displaced populations. Private-Systemic Tension-2 holds at the international level.",
     applicability: "The failure here is structural, not diplomatic. Arms exports are a Hollow Win with β\u1D42 = 2.54. No voluntary framework will solve this. The question is whether a trade-sanctions enforcement mechanism — Montreal Protocol style — is politically achievable for weapons. The honest answer: not yet." },
   { name: "World Trade Organization (WTO) Fisheries Subsidies Agreement (2022)", domain: "Global Fisheries", status: "New", coverage: "WTO members",
     lesson: "The first WTO agreement to address environmental subsidy harm. Bans subsidies for illegal, unreported, and unregulated (IUU) fishing and overfishing of overfished stocks. Major exception: developing country exemptions. No mechanism addresses climate forcing on fish stocks. The Agreement demonstrates that subsidy reform is achievable through trade architecture — a significant precedent.",
@@ -61,10 +62,10 @@ const TREATIES = [
 const COORDINATION = [
   { scenario: "First-Mover Advantage",
     description: "The first country to adopt W-monitoring and publish C-adjusted GDP as a supplementary national account gains four things at once: early regulatory framework development, industry transition with a longer runway, competitive advantage in attracting W-aware capital, and reduced system risk exposure. This is not speculative. The EU has done it four times already.",
-    examples: "The Digital Markets Act. The Deforestation Regulation. The PFAS restriction proposal. The Platform Work Directive. In each case, the EU's regulatory framework became the de facto global standard — what Bradford (2020) calls the Brussels Effect. First-mover regulatory advantage is not a theory. It is a documented pattern." },
+    examples: "The Digital Markets Act. The Deforestation Regulation. The Forever Chemicals restriction proposal. The Platform Work Directive. In each case, the EU's regulatory framework became the de facto global standard — what Bradford (2020) calls the Brussels Effect. First-mover regulatory advantage is not a theory. It is a documented pattern." },
   { scenario: "Free-Rider Problem",
     description: "The standard objection to unilateral regulation: if one country regulates a Hollow Win domain and others do not, production relocates to unregulated jurisdictions. Carbon leakage. Regulatory arbitrage. The objection is real. It is also temporary.",
-    counter: "The PPT predicts that free-riding extends T* but does not prevent correction. Carbon leakage does not reduce global emissions — it moves them. PFAS contamination is global regardless of which jurisdiction manufactures the compounds. The carbon-fluorine bond does not respect borders. Neither does the atmosphere. Free-riding delays the inevitable. It does not change the inevitable." },
+    counter: "The Private Pareto Theorem predicts that free-riding extends T* but does not prevent correction. Carbon leakage does not reduce global emissions — it moves them. Forever Chemicals contamination is global regardless of which jurisdiction manufactures the compounds. The carbon-fluorine bond does not respect borders. Neither does the atmosphere. Free-riding delays the inevitable. It does not change the inevitable." },
   { scenario: "Coordination Game",
     description: "International Hollow Win governance is a coordination game, not a prisoner's dilemma. That distinction matters. In a prisoner's dilemma, each player prefers to defect regardless of what the other does. In a coordination game, all parties prefer mutual regulation to mutual inaction. The barrier is coordination, not incentive.",
     evidence: "The Montreal Protocol proves this. Once coordination was achieved — with trade sanctions for non-compliance — universal participation followed. The ozone hole is healing. The problem was never that countries wanted to destroy the ozone layer. The problem was that bilateral optimization — chlorofluorocarbons (CFCs) are cheap and effective — produced system destruction as a structural byproduct. Sound familiar? It should. That is the Private Pareto Theorem." },
@@ -72,8 +73,8 @@ const COORDINATION = [
     description: "Countries differ dramatically in their Hollow Win concentration. Saudi Arabia's GDP is 54.5% Hollow Win — Oil & Gas dominant. Indonesia is 32.1% — Palm Oil plus Coal. Germany is 13.3% — more diversified, lower exposure. Transition costs are inversely proportional to economic diversification. This is arithmetic, not opinion.",
     implication: "Any international framework that ignores asymmetric exposure will fail. High-concentration countries will block coordination because the transition cost is existential — not metaphorically, but literally. Saudi Arabia cannot transition away from oil on a five-year timeline. The Montreal Protocol solved this with the Multilateral Fund: transition funding for developing countries. That model is required here. Without it, the countries with the most to lose will veto the countries with the most to gain." },
   { scenario: "China's Position",
-    description: "China is the world's largest producer in several high-β\u1D42 domains: coal (β\u1D42 = 6.95), cement (β\u1D42 = 6.74), PFAS (β\u1D42 = 5.31), rare earth processing. China's C-adjusted GDP loss is approximately 23% — $4.3 trillion of its $18.5 trillion GDP is Hollow Win output.",
-    opportunity: "China's 14th Five-Year Plan already targets coal peak by 2030 and carbon neutrality by 2060. SAPM calibration provides quantitative backing for those targets — not environmentalist rhetoric, but balance-sheet arithmetic. C-adjusted GDP reframes China's transition narrative from sacrifice to correction. The message writes itself: 'We are not sacrificing growth. We are eliminating the $4.3 trillion illusion in our GDP.' That is a message Beijing can use. And it has the advantage of being true." },
+    description: "China is the world's largest producer in several high-β\u1D42 domains: coal (β\u1D42 = 6.95), cement (β\u1D42 = 6.74), Forever Chemicals (β\u1D42 = 5.31), rare earth processing. China's C-adjusted GDP loss is approximately 23% — $4.3 trillion of its $18.5 trillion GDP is Hollow Win output.",
+    opportunity: "China's 14th Five-Year Plan already targets coal peak by 2030 and carbon neutrality by 2060. System Asset Pricing Model calibration provides quantitative backing for those targets — not environmentalist rhetoric, but balance-sheet arithmetic. C-adjusted GDP reframes China's transition narrative from sacrifice to correction. The message writes itself: 'We are not sacrificing growth. We are eliminating the $4.3 trillion illusion in our GDP.' That is a message Beijing can use. And it has the advantage of being true." },
 ];
 
 const TABS = [
@@ -151,11 +152,11 @@ export default function SovereignBrief() {
 
             {[
               { title: "GDP Counts Destruction as Production",
-                content: "GDP counts every transaction with a positive sign. Cancer treatment from industrial pollution counts. Remediation of PFAS-contaminated aquifers counts. Legal fees from financial fraud count. LIBOR manipulation added $12.3 billion to GDP — the bonuses, the legal fees, the compliance overhauls, all of it registered as economic activity. A nation that measures its economy by GDP alone cannot distinguish production from destruction. It is flying a $28 trillion aircraft with a broken altimeter." },
+                content: "GDP counts every transaction with a positive sign. Cancer treatment from industrial pollution counts. Remediation of Forever Chemicals-contaminated aquifers counts. Legal fees from financial fraud count. Benchmark Rate manipulation added $12.3 billion to GDP — the bonuses, the legal fees, the compliance overhauls, all of it registered as economic activity. A nation that measures its economy by GDP alone cannot distinguish production from destruction. It is flying a $28 trillion aircraft with a broken altimeter." },
               { title: "C-Adjusted GDP Is the Instrument That Works",
                 content: "C-adjusted GDP — GDP* = GDP − μ·Σβ\u1D42·Π — subtracts the welfare cost of system-degrading activity. The subtraction is not subjective. It uses Monte Carlo-calibrated β\u1D42 values derived from channel-level data — 10,000 draws per domain, seed = 42, reproducible by any competent statistician. At μ = 0.15 (conservative), the global adjustment is approximately $3 trillion. At full calibration (μ = 1.0), it is approximately $20 trillion. The number is large. The number is also correct." },
               { title: "Early Adoption Is Competitive Advantage",
-                content: "The first country to publish C-adjusted GDP as a supplementary national account will attract W-aware capital, develop regulatory frameworks before trading partners can react, position domestic industries for transition with maximum runway, and gain credibility in international negotiations by leading with arithmetic rather than rhetoric. The EU has demonstrated this pattern four times — DMA, EUDR, PFAS restrictions, Platform Work Directive. In each case, Brussels set the standard and the world followed. The next standard to set is GDP*." },
+                content: "The first country to publish C-adjusted GDP as a supplementary national account will attract W-aware capital, develop regulatory frameworks before trading partners can react, position domestic industries for transition with maximum runway, and gain credibility in international negotiations by leading with arithmetic rather than rhetoric. The EU has demonstrated this pattern four times — Digital Markets Act, EU Deforestation Regulation, Forever Chemicals restrictions, Platform Work Directive. In each case, Brussels set the standard and the world followed. The next standard to set is GDP*." },
               { title: "The Alternative Is Discontinuous Correction",
                 content: "Every Hollow Win domain has a T* — a crossover time after which system damage feeds back and destroys private payoffs. Countries that wait for T* do not experience gradual adjustment. They experience discontinuous correction: financial crises, environmental disasters, public health emergencies, infrastructure failures. Silicon Valley Bank (SVB) collapsed in 48 hours. The opioid crisis killed 600,000 Americans before the correction arrived. Volkswagen lost $30 billion in market capitalization in two weeks. Countries that manage the transition proactively convert a discontinuity into a gradient. Countries that wait get the discontinuity." },
             ].map(s => (
@@ -258,7 +259,7 @@ export default function SovereignBrief() {
               INTERNATIONAL TREATY ANALYSIS
             </div>
             <div style={{ fontFamily: S, fontSize: 18, color: DIM, lineHeight: 1.7, marginBottom: 24 }}>
-              Five international agreements. One success, one partial success, one failure, one irrelevance, and one too new to judge. The pattern is instructive: treaties work when they have enforcement mechanisms and fail when they rely on voluntary compliance. The PPT predicts this. Bilateral optimization without enforcement produces system degradation as a structural byproduct — whether the bilateral actors are firms or nations.
+              Five international agreements. One success, one partial success, one failure, one irrelevance, and one too new to judge. The pattern is instructive: treaties work when they have enforcement mechanisms and fail when they rely on voluntary compliance. The Private Pareto Theorem predicts this. Bilateral optimization without enforcement produces system degradation as a structural byproduct — whether the bilateral actors are firms or nations.
             </div>
 
             {TREATIES.map(t => {
@@ -343,15 +344,15 @@ export default function SovereignBrief() {
               IMPLEMENTATION ROADMAP
             </div>
             <div style={{ fontFamily: S, fontSize: 18, color: DIM, lineHeight: 1.7, marginBottom: 24 }}>
-              Four phases. Ten years. The timeline is aggressive — and it is the conservative version. The system degradation documented in the SAPM program does not wait for phase gates. But governments move at government speed, and the author is not naive about that. The roadmap below is designed for institutions, not revolutionaries.
+              Four phases. Ten years. The timeline is aggressive — and it is the conservative version. The system degradation documented in the System Asset Pricing Model program does not wait for phase gates. But governments move at government speed, and the author is not naive about that. The roadmap below is designed for institutions, not revolutionaries.
             </div>
 
             {[
               { phase: "PHASE 1", title: "Publication (Year 1)", color: BLUE, items: [
                 "Publish C-adjusted GDP as a supplementary national account alongside traditional GDP. Not a replacement — a companion metric. The political cost is near zero. The informational value is enormous.",
                 "Commission independent verification of β\u1D42 calibrations for domestically relevant domains. The Monte Carlo methodology is open-source and reproducible. Any national statistics office with a competent quant can run it.",
-                "Establish a SAPM unit within the national statistics office — Bureau of Labor Statistics, Bureau of Economic Analysis, Office for National Statistics, or whichever national statistics agency applies. Three people. One economist, one statistician, one domain specialist. That is all it takes to start.",
-                "Publish domain-level welfare cost estimates for the top 10 domestic exposure domains. The data already exists in scattered form — environmental reports, health statistics, insurance claims. SAPM organizes it.",
+                "Establish a System Asset Pricing Model unit within the national statistics office — Bureau of Labor Statistics, Bureau of Economic Analysis, Office for National Statistics, or whichever national statistics agency applies. Three people. One economist, one statistician, one domain specialist. That is all it takes to start.",
+                "Publish domain-level welfare cost estimates for the top 10 domestic exposure domains. The data already exists in scattered form — environmental reports, health statistics, insurance claims. System Asset Pricing Model organizes it.",
               ]},
               { phase: "PHASE 2", title: "Regulatory Integration (Years 2–3)", color: GOLD, items: [
                 "Integrate β\u1D42 thresholds into existing regulatory frameworks — environmental review, financial regulation, antitrust. This does not require new legislation. It requires new inputs to existing processes.",
@@ -361,14 +362,14 @@ export default function SovereignBrief() {
               ]},
               { phase: "PHASE 3", title: "International Coordination (Years 3–5)", color: GREEN, items: [
                 "Propose C-adjusted GDP as an IMF and World Bank supplementary metric. The International Monetary Fund (IMF) already publishes purchasing power parity adjustments. GDP* is the same concept applied to system welfare. The intellectual infrastructure exists.",
-                "Lead treaty initiative for the highest-β\u1D42 domains requiring international coordination: WMD Proliferation (β\u1D42 = 21.92), Firearms (β\u1D42 = 50.99), Opioid Ecosystem (β\u1D42 = 14.96). These are the domains with the highest welfare destruction per dollar of revenue. These are the domains where the numbers are terrifying.",
+                "Lead treaty initiative for the highest-β\u1D42 domains requiring international coordination: Weapons of Mass Destruction Proliferation (β\u1D42 = 21.92), Firearms (β\u1D42 = 50.99), Opioid Ecosystem (β\u1D42 = 14.96). These are the domains with the highest welfare destruction per dollar of revenue. These are the domains where the numbers are terrifying.",
                 "Establish a multilateral transition fund — Montreal Protocol model — for high-exposure developing countries. Indonesia at 32.1% Hollow Win cannot transition without support. Nigeria at 34.0% cannot either. The fund is not charity. It is coordination cost.",
-                "Publish an annual SAPM World Report ranking countries by C-adjusted GDP, domain exposure, and transition progress. Sunlight is a disinfectant. Rankings are sunlight.",
+                "Publish an annual System Asset Pricing Model World Report ranking countries by C-adjusted GDP, domain exposure, and transition progress. Sunlight is a disinfectant. Rankings are sunlight.",
               ]},
               { phase: "PHASE 4", title: "Full Integration (Years 5–10)", color: "#8B5CF6", items: [
                 "C-adjusted GDP becomes the primary metric for fiscal policy evaluation. Not the only metric — GDP, employment, inflation all survive. But the headline number includes the correction. The broken altimeter is replaced.",
                 "Trade agreements include Hollow Win clauses — carbon border adjustments extended to all high-β\u1D42 domains, not just carbon. Countries that export system destruction pay the border adjustment. Countries that internalize costs do not.",
-                "An international SAPM standards body — equivalent to the International Organization for Standardization (ISO) — governs β\u1D42 calibration methodology. Independent. Transparent. Auditable. The same institutional architecture that governs financial accounting standards, applied to welfare accounting.",
+                "An international System Asset Pricing Model standards body — equivalent to the International Organization for Standardization (ISO) — governs β\u1D42 calibration methodology. Independent. Transparent. Auditable. The same institutional architecture that governs financial accounting standards, applied to welfare accounting.",
                 "Domain-level T* monitoring with automatic regulatory escalation triggers. When a domain's system degradation approaches the crossover time, regulation tightens automatically — not through political negotiation, but through pre-committed thresholds. The thermostat, not the argument about the thermostat.",
               ]},
             ].map(phase => (
@@ -397,7 +398,7 @@ export default function SovereignBrief() {
         {/* Footer */}
         <div style={{ padding: "32px 0", borderTop: `1px solid ${BORDER}`, marginTop: 48, textAlign: "center" }}>
           <div style={{ fontFamily: M, fontSize: 12, color: MUTED }}>
-            © 2026 Erik Postnieks · SAPM Program
+            © 2026 Erik Postnieks · System Asset Pricing Model Program
           </div>
         </div>
       </main>

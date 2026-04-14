@@ -1,0 +1,80 @@
+{
+  "lang": "id",
+  "dir": "ltr",
+  "pst": {
+    "title": "PEMECAH PST",
+    "headline": "Bagaimana Anda bisa membantu?",
+    "subtitle": "Tujuannya adalah mengubah permainan dari welfare-trap ke reformed. Pilih negara Anda. Pilih sektor Anda. Cari tahu aksioma mana yang pecah — dan apa yang harus dilakukan untuk memecahkannya.",
+    "globalLoss": "$20,9 triliun",
+    "globalLossLabel": "Kerugian kesejahteraan sistemik tahunan dari permainan welfare-trap di 190 negara",
+    "globalLossExplain": "Itulah biaya permainan welfare-trap bagi planet ini setiap tahun — 77% PDB dunia. Jika setiap orang, setiap perusahaan, setiap regulator memecahkan welfare-trap di sektornya, kita memulihkan $85,3 triliun kesejahteraan sosial nyata. Bukan PDB di spreadsheet. Kesejahteraan nyata. Udara bersih, makanan sehat, iklim stabil, upah adil. Berjuang untuk sistem. Berjuang untuk planet. Kita tidak perlu Rencana B. Mari buat Rencana A berhasil.",
+    "selectCountry": "PILIH NEGARA ANDA",
+    "sectorsMapped": "SEKTOR DIPETAKAN",
+    "selectSector": "PILIH SEKTOR",
+    "fastestPath": "JALUR TERCEPAT KE NON-PST",
+    "fastestPathIn": "Di sektor {{sector}} {{country}}, jalur tercepat adalah memecahkan",
+    "vulnerabilityMap": "PETA KERENTANAN welfare-trap — TIGA AKSIOMA",
+    "howToBreak": "CARA MEMECAHKAN",
+    "whatYouCanDo": "APA YANG BISA ANDA LAKUKAN — BERDASARKAN LEVEL",
+    "infrastructure": "INFRASTRUKTUR KELEMBAGAAN",
+    "mostBreakable": "PALING MUDAH DIPECAHKAN",
+    "holds": "BERLAKU",
+    "broken": "PECAH",
+    "allCountries": "SEMUA NEGARA",
+    "expanding": "BERKEMBANG",
+    "expandingText": "190 negara dipetakan dari database PDB c-adjusted System Asset Pricing Model.",
+    "selfLaceration": "EVALUASI DIRI",
+    "selfLacerationText": "Alat ini memberikan panduan umum berdasarkan kerangka regulasi publik. Bukan nasihat hukum.",
+    "searchPlaceholder": "Cari negara...",
+    "noResults": "Tidak ada negara yang cocok.",
+    "break": "PECAHKAN"
+  },
+  "nav": {
+    "curriculum": "KURIKULUM",
+    "deepdive": "ANALISIS MENDALAM",
+    "policy": "LAB KEBIJAKAN",
+    "executive": "RINGKASAN EKSEKUTIF",
+    "academic": "AKADEMIS",
+    "sovereign": "LAPORAN KEDAULATAN",
+    "pstbreaker": "BAGAIMANA MEMBANTU?"
+  },
+  "axioms": {
+    "1": {
+      "name": "Kepentingan Tumpang Tindih",
+      "short": "Aksioma 1",
+      "desc": "Kedua pihak mendapat manfaat dari kerja sama."
+    },
+    "2": {
+      "name": "Independensi Sistem",
+      "short": "Aksioma 2",
+      "desc": "Kesejahteraan sistem W tidak dapat dihitung dari pembayaran pihak."
+    },
+    "3": {
+      "name": "Ketergantungan Sistem",
+      "short": "Aksioma 3",
+      "desc": "Aktivitas agen mempengaruhi sistem bersama."
+    }
+  },
+  "actors": {
+    "insider": {
+      "label": "ORANG DALAM / PELAPOR",
+      "desc": "Anda di dalam sistem."
+    },
+    "executive": {
+      "label": "EKSEKUTIF / DEWAN",
+      "desc": "Anda memiliki otoritas atas desain permainan."
+    },
+    "regulator": {
+      "label": "REGULATOR / BADAN INDUSTRI",
+      "desc": "Anda menetapkan aturan permainan."
+    },
+    "sovereign": {
+      "label": "KEDAULATAN / INTERNASIONAL",
+      "desc": "Anda dapat mendesain ulang institusi."
+    }
+  },
+  "language": {
+    "selector": "Bahasa",
+    "current": "Bahasa Indonesia"
+  }
+}

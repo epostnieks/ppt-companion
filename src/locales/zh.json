@@ -1,0 +1,80 @@
+{
+  "lang": "zh",
+  "dir": "ltr",
+  "pst": {
+    "title": "PST 破解器",
+    "headline": "你能如何帮助？",
+    "subtitle": "目标是将博弈从PST转变为非PST。选择你的国家。选择你的行业。找出哪个公理可以被打破——以及如何打破它。",
+    "globalLoss": "85.3万亿美元",
+    "globalLossLabel": "190个经济体PST博弈造成的年度系统福利损失",
+    "globalLossExplain": "System Asset Pricing Model模型衡量27个渠道和190个经济体的福利损失。在μ=1.0时，c调整GDP的总缺口为85.3万亿美元——占传统世界GDP的77%。这是可恢复的福利：全球经济产出与系统实际获得之间的差额。每一个PST博弈转化为非PST博弈都在缩小这个缺口。本工具为每个国家和行业绘制制度路径。",
+    "selectCountry": "选择你的国家",
+    "sectorsMapped": "已映射的行业",
+    "selectSector": "选择行业",
+    "fastestPath": "通往非PST的最快路径",
+    "fastestPathIn": "在{{country}}的{{sector}}行业中，最快的路径是打破",
+    "vulnerabilityMap": "PST 脆弱性图谱 — 三个公理",
+    "howToBreak": "如何打破",
+    "whatYouCanDo": "你能做什么 — 按层级",
+    "infrastructure": "制度基础设施",
+    "mostBreakable": "最易打破",
+    "holds": "成立",
+    "broken": "已打破",
+    "allCountries": "所有国家",
+    "expanding": "扩展中",
+    "expandingText": "190个国家已从System Asset Pricing Model c-调整GDP数据库中映射。",
+    "selfLaceration": "自我审视",
+    "selfLacerationText": "本工具基于公开的监管框架提供一般性指导，不构成法律建议。",
+    "searchPlaceholder": "搜索国家...",
+    "noResults": "没有匹配的国家。",
+    "break": "打破"
+  },
+  "nav": {
+    "curriculum": "课程",
+    "deepdive": "深度分析",
+    "policy": "政策实验室",
+    "executive": "高管简报",
+    "academic": "学术",
+    "sovereign": "主权简报",
+    "pstbreaker": "如何帮助？"
+  },
+  "axioms": {
+    "1": {
+      "name": "重叠利益",
+      "short": "公理1",
+      "desc": "双方都从合作中受益。"
+    },
+    "2": {
+      "name": "系统独立性",
+      "short": "公理2",
+      "desc": "系统福利W无法从各方收益中计算。"
+    },
+    "3": {
+      "name": "系统依赖性",
+      "short": "公理3",
+      "desc": "代理人活动影响共享系统。"
+    }
+  },
+  "actors": {
+    "insider": {
+      "label": "内部人员/举报人",
+      "desc": "你在系统内部。"
+    },
+    "executive": {
+      "label": "高管/董事会",
+      "desc": "你对博弈设计有权力。"
+    },
+    "regulator": {
+      "label": "监管机构/行业组织",
+      "desc": "你制定博弈规则。"
+    },
+    "sovereign": {
+      "label": "主权/国际机构",
+      "desc": "你可以重新设计制度本身。"
+    }
+  },
+  "language": {
+    "selector": "语言",
+    "current": "简体中文"
+  }
+}

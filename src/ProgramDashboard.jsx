@@ -1,5 +1,9 @@
+"use client";
 import { useState } from "react";
+import Link from "next/link";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, PieChart, Pie } from "recharts";
+import VIEW_PATHS from "./routes";
+import { Tip } from "./Glossary";
 
 // ══════════════════════════════════════════════════════════════
 // PROGRAM DASHBOARD — The Scale of the Effort
@@ -23,18 +27,18 @@ const DIM = "rgba(255,255,255,0.55)";
 // ─── PROGRAM STATISTICS ──────────────────────────────────────
 const STATS = {
   // Papers
-  workingPapers: 73,
+  workingPapers: 75,
   domainPapers: 61,
-  frameworkPapers: 6,
-  foundationalPapers: 1, // PPT
-  daChapters: 5, // DA chapters
+  frameworkPapers: 8,
+  foundationalPapers: 1, // Private Pareto Theorem
+  daChapters: 5, // Decision Accounting chapters
   totalWords: 3058349,
   totalPages: Math.round(3058349 / 300), // ~300 words/page
 
   // Theorems
   impossibilityTheorems: 22,
   intractabilityTheorems: 39,
-  foundationalTheorem: 1, // PPT
+  foundationalTheorem: 1, // Private Pareto Theorem
   totalTheorems: 62, // 22 + 39 + 1
 
   // Figures & tables (estimated from completed papers)
@@ -66,22 +70,23 @@ const STATS = {
   preventableDeaths: "10-15M", // per year
 
   // Curriculum
-  curriculumChapters: 9,
+  curriculumChapters: 15,
   impossibilityCanon: 17, // prior theorems
 
   // Website
-  companionSites: 35,
+  websitePages: 295, // 75 papers + 190 countries + 16 chapters + 14 sections
+  websitePagesLocalized: 260 * 22, // 6,490 pages across 22 languages
 };
 
 // ─── CONTRIBUTION SUMMARY ────────────────────────────────────
 const CONTRIBUTIONS = [
   {
     title: "The Private Pareto Theorem",
-    desc: "The 18th impossibility theorem in economics. Three axioms prove that bilateral efficiency and system welfare preservation are structurally incompatible. The Hollow Win is not a market failure — it is an impossibility result.",
+    desc: "The 18th impossibility theorem in economics. When three conditions hold — overlapping interests, system independence, and system dependence — both parties can gain while the system they depend on collapses. This is not a flaw in the market; it is a proven structural guarantee. The damage stops only when at least one condition is broken, as cooperatives and well-designed regulation do.",
   },
   {
     title: "System Welfare Beta (βW)",
-    desc: "A new measurement framework — the CAPM of welfare economics. The welfare beta (βW) quantifies the marginal rate of system destruction per dollar of private gain. Calibrated across 61 domains via Monte Carlo simulation.",
+    desc: "For every dollar of private gain, how many dollars of system welfare are destroyed? The welfare beta (βW) answers this. Firearms: $51 destroyed per $1 earned. Shipping: $1.34. Calibrated across 61 domains via 610,000 Monte Carlo draws.",
   },
   {
     title: "61 Domain Theorems",
@@ -89,7 +94,7 @@ const CONTRIBUTIONS = [
   },
   {
     title: "Six-Agent Conflictoring Protocol",
-    desc: "A multi-audience architecture that replaces bilateral negotiation. Six agents — Whistleblower, Plaintiff, Regulator, Legislator, Investor, Supranational — impose costs that make the Private Surplus Trap strictly dominated when enough agents activate simultaneously.",
+    desc: "Six agents — Whistleblower, Plaintiff, Regulator, Legislator, Investor, Supranational — each impose costs on the destructive game. When enough agents act simultaneously, continuing the game becomes more expensive than reforming it. This is the mechanism that breaks the trap.",
   },
   {
     title: "C-Adjusted GDP",
@@ -107,7 +112,7 @@ const LEARNING_PATHS = [
     icon: "📄",
     title: "Working Papers",
     audience: "Academics & Researchers",
-    desc: "73 full working papers with formal proofs, Monte Carlo simulations, bibliographies, and falsification bounties. 3 million+ words. The complete record.",
+    desc: "75 full working papers with formal proofs, Monte Carlo simulations, bibliographies, and falsification bounties. 3 million+ words. The complete record.",
     time: "200+ hours",
     status: "Available",
     color: RED,
@@ -116,7 +121,7 @@ const LEARNING_PATHS = [
     icon: "📊",
     title: "Interactive Dashboards",
     audience: "Visual Learners & Analysts",
-    desc: "Interactive companion sites with welfare beta charts, domain decomposition, simulation histograms, and policy tools. Drill into any domain.",
+    desc: "Interactive dashboards with welfare beta rankings, domain breakdowns, simulation histograms, and policy tools. Drill into any of the 61 domains.",
     time: "Self-paced",
     status: "Available",
     color: GOLD,
@@ -150,9 +155,9 @@ const LEARNING_PATHS = [
   },
   {
     icon: "🎓",
-    title: "8-Chapter Curriculum",
+    title: "15-Chapter Curriculum",
     audience: "Everyone",
-    desc: "The complete PPT framework in 30 minutes. From 'The Lie in the Number' to 'The Domain Theorems.' Interactive charts and glossary tooltips.",
+    desc: "The complete System Asset Pricing Model framework in 15 chapters. From 'The Lie in the Number' through Decision Accounting, Conflictoring, and all 61 domain theorems. Interactive charts and glossary tooltips.",
     time: "30 min",
     status: "Available",
     color: GOLD,
@@ -210,7 +215,7 @@ const theoremPieData = [
 ];
 
 // ─── MAIN COMPONENT ─────────────────────────────────────────
-export default function ProgramDashboard({ onNavigate }) {
+export default function ProgramDashboard() {
   const [expanded, setExpanded] = useState(null);
 
   return (
@@ -220,17 +225,40 @@ export default function ProgramDashboard({ onNavigate }) {
         {/* HEADER */}
         <div style={{ paddingTop: 72, marginBottom: 48, textAlign: "center" }}>
           <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 4, marginBottom: 12 }}>
-            SAPM RESEARCH PROGRAM
+            System Asset Pricing Model RESEARCH PROGRAM
           </div>
           <h1 style={{ fontFamily: S, fontSize: 36, fontWeight: 300, color: TEXT, margin: "0 0 16px", lineHeight: 1.3 }}>
             The System Asset Pricing Model
           </h1>
           <div style={{ fontFamily: S, fontSize: 20, color: DIM, lineHeight: 1.7, maxWidth: 700, margin: "0 auto" }}>
-            73 working papers. 62 theorems. 3 million words. One result: bilateral efficiency
-            and system welfare are structurally incompatible, and the damage is $86.3 trillion per year.
+            75 working papers. 62 theorems. 3 million words. One result: when two parties
+            optimize a deal for themselves, the system they depend on can collapse — a{" "}
+            <Tip term="Hollow Win">Hollow Win</Tip>. Across
+            61 domains, the <Tip term="βW">welfare beta</Tip> quantifies the damage.
+            The annual cost: $85.3 trillion.
           </div>
           <div style={{ fontFamily: M, fontSize: 12, color: MUTED, marginTop: 16 }}>
-            Erik Postnieks · Independent Researcher · Salt Lake City · 2025-2026
+            Erik Postnieks · Independent Researcher · Salt Lake City
+          </div>
+
+          {/* ═══ START HERE CTA ═══ */}
+          <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 28 }}>
+            <Link href="/curriculum" style={{
+              fontFamily: M, fontSize: 13, letterSpacing: 1, fontWeight: 700,
+              color: "#0D0D0D", background: GOLD,
+              padding: "14px 32px", borderRadius: 4, textDecoration: "none",
+              border: "none", cursor: "pointer",
+            }}>
+              START HERE — 30-MIN CURRICULUM
+            </Link>
+            <Link href="/summaries" style={{
+              fontFamily: M, fontSize: 13, letterSpacing: 1, fontWeight: 600,
+              color: GOLD, background: "transparent",
+              padding: "14px 32px", borderRadius: 4, textDecoration: "none",
+              border: `1px solid rgba(245,158,11,0.3)`, cursor: "pointer",
+            }}>
+              BROWSE 75 PAPERS
+            </Link>
           </div>
         </div>
 
@@ -241,10 +269,10 @@ export default function ProgramDashboard({ onNavigate }) {
           gap: 12,
           marginBottom: 48,
         }}>
-          <StatCard value={73} label="WORKING PAPERS" sublabel="61 domain + 6 framework + 6 other" color={GOLD} large />
+          <StatCard value={75} label="WORKING PAPERS" sublabel="61 domain + 1 foundational + 8 framework + 6 other" color={GOLD} large />
           <StatCard value="3M+" label="WORDS" sublabel="~10,000 pages" color={TEXT} large />
           <StatCard value={62} label="THEOREMS" sublabel="22 impossibility + 39 intractability + 1 foundational" color={RED} large />
-          <StatCard value="$86.3T" label="ANNUAL WELFARE COST" sublabel="across 61 domains" color={RED} large />
+          <StatCard value="$85.3T" label="ANNUAL WELFARE COST" sublabel="across 61 domains" color={RED} large />
           <StatCard value={190} label="COUNTRIES" sublabel="policy advice per domain" color={GREEN} large />
           <StatCard value={22} label="LANGUAGES" sublabel="full site localization" color={CYAN} large />
         </div>
@@ -260,17 +288,18 @@ export default function ProgramDashboard({ onNavigate }) {
             gap: 10,
           }}>
             <StatCard value={61} label="DOMAIN PAPERS" color={GOLD} />
-            <StatCard value={6} label="FRAMEWORK PAPERS" color={PURPLE} />
+            <StatCard value={7} label="FRAMEWORK PAPERS" color={PURPLE} />
             <StatCard value={61} label="MONTE CARLO SIMULATIONS" sublabel="10,000 draws each" color={CYAN} />
             <StatCard value="610K" label="SIMULATION DRAWS" sublabel="seed=42, reproducible" color={CYAN} />
             <StatCard value={3} label="DISTRIBUTION TYPES" sublabel="triangular, lognormal, uniform" color={DIM} />
             <StatCard value={61} label="PUBLIC REPLICATION REPOS" sublabel="github.com/epostnieks" color={GREEN} />
             <StatCard value={11} label="SECTORS" color={DIM} />
             <StatCard value={6} label="AGENT TYPES" sublabel="Conflictoring Protocol" color={PURPLE} />
-            <StatCard value={35} label="COMPANION SITES" sublabel="interactive dashboards" color={GOLD} />
-            <StatCard value={9} label="CURRICULUM CHAPTERS" sublabel="30 min total" color={GREEN} />
+            <StatCard value={15} label="CURRICULUM CHAPTERS" sublabel="4 hours total" color={GREEN} />
+            <StatCard value="6,490" label="WEBSITE PAGES" sublabel="295 base × 22 languages" color={CYAN} />
+            <StatCard value="69K" label="POLICYLAB STATEMENTS" sublabel="61 domains × 6 agents × 190 countries" color={GREEN} />
             <StatCard value={17} label="PRIOR IMPOSSIBILITY THEOREMS" sublabel="1785-2013, 8 Nobel Prizes" color={MUTED} />
-            <StatCard value="18th" label="THE PPT" sublabel="first to address bilateral vs. system welfare" color={RED} />
+            <StatCard value="18th" label="PRIVATE PARETO THEOREM" sublabel="the first to prove bilateral deals can guarantee system harm" color={RED} />
           </div>
         </div>
 
@@ -298,7 +327,7 @@ export default function ProgramDashboard({ onNavigate }) {
               <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.6, marginTop: 8 }}>
                 <span style={{ color: RED }}>Impossibility</span>: physical/chemical/biological — no policy can solve.{" "}
                 <span style={{ color: GOLD }}>Intractability</span>: institutional — proven policy exists.{" "}
-                <span style={{ color: CYAN }}>Foundational</span>: the PPT itself.
+                <span style={{ color: CYAN }}>Foundational</span>: the Private Pareto Theorem.
               </div>
             </div>
 
@@ -414,7 +443,7 @@ export default function ProgramDashboard({ onNavigate }) {
               padding: "24px 20px", background: "rgba(239,68,68,0.06)",
               border: `1px solid rgba(239,68,68,0.2)`, borderRadius: 4, textAlign: "center",
             }}>
-              <div style={{ fontFamily: M, fontSize: 36, fontWeight: 700, color: RED }}>$86.3T</div>
+              <div style={{ fontFamily: M, fontSize: 36, fontWeight: 700, color: RED }}>$85.3T</div>
               <div style={{ fontFamily: M, fontSize: 11, color: TEXT, letterSpacing: 1 }}>ANNUAL WELFARE DESTRUCTION</div>
               <div style={{ fontFamily: S, fontSize: 14, color: DIM, marginTop: 8 }}>
                 Aggregate across 61 domains. ~83% of global GDP.
@@ -437,7 +466,7 @@ export default function ProgramDashboard({ onNavigate }) {
               <div style={{ fontFamily: M, fontSize: 36, fontWeight: 700, color: GOLD }}>10-15M</div>
               <div style={{ fontFamily: M, fontSize: 11, color: TEXT, letterSpacing: 1 }}>PREVENTABLE DEATHS / YEAR</div>
               <div style={{ fontFamily: S, fontSize: 14, color: DIM, marginTop: 8 }}>
-                Tobacco, opioids, UPF, pollution, AMR, alcohol combined.
+                Tobacco, opioids, Ultra-Processed Food, pollution, Antimicrobial Resistance, alcohol combined.
               </div>
             </div>
           </div>
@@ -450,7 +479,7 @@ export default function ProgramDashboard({ onNavigate }) {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 10 }}>
             {[
-              { label: "Curriculum", desc: "Learn the PPT in 30 min", view: "curriculum" },
+              { label: "Curriculum", desc: "Learn the theorem in 30 min", view: "curriculum" },
               { label: "Deep Dive", desc: "Interactive βW dashboard", view: "deepdive" },
               { label: "Domain Tables", desc: "All 61 domains ranked", view: "tables" },
               { label: "Academic Hub", desc: "Formal propositions & falsification", view: "academic" },
@@ -459,22 +488,22 @@ export default function ProgramDashboard({ onNavigate }) {
               { label: "Country Reform Paths", desc: "190 countries, proven models", view: "pstbreaker" },
               { label: "Executive Brief", desc: "Corporate exposure analysis", view: "executive" },
               { label: "Sovereign Brief", desc: "National policy analysis", view: "sovereign" },
-              { label: "Paper Summaries", desc: "73 papers in 15 min each", view: "summaries" },
+              { label: "Paper Summaries", desc: "75 papers in 15 min each", view: "summaries" },
             ].map(nav => (
-              <button
+              <Link
                 key={nav.view}
-                onClick={() => onNavigate && onNavigate(nav.view)}
+                href={VIEW_PATHS[nav.view] || "/"}
                 style={{
                   padding: "14px 16px", background: SURFACE, border: `1px solid ${BORDER}`,
                   borderRadius: 4, cursor: "pointer", textAlign: "left",
-                  transition: "border-color 0.2s",
+                  transition: "border-color 0.2s", textDecoration: "none",
                 }}
                 onMouseEnter={e => e.currentTarget.style.borderColor = GOLD}
                 onMouseLeave={e => e.currentTarget.style.borderColor = BORDER}
               >
                 <div style={{ fontFamily: M, fontSize: 13, color: GOLD, marginBottom: 4 }}>{nav.label}</div>
                 <div style={{ fontFamily: S, fontSize: 14, color: DIM }}>{nav.desc}</div>
-              </button>
+              </Link>
             ))}
           </div>
         </div>

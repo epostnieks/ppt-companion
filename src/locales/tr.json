@@ -1,0 +1,80 @@
+{
+  "lang": "tr",
+  "dir": "ltr",
+  "pst": {
+    "title": "PST KIRICI",
+    "headline": "Nasıl yardım edebilirsiniz?",
+    "subtitle": "Amaç, oyunu PST'den PST-dışına çevirmektir. Ülkenizi seçin. Sektörünüzü seçin. Hangi aksiyomun kırıldığını — ve onu kırmak için ne yapmanız gerektiğini öğrenin.",
+    "globalLoss": "20,9 trilyon $",
+    "globalLossLabel": "190 ülkede welfare-trap oyunlarından yıllık sistemik refah kaybı",
+    "globalLossExplain": "System Asset Pricing Model modeli 61 alan ve 190 ekonomide refah tahribatını ölçer. μ=1,0'da toplu c-düzeltilmiş GSYİH açığı 85,3 trilyon $ — konvansiyonel dünya GSYİH'sının %19'u. Bu geri kazanılabilir refahtır. PST'den PST-dışına dönüştürülen her oyun bu açığı kapatır. Bu araç her ülke ve sektör için kurumsal yolu haritalandırır.",
+    "selectCountry": "ÜLKENİZİ SEÇİN",
+    "sectorsMapped": "HARİTALANMIŞ SEKTÖRLER",
+    "selectSector": "SEKTÖR SEÇİN",
+    "fastestPath": "PST-DIŞINA EN HIZLI YOL",
+    "fastestPathIn": "{{country}}'ın {{sector}} sektöründe en hızlı yol kırmaktır",
+    "vulnerabilityMap": "PST ZAFIYET HARİTASI — ÜÇ AKSİYOM",
+    "howToBreak": "NASIL KIRILIR",
+    "whatYouCanDo": "NE YAPABİLİRSİNİZ — SEVİYEYE GÖRE",
+    "infrastructure": "KURUMSAL ALTYAPI",
+    "mostBreakable": "EN KIRILABIIR",
+    "holds": "GEÇERLİ",
+    "broken": "KIRILDI",
+    "allCountries": "TÜM ÜLKELER",
+    "expanding": "GENİŞLEME",
+    "expandingText": "System Asset Pricing Model c-düzeltilmiş GSYİH veritabanından 190 ülke haritalandı.",
+    "selfLaceration": "ÖZ DEĞERLENDİRME",
+    "selfLacerationText": "Bu araç kamuya açık düzenleyici çerçevelere dayalı genel rehberlik sağlar. Hukuki tavsiye değildir.",
+    "searchPlaceholder": "Ülke ara...",
+    "noResults": "Sonuç bulunamadı.",
+    "break": "KIR"
+  },
+  "nav": {
+    "curriculum": "MÜFREDAT",
+    "deepdive": "DERİN ANALİZ",
+    "policy": "POLİTİKA LABORATUVARI",
+    "executive": "YÖNETİCİ ÖZETİ",
+    "academic": "AKADEMİK",
+    "sovereign": "EGEMEN RAPOR",
+    "pstbreaker": "NASIL YARDIM EDERSİNİZ?"
+  },
+  "axioms": {
+    "1": {
+      "name": "Örtüşen Çıkarlar",
+      "short": "Aksiyom 1",
+      "desc": "Her iki taraf da işbirliğinden fayda sağlar."
+    },
+    "2": {
+      "name": "Sistem Bağımsızlığı",
+      "short": "Aksiyom 2",
+      "desc": "Sistem refahı W taraf ödemelerinden hesaplanamaz."
+    },
+    "3": {
+      "name": "Sistem Bağımlılığı",
+      "short": "Aksiyom 3",
+      "desc": "Ajan faaliyeti paylaşılan sistemi etkiler."
+    }
+  },
+  "actors": {
+    "insider": {
+      "label": "İÇERDEN / İHBARCI",
+      "desc": "Sistemin içindesiniz."
+    },
+    "executive": {
+      "label": "YÖNETİCİ / YÖNETİM KURULU",
+      "desc": "Oyun tasarımı üzerinde yetkiniz var."
+    },
+    "regulator": {
+      "label": "DÜZENLEYİCİ / SEKTÖR KURULUŞU",
+      "desc": "Oyunun kurallarını siz belirlersiniz."
+    },
+    "sovereign": {
+      "label": "EGEMEN / ULUSLARARASI",
+      "desc": "Kurumun kendisini yeniden tasarlayabilirsiniz."
+    }
+  },
+  "language": {
+    "selector": "Dil",
+    "current": "Türkçe"
+  }
+}

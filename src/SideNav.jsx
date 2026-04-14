@@ -1,4 +1,9 @@
+"use client";
 import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import LanguageSelector from "./LanguageSelector";
+import GlobalSearch from "./GlobalSearch";
 
 // ══════════════════════════════════════════════════════════════
 // SIDE NAV — Persistent left-margin navigation
@@ -13,12 +18,28 @@ const DIM = "rgba(255,255,255,0.5)";
 const TEXT = "rgba(255,255,255,0.85)";
 const BORDER = "rgba(255,255,255,0.06)";
 
+// Map view IDs to URL paths
+const VIEW_PATHS = {
+  dashboard: "/",
+  curriculum: "/curriculum",
+  deepdive: "/deep-dive",
+  summaries: "/summaries",
+  tables: "/tables",
+  academic: "/academic",
+  impossibility: "/impossibility",
+  policylab: "/policylab",
+  pstbreaker: "/pst-breaker",
+  executive: "/executive",
+  sovereign: "/sovereign",
+  about: "/about",
+};
+
 const NAV_ITEMS = [
   { id: "dashboard", label: "Dashboard", section: "home" },
   { id: "divider-1", divider: true, section: "learn" },
-  { id: "curriculum", label: "Curriculum", desc: "Learn the PPT", section: "learn" },
+  { id: "curriculum", label: "Curriculum", desc: "15 chapters · 4 hours", section: "learn" },
   { id: "deepdive", label: "Interactive Deep Dive", desc: "Welfare beta explorer", section: "learn" },
-  { id: "summaries", label: "Paper Summaries", desc: "73 papers distilled", section: "learn" },
+  { id: "summaries", label: "Paper Summaries", desc: "75 papers distilled", section: "learn" },
   { id: "divider-2", divider: true, section: "data" },
   { id: "tables", label: "Domain Tables", desc: "61 domains ranked", section: "data" },
   { id: "academic", label: "Academic Hub", desc: "Propositions & falsification", section: "data" },
@@ -39,13 +60,14 @@ const SECTION_LABELS = {
   about: "AUTHOR",
 };
 
-export default function SideNav({ currentView, onNavigate }) {
+export default function SideNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
-  const handleNav = (id) => {
-    onNavigate(id);
-    setMobileOpen(false);
-  };
+  // Determine active view from pathname
+  const currentView = Object.entries(VIEW_PATHS).find(
+    ([, path]) => pathname === path || pathname === path + "/"
+  )?.[0] || "dashboard";
 
   const navContent = (
     <nav style={{
@@ -62,23 +84,31 @@ export default function SideNav({ currentView, onNavigate }) {
       flexDirection: "column",
     }}>
       {/* Logo / Title */}
-      <div
+      <Link
+        href="/"
+        onClick={() => setMobileOpen(false)}
         style={{
           padding: "20px 16px 16px",
           borderBottom: `1px solid ${BORDER}`,
           cursor: "pointer",
+          textDecoration: "none",
+          display: "block",
         }}
-        onClick={() => handleNav("dashboard")}
       >
         <div style={{ fontFamily: M, fontSize: 10, color: GOLD, letterSpacing: 3, marginBottom: 4 }}>
-          SAPM PROGRAM
+          System Asset Pricing Model PROGRAM
         </div>
         <div style={{ fontFamily: S, fontSize: 15, color: TEXT, fontWeight: 300 }}>
           System Asset Pricing Model
         </div>
         <div style={{ fontFamily: M, fontSize: 9, color: MUTED, marginTop: 4 }}>
-          Erik Postnieks · 2025-2026
+          Erik Postnieks · 2026
         </div>
+      </Link>
+
+      {/* Search */}
+      <div style={{ padding: "10px 12px 4px" }}>
+        <GlobalSearch />
       </div>
 
       {/* Nav Items */}
@@ -100,26 +130,20 @@ export default function SideNav({ currentView, onNavigate }) {
           }
 
           const active = currentView === item.id;
+          const href = VIEW_PATHS[item.id] || "/";
           return (
-            <button
+            <Link
               key={item.id}
-              onClick={() => handleNav(item.id)}
+              href={href}
+              onClick={() => setMobileOpen(false)}
               style={{
                 display: "block",
                 width: "100%",
                 padding: "8px 16px",
-                border: "none",
                 background: active ? "rgba(245,158,11,0.08)" : "transparent",
                 borderLeft: active ? `2px solid ${GOLD}` : "2px solid transparent",
-                cursor: "pointer",
-                textAlign: "left",
+                textDecoration: "none",
                 transition: "all 0.15s",
-              }}
-              onMouseEnter={e => {
-                if (!active) e.currentTarget.style.background = "rgba(255,255,255,0.02)";
-              }}
-              onMouseLeave={e => {
-                if (!active) e.currentTarget.style.background = "transparent";
               }}
             >
               <div style={{
@@ -141,9 +165,14 @@ export default function SideNav({ currentView, onNavigate }) {
                   {item.desc}
                 </div>
               )}
-            </button>
+            </Link>
           );
         })}
+      </div>
+
+      {/* Language Selector */}
+      <div style={{ padding: "8px 16px", borderTop: `1px solid ${BORDER}` }}>
+        <LanguageSelector />
       </div>
 
       {/* Footer */}
@@ -155,7 +184,7 @@ export default function SideNav({ currentView, onNavigate }) {
         color: MUTED,
         textAlign: "center",
       }}>
-        73 papers · 62 theorems · 3M+ words
+        75 papers · 62 theorems · 3M+ words
       </div>
     </nav>
   );
