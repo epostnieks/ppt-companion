@@ -263,7 +263,6 @@ function FullContent({ paper }) {
         </>
       )}
 
-      <AudioPlayer slug={paper.slug} />
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 16, paddingTop: 12, borderTop: `1px solid ${BORDER}` }}>
         <LinkBadge label="SSRN" href={`https://papers.ssrn.com/sol3/papers.cfm?abstract_id=${paper.slug}`} />
         {paper.type === "domain" && (
@@ -276,8 +275,9 @@ function FullContent({ paper }) {
           color: GOLD, fontFamily: M, fontSize: 12, fontWeight: 600,
           textDecoration: "none", cursor: "pointer", transition: "background 0.2s",
         }}>
-          Download PowerPoint
+          ⬇ Slide Deck
         </a>
+        <AudiocastButton slug={paper.slug} />
       </div>
     </div>
   );
@@ -297,18 +297,19 @@ function PlaceholderContent({ paper }) {
       {paper.theoremName && (
         <div style={{ fontFamily: M, fontSize: 12, color: DIM, marginBottom: 12 }}>Theorem: {paper.theoremName}</div>
       )}
-      <AudioPlayer slug={paper.slug} />
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 12 }}>
         <LinkBadge label="SSRN" href={`https://papers.ssrn.com/sol3/papers.cfm?abstract_id=${paper.slug}`} />
         {paper.type === "domain" && (
           <LinkBadge label="Simulation Repo" href={`https://github.com/epostnieks/sapm-mc-${paper.slug}`} />
         )}
+        <AudiocastButton slug={paper.slug} />
       </div>
     </div>
   );
 }
 
-function AudioPlayer({ slug }) {
+function AudiocastButton({ slug }) {
+  const [open, setOpen] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -335,62 +336,70 @@ function AudioPlayer({ slug }) {
   };
 
   return (
-    <div style={{
-      marginTop: 20, padding: "14px 16px",
-      background: "rgba(245,158,11,0.04)",
-      border: `1px solid rgba(245,158,11,0.2)`, borderRadius: 6,
-    }}>
-      <div style={{ fontFamily: M, fontSize: 10, color: GOLD, letterSpacing: 2, marginBottom: 10 }}>
-        AUDIOCAST — ~75 MIN
-      </div>
-      <audio
-        ref={ref}
-        src={`/audio/${slug}.m4a`}
-        onLoadedMetadata={() => { setDuration(ref.current.duration); setLoaded(true); }}
-        onTimeUpdate={() => setProgress(ref.current.currentTime / (ref.current.duration || 1))}
-        onEnded={() => setPlaying(false)}
-        preload="metadata"
-      />
-      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-        {/* Play/Pause button */}
-        <button onClick={toggle} style={{
-          width: 36, height: 36, borderRadius: "50%", border: `1px solid rgba(245,158,11,0.4)`,
-          background: "rgba(245,158,11,0.1)", color: GOLD, cursor: "pointer",
-          fontSize: 14, display: "flex", alignItems: "center", justifyContent: "center",
-          flexShrink: 0,
+    <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+      <button
+        onClick={() => setOpen(!open)}
+        style={{
+          display: "inline-flex", alignItems: "center", gap: 6,
+          padding: "6px 14px", background: open ? "rgba(245,158,11,0.15)" : "rgba(245,158,11,0.08)",
+          border: `1px solid rgba(245,158,11,0.3)`, borderRadius: open ? "4px 4px 0 0" : 4,
+          color: GOLD, fontFamily: M, fontSize: 12, fontWeight: 600,
+          cursor: "pointer", transition: "background 0.2s",
+        }}
+      >
+        {playing ? "⏸" : "▶"} Audiocast
+      </button>
+      {open && (
+        <div style={{
+          padding: "10px 12px",
+          background: "rgba(245,158,11,0.04)",
+          border: `1px solid rgba(245,158,11,0.3)`,
+          borderTop: "none", borderRadius: "0 4px 4px 4px",
+          minWidth: 260,
         }}>
-          {playing ? "⏸" : "▶"}
-        </button>
-        {/* Progress bar */}
-        <div style={{ flex: 1 }}>
-          <div
-            onClick={seek}
-            style={{
-              height: 4, background: "rgba(255,255,255,0.1)", borderRadius: 2,
-              cursor: "pointer", position: "relative",
-            }}
-          >
-            <div style={{
-              position: "absolute", left: 0, top: 0, height: "100%",
-              width: `${progress * 100}%`, background: GOLD, borderRadius: 2,
-              transition: "width 0.5s linear",
-            }} />
-          </div>
-          <div style={{ display: "flex", justifyContent: "space-between", marginTop: 4, fontFamily: M, fontSize: 10, color: MUTED }}>
-            <span>{fmt(ref.current?.currentTime)}</span>
-            <span>{loaded ? fmt(duration) : "loading..."}</span>
+          <audio
+            ref={ref}
+            src={`/audio/${slug}.m4a`}
+            onLoadedMetadata={() => { setDuration(ref.current.duration); setLoaded(true); }}
+            onTimeUpdate={() => setProgress(ref.current.currentTime / (ref.current.duration || 1))}
+            onEnded={() => setPlaying(false)}
+            preload="metadata"
+          />
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <button onClick={toggle} style={{
+              width: 30, height: 30, borderRadius: "50%",
+              border: `1px solid rgba(245,158,11,0.4)`,
+              background: "rgba(245,158,11,0.1)", color: GOLD, cursor: "pointer",
+              fontSize: 12, display: "flex", alignItems: "center", justifyContent: "center",
+              flexShrink: 0,
+            }}>
+              {playing ? "⏸" : "▶"}
+            </button>
+            <div style={{ flex: 1 }}>
+              <div onClick={seek} style={{
+                height: 3, background: "rgba(255,255,255,0.1)", borderRadius: 2,
+                cursor: "pointer", position: "relative",
+              }}>
+                <div style={{
+                  position: "absolute", left: 0, top: 0, height: "100%",
+                  width: `${progress * 100}%`, background: GOLD, borderRadius: 2,
+                  transition: "width 0.5s linear",
+                }} />
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", marginTop: 3, fontFamily: M, fontSize: 9, color: MUTED }}>
+                <span>{fmt(ref.current?.currentTime)}</span>
+                <span>{loaded ? fmt(duration) : "~75 min"}</span>
+              </div>
+            </div>
+            <a href={`/audio/${slug}.m4a`} download style={{
+              fontFamily: M, fontSize: 9, color: GOLD,
+              padding: "4px 8px", background: "rgba(245,158,11,0.08)",
+              border: `1px solid rgba(245,158,11,0.2)`, borderRadius: 3,
+              textDecoration: "none", flexShrink: 0,
+            }}>↓</a>
           </div>
         </div>
-        {/* Download */}
-        <a href={`/audio/${slug}.m4a`} download style={{
-          fontFamily: M, fontSize: 10, color: GOLD, letterSpacing: 1,
-          padding: "5px 10px", background: "rgba(245,158,11,0.08)",
-          border: `1px solid rgba(245,158,11,0.2)`, borderRadius: 4,
-          textDecoration: "none", flexShrink: 0,
-        }}>
-          ↓ M4A
-        </a>
-      </div>
+      )}
     </div>
   );
 }
