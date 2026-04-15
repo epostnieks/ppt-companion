@@ -1,5 +1,5 @@
 "use client";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { buildPaperList as _buildPaperList, getTheoremType, CANONICAL_BETA, FRAMEWORK_PAPERS, OTHER_PAPERS } from "./paperData";
 import DOMAINS from "./data/domains";
 import { GENERATED_CONTENT } from "./generatedPaperContent";
@@ -2098,6 +2098,9 @@ function FullContent({ paper }) {
         </div>
       )}
 
+      {/* ── Audiocast player ──────────────────────────────────── */}
+      <AudioPlayer slug={paper.slug} />
+
       {/* ── MC Results — headline stat bar ────────────────────── */}
       {c.mcResults && (
         <div style={{
@@ -2212,6 +2215,9 @@ function FullContent({ paper }) {
 function PlaceholderContent({ paper }) {
   return (
     <div style={{ paddingTop: 16 }}>
+      {/* Audiocast player */}
+      <AudioPlayer slug={paper.slug} />
+
       {/* MC Results if available */}
       {paper.beta !== null && (
         <div style={{
@@ -2242,6 +2248,102 @@ function PlaceholderContent({ paper }) {
           border: "1px solid rgba(245,158,11,0.2)", borderRadius: 4,
           textDecoration: "none", cursor: "pointer",
         }}>POWERPOINT</a>
+      </div>
+    </div>
+  );
+}
+
+// ─── AUDIO PLAYER ─────────────────────────────────────────────
+function AudioPlayer({ slug }) {
+  const [playing, setPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    const a = new Audio(`/audio/${slug}.m4a`);
+    a.preload = "metadata";
+    audioRef.current = a;
+    const onTime = () => { setCurrentTime(a.currentTime); setProgress(a.currentTime / (a.duration || 1)); };
+    const onMeta = () => setDuration(a.duration);
+    const onEnd = () => setPlaying(false);
+    a.addEventListener("timeupdate", onTime);
+    a.addEventListener("loadedmetadata", onMeta);
+    a.addEventListener("ended", onEnd);
+    return () => {
+      a.pause();
+      a.removeEventListener("timeupdate", onTime);
+      a.removeEventListener("loadedmetadata", onMeta);
+      a.removeEventListener("ended", onEnd);
+    };
+  }, [slug]);
+
+  const fmt = (s) => {
+    if (!s || isNaN(s)) return "--:--";
+    const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+    return `${m}:${sec.toString().padStart(2, "0")}`;
+  };
+
+  const toggle = () => {
+    const a = audioRef.current;
+    if (!a) return;
+    if (playing) { a.pause(); setPlaying(false); }
+    else { a.play(); setPlaying(true); }
+  };
+
+  const seek = (e) => {
+    const a = audioRef.current;
+    if (!a || !a.duration) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    a.currentTime = ratio * a.duration;
+    setProgress(ratio);
+  };
+
+  return (
+    <div style={{
+      margin: "0 0 20px 0", padding: "14px 16px",
+      background: "rgba(245,158,11,0.04)", border: `1px solid rgba(245,158,11,0.15)`,
+      borderRadius: 6,
+    }}>
+      <div style={{ fontFamily: M, fontSize: 11, color: GOLD, letterSpacing: 2, marginBottom: 10 }}>
+        AUDIOCAST
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <button onClick={toggle} style={{
+          width: 36, height: 36, borderRadius: "50%",
+          background: playing ? "rgba(245,158,11,0.2)" : "rgba(245,158,11,0.12)",
+          border: `1px solid rgba(245,158,11,0.4)`,
+          color: GOLD, cursor: "pointer", fontSize: 14, flexShrink: 0,
+          display: "flex", alignItems: "center", justifyContent: "center",
+        }}>
+          {playing ? "⏸" : "▶"}
+        </button>
+        <div style={{ flex: 1 }}>
+          <div onClick={seek} style={{
+            height: 4, background: "rgba(255,255,255,0.1)", borderRadius: 2,
+            cursor: "pointer", position: "relative",
+          }}>
+            <div style={{
+              position: "absolute", left: 0, top: 0, bottom: 0,
+              width: `${progress * 100}%`,
+              background: GOLD, borderRadius: 2,
+            }} />
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between", marginTop: 4 }}>
+            <span style={{ fontFamily: M, fontSize: 10, color: MUTED }}>{fmt(currentTime)}</span>
+            <span style={{ fontFamily: M, fontSize: 10, color: MUTED }}>{duration ? fmt(duration) : "loading..."}</span>
+          </div>
+        </div>
+        <a href={`/audio/${slug}.m4a`} download style={{
+          fontFamily: M, fontSize: 10, letterSpacing: 1, color: GOLD,
+          padding: "5px 10px", background: "rgba(245,158,11,0.08)",
+          border: "1px solid rgba(245,158,11,0.2)", borderRadius: 4,
+          textDecoration: "none", flexShrink: 0,
+        }}>
+          ↓ M4A
+        </a>
       </div>
     </div>
   );
