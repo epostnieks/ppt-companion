@@ -2194,6 +2194,21 @@ function FullContent({ paper }) {
         </>
       )}
 
+      {/* ── Online Appendix ───────────────────────────────────── */}
+      {c.onlineAppendix && c.onlineAppendix.length > 0 && (
+        <>
+          <div style={{ fontFamily: M, fontSize: 11, color: CYAN, letterSpacing: 2, marginBottom: 10, marginTop: 24 }}>
+            ONLINE APPENDIX
+          </div>
+          {c.onlineAppendix.map((section) => {
+            const label = `${section.id}. ${section.title.replace(/^Appendix [A-Z]: /, '')}`;
+            return (
+              <FAQItem key={section.id} question={label} answer={section.body} />
+            );
+          })}
+        </>
+      )}
+
       {/* ── Links ─────────────────────────────────────────────── */}
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 20, paddingTop: 12, borderTop: `1px solid ${BORDER}` }}>
         <LinkBadge label="SSRN" href={`https://papers.ssrn.com/sol3/papers.cfm?abstract_id=${paper.slug}`} />
