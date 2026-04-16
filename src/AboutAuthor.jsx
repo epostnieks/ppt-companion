@@ -66,7 +66,7 @@ export default function AboutAuthor() {
             B.A. in Economics, Cornell University, 1988. M.B.A., Amos Tuck School of Business at Dartmouth College, 1993.
           </p>
           <p style={{ margin: "0 0 14px" }}>
-            At Cornell, studied under Richard Thaler and co-authored &ldquo;The Smart Crash of October 19th&rdquo; (<em>Harvard Business Review</em>, May&ndash;June 1988) with Avner Arbel and Steven Carvell.
+            At Cornell, studied under Richard Thaler. Co-authored &ldquo;The Smart Crash of October 19th&rdquo; (<em>Harvard Business Review</em>, May&ndash;June 1988) with Avner Arbel and Steven Carvell.
           </p>
           <p style={{ margin: "0 0 14px" }}>
             At Tuck, conducted an independent study on cognitive biases and institutional decision-making under Professors Robert Hansen and Vic McGee, applying the frameworks of Thaler, Kahneman, and Tversky to financial services.

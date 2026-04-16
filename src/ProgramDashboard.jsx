@@ -139,7 +139,7 @@ const LEARNING_PATHS = [
     icon: "🎧",
     title: "NotebookLM Podcasts",
     audience: "Audio & Casual Learners",
-    desc: "AI-generated podcast discussions of each paper. Listen on your commute. Covers the core argument, key data, and implications.",
+    desc: "Podcast discussions of each paper. Listen on your commute. Covers the core argument, key data, and implications.",
     time: "20-40 min each",
     status: "In Development",
     color: CYAN,
