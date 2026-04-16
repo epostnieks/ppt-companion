@@ -65,7 +65,7 @@ const STATS = {
   policyLabStatements: 61 * 6 * 190, // ~69,540
 
   // Welfare
-  totalDeltaW: 86.3, // $T
+  totalDeltaW: 89.2, // $T (MC-verified Apr 2026)
   reformedGdpGain: 3.2, // $T
   preventableDeaths: "10-15M", // per year
 
@@ -82,7 +82,7 @@ const STATS = {
 const CONTRIBUTIONS = [
   {
     title: "The Private Pareto Theorem",
-    desc: "The 18th impossibility theorem in economics. When three conditions hold — overlapping interests, system independence, and system dependence — both parties can gain while the system they depend on collapses. This is not a flaw in the market; it is a proven structural guarantee. The damage stops only when at least one condition is broken, as cooperatives and well-designed regulation do.",
+    desc: "A structural impossibility theorem in economics, in the tradition of Arrow (1951), Gibbard-Satterthwaite (1973), and Myerson-Satterthwaite (1983). When three conditions hold — overlapping interests, system independence, and system dependence — both parties can gain while the system they depend on collapses. This is not a flaw in the market; it is a proven structural guarantee. The damage stops only when at least one condition is broken, as cooperatives and well-designed regulation do.",
   },
   {
     title: "System Welfare Beta (βW)",
@@ -235,7 +235,7 @@ export default function ProgramDashboard() {
             optimize a deal for themselves, the system they depend on can collapse — a{" "}
             <Tip term="Hollow Win">Hollow Win</Tip>. Across
             61 domains, the <Tip term="βW">welfare beta</Tip> quantifies the damage.
-            The annual cost: $85.3 trillion.
+            The annual cost: $89.2 trillion.
           </div>
           <div style={{ fontFamily: M, fontSize: 12, color: MUTED, marginTop: 16 }}>
             Erik Postnieks · Independent Researcher · Salt Lake City
@@ -272,7 +272,7 @@ export default function ProgramDashboard() {
           <StatCard value={75} label="WORKING PAPERS" sublabel="61 domain + 1 foundational + 8 framework + 6 other" color={GOLD} large />
           <StatCard value="3M+" label="WORDS" sublabel="~10,000 pages" color={TEXT} large />
           <StatCard value={62} label="THEOREMS" sublabel="22 impossibility + 39 intractability + 1 foundational" color={RED} large />
-          <StatCard value="$85.3T" label="ANNUAL WELFARE COST" sublabel="across 61 domains" color={RED} large />
+          <StatCard value="$89.2T" label="ANNUAL WELFARE COST" sublabel="across 61 domains" color={RED} large />
           <StatCard value={190} label="COUNTRIES" sublabel="policy advice per domain" color={GREEN} large />
           <StatCard value={22} label="LANGUAGES" sublabel="full site localization" color={CYAN} large />
         </div>
