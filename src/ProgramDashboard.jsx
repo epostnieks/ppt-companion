@@ -94,7 +94,7 @@ const CONTRIBUTIONS = [
   },
   {
     title: "Six-Agent Conflictoring Protocol",
-    desc: "Six agents — Whistleblower, Plaintiff, Regulator, Legislator, Investor, Supranational — each impose costs on the destructive game. When enough agents act simultaneously, continuing the game becomes more expensive than reforming it. This is the mechanism that breaks the trap.",
+    desc: "Six agents — Whistleblower, Plaintiff, Regulator, Legislator, Investor, Supranational — each impose costs on the destructive game. When enough agents act simultaneously, continuing the game becomes more expensive than reforming it. This is the mechanism that breaks the trap. Designed for research integrity — the protocol prevents optimization toward desired conclusions by requiring each sub-agent to hold an adversarial prior.",
   },
   {
     title: "C-Adjusted GDP",
