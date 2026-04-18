@@ -11,12 +11,12 @@ import GlobalSearch from "./GlobalSearch";
 
 const M = "'JetBrains Mono',monospace";
 const S = "'Newsreader',serif";
-const BG = "#0A0A0F";
+const BG = "#1A1A1A";
 const GOLD = "#F59E0B";
-const MUTED = "rgba(255,255,255,0.3)";
-const DIM = "rgba(255,255,255,0.5)";
-const TEXT = "rgba(255,255,255,0.85)";
-const BORDER = "rgba(255,255,255,0.06)";
+const MUTED = "#C8C8C8";
+const DIM = "#C8C8C8";
+const TEXT = "#C8C8C8";
+const BORDER = "rgba(255,255,255,0.10)";
 
 // Map view IDs to URL paths
 const VIEW_PATHS = {
@@ -28,7 +28,7 @@ const VIEW_PATHS = {
   academic: "/academic",
   impossibility: "/impossibility",
   policylab: "/policylab",
-  pstbreaker: "/pst-breaker",
+  pstbreaker: "/reform-pathfinder",
   executive: "/executive",
   sovereign: "/sovereign",
   about: "/about",
@@ -43,7 +43,7 @@ const NAV_ITEMS = [
   { id: "divider-2", divider: true, section: "data" },
   { id: "tables", label: "Domain Tables", desc: "61 domains ranked", section: "data" },
   { id: "academic", label: "Academic Hub", desc: "Propositions & falsification", section: "data" },
-  { id: "impossibility", label: "Impossibility Canon", desc: "17 prior + 23 new (PPT + 22 domains)", section: "data" },
+  { id: "impossibility", label: "Impossibility Canon", desc: "17 prior + 23 new (Private Pareto Theorem + 22 domains)", section: "data" },
   { id: "divider-3", divider: true, section: "policy" },
   { id: "policylab", label: "PolicyLab", desc: "190 countries, 61 domains", section: "policy" },
   { id: "pstbreaker", label: "Country Reform Paths", desc: "190 countries, proven models", section: "policy" },

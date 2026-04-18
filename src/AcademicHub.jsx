@@ -250,6 +250,21 @@ export default function AcademicHub() {
                 Each limitation is stated in the paper before anyone else is asked to find it; each sensitivity test is published alongside the main result. The theorem survives or it does not, on those terms.
               </div>
             </div>
+
+            <div style={{ padding: "20px 24px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4, marginTop: 16 }}>
+              <div style={{ fontFamily: M, fontSize: 13, color: MUTED, letterSpacing: 1, marginBottom: 10 }}>SUBMIT A COUNTEREXAMPLE</div>
+              <div style={{ fontFamily: S, fontSize: 17, color: DIM, lineHeight: 1.8, marginBottom: 14 }}>
+                If you have found a counterexample to any criterion above, submit it as a GitHub issue. Include the criterion number, the domain, the formal argument, and any supporting evidence. Every submission will be read and responded to.
+              </div>
+              <a
+                href="https://github.com/epostnieks/sapm-ppt/issues/new?template=falsification.md&title=Falsification+attempt"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ fontFamily: M, fontSize: 13, color: GOLD, textDecoration: "none", borderBottom: `1px solid ${GOLD}`, paddingBottom: 1 }}
+              >
+                Open a falsification issue on GitHub →
+              </a>
+            </div>
           </div>
         )}
 
