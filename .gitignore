@@ -4,6 +4,10 @@ out
 .next
 .vercel
 .env*.local
+.env
+.env.local
+.env.production
+.env.staging
 pptx_output
 public/audio
 public/pptx

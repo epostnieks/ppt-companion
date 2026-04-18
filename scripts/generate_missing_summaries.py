@@ -1,4 +1,24 @@
 #!/usr/bin/env python3
+
+def _load_gemini_key() -> str:
+    import os
+    k = os.environ.get("GEMINI_API_KEY")
+    if k:
+        return k
+    for env_path in [
+        "/Users/erikpostnieks/Projects/ppt-companion/.env",
+        "/Users/erikpostnieks/Projects/deep-research/.env",
+    ]:
+        try:
+            for line in open(env_path):
+                line = line.strip()
+                if line.startswith("GEMINI_API_KEY="):
+                    return line.split("=", 1)[1].strip()
+        except FileNotFoundError:
+            pass
+    raise RuntimeError("GEMINI_API_KEY not set and not found in .env files")
+
+
 """
 Generate Gemini summaries for the 4 papers that lack dedicated source markdown.
 Feeds actual DA papers + framework papers as context.
@@ -10,7 +30,7 @@ from google import genai
 from google.genai import types
 from json_repair import repair_json
 
-API_KEY = "AIzaSyCKbALOdFD7-7-Ycn3pkoSd7xIOXM8Q5ts"
+API_KEY = _load_gemini_key()
 MODEL = "gemini-2.5-flash"
 BASE = "/Users/erikpostnieks/Projects"
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "src", "paperData")

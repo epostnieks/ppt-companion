@@ -14,9 +14,9 @@ const TEXT = "#F5F0E8";
 const GOLD = "#F59E0B";
 const RED = "#EF4444";
 const GREEN = "#22C55E";
-const MUTED = "rgba(255,255,255,0.35)";
+const MUTED = "#C8C8C8";
 const BORDER = "rgba(255,255,255,0.1)";
-const DIM = "rgba(255,255,255,0.55)";
+const DIM = "#C8C8C8";
 
 // ─── FORMAL PROPOSITIONS ────────────────────────────────────
 const PROPOSITIONS = [
@@ -29,13 +29,13 @@ const PROPOSITIONS = [
   { id: "D3", type: "Definition", title: "Hollow Win",
     formal: "An outcome (c, a, b) = (0, 1, 1): both private parties gain (πᴬ > πᴬ₀, πᴮ > πᴮ₀) while the system degrades (ΔW < 0). The outcome is Pareto-improving in bilateral space and welfare-destructive in system space.",
     plain: "Both parties win. The system loses. Standard analysis calls this 'mutual gain' and moves on. It is not mutual gain. It is mutual extraction from a shared system that is collapsing. Every framework in negotiation theory classifies this identically to Win-Win-Win. That is the blindness the theorem exposes." },
-  { id: "A1", type: "Axiom", title: "Overlapping Interests (PST-1)",
+  { id: "A1", type: "Axiom", title: "Overlapping Interests (Private-Systemic Tension 1)",
     formal: "∃ shared system C such that both A and B derive value from C: ∂πᴬ/∂W > 0 and ∂πᴮ/∂W > 0 for some range of W.",
     plain: "Both parties need the system to be healthy. The Benchmark Rate traders needed the benchmark to be trusted. The VW dealers needed the emissions regime to be credible. They were destroying the thing they depended on. They did not know it." },
-  { id: "A2", type: "Axiom", title: "System Independence (PST-2)",
+  { id: "A2", type: "Axiom", title: "System Independence (Private-Systemic Tension 2)",
     formal: "The bilateral payoff function Π(sᴬ, sᴮ) does not include W as an argument. Each party's strategy space and payoff computation are independent of system state.",
     plain: "The parties can compute their own payoffs without knowing what is happening to the system. Their spreadsheets do not have a 'system welfare' line item. This is not laziness — it is structure. The payoff function does not take W as an input. W is outside the space the deal lives in." },
-  { id: "A3", type: "Axiom", title: "System Dependence (PST-3)",
+  { id: "A3", type: "Axiom", title: "System Dependence (Private-Systemic Tension 3)",
     formal: "∃ feedback function η: ΔW → ΔΠ with η > 0, such that system degradation eventually reduces private payoffs: if ΔW < 0 persistently, then ∃ T* such that ΔΠ < 0 for t > T*.",
     plain: "The damage comes home. Degrade the system long enough and your own revenue collapses. T* is when. VW's T* was 6 years. Tobacco's was 45. The question is never whether. The question is when." },
   { id: "T1", type: "Theorem", title: "The Private Pareto Theorem",
@@ -58,7 +58,7 @@ const PROPOSITIONS = [
 // ─── FALSIFICATION ──────────────────────────────────────────
 const FALSIFICATION = [
   { criterion: "Find a bilateral game satisfying Private-Systemic Tension-1, Private-Systemic Tension-2, and Private-Systemic Tension-3 with βW > 1 where a Nash equilibrium preserves W.",
-    status: "OPEN", note: "This kills the theorem. The proof shows that system independence (PST-2) structurally excludes W from the bilateral optimization. If you can construct a game where it doesn't — where bilateral rationality somehow preserves a variable it cannot see — the theorem falls. I am asking you to try." },
+    status: "OPEN", note: "This kills the theorem. The proof shows that system independence (Private-Systemic Tension 2) structurally excludes W from the bilateral optimization. If you can construct a game where it doesn't — where bilateral rationality somehow preserves a variable it cannot see — the theorem falls. I am asking you to try." },
   { criterion: "Demonstrate that W can be computed from bilateral payoffs (πᴬ, πᴮ) without additional information.",
     status: "OPEN", note: "This destroys Private-Systemic Tension-2. If system welfare is derivable from what the parties received, the whole architecture collapses. The Benchmark Rate case is the canonical counterexample: the benchmark's integrity cannot be computed from any trader's P&L. But show me a domain where it can, and I will retract." },
   { criterion: "Identify a domain where all three Private-Systemic Tension axioms hold and βW < 1.",
@@ -170,7 +170,7 @@ export default function AcademicHub() {
             The Formal Architecture
           </h1>
           <div style={{ fontFamily: S, fontSize: 20, color: DIM, marginTop: 12, lineHeight: 1.7, fontStyle: "italic" }}>
-            Three axioms. One impossibility. Sixty-one calibrated domains. 22 Impossibility Theorems. 39 Intractability Theorems. Here is the machinery — definitions, axioms, theorems, corollaries. Here is how to break it.
+            Three axioms. One foundational impossibility. Sixty-one domain analyses: twenty-two Impossibility Theorems and thirty-nine Intractability Theorems. This page assembles the definitions, axioms, theorems, and corollaries so that each claim can be examined on its own terms. Falsification conditions are stated for every theorem; counterexamples are welcome.
           </div>
           <div style={{ fontFamily: M, fontSize: 14, color: MUTED, marginTop: 12 }}>
             Postnieks, E. (2026). 75 Working Papers &middot; 62 Theorems &middot; System Asset Pricing Model Program.
@@ -217,7 +217,7 @@ export default function AcademicHub() {
 
             <div style={{ padding: "20px 24px", background: "rgba(245,158,11,0.06)", border: `1px solid rgba(245,158,11,0.15)`, borderRadius: 4, marginTop: 24 }}>
               <div style={{ fontFamily: S, fontSize: 20, color: GOLD, lineHeight: 1.8, fontStyle: "italic", textAlign: "center" }}>
-                Seventeen impossibility theorems preceded this one. Arrow (1951). Sen (1970). Myerson-Satterthwaite (1983). Man-Takayama (2013). Eight Nobel Prizes among the authors. None addressed bilateral efficiency versus system welfare. The Private Pareto Theorem is the 18th. The 61 domain theorems that follow it are the 19th through 79th.
+                Seventeen impossibility theorems span 228 years, from Condorcet (1785) to Man&ndash;Takayama (2013). Each addresses a distinct structural problem &mdash; preference aggregation, rights and efficiency, bilateral trade under information asymmetry, strategy-proofness. The Private Pareto Theorem addresses a different axis: bilateral Pareto efficiency versus system welfare preservation. Whether it extends that tradition is for the profession to evaluate against the stated axioms.
               </div>
             </div>
           </div>
@@ -228,7 +228,7 @@ export default function AcademicHub() {
           <div>
             <div style={{ padding: "16px 20px", background: "rgba(239,68,68,0.04)", border: `1px solid rgba(239,68,68,0.15)`, borderRadius: 4, marginBottom: 24 }}>
               <div style={{ fontFamily: S, fontSize: 20, color: TEXT, lineHeight: 1.8 }}>
-                A theorem that cannot be falsified is not a theorem — it is a belief. Below are six ways to kill this one. I am asking you to try.
+                An impossibility theorem that cannot be falsified is not a theorem. The criteria below specify what would cause the Private Pareto Theorem to fail, narrow in scope, or lose its empirical grip. Readers are invited to work through each one.
               </div>
             </div>
 
@@ -247,7 +247,7 @@ export default function AcademicHub() {
 
             <div style={{ padding: "20px 24px", background: "rgba(245,158,11,0.06)", border: `1px solid rgba(245,158,11,0.15)`, borderRadius: 4, marginTop: 24 }}>
               <div style={{ fontFamily: S, fontSize: 19, color: GOLD, lineHeight: 1.8, fontStyle: "italic", textAlign: "center" }}>
-                The theorem attacks itself harder than any reviewer will. Every limitation is stated before anyone else can find it. Every sensitivity test is published. If the theorem survives the hostile referee, it deserves to.
+                Each limitation is stated in the paper before anyone else is asked to find it; each sensitivity test is published alongside the main result. The theorem survives or it does not, on those terms.
               </div>
             </div>
           </div>
@@ -326,9 +326,9 @@ export default function AcademicHub() {
             </div>
 
             <div style={{ marginBottom: 24 }}>
-              <div style={{ fontFamily: M, fontSize: 14, color: GOLD, letterSpacing: 1, marginBottom: 8 }}>THE CANON — 17 IMPOSSIBILITY THEOREMS IN ECONOMICS</div>
+              <div style={{ fontFamily: M, fontSize: 14, color: GOLD, letterSpacing: 1, marginBottom: 8 }}>THE CANON &mdash; 17 IMPOSSIBILITY THEOREMS IN ECONOMICS</div>
               <div style={{ fontFamily: S, fontSize: 18, color: DIM, lineHeight: 1.8, marginBottom: 16 }}>
-                The Private Pareto Theorem is the 18th. The first 17 span 228 years — from Condorcet (1785) to Man-Takayama (2013). Eight Nobel Prizes among the authors. Arrow, Sen, Hurwicz, Myerson, Roth, Holmström. Every one of them proved that some desirable combination of properties is impossible under minimal axioms. None addressed bilateral efficiency versus system welfare. That is what the 18th does.
+                The seventeen canonical impossibility theorems span 228 years, from Condorcet (1785) to Man&ndash;Takayama (2013). Each proved that some desirable combination of properties cannot be simultaneously satisfied under minimal axioms: preference aggregation (Arrow), rights and efficiency (Sen), strategy-proofness (Gibbard&ndash;Satterthwaite), bilateral trade (Myerson&ndash;Satterthwaite), and so on. The Private Pareto Theorem addresses bilateral Pareto efficiency versus system welfare preservation, a question those results did not pose in this form.
               </div>
               {[
                 "Arrow, K. J. (1951). Social Choice and Individual Values. Wiley.",

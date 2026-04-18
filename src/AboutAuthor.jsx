@@ -7,9 +7,9 @@ const BG = "#0D0D0D";
 const SURFACE = "#1A1A1A";
 const TEXT = "#F5F0E8";
 const GOLD = "#F59E0B";
-const MUTED = "rgba(255,255,255,0.35)";
+const MUTED = "#C8C8C8";
 const BORDER = "rgba(255,255,255,0.1)";
-const DIM = "rgba(255,255,255,0.55)";
+const DIM = "#C8C8C8";
 
 function Section({ label, children }) {
   return (
@@ -134,15 +134,18 @@ export default function AboutAuthor() {
         </Section>
 
         {/* THE SAPM PROGRAM */}
-        <Section label="THE SYSTEM ASSET PRICING MODEL PROGRAM — 2025&ndash;2026">
+        <Section label="THE SYSTEM ASSET PRICING MODEL PROGRAM">
           <p style={{ margin: "0 0 14px" }}>
-            In 2025, began the System Asset Pricing Model program, applying three decades of quantitative finance methodology to welfare economics. 75 working papers, 62 original theorems, and over 3 million words of formal economic analysis.
+            Began the System Asset Pricing Model program to apply three decades of quantitative finance methodology to welfare economics. The output to date is seventy-five working papers, sixty-two proposed theorems, and approximately three million words of formal analysis, all released as a single corpus for the reasons set out on the theorems page.
           </p>
           <p style={{ margin: "0 0 14px" }}>
-            The foundational result is the Private Pareto Theorem &mdash; a structural impossibility theorem in the tradition of Arrow (1951) and Myerson-Satterthwaite (1983) &mdash; which proves that bilateral efficiency and system welfare preservation are structurally incompatible under three minimal axioms. The program calibrates the welfare beta (&beta;<sub>W</sub>) across 61 domains via Monte Carlo simulation, identifying $89.2 trillion in annual welfare destruction &mdash; approximately 84.9% of global GDP.
+            The foundational result is the Private Pareto Theorem, which addresses a question the earlier impossibility theorems did not pose in this form: bilateral Pareto efficiency versus system welfare preservation. Under three specified axioms &mdash; overlapping interests, system independence, and system dependence &mdash; the theorem proves the two are incompatible. Whether it belongs alongside Arrow (1951), Sen (1970), and Myerson&ndash;Satterthwaite (1983) is for the profession to decide.
           </p>
           <p style={{ margin: "0 0 14px" }}>
-            The 61 domain theorems are classified into 22 Impossibility Theorems (physical, chemical, or biological constraints no policy can override) and 39 Intractability Theorems (institutional constraints with proven policy solutions). Five cross-domain framework papers complete the architecture: the Reform Dividend, the Conflictoring Protocol, the Fiscal Capture Theorem, the Substitution Trap Law, and the Disclosure Futility Theorem.
+            The program calibrates a welfare-beta (&beta;<sub>W</sub>) for each of sixty-one domains via Monte Carlo simulation under three distributional families. The aggregate across domains, summed with uniform channel weights and no adjustment for cross-domain dependencies, is approximately $89.2 trillion per year &mdash; of the same order as nominal global GDP. This is a working aggregate; confidence intervals are wide and the sum is sensitive to channel methodology, which is why each domain paper reports its own interval independently.
+          </p>
+          <p style={{ margin: "0 0 14px" }}>
+            The sixty-one domain theorems divide into twenty-two Impossibility Theorems (binding constraint is physical, chemical, or biological) and thirty-nine Intractability Theorems (binding constraint is institutional, jurisdictional, financial, or political; a proven policy solution exists in at least one jurisdiction). Five cross-domain theoretical papers accompany the empirical panel: the Reform Dividend, the Conflictoring Protocol, the Fiscal Capture Theorem, the Substitution Trap, and Disclosure Futility.
           </p>
           <p style={{ margin: 0 }}>
             All Monte Carlo simulations are publicly available in 61 open-source repositories (seed = 42, N = 10,000 draws, three distribution types). The companion website provides interactive dashboards, policy analysis for 190 countries in 22 languages, and a falsification bounty for each theorem.
@@ -163,7 +166,7 @@ export default function AboutAuthor() {
         </Section>
 
         {/* PUBLICATION LIST */}
-        <Section label="PUBLICATIONS — 75 WORKING PAPERS (2025&ndash;2026)">
+        <Section label="PUBLICATIONS — 75 WORKING PAPERS">
           <p style={{ margin: "0 0 14px", fontFamily: M, fontSize: 13, color: DIM }}>
             All papers available on SSRN. Monte Carlo replication repositories publicly accessible.
           </p>
