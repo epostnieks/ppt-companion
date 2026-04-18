@@ -168,7 +168,7 @@ export default function AboutAuthor() {
         {/* PUBLICATION LIST */}
         <Section label="PUBLICATIONS — 75 WORKING PAPERS">
           <p style={{ margin: "0 0 14px", fontFamily: M, fontSize: 13, color: DIM }}>
-            All papers available on SSRN. Monte Carlo replication repositories publicly accessible.
+            All papers forthcoming on SSRN. Monte Carlo replication repositories publicly accessible.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
             {[
@@ -178,7 +178,7 @@ export default function AboutAuthor() {
               { cat: "FRAMEWORK (8 PAPERS)", papers: [
                 { title: "Decision Accounting: Principles and Practice", ssrn: "https://ssrn.com/abstract=_DA" },
                 { title: "The Conflictoring Protocol: Private Pareto Theorem to non-Private Pareto Theorem Game Transformation", ssrn: "https://ssrn.com/abstract=_CP" },
-                { title: "The Reform Dividend: $85.3 Trillion in Annual Welfare Destruction", ssrn: "https://ssrn.com/abstract=_RD" },
+                { title: "The Reform Dividend: $89.2 Trillion in Annual Welfare Destruction", ssrn: "https://ssrn.com/abstract=_RD" },
                 { title: "Fiscal Capture: When Governments Are Party B", ssrn: "https://ssrn.com/abstract=_FC" },
                 { title: "The Substitution Trap: Why Product Regulation Fails", ssrn: "https://ssrn.com/abstract=_ST" },
                 { title: "Disclosure Futility: Three Formal Results", ssrn: "https://ssrn.com/abstract=_DF" },
@@ -225,7 +225,7 @@ export default function AboutAuthor() {
                 {group.papers.map((p, i) => (
                   <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "4px 0", borderBottom: `1px solid ${BORDER}` }}>
                     <span style={{ fontFamily: S, fontSize: 14, color: DIM }}>{p.title}</span>
-                    <a href={p.ssrn} target="_blank" rel="noopener noreferrer" style={{ fontFamily: M, fontSize: 10, color: GOLD, textDecoration: "none", flexShrink: 0, marginLeft: 12 }}>SSRN &#8594;</a>
+                    <span style={{ fontFamily: M, fontSize: 10, color: MUTED, flexShrink: 0, marginLeft: 12 }}>forthcoming</span>
                   </div>
                 ))}
               </div>
@@ -239,7 +239,7 @@ export default function AboutAuthor() {
             <div style={{ padding: "14px 18px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>
               <div style={{ fontFamily: M, fontSize: 11, color: GOLD, letterSpacing: 1, marginBottom: 8 }}>APA FORMAT</div>
               <div style={{ fontFamily: M, fontSize: 13, color: DIM, lineHeight: 1.7 }}>
-                Postnieks, E. (2026). The Private Pareto Theorem: Bilateral efficiency and system welfare cannot coexist. <em>Working paper</em>. https://ssrn.com/abstract=_PPT
+                Postnieks, E. (2026). The Private Pareto Theorem: Bilateral efficiency and system welfare cannot coexist. <em>Working paper</em>. Forthcoming on SSRN.
               </div>
             </div>
             <div style={{ padding: "14px 18px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>

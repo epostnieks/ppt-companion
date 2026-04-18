@@ -18,9 +18,9 @@ const GOLD = "#F59E0B";
 const RED = "#EF4444";
 const GREEN = "#22C55E";
 const CYAN = "#22D3EE";
-const MUTED = "rgba(255,255,255,0.35)";
+const MUTED = "#C8C8C8";
 const BORDER = "rgba(255,255,255,0.1)";
-const DIM = "rgba(255,255,255,0.55)";
+const DIM = "#C8C8C8";
 
 function getTheoremBadgeColor(type) {
   if (type === "Impossibility") return RED;
@@ -2211,7 +2211,7 @@ function FullContent({ paper }) {
 
       {/* ── Links ─────────────────────────────────────────────── */}
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 20, paddingTop: 12, borderTop: `1px solid ${BORDER}` }}>
-        <LinkBadge label="SSRN" href={`https://papers.ssrn.com/sol3/papers.cfm?abstract_id=${paper.slug}`} />
+        <LinkBadge label="SSRN" disabled={true} note="forthcoming" href="" />
         {paper.type === "domain" && (
           <LinkBadge label="Simulation Repo" href={`https://github.com/epostnieks/sapm-mc-${paper.slug}`} />
         )}
@@ -2253,7 +2253,7 @@ function PlaceholderContent({ paper }) {
 
       {/* Links */}
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 12 }}>
-        <LinkBadge label="SSRN" href={`https://papers.ssrn.com/sol3/papers.cfm?abstract_id=${paper.slug}`} />
+        <LinkBadge label="SSRN" disabled={true} note="forthcoming" href="" />
         {paper.type === "domain" && (
           <LinkBadge label="Simulation Repo" href={`https://github.com/epostnieks/sapm-mc-${paper.slug}`} />
         )}

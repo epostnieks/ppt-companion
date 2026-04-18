@@ -367,7 +367,7 @@ export default function AcademicHub() {
         <div style={{ marginTop: 48, padding: "32px 0", borderTop: `1px solid ${BORDER}` }}>
           <div style={{ fontFamily: M, fontSize: 14, color: GOLD, letterSpacing: 2, marginBottom: 16 }}>CITATION GENERATOR</div>
           <div style={{ fontFamily: S, fontSize: 17, color: DIM, lineHeight: 1.8, marginBottom: 20 }}>
-            All 75 papers available on SSRN. Each paper has a public Monte Carlo replication repository.
+            All 75 papers forthcoming on SSRN. Each paper has a public Monte Carlo replication repository.
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
             <div style={{ padding: "16px 20px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>
@@ -375,7 +375,7 @@ export default function AcademicHub() {
               <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.6, marginBottom: 8 }}>
                 Postnieks, E. (2026). The Private Pareto Theorem: Bilateral efficiency and system welfare cannot coexist. <em>Working paper</em>.
               </div>
-              <a href="https://ssrn.com/abstract=PPT" target="_blank" rel="noopener noreferrer" style={{ fontFamily: M, fontSize: 11, color: GOLD, textDecoration: "none" }}>SSRN →</a>
+              <span style={{ fontFamily: M, fontSize: 11, color: MUTED }}>SSRN forthcoming</span>
               <span style={{ fontFamily: M, fontSize: 11, color: MUTED, marginLeft: 12 }}>|</span>
               <a href="https://github.com/epostnieks/sapm-mc-ppt" target="_blank" rel="noopener noreferrer" style={{ fontFamily: M, fontSize: 11, color: GOLD, textDecoration: "none", marginLeft: 12 }}>MC REPO →</a>
             </div>
@@ -384,7 +384,7 @@ export default function AcademicHub() {
               <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.6, marginBottom: 8 }}>
                 Postnieks, E. (2026). Decision Accounting: Principles and practice. <em>Working paper</em>.
               </div>
-              <a href="https://ssrn.com/abstract=DA" target="_blank" rel="noopener noreferrer" style={{ fontFamily: M, fontSize: 11, color: GOLD, textDecoration: "none" }}>SSRN →</a>
+              <span style={{ fontFamily: M, fontSize: 11, color: MUTED }}>SSRN forthcoming</span>
             </div>
             <div style={{ padding: "16px 20px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>
               <div style={{ fontFamily: M, fontSize: 11, color: GOLD, letterSpacing: 1, marginBottom: 8 }}>FULL PROGRAM</div>
@@ -399,7 +399,7 @@ export default function AcademicHub() {
 {`Postnieks, E. (2026). [Theorem Name]:
   An [Impossibility/Intractability] Theorem
   for [Domain]. Working paper.
-  SSRN: https://ssrn.com/abstract=[ID]
+  SSRN: forthcoming
   MC: github.com/epostnieks/sapm-mc-[slug]`}
               </pre>
             </div>
