@@ -1,13 +1,18 @@
 "use client";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useScrollStagger, useScrollTriggerEntrance } from "./lib/motion";
+
 const M = "'JetBrains Mono',monospace";
 const S = "'Newsreader',serif";
 const BG = "#0D0D0D";
 const SURFACE = "#1A1A1A";
 const TEXT = "#F5F0E8";
 const GOLD = "#F59E0B";
-const MUTED = "rgba(255,255,255,0.35)";
+const MUTED = "#C8C8C8";
 const BORDER = "rgba(255,255,255,0.1)";
-const DIM = "rgba(255,255,255,0.55)";
+const DIM = "#C8C8C8";
 
 // ═══════════════════════════════════════════════════════════════════
 // THE EXISTING CANON — 17 Impossibility Theorems (1785–2013)
@@ -51,8 +56,9 @@ const CANON = [
 ];
 
 // ═══════════════════════════════════════════════════════════════════
-// THE 62 POSTNIEKS IMPOSSIBILITY THEOREMS (PPT + I–LXI)
-// Private Pareto Theorem operates in social choice; I–LXI extend into the hard sciences.
+// MARKET-FAILURE DOMAIN THEOREMS + CONTROLS
+// Current public doctrine: 59 market-failure domains plus two controls.
+// The Private Pareto Theorem is rendered separately via PPTCard as the foundational result.
 // ═══════════════════════════════════════════════════════════════════
 const POSTNIEKS_THEOREMS = [
   {
@@ -667,6 +673,39 @@ const POSTNIEKS_THEOREMS = [
   },
 ];
 
+// ═══════════════════════════════════════════════════════════════════
+// CLASSIFICATION — Impossibility vs Intractability
+// Impossibility = no policy/rule-change path escapes the binding floor.
+// The floor can be physical, chemical, biological, informational, or otherwise non-overridable.
+// Intractability = a policy/rule-change path can transform the game and create a way out,
+// even when the current game contains an impossibility/floor theorem.
+// Source: canonical 22-domain Impossibility list from CLAUDE.md.
+// ═══════════════════════════════════════════════════════════════════
+const IMPOSSIBILITY_IDS = new Set([
+  "III",     // PFAS / Persistent Compounds
+  "IV",      // Antimicrobial Resistance
+  "V",       // Nuclear Fission
+  "VI",      // Monoculture Agriculture
+  "VII",     // Deep-Sea Mining
+  "VIII",    // Cement Production
+  "IX",      // WMD / Lethal Autonomous Weapons
+  "XII",     // Gene Drive Deployment
+  "XIII",    // Topsoil Erosion
+  "XVI",     // Groundwater / Ogallala Aquifer
+  "XVIII",   // Industrial Agriculture Methane
+  "XXI",     // Social Media & Youth Mental Health
+  "XXIV",    // Fast Fashion
+  "XXV",     // Mining & Rare Earth Extraction
+  "XXXII",   // Oil & Gas Extraction
+  "XXXIII",  // Coal Combustion
+  "XXXV",    // Aviation Emissions
+  "XXXVII",  // Deforestation & Industrial Logging
+  "XXXVIII", // Palm Oil
+  "XLIV",    // Persistent Organic Pollutants
+  "LVI",     // Plastics and Petrochemical Waste
+  "LVIII",   // Factory Farming
+]);
+
 const CONSTRAINT_COLORS = {
   "Institutional": "#A78BFA",
   "Institutional / Financial": "#A78BFA",
@@ -724,11 +763,103 @@ function Section({ label, children }) {
   );
 }
 
-function CanonTimeline() {
+// ═══════════════════════════════════════════════════════════════════
+// THEOREM PROOF FLOW — GSAP teaching sequence
+// Animates the 3-step logical architecture of impossibility theorems
+// ═══════════════════════════════════════════════════════════════════
+function TheoremProofFlow() {
+  const containerRef = useRef(null);
+
+  useGSAP(() => {
+    if (!containerRef.current) return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+
+    const steps = containerRef.current.querySelectorAll(".proof-step");
+    const connectors = containerRef.current.querySelectorAll(".proof-connector");
+    const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+
+    tl.from(steps[0], { opacity: 0, y: 20, duration: 0.6 })
+      .from(connectors[0], { scaleX: 0, transformOrigin: "left center", duration: 0.4 }, "-=0.2")
+      .from(steps[1], { opacity: 0, y: 20, duration: 0.6 }, "-=0.2")
+      .from(connectors[1], { scaleX: 0, transformOrigin: "left center", duration: 0.4 }, "-=0.2")
+      .from(steps[2], { opacity: 0, y: 20, duration: 0.6 }, "-=0.2");
+  }, { scope: containerRef });
+
   return (
-    <div style={{ display: "grid", gap: 1 }}>
+    <div ref={containerRef} style={{ margin: "24px 0 28px" }}>
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "1fr auto 1fr auto 1fr",
+        gap: 12,
+        alignItems: "center",
+        maxWidth: 720,
+      }}>
+        {/* Step 1 */}
+        <div className="proof-step" style={{
+          padding: "16px 18px",
+          background: SURFACE,
+          border: `1px solid ${BORDER}`,
+          borderRadius: 4,
+        }}>
+          <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, marginBottom: 6 }}>
+            STEP 1
+          </div>
+          <div style={{ fontFamily: S, fontSize: 16, color: TEXT, lineHeight: 1.5 }}>
+            State axioms, each individually defensible
+          </div>
+        </div>
+
+        {/* Connector 1 */}
+        <div className="proof-connector" style={{
+          width: 24, height: 2, background: GOLD,
+        }} />
+
+        {/* Step 2 */}
+        <div className="proof-step" style={{
+          padding: "16px 18px",
+          background: SURFACE,
+          border: `1px solid ${BORDER}`,
+          borderRadius: 4,
+        }}>
+          <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, marginBottom: 6 }}>
+            STEP 2
+          </div>
+          <div style={{ fontFamily: S, fontSize: 16, color: TEXT, lineHeight: 1.5 }}>
+            Prove no mechanism satisfies all axioms simultaneously
+          </div>
+        </div>
+
+        {/* Connector 2 */}
+        <div className="proof-connector" style={{
+          width: 24, height: 2, background: GOLD,
+        }} />
+
+        {/* Step 3 */}
+        <div className="proof-step" style={{
+          padding: "16px 18px",
+          background: "rgba(245,158,11,0.06)",
+          border: `1px solid rgba(245,158,11,0.25)`,
+          borderRadius: 4,
+        }}>
+          <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, marginBottom: 6 }}>
+            STEP 3
+          </div>
+          <div style={{ fontFamily: S, fontSize: 16, color: TEXT, lineHeight: 1.5 }}>
+            Impossibility follows from axioms, not implementation failure
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CanonTimeline() {
+  const staggerRef = useScrollStagger(".canon-row");
+  return (
+    <div ref={staggerRef} style={{ display: "grid", gap: 1 }}>
       {CANON.map((t) => (
-        <div key={t.num} style={{
+        <div key={t.num} className="canon-row" style={{
           display: "grid", gridTemplateColumns: "40px 72px 1fr",
           gap: 12, alignItems: "baseline",
           padding: "8px 12px",
@@ -759,8 +890,9 @@ function CanonTimeline() {
 }
 
 function PPTCard() {
+  const entranceRef = useScrollTriggerEntrance();
   return (
-    <div style={{
+    <div ref={entranceRef} style={{
       margin: "24px 0", padding: "24px 28px",
       background: "rgba(245,158,11,0.06)",
       border: `1px solid rgba(245,158,11,0.2)`,
@@ -777,7 +909,7 @@ function PPTCard() {
       </div>
       <div style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 14 }}>
         <span style={{
-          fontFamily: M, fontSize: 9, letterSpacing: 1,
+          fontFamily: M, fontSize: 11, letterSpacing: 1,
           color: GOLD, padding: "3px 8px",
           border: `1px solid ${GOLD}33`, borderRadius: 3,
           background: `${GOLD}0D`,
@@ -839,18 +971,30 @@ function PPTCard() {
 
 function TheoremCard({ theorem }) {
   const color = getColor(theorem.constraint);
+  const isImpossibility = IMPOSSIBILITY_IDS.has(theorem.id);
+  const classLabel = isImpossibility ? "IMPOSSIBILITY THEOREM" : "INTRACTABILITY THEOREM";
+  const classColor = isImpossibility ? "#F87171" : "#FCD34D";
+  const entranceRef = useScrollTriggerEntrance();
 
   return (
-    <div style={{
+    <div ref={entranceRef} style={{
       marginBottom: 36, padding: "24px 28px",
       background: SURFACE,
       border: `1px solid ${BORDER}`,
       borderRadius: 6,
     }}>
-      <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 6 }}>
-        <div style={{ fontFamily: M, fontSize: 13, color: GOLD, fontWeight: 600 }}>
-          {theorem.id}
-        </div>
+      <div style={{ marginBottom: 10 }}>
+        <span style={{
+          fontFamily: M, fontSize: 11, color: classColor, letterSpacing: 2,
+          padding: "3px 9px", border: `1px solid ${classColor}44`,
+          borderRadius: 3, background: `${classColor}12`,
+          textTransform: "uppercase",
+        }}>
+          {classLabel}
+        </span>
+      </div>
+
+      <div style={{ marginBottom: 6 }}>
         <div style={{ fontFamily: S, fontSize: 22, color: TEXT, fontWeight: 400 }}>
           {theorem.name}
         </div>
@@ -917,7 +1061,7 @@ export default function ImpossibilityTheorems() {
 
         <div style={{
           display: "inline-block",
-          fontFamily: M, fontSize: 10, letterSpacing: 2,
+          fontFamily: M, fontSize: 11, letterSpacing: 2,
           color: "#FCD34D", background: "rgba(252,211,77,0.08)",
           border: "1px solid rgba(252,211,77,0.2)",
           padding: "8px 16px", borderRadius: 4,
@@ -955,6 +1099,7 @@ export default function ImpossibilityTheorems() {
                 3. &ensp;The impossibility follows from the axioms, not from implementation failure
               </div>
             </div>
+            <TheoremProofFlow />
             <p style={{ margin: 0 }}>
               What distinguishes an impossibility theorem from an ordinary negative result is its
               generality: the proof holds for <em>all</em> mechanisms, not merely existing ones. The
@@ -1002,23 +1147,20 @@ export default function ImpossibilityTheorems() {
               energetics, and evolutionary selection pressure</span> &mdash; physical laws confirmed by
               centuries of independent experimental replication.
             </p>
-            <p style={{ margin: "0 0 14px" }}>
-              The question is not whether the Postnieks axioms are rigorous enough for impossibility theorem
-              status. The question is why value judgments about democratic rationality cleared the bar while
-              physical constants have not been asked to jump it yet.
-            </p>
             <div style={{
               padding: "16px 20px", margin: "0 0 14px",
               background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4,
               fontFamily: S, fontSize: 18, color: TEXT, lineHeight: 1.85,
             }}>
-              Calcium carbonate &rarr; calcium oxide + carbon dioxide is not a policy failure. It is conservation of mass.<br/>
-              A radioactive half-life is not a regulatory choice. It is nuclear physics.<br/>
-              Carbon-fluorine bond dissociation energy of 485&nbsp;kJ/mol is not an assumption. It is a measurement.<br/>
-              Cure and resistance selection are not sequential. They are the same molecular event.
+              Calcium carbonate &rarr; calcium oxide + carbon dioxide is conservation of mass.<br/>
+              A radioactive half-life is a nuclear-physics constant.<br/>
+              Carbon-fluorine bond dissociation energy of 485&nbsp;kJ/mol is a measured quantity.<br/>
+              Cure and resistance selection are the same molecular event.
             </div>
             <p style={{ margin: 0 }}>
-              Conservation of mass is more binding than non-dictatorship.
+              Whether these foundations meet the standard applied to the canonical seventeen is a
+              question the profession will have to answer. The axioms are stated plainly so that the
+              evaluation can proceed on their merits.
             </p>
           </div>
         </Section>
@@ -1076,17 +1218,39 @@ export default function ImpossibilityTheorems() {
               selection pressure, the Efficacy Ceiling lifts.
             </p>
             <p style={{ margin: 0 }}>
-              The falsifiability is a feature, not a weakness. Any philosopher of science who attacks
-              these theorems for having expiry conditions is attacking Popper.
+              The falsifiability is intentional. Each theorem states the conditions under which its
+              scope would narrow, and welcomes the technical or scientific development that would
+              narrow it.
             </p>
           </div>
         </Section>
 
-        {/* ── THE 16 THEOREMS ── */}
-        <Section label="THE 62 PROPOSED POSTNIEKS IMPOSSIBILITY THEOREMS">
+        {/* ── THE 62 THEOREMS — CLASSIFIED ── */}
+        <Section label="THE 62 THEOREMS &mdash; IMPOSSIBILITY AND INTRACTABILITY">
+          <div style={{ fontFamily: S, fontSize: 18, color: DIM, lineHeight: 1.8, marginBottom: 18 }}>
+            <p style={{ margin: "0 0 12px" }}>
+              The sixty-two theorems divide into two classes by the nature of the binding constraint.
+            </p>
+            <p style={{ margin: "0 0 12px" }}>
+              <span style={{ color: TEXT }}>Twenty-three Impossibility Theorems</span> &mdash; the
+              Private Pareto Theorem as the foundational result, plus twenty-two domain theorems in which
+              the binding constraint is physical, chemical, biological, informational, or otherwise non-overridable. Conservation of mass, radioactive
+              decay, bond-dissociation energies, and evolutionary selection pressure cannot be altered by any
+              policy. In these domains, no mechanism can internalize the system-welfare cost.
+            </p>
+            <p style={{ margin: 0 }}>
+              <span style={{ color: TEXT }}>Thirty-nine Intractability Theorems</span> &mdash; the
+              binding constraint is institutional, jurisdictional, financial, or political. A sufficiently
+              well-designed policy can solve the problem, and in each of the thirty-nine domains at least one
+              jurisdiction has demonstrated a proven model: Norway&rsquo;s sovereign-wealth separation, Chile&rsquo;s
+              CODELCO structure, the Nordic labor model, Singapore&rsquo;s Monetary Authority regime, the
+              United Kingdom&rsquo;s Senior Managers and Certification Regime, Australia&rsquo;s Financial
+              Accountability Regime, and others. Intractability is not impossibility; it is a statement about
+              how difficult the institutional change has been under the prevailing arrangements.
+            </p>
+          </div>
           <div style={{ fontFamily: M, fontSize: 12, color: MUTED, letterSpacing: 1, marginBottom: 12 }}>
-            Private Pareto Theorem + Theorems I&ndash;LXI. Each follows the Arrow architecture:
-            three axioms, structural impossibility.
+            Each theorem follows the Arrow architecture: three axioms, structural impossibility.
           </div>
 
           {/* Private Pareto Theorem — The Foundational Theorem */}
@@ -1098,22 +1262,43 @@ export default function ImpossibilityTheorems() {
           </div>
           <PPTCard />
 
-          {/* Theorems I–XV */}
+          {/* ── THE TWENTY-TWO IMPOSSIBILITY THEOREMS ── */}
           <div style={{
             fontFamily: M, fontSize: 13, color: GOLD,
-            letterSpacing: 2, marginBottom: 16, marginTop: 40,
+            letterSpacing: 2, marginBottom: 12, marginTop: 40,
           }}>
-            THEOREMS I&ndash;LXI &mdash; THE DOMAIN EXTENSIONS
+            THE TWENTY-TWO DOMAIN IMPOSSIBILITY THEOREMS
           </div>
           <div style={{ fontFamily: S, fontSize: 18, color: DIM, lineHeight: 1.85, marginBottom: 28 }}>
-            Each theorem below extends the impossibility framework from social choice theory into
-            chemistry, biology, physics, computer science, and institutional economics. What distinguishes these from their
-            social-science predecessors is the nature of the second axiom: an <span style={{ color: TEXT }}>identity
-            axiom</span> proving that the beneficial act and the harmful consequence are constitutively the
-            same physical, chemical, biological, computational, or institutional event.
+            In each of the twenty-two domains below, the binding constraint is a physical, chemical, or
+            biological law &mdash; conservation of mass, radioactive decay, bond-dissociation energy,
+            evolutionary selection pressure, the thermodynamics of combustion. No policy alters these
+            constraints. The system-welfare cost cannot be internalized by any market mechanism or
+            regulatory regime.
           </div>
 
-          {POSTNIEKS_THEOREMS.map(t => (
+          {POSTNIEKS_THEOREMS.filter(t => IMPOSSIBILITY_IDS.has(t.id)).map(t => (
+            <TheoremCard key={t.id} theorem={t} />
+          ))}
+
+          {/* ── THE THIRTY-NINE INTRACTABILITY THEOREMS ── */}
+          <div style={{
+            fontFamily: M, fontSize: 13, color: GOLD,
+            letterSpacing: 2, marginBottom: 12, marginTop: 56,
+          }}>
+            THE THIRTY-NINE DOMAIN INTRACTABILITY THEOREMS
+          </div>
+          <div style={{ fontFamily: S, fontSize: 18, color: DIM, lineHeight: 1.85, marginBottom: 28 }}>
+            In each of the thirty-nine domains below, the binding constraint is institutional,
+            jurisdictional, financial, or political. A sufficiently well-designed policy has already been
+            demonstrated in at least one jurisdiction &mdash; Norway&rsquo;s sovereign-wealth structure,
+            Chile&rsquo;s CODELCO regime, the Nordic labor model, Singapore&rsquo;s Monetary Authority,
+            the United Kingdom&rsquo;s Senior Managers and Certification Regime, Australia&rsquo;s
+            Financial Accountability Regime, and others. Intractability is a statement about the depth of
+            the structural lock-in under the prevailing arrangements, not about the laws of nature.
+          </div>
+
+          {POSTNIEKS_THEOREMS.filter(t => !IMPOSSIBILITY_IDS.has(t.id)).map(t => (
             <TheoremCard key={t.id} theorem={t} />
           ))}
         </Section>
@@ -1210,6 +1395,43 @@ export default function ImpossibilityTheorems() {
                 of every one.
               </p>
             </div>
+          </div>
+        </Section>
+
+        {/* ── WHY THE PAPERS WERE RELEASED TOGETHER ── */}
+        <Section label="A NOTE ON RELEASE TIMING">
+          <div style={{ fontFamily: S, fontSize: 19, color: DIM, lineHeight: 1.85 }}>
+            <p style={{ margin: "0 0 14px" }}>
+              The seventy-five papers were released as a single corpus. They were not released as they
+              were drafted, and the reason is methodological rather than rhetorical.
+            </p>
+            <p style={{ margin: "0 0 14px" }}>
+              The program is interconnected by design. The Private Pareto Theorem requires an empirical
+              panel to test its range of application. The market-failure domain papers require a shared
+              welfare-beta methodology so that their results can be compared. The foundational theory
+              papers &mdash; the Reform Dividend, the Fiscal Capture Theorem, Disclosure Futility,
+              Postnieks&rsquo;s Law &mdash; depend on the completed empirical panel, because each of them
+              makes a claim about the aggregate or about a pattern across the market-failure domains. Writing
+              the theory papers before the empirical papers were finished would have required guessing at
+              the pattern.
+            </p>
+            <p style={{ margin: "0 0 14px" }}>
+              Releasing the domain papers serially would have introduced methodology drift. Each paper
+              went through several revision cycles as the welfare-beta specification was refined,
+              revenue-denominated rather than profit-denominated, tested against three distributional
+              families, and anchored to a consistent Monte Carlo protocol. When a refinement was adopted,
+              it was applied as a batch edit across all 59 market-failure domain papers plus controls. The same was done for the
+              Decision Accounting sixteen-field record that appears in every paper. Papers that had
+              already been posted under earlier conventions could not have been retrofitted cleanly, and
+              a reader comparing a 2024 draft against a 2026 draft would have been comparing across
+              different methodological vintages.
+            </p>
+            <p style={{ margin: 0 }}>
+              The consequence is a corpus in which every paper follows the same protocol, every
+              welfare-beta is auditable against the same assumptions, and the theory papers rest on the
+              finished empirical panel rather than a partial one. The trade-off was a longer silent
+              interval before publication in exchange for a corpus that could be evaluated as a whole.
+            </p>
           </div>
         </Section>
 
