@@ -7,9 +7,9 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, Cartes
 // Postnieks (2026a) Working Paper
 // ══════════════════════════════════════════════════════════════
 
-// === COMPLETE System Asset Pricing Model βW CALIBRATION — ALL 61 DOMAINS ===
+// === COMPLETE System Asset Pricing Model βW CALIBRATION — 59 DOMAINS + 2 CONTROLS ===
 // Source: CLAUDE.md canonical table (2026-04-12, revenue-basis Iron Law corrected)
-// I = Impossibility (physical/chemical/biological), T = Intractability (institutional)
+// I = Impossibility (physical/chemical/biological/informational floor), T = Intractability (policy/rule-change path exists)
 const ALL_BETAS = [
   { key: "firearms", domain: "Firearms", beta: 50.99, type: "T", slug: "sapm-firearms" },
   { key: "cybercrime", domain: "Cybercrime & Ransomware", beta: 31.10, type: "T", slug: "sapm-cybercrime" },
@@ -55,7 +55,7 @@ const ALL_BETAS = [
   { key: "bitcoin", domain: "Bitcoin / Proof-of-Work", beta: 5.00, type: "T", slug: "sapm-bitcoin" },
   { key: "aviation", domain: "Aviation Emissions", beta: 4.97, type: "I", slug: "sapm-aviation" },
   { key: "defenseProcurement", domain: "Defense Procurement", beta: 4.88, type: "T", slug: "sapm-defense-procurement" },
-  { key: "orbitalDebris", domain: "Orbital Debris", beta: 4.82, type: "I", slug: "sapm-orbital-debris" },
+  { key: "orbitalDebris", domain: "Orbital Debris", beta: 4.82, type: "T", slug: "sapm-orbital-debris" },
   { key: "fisheries", domain: "Fisheries / Coral", beta: 4.70, type: "T", slug: "sapm-fisheries" },
   { key: "sovereignDebt", domain: "Sovereign Debt", beta: 4.67, type: "T", slug: "sapm-sovereign-debt" },
   { key: "insuranceClimate", domain: "Insurance & Climate Risk", beta: 4.57, type: "T", slug: "sapm-insurance-climate" },
@@ -63,7 +63,7 @@ const ALL_BETAS = [
   { key: "upf", domain: "Ultra-Processed Food", beta: 4.06, type: "T", slug: "sapm-upf" },
   { key: "groundwater", domain: "Groundwater (Ogallala)", beta: 3.46, type: "I", slug: "sapm-groundwater" },
   { key: "pos", domain: "Proof-of-Stake", beta: 3.14, type: "T", slug: "sapm-pos" },
-  { key: "nuclear", domain: "Nuclear Power", beta: 2.94, type: "I", slug: "sapm-nuclear" },
+  { key: "nuclear", domain: "Nuclear Power", beta: 0.54, type: "C", slug: "sapm-nuclear" },
   { key: "armsExports", domain: "Arms Exports", beta: 2.54, type: "T", slug: "sapm-arms-exports" },
   { key: "stablecoins", domain: "Stablecoins / Shadow Banking", beta: 2.53, type: "T", slug: "sapm-stablecoins" },
   { key: "privateMilitary", domain: "Private Military Contractors", beta: 2.06, type: "T", slug: "sapm-private-military" },
@@ -71,7 +71,7 @@ const ALL_BETAS = [
   { key: "shipping", domain: "Shipping & Maritime", beta: 1.34, type: "T", slug: "sapm-shipping" },
   { key: "alcohol", domain: "Alcohol", beta: 1.33, type: "T", slug: "sapm-alcohol" },
   { key: "factoryFarming", domain: "Factory Farming", beta: 1.02, type: "I", slug: "sapm-factory-farming" },
-  { key: "gigEconomy", domain: "Gig Economy", beta: 0.76, type: "T", slug: "sapm-gig-economy" },
+  { key: "gigEconomy", domain: "Gig Economy", beta: 0.76, type: "C", slug: "sapm-gig-economy" },
 ];
 
 // Case study domains (original Private Pareto Theorem paper)
@@ -195,8 +195,8 @@ const FONTS = {
 const BG = "#0A0A0F";
 const SURFACE = "rgba(255,255,255,0.02)";
 const BORDER = "rgba(255,255,255,0.06)";
-const MUTED = "rgba(255,255,255,0.35)";
-const DIM = "rgba(255,255,255,0.5)";
+const MUTED = "#C8C8C8";
+const DIM = "#C8C8C8";
 const ACCENT = "#F59E0B";
 const GOLD = "#F59E0B";
 const CRIMSON = "#DC2626";
@@ -362,7 +362,7 @@ export default function PPTCompanion() {
               </div>
             </Card>
 
-            <Section number={<>β<sub>W</sub></>} title="Welfare Beta Distribution" subtitle={<>β<sub>W</sub> = −dW/dΠ — marginal welfare cost per dollar of private gain</>} />
+            <Section number={<>β<sub>W</sub></>} title="Welfare Beta Distribution" subtitle={<>β<sub>W</sub> = −dW/dΠ — marginal welfare cost per dollar of revenue</>} />
 
             <div style={{ height: BETA_CHART.length * 28 + 40, marginBottom: 16 }}>
               <ResponsiveContainer>
@@ -392,7 +392,7 @@ export default function PPTCompanion() {
                 <a href="#" onClick={(e) => { e.preventDefault(); setTab("dashboards"); }}
                   style={{ display: "block", padding: "12px 16px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 2 }}>
                   <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: ACCENT, letterSpacing: 1 }}>ALL DASHBOARDS →</div>
-                  <div style={{ fontFamily: FONTS.serif, fontSize: 15, color: DIM, marginTop: 4 }}>61 domain-specific interactive dashboards</div>
+                  <div style={{ fontFamily: FONTS.serif, fontSize: 15, color: DIM, marginTop: 4 }}>59 market-failure dashboards</div>
                 </a>
               </div>
             </Card>
@@ -402,7 +402,7 @@ export default function PPTCompanion() {
         {/* ═══ DASHBOARDS ═══ */}
         {tab === "dashboards" && (
           <div>
-            <Section title="Companion Dashboards" subtitle="61 domain-specific System Asset Pricing Model dashboards + C-Adjusted GDP" />
+            <Section title="Companion Dashboards" subtitle="59 market-failure System Asset Pricing Model dashboards, 2 controls + C-Adjusted GDP" />
 
             <a href="https://c-adjusted-gdp.vercel.app" target="_blank" rel="noopener noreferrer"
               style={{ display: "block", marginBottom: 24 }}>
@@ -477,7 +477,7 @@ export default function PPTCompanion() {
         {/* ═══ βW RANKINGS ═══ */}
         {tab === "betas" && (
           <div>
-            <Section number="§D.2" title={<>Complete β<sub>W</sub> Calibration</>} subtitle="All 61 domains — marginal welfare cost per dollar of private gain" />
+            <Section number="§D.2" title={<>Complete β<sub>W</sub> Calibration</>} subtitle="59 market-failure domains — marginal welfare cost per dollar of revenue" />
 
             <Card highlight>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 16, textAlign: "center" }}>
@@ -729,7 +729,7 @@ export default function PPTCompanion() {
                       {t.nobel && (
                         <div style={{
                           position: "absolute", left: isPPT ? -50 : -48, top: isPPT ? 22 : 12,
-                          fontFamily: FONTS.mono, fontSize: 10, color: "#F59E0B",
+                          fontFamily: FONTS.mono, fontSize: 11, color: "#F59E0B",
                           background: "rgba(245,158,11,0.1)", padding: "1px 4px", borderRadius: 2,
                           whiteSpace: "nowrap",
                         }}>

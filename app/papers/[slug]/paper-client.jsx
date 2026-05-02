@@ -15,6 +15,7 @@ const CYAN = "#22D3EE";
 const MUTED = "rgba(255,255,255,0.35)";
 const BORDER = "rgba(255,255,255,0.1)";
 const DIM = "rgba(255,255,255,0.55)";
+const PERSONAL_VOICE_SLUGS = new Set(["hollow-win", "da-1", "ppt", "ppt-long-form"]);
 
 function splitZinger(text) {
   const match = text.match(/^(.+?(?:\$[\d.]+[BTM]?|[A-Z]{2,}|(?:Dr|Mr|Ms|St|vs|etc|e\.g|i\.e)\.)*[^.]*\.)\s+(.+)$/s);
@@ -85,7 +86,7 @@ function MCStatBox({ label, value, color }) {
       border: `1px solid ${BORDER}`, borderRadius: 4, textAlign: "center",
     }}>
       <div style={{ fontFamily: M, fontSize: 18, fontWeight: 700, color }}>{value || "TBD"}</div>
-      <div style={{ fontFamily: M, fontSize: 10, color: MUTED, letterSpacing: 1, marginTop: 4 }}>{label}</div>
+      <div style={{ fontFamily: M, fontSize: 11, color: MUTED, letterSpacing: 1, marginTop: 4 }}>{label}</div>
     </div>
   );
 }
@@ -99,9 +100,10 @@ function getTheoremBadgeColor(type) {
 
 function FullContent({ paper }) {
   const c = paper.content;
+  const showEpigraph = c.epigraph && PERSONAL_VOICE_SLUGS.has(paper.slug);
   return (
     <div style={{ paddingTop: 16 }}>
-      {c.epigraph && (
+      {showEpigraph && (
         <div style={{
           fontFamily: S, fontSize: 18, fontStyle: "italic", color: GOLD,
           padding: "16px 24px", marginBottom: 20,
@@ -140,7 +142,7 @@ function FullContent({ paper }) {
         }}>
           {c.theorem.formal}
         </div>
-        <div style={{ fontFamily: M, fontSize: 10, color: MUTED, letterSpacing: 1, marginBottom: 6 }}>PLAIN ENGLISH</div>
+        <div style={{ fontFamily: M, fontSize: 11, color: MUTED, letterSpacing: 1, marginBottom: 6 }}>PLAIN ENGLISH</div>
         <div style={{ fontFamily: S, fontSize: 16, color: TEXT, lineHeight: 1.8 }}>{c.theorem.plain}</div>
       </div>
 
@@ -192,19 +194,19 @@ function FullContent({ paper }) {
           <div style={{ fontFamily: M, fontSize: 11, color: GOLD, letterSpacing: 2, marginBottom: 10, marginTop: 20 }}>POLICY ANALYSIS</div>
           {c.policyAnalysis.currentFramework && (
             <div style={{ marginBottom: 14 }}>
-              <div style={{ fontFamily: M, fontSize: 10, color: MUTED, letterSpacing: 1, marginBottom: 6 }}>CURRENT FRAMEWORK</div>
+              <div style={{ fontFamily: M, fontSize: 11, color: MUTED, letterSpacing: 1, marginBottom: 6 }}>CURRENT FRAMEWORK</div>
               <div style={{ fontFamily: S, fontSize: 15, color: DIM, lineHeight: 1.7 }} dangerouslySetInnerHTML={{ __html: c.policyAnalysis.currentFramework }} />
             </div>
           )}
           {c.policyAnalysis.failures && (
             <div style={{ marginBottom: 14 }}>
-              <div style={{ fontFamily: M, fontSize: 10, color: MUTED, letterSpacing: 1, marginBottom: 6 }}>WHY IT FAILS</div>
+              <div style={{ fontFamily: M, fontSize: 11, color: MUTED, letterSpacing: 1, marginBottom: 6 }}>WHY IT FAILS</div>
               <div style={{ fontFamily: S, fontSize: 15, color: DIM, lineHeight: 1.7 }} dangerouslySetInnerHTML={{ __html: c.policyAnalysis.failures }} />
             </div>
           )}
           {c.policyAnalysis.reform && (
             <div style={{ marginBottom: 14 }}>
-              <div style={{ fontFamily: M, fontSize: 10, color: MUTED, letterSpacing: 1, marginBottom: 6 }}>REFORM PATHWAY</div>
+              <div style={{ fontFamily: M, fontSize: 11, color: MUTED, letterSpacing: 1, marginBottom: 6 }}>REFORM PATHWAY</div>
               <div style={{ fontFamily: S, fontSize: 15, color: DIM, lineHeight: 1.7 }} dangerouslySetInnerHTML={{ __html: c.policyAnalysis.reform }} />
             </div>
           )}
@@ -264,7 +266,7 @@ function FullContent({ paper }) {
       )}
 
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 16, paddingTop: 12, borderTop: `1px solid ${BORDER}` }}>
-        <LinkBadge label="SSRN" href={`https://papers.ssrn.com/sol3/papers.cfm?abstract_id=${paper.slug}`} />
+        <LinkBadge label="SSRN" href={paper.ssrnUrl} disabledNote="forthcoming" />
         {paper.type === "domain" && (
           <LinkBadge label="Simulation Repo" href={`https://github.com/epostnieks/sapm-mc-${paper.slug}`} />
         )}
@@ -298,7 +300,7 @@ function PlaceholderContent({ paper }) {
         <div style={{ fontFamily: M, fontSize: 12, color: DIM, marginBottom: 12 }}>Theorem: {paper.theoremName}</div>
       )}
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 12 }}>
-        <LinkBadge label="SSRN" href={`https://papers.ssrn.com/sol3/papers.cfm?abstract_id=${paper.slug}`} />
+        <LinkBadge label="SSRN" href={paper.ssrnUrl} disabledNote="forthcoming" />
         {paper.type === "domain" && (
           <LinkBadge label="Simulation Repo" href={`https://github.com/epostnieks/sapm-mc-${paper.slug}`} />
         )}
@@ -386,13 +388,13 @@ function AudiocastButton({ slug }) {
                   transition: "width 0.5s linear",
                 }} />
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", marginTop: 3, fontFamily: M, fontSize: 9, color: MUTED }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginTop: 3, fontFamily: M, fontSize: 11, color: MUTED }}>
                 <span>{fmt(ref.current?.currentTime)}</span>
                 <span>{loaded ? fmt(duration) : "~75 min"}</span>
               </div>
             </div>
             <a href={`/audio/${slug}.m4a`} download style={{
-              fontFamily: M, fontSize: 9, color: GOLD,
+              fontFamily: M, fontSize: 11, color: GOLD,
               padding: "4px 8px", background: "rgba(245,158,11,0.08)",
               border: `1px solid rgba(245,158,11,0.2)`, borderRadius: 3,
               textDecoration: "none", flexShrink: 0,
@@ -404,7 +406,18 @@ function AudiocastButton({ slug }) {
   );
 }
 
-function LinkBadge({ label, href }) {
+function LinkBadge({ label, href, disabledNote }) {
+  if (!href) {
+    return (
+      <span style={{
+        fontFamily: M, fontSize: 11, letterSpacing: 1, color: MUTED,
+        padding: "6px 14px", background: "rgba(255,255,255,0.03)",
+        border: `1px solid ${BORDER}`, borderRadius: 4,
+      }}>
+        {label}{disabledNote ? ` ${disabledNote}` : ""}
+      </span>
+    );
+  }
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" style={{
       fontFamily: M, fontSize: 11, letterSpacing: 1, color: GOLD,
@@ -451,7 +464,7 @@ export default function PaperPage({ slug }) {
           {/* Type badge + rank */}
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
             <span style={{
-              fontFamily: M, fontSize: 10, letterSpacing: 1, fontWeight: 700,
+              fontFamily: M, fontSize: 11, letterSpacing: 1, fontWeight: 700,
               color: badgeColor, background: badgeColor + "15",
               padding: "3px 10px", borderRadius: 3,
               border: `1px solid ${badgeColor}30`,
@@ -460,7 +473,7 @@ export default function PaperPage({ slug }) {
             </span>
             {rank > 0 && (
               <span style={{ fontFamily: M, fontSize: 11, color: MUTED }}>
-                #{rank} of 61 by \u03B2W
+                #{rank} of 59 by \u03B2W
               </span>
             )}
             <span style={{ fontFamily: M, fontSize: 11, color: MUTED }}>
@@ -508,7 +521,7 @@ export default function PaperPage({ slug }) {
                     <div style={{ fontFamily: S, fontSize: 14, color: TEXT, marginTop: 4, lineHeight: 1.4 }}>
                       {r.shortName || r.name}
                     </div>
-                    <div style={{ fontFamily: M, fontSize: 10, color: MUTED, marginTop: 4 }}>
+                    <div style={{ fontFamily: M, fontSize: 11, color: MUTED, marginTop: 4 }}>
                       {r.theoremType}
                     </div>
                   </a>

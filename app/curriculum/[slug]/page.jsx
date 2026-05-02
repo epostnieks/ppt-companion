@@ -15,7 +15,7 @@ export async function generateMetadata({ params }) {
     description: `Chapter ${ch.id} of the Private Pareto Theorem curriculum. ${ch.title}. Estimated reading time: ${ch.time}.`,
     openGraph: {
       title: `Ch. ${ch.id}: ${ch.title}`,
-      description: `Part of the 16-chapter Private Pareto Theorem Curriculum. ${ch.time} reading time.`,
+      description: `Part of the expanded Private Pareto Theorem curriculum. ${ch.time} reading time.`,
       type: "article",
       siteName: "Private Pareto Theorem — System Asset Pricing Model Program",
     },

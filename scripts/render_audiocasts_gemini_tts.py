@@ -61,8 +61,8 @@ DEEP_RESEARCH  = BASE / "deep-research/output"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
-VOICE_ALEX   = "Kore"    # Gemini female
-VOICE_JORDAN = "Charon"  # Gemini male
+VOICE_ALEX   = "Kore"    # Gemini female — consistently clear
+VOICE_JORDAN = "Puck"    # Gemini male — clearer than Charon which muffles
 SAMPLE_RATE  = 24000
 
 # ── SLUG LISTS ───────────────────────────────────────────────────
@@ -86,11 +86,28 @@ FOUNDATIONAL_SLUGS = [
     "fiscal-capture","postnieks-law","substitution-trap",
 ]
 DA_SLUGS = ["da-1","da-2","da-3","da-4","da-5"]
+ECONOMETRICA_SLUGS = ["ppt-econometrica","game-change-econometrica","da-econometrica"]
 OT_SLUGS = ["ot-da-chapter1","ot-da-chapter5","ot-da-chapter9"]
-ALL_SLUGS = DOMAIN_SLUGS + FOUNDATIONAL_SLUGS + DA_SLUGS + OT_SLUGS
+ALL_SLUGS = DOMAIN_SLUGS + FOUNDATIONAL_SLUGS + DA_SLUGS + ECONOMETRICA_SLUGS + OT_SLUGS
 
 # ── SOURCE RESOLUTION ────────────────────────────────────────────
 def find_source(slug: str) -> str:
+    # Econometrica paper source mapping
+    # Converted from actual Econometrica .docx via pandoc
+    econometrica_sources = {
+        "ppt-econometrica": BASE / "sapm-ppt" / "paper" / "ppt-econometrica.md",
+        "game-change-econometrica": BASE / "sapm-game-change" / "paper" / "game-change-econometrica.md",
+        "da-econometrica": BASE / "sapm-decision-accounting" / "paper" / "da-econometrica.md",
+    }
+    if slug in econometrica_sources:
+        p = econometrica_sources[slug]
+        if p.exists():
+            text = p.read_text(errors="ignore")
+            # DA econometrica is 877K — truncate to first 40K chars (covers core theorems)
+            if len(text) > 50000:
+                text = text[:40000]
+            return text
+
     candidates = [
         DEEP_RESEARCH / slug / f"{slug}-current.md",
         BASE / f"sapm-{slug}" / "paper" / f"{slug}-current.md",
@@ -167,7 +184,7 @@ Begin immediately with ALEX: — no preamble, no scratchpad in output, no markdo
 def _gemini_call(messages: list) -> str:
     resp = requests.post(DIALOGUE_URL, json={
         "contents": messages,
-        "generationConfig": {"maxOutputTokens": 65536, "temperature": 0.85},
+        "generationConfig": {"maxOutputTokens": 65536, "temperature": 0.75},
     }, timeout=600)
     resp.raise_for_status()
     return resp.json()["candidates"][0]["content"]["parts"][0]["text"]
@@ -182,24 +199,44 @@ def generate_dialogue(slug: str) -> str:
     if not content:
         raise RuntimeError(f"No source found for {slug}")
 
+    # Target: 6,000 words ≈ 40 minutes at ~150 wpm TTS rate
+    TARGET_WORDS = 6000
+    MIN_WORDS = 5500
+    MAX_WORDS = 6500
+
     prompt = f"""{SYSTEM_PROMPT}
 
 SOURCE PAPER:
 {content}
 
-Generate a complete 10,000-word long-form podcast dialogue between Alex and Jordan.
+Generate a 6,000-word podcast dialogue between Alex and Jordan — approximately 40 minutes spoken.
+Cover the most important findings, mechanisms, and implications. Be selective — depth over breadth.
 Begin immediately with ALEX: and alternate ALEX:/JORDAN: throughout."""
 
     messages = [{"role": "user", "parts": [{"text": prompt}]}]
     dialogue = _gemini_call(messages)
     word_count = len(dialogue.split())
 
+    # Continue if too short, but stop at 6500
     turn = 0
-    while word_count < 9000 and turn < 4:
+    while word_count < MIN_WORDS and turn < 3:
         turn += 1
-        tail = " ".join(dialogue.split()[-2000:])
-        cont = [{"role": "user", "parts": [{"text": f"Continue the dialogue from exactly where it left off. ALEX:/JORDAN: format. At least 3,000 more words.\n\n{tail}"}]}]
+        tail = " ".join(dialogue.split()[-1500:])
+        remaining = TARGET_WORDS - word_count
+        cont = [{"role": "user", "parts": [{"text": f"Continue the dialogue from exactly where it left off. ALEX:/JORDAN: format. About {remaining} more words, then wrap up naturally.\n\n{tail}"}]}]
         dialogue = dialogue.rstrip() + "\n" + _gemini_call(cont).lstrip()
+        word_count = len(dialogue.split())
+
+    # Truncate if over max — find a natural ALEX:/JORDAN: break near 6500 words
+    if word_count > MAX_WORDS:
+        words = dialogue.split()
+        truncated = " ".join(words[:MAX_WORDS])
+        # Find last complete speaker turn
+        last_alex = truncated.rfind("\nALEX:")
+        last_jordan = truncated.rfind("\nJORDAN:")
+        cut_point = max(last_alex, last_jordan)
+        if cut_point > len(truncated) // 2:
+            dialogue = truncated[:cut_point].rstrip()
         word_count = len(dialogue.split())
 
     # ── REWRITE PASS (podcastfy technique) ──────────────────────────
@@ -269,8 +306,9 @@ def clean_and_normalize(dialogue: str) -> list[str]:
     return [l for l in lines if l.split(": ", 1)[-1].strip()]
 
 # ── CHUNKING ─────────────────────────────────────────────────────
-def chunk_lines(lines: list[str], max_words: int = 600) -> list[str]:
-    """Group dialogue lines into ~max_words chunks for Gemini TTS API calls."""
+def chunk_lines(lines: list[str], max_words: int = 400) -> list[str]:
+    """Group dialogue lines into ~max_words chunks for Gemini TTS API calls.
+    400 words ≈ 2500 chars — voice swapping worsens above 3000 chars per Google's own docs."""
     chunks = []
     current = []
     current_words = 0
@@ -290,7 +328,18 @@ def chunk_lines(lines: list[str], max_words: int = 600) -> list[str]:
     return chunks
 
 # ── GEMINI TTS RENDERING ─────────────────────────────────────────
+def _normalize_audio(audio: np.ndarray, target_peak: float = 0.9) -> np.ndarray:
+    """Peak-normalize a chunk so all chunks play at consistent volume."""
+    peak = np.max(np.abs(audio))
+    if peak < 1e-6:
+        return audio
+    return audio * (target_peak / peak)
+
+
 def render_chunk(chunk_text: str) -> np.ndarray:
+    # NOTE: Do NOT add temperature or safetySettings to TTS calls.
+    # Tested 2026-04-21: the combination causes empty responses on longer text.
+    # Temperature and safety settings only work on dialogue generation calls.
     payload = {
         "contents": [{"parts": [{"text": chunk_text}]}],
         "generationConfig": {
@@ -316,32 +365,42 @@ def render_chunk(chunk_text: str) -> np.ndarray:
         }
     }
 
-    resp = requests.post(TTS_URL, json=payload, timeout=300)
+    resp = requests.post(TTS_URL, json=payload, timeout=600)
     resp.raise_for_status()
 
     data = resp.json()
-    part = data["candidates"][0]["content"]["parts"][0]
+    candidate = data["candidates"][0]
+
+    # Check for truncation — finishReason must be STOP
+    finish = candidate.get("finishReason", "STOP")
+    if finish != "STOP":
+        raise RuntimeError(f"TTS truncated: finishReason={finish}")
+
+    part = candidate["content"]["parts"][0]
     pcm_bytes = base64.b64decode(part["inlineData"]["data"])
     audio = np.frombuffer(pcm_bytes, dtype=np.int16).astype(np.float32) / 32768.0
+    audio = _normalize_audio(audio)
     return audio
 
-CHUNK_WORKERS = 30   # parallel TTS calls per paper — Google has capacity
+CHUNK_WORKERS = 5    # 3 was stable but slow (38hr total), 10 timed out, 5 is the balance
 
 def render_chunk_with_retry(args: tuple) -> tuple[int, np.ndarray]:
     """Render one chunk with retries. Returns (index, audio_array)."""
     i, chunk = args
-    for attempt in range(4):
+    for attempt in range(6):
         try:
             audio = render_chunk(chunk)
             return (i, audio)
         except Exception as e:
-            if attempt == 3:
+            if attempt == 5:
                 raise RuntimeError(f"chunk {i} failed: {e}")
-            time.sleep(2 ** attempt)
+            wait = min(2 ** attempt * 3, 60)  # 3, 6, 12, 24, 48 seconds
+            print(f"    chunk {i} attempt {attempt+1} failed ({e}), retrying in {wait}s...", flush=True)
+            time.sleep(wait)
 
 def render_dialogue_gemini(dialogue: str, output_path: Path, slug: str = "") -> None:
     lines  = clean_and_normalize(dialogue)
-    chunks = chunk_lines(lines, max_words=600)
+    chunks = chunk_lines(lines, max_words=400)
     total  = len(chunks)
     print(f"  [{slug}] {total} chunks → parallel TTS...", flush=True)
 
@@ -358,7 +417,17 @@ def render_dialogue_gemini(dialogue: str, output_path: Path, slug: str = "") -> 
     if not all_audio:
         raise RuntimeError("No audio rendered")
 
-    combined = np.concatenate(all_audio)
+    # Crossfade chunks at boundaries (20ms) to eliminate audible seams
+    crossfade_samples = int(SAMPLE_RATE * 0.02)  # 20ms at 24kHz = 480 samples
+    combined = all_audio[0]
+    for chunk_audio in all_audio[1:]:
+        if len(combined) >= crossfade_samples and len(chunk_audio) >= crossfade_samples:
+            fade_out = np.linspace(1.0, 0.0, crossfade_samples, dtype=np.float32)
+            fade_in  = np.linspace(0.0, 1.0, crossfade_samples, dtype=np.float32)
+            overlap = combined[-crossfade_samples:] * fade_out + chunk_audio[:crossfade_samples] * fade_in
+            combined = np.concatenate([combined[:-crossfade_samples], overlap, chunk_audio[crossfade_samples:]])
+        else:
+            combined = np.concatenate([combined, chunk_audio])
 
     with tempfile.TemporaryDirectory() as tmp:
         wav_path = os.path.join(tmp, "combined.wav")
@@ -373,7 +442,20 @@ def render_dialogue_gemini(dialogue: str, output_path: Path, slug: str = "") -> 
         if result.returncode != 0:
             raise RuntimeError(f"ffmpeg: {result.stderr.decode()[:500]}")
 
+    # Duration QC — target 40 min (35-45 acceptable)
+    duration_sec = len(combined) / SAMPLE_RATE
+    duration_min = duration_sec / 60
+    if duration_min < 35 or duration_min > 45:
+        print(f"  [{slug}] ⚠ DURATION QC FAIL: {duration_min:.1f} min (target 35-45)", flush=True)
+    else:
+        print(f"  [{slug}] ✓ Duration QC PASS: {duration_min:.1f} min", flush=True)
+
+    return duration_min
+
 # ── MAIN PIPELINE ─────────────────────────────────────────────────
+TARGET_DUR_MIN = 40
+DUR_TOLERANCE  = 5   # ±5 min → 35-45 acceptable
+
 def process_slug(slug: str, force: bool = False) -> dict:
     output = OUTPUT_DIR / f"{slug}.m4a"
     if output.exists() and not force:
@@ -383,11 +465,11 @@ def process_slug(slug: str, force: bool = False) -> dict:
         dialogue  = generate_dialogue(slug)
         words     = len(dialogue.split())
         print(f"  [{slug}] {words:,} words → Gemini TTS...")
-        render_dialogue_gemini(dialogue, output, slug=slug)
+        dur_min = render_dialogue_gemini(dialogue, output, slug=slug)
         size_mb = output.stat().st_size / 1024 / 1024
-        dur_min = size_mb * 8 / 0.128 / 60  # rough estimate from 128k AAC
-        print(f"  [{slug}] DONE — {size_mb:.1f} MB, ~{dur_min:.0f} min")
-        return {"id": slug, "status": "done", "words": words, "mb": size_mb}
+        print(f"  [{slug}] DONE — {size_mb:.1f} MB, {dur_min:.1f} min")
+        status = "done" if 35 <= dur_min <= 45 else f"done_but_{dur_min:.0f}min"
+        return {"id": slug, "status": status, "words": words, "mb": size_mb, "dur_min": dur_min}
     except Exception as e:
         print(f"  [{slug}] ERROR: {e}")
         return {"id": slug, "status": "error", "msg": str(e)}
@@ -428,7 +510,7 @@ if __name__ == "__main__":
 
     # Phase 2: render TTS for all papers in parallel (each paper parallelises its own chunks)
     print(f"\nPhase 2: rendering TTS ({sum(1 for v in dialogues.values() if v)} papers)...")
-    PAPER_WORKERS = 8
+    PAPER_WORKERS = 1   # sequential — parallel rendering degraded quality + rate limits
     results = []
 
     def _render_slug(slug: str) -> dict:
@@ -439,11 +521,11 @@ if __name__ == "__main__":
         if not dialogue:
             return {"id": slug, "status": "error", "msg": "no dialogue"}
         try:
-            render_dialogue_gemini(dialogue, output, slug=slug)
+            dur_min = render_dialogue_gemini(dialogue, output, slug=slug)
             size_mb = output.stat().st_size / 1024 / 1024
-            dur_min = size_mb * 8 / 0.128 / 60
-            print(f"  [{slug}] DONE — {size_mb:.1f} MB, ~{dur_min:.0f} min")
-            return {"id": slug, "status": "done", "words": len(dialogue.split()), "mb": size_mb}
+            print(f"  [{slug}] DONE — {size_mb:.1f} MB, {dur_min:.1f} min")
+            status = "done" if 35 <= dur_min <= 45 else f"done_but_{dur_min:.0f}min"
+            return {"id": slug, "status": status, "words": len(dialogue.split()), "mb": size_mb, "dur_min": dur_min}
         except Exception as e:
             print(f"  [{slug}] ERROR: {e}")
             return {"id": slug, "status": "error", "msg": str(e)}
@@ -453,12 +535,18 @@ if __name__ == "__main__":
         for fut in as_completed(futures):
             results.append(fut.result())
 
-    done    = [r for r in results if r["status"] == "done"]
+    done    = [r for r in results if "done" in r.get("status","")]
     skipped = [r for r in results if r["status"] == "skipped"]
     errors  = [r for r in results if r["status"] == "error"]
+    in_range = [r for r in done if r.get("dur_min") and 35 <= r["dur_min"] <= 45]
+    out_range = [r for r in done if r.get("dur_min") and not (35 <= r["dur_min"] <= 45)]
 
     print(f"\n{'='*60}")
-    print(f"DONE: {len(done)} | SKIPPED: {len(skipped)} | FAILED: {len(errors)}")
+    print(f"DONE: {len(done)} | IN RANGE (35-45m): {len(in_range)} | OUT OF RANGE: {len(out_range)} | SKIPPED: {len(skipped)} | FAILED: {len(errors)}")
+    if out_range:
+        print("\nDuration QC failures:")
+        for r in sorted(out_range, key=lambda x: x.get("dur_min",0)):
+            print(f"  {r['id']}: {r['dur_min']:.1f} min")
     if errors:
         print("\nErrors:")
         for r in errors:

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import COUNTRY_REGULATORS from "./countryRegulators";
+import CANONICAL_DOMAINS from "./data/domains";
 
 // ══════════════════════════════════════════════════════════════
 // POLICY LAB — Regulatory Triage & Intervention Playbook
@@ -15,15 +16,15 @@ const TEXT = "#F5F0E8";
 const GOLD = "#F59E0B";
 const RED = "#EF4444";
 const GREEN = "#22C55E";
-const MUTED = "rgba(255,255,255,0.35)";
+const MUTED = "#C8C8C8";
 const BORDER = "rgba(255,255,255,0.1)";
-const DIM = "rgba(255,255,255,0.55)";
+const DIM = "#C8C8C8";
 
 // ═══════════════════════════════════════════════════════════════
 // DATA PROVENANCE — POLICY LAB DOMAIN DATA
 // Source: CLAUDE.md canonical βW table (2026-04-12, revenue-basis)
 // Secondary: MC simulation repos (github.com/epostnieks/sapm-mc-{slug})
-// Policy statements: 61 domains × 6 agents × 190 countries = 69,540 entries
+// Policy statements: 59 market-failure domains × 6 agents × 190 countries = 67,260 entries
 // βW basis: Revenue (Iron Law: Π = annual industry revenue, NEVER profit)
 // MC parameters: N=10,000, seed=42, 3+ distribution types per domain
 // Last synced: 2026-04-12
@@ -31,7 +32,7 @@ const DIM = "rgba(255,255,255,0.55)";
 // ─── DOMAIN DATA (Monte Carlo calibrated, N=10,000, seed=42) ─────────
 const DOMAINS = [
   { name: "Weapons of Mass Destruction Capability Diffusion", beta: 21.92, welfCost: 1894, pi: 86.4, jurisdiction: ["Department of Defense (DOD)","State Dept.","National Security Council (NSC)","International Atomic Energy Agency (IAEA)","Chemical Weapons Convention (CWC) / Biological Weapons Convention (BWC)"], addressable: "low", urgency: "critical",
-    intervention: "Export-control modernization — Wassenaar Arrangement (international export controls) plus AI-specific annexes. Dual-use research oversight expansion. Mandatory capability disclosure for synthesis providers.",
+    intervention: "Candidate interventions discussed in the literature: (1) extending the Wassenaar Arrangement to cover AI-relevant dual-use technology; (2) institutional-review requirements for dual-use research at universities and national laboratories; (3) capability-disclosure incentives for synthesis providers, with liability carve-outs for those who report suspected misuse. No single intervention closes the capability-diffusion gap; combination approaches are the norm.",
     existing: ["Export Control Reform Act (2018)","Biological Weapons Convention","Chemical Weapons Convention","Wassenaar Arrangement"],
     gap: "Over 14,000 Forever Chemicals compounds exist. EPA has set enforceable limits for six. No enforceable international treaty covers autonomous weapons or AI-enabled bioweapon design. Dual-use AI models fall outside existing export control categories. The gap is not ignorance. It is architecture.",
     committee: { us: "Armed Services; Foreign Relations; Intelligence", eu: "Security & Defence; Foreign Affairs" } },
@@ -170,8 +171,8 @@ const DOMAINS = [
     existing: ["EU Markets in Crypto-Assets Regulation (MiCA, 2024)","SEC staking enforcement actions","CFTC digital commodity guidance"],
     gap: "Proof-of-Stake welfare costs are 97% lower than Proof-of-Work. β<sub>W</sub> = 3.14 — moderate. The primary risk is validator concentration, not energy. Not a priority domain. The system works when you compare it to proof of work.",
     committee: { us: "Financial Services; Agriculture (CFTC)", eu: "Economic Affairs" } },
-  { name: "Nuclear Fission", beta: 2.94, welfCost: 23, pi: 44, jurisdiction: ["Nuclear Regulatory Commission (NRC)","Department of Energy","International Atomic Energy Agency","EPA"], addressable: "high", urgency: "low",
-    intervention: "Licensing reform for advanced reactors. Spent fuel repository progress. Small modular reactor (SMR) deployment incentives. Nuclear has a two-beta architecture: the marginal beta (2.94) captures incremental waste accumulation costs. The barriers are regulatory and political, not welfare-economic.",
+  { name: "Nuclear Fission", beta: 0.54, welfCost: 23, pi: 44, jurisdiction: ["Nuclear Regulatory Commission (NRC)","Department of Energy","International Atomic Energy Agency","EPA"], addressable: "high", urgency: "low",
+    intervention: "Licensing reform for advanced reactors. Spent fuel repository progress. Small modular reactor (SMR) deployment incentives. Nuclear is a βW < 1 control/comparator. The barriers are regulatory and political, not welfare-economic.",
     existing: ["Nuclear Energy Innovation and Modernization Act (2019)","NRC advanced reactor licensing rulemaking (Part 53)","Inflation Reduction Act nuclear production tax credit","IAEA safeguards"],
     gap: "This is the one domain where the answer is 'get out of the way.' Nuclear Regulatory Commission licensing takes 5+ years. The waste problem is political, not technical — Yucca Mountain is an act of Congress, not an act of physics. Nuclear is net welfare-positive per dollar of output. The regulatory burden is the cost.",
     committee: { us: "Environment & Public Works; Energy & Natural Resources; Appropriations", eu: "Industry & Energy; Environment & Public Health" } },
@@ -274,7 +275,7 @@ const URGENCY_MAP = {
 const fmtBeta = (b) => b === null || b === undefined ? "—" : b >= 1000 ? b.toLocaleString() : String(b);
 
 const betaColor = (b) => {
-  if (b === null || b === undefined) return "rgba(255,255,255,0.35)";
+  if (b === null || b === undefined) return "#C8C8C8";
   if (b >= 10) return "#DC2626";
   if (b >= 6) return "#E85D3A";
   if (b >= 4) return "#F59E0B";
@@ -289,6 +290,24 @@ const TABS = [
   { id: "legislation", label: "Legislation" },
   { id: "howto", label: "How to Use This" },
 ];
+
+const CONTROL_DOMAIN_IDS = new Set(["nuclear", "gig-economy"]);
+
+const POLICY_DOMAINS = CANONICAL_DOMAINS
+  .filter((domain) => domain.policyLab && !CONTROL_DOMAIN_IDS.has(domain.id))
+  .map((domain) => ({
+    name: domain.name,
+    beta: domain.beta,
+    welfCost: domain.welfCost,
+    pi: domain.pi,
+    jurisdiction: domain.policyLab.jurisdiction || [],
+    addressable: domain.policyLab.addressable || "medium",
+    urgency: domain.policyLab.urgency || "medium",
+    intervention: domain.policyLab.intervention || "Policy pathway pending source package upgrade.",
+    existing: domain.policyLab.existing || [],
+    gap: domain.policyLab.gap || "Gap analysis pending source package upgrade.",
+    committee: domain.policyLab.committee || { us: "Pending", eu: "Pending" },
+  }));
 
 // ─── GLOBAL REGULATORS (expandable per-domain) ──────────────
 function GlobalRegulators({ domainName }) {
@@ -346,7 +365,7 @@ export default function PolicyLab() {
   const [filter, setFilter] = useState("all");
   const [sortBy, setSortBy] = useState("beta");
 
-  const sorted = [...DOMAINS].sort((a, b) => {
+  const sorted = [...POLICY_DOMAINS].sort((a, b) => {
     if (sortBy === "beta") return (b.beta || 0) - (a.beta || 0);
     if (sortBy === "addressable") {
       const order = { "very high": 4, "high": 3, "medium": 2, "low": 1 };
@@ -367,7 +386,7 @@ export default function PolicyLab() {
         <div style={{ paddingTop: 72, marginBottom: 32 }}>
           <div style={{ fontFamily: M, fontSize: 14, color: GOLD, letterSpacing: 3, marginBottom: 8 }}>POLICY LAB</div>
           <h1 style={{ fontFamily: S, fontSize: 32, fontWeight: 300, color: TEXT, margin: 0 }}>
-            Thirty-one domains. Every one of them is a Hollow Win.
+            Fifty-nine market-failure domains. Every one of them is a Hollow Win.
           </h1>
           <div style={{ fontFamily: S, fontSize: 20, color: DIM, marginTop: 12, lineHeight: 1.7, fontStyle: "italic" }}>
             The Private Pareto Theorem proves that bilateral negotiation cannot preserve system welfare. That is not a policy recommendation — it is a mathematical result. The policy recommendation follows from it: if no private mechanism can fix the problem, a public one must.
@@ -380,7 +399,7 @@ export default function PolicyLab() {
         {/* KEY INSIGHT */}
         <div style={{ padding: "20px 24px", background: "rgba(239,68,68,0.04)", border: `1px solid rgba(239,68,68,0.15)`, borderRadius: 4, marginBottom: 32 }}>
           <div style={{ fontFamily: S, fontSize: 20, color: TEXT, lineHeight: 1.8 }}>
-            Every domain in this table destroys more than $1 of system welfare per $1 of private gain. β<sub>W</sub> {">"} 1 across the board. The question is not whether to regulate. The question is which domains to regulate first — and the answer is printed in the numbers.
+            Every market-failure domain in this table has point-estimate β<sub>W</sub> {">"} 1: more than $1 of system welfare destruction per $1 of private gain. The question is not whether public institutions need a system-welfare channel. The question is which domains to prioritize first — and the answer is printed in the numbers.
           </div>
         </div>
 
@@ -427,10 +446,10 @@ export default function PolicyLab() {
             {/* Summary stats */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 12, marginBottom: 24 }}>
               {[
-                { label: "CRITICAL URGENCY", count: DOMAINS.filter(d => d.urgency === "critical").length, color: RED },
-                { label: "HIGH ADDRESSABILITY", count: DOMAINS.filter(d => d.addressable === "high" || d.addressable === "very high").length, color: GREEN },
-                { label: "βW > 10", count: DOMAINS.filter(d => d.beta !== null && d.beta >= 10).length, color: "#DC2626" },
-                { label: "TOTAL WELFARE COST", count: `$${Math.round(DOMAINS.reduce((s,d) => s + (d.welfCost || 0), 0) / 1000)}T/yr`, color: GOLD },
+                { label: "CRITICAL URGENCY", count: POLICY_DOMAINS.filter(d => d.urgency === "critical").length, color: RED },
+                { label: "HIGH ADDRESSABILITY", count: POLICY_DOMAINS.filter(d => d.addressable === "high" || d.addressable === "very high").length, color: GREEN },
+                { label: "βW > 10", count: POLICY_DOMAINS.filter(d => d.beta !== null && d.beta >= 10).length, color: "#DC2626" },
+                { label: "TOTAL WELFARE COST", count: `$${Math.round(POLICY_DOMAINS.reduce((s,d) => s + (d.welfCost || 0), 0) / 1000)}T/yr`, color: GOLD },
               ].map(s => (
                 <div key={s.label} style={{ padding: "12px 16px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>
                   <div style={{ fontFamily: M, fontSize: 13, color: MUTED, letterSpacing: 1 }}>{s.label}</div>
@@ -505,7 +524,7 @@ export default function PolicyLab() {
               Each playbook contains: the minimum sufficient intervention — the smallest regulatory action that breaks the Hollow Win dynamic, existing legislation that partially addresses the domain, and the specific gap that current law leaves open. The intervention is not the maximum. It is the minimum.
             </div>
 
-            {[...DOMAINS]
+            {[...POLICY_DOMAINS]
               .sort((a, b) => {
                 const uO = { critical: 4, high: 3, medium: 2, low: 1 };
                 const aO = { "very high": 4, high: 3, medium: 2, low: 1 };
@@ -558,13 +577,13 @@ export default function PolicyLab() {
 
             <div style={{ fontFamily: M, fontSize: 17, color: GOLD, letterSpacing: 2, marginBottom: 12, marginTop: 24 }}>US FEDERAL AGENCIES</div>
             {[
-              { agency: "EPA", full: "Environmental Protection Agency", domains: DOMAINS.filter(d => d.jurisdiction.includes("EPA")) },
-              { agency: "FTC", full: "Federal Trade Commission", domains: DOMAINS.filter(d => d.jurisdiction.includes("FTC")) },
-              { agency: "SEC", full: "Securities and Exchange Commission", domains: DOMAINS.filter(d => d.jurisdiction.includes("SEC")) },
-              { agency: "FDA", full: "Food and Drug Administration", domains: DOMAINS.filter(d => d.jurisdiction.some(j => j.startsWith("FDA"))) },
-              { agency: "DOJ", full: "Department of Justice", domains: DOMAINS.filter(d => d.jurisdiction.includes("DOJ")) },
-              { agency: "USDA", full: "Department of Agriculture", domains: DOMAINS.filter(d => d.jurisdiction.some(j => j.startsWith("USDA"))) },
-              { agency: "DOD", full: "Department of Defense", domains: DOMAINS.filter(d => d.jurisdiction.includes("DOD")) },
+              { agency: "EPA", full: "Environmental Protection Agency", domains: POLICY_DOMAINS.filter(d => d.jurisdiction.includes("EPA")) },
+              { agency: "FTC", full: "Federal Trade Commission", domains: POLICY_DOMAINS.filter(d => d.jurisdiction.includes("FTC")) },
+              { agency: "SEC", full: "Securities and Exchange Commission", domains: POLICY_DOMAINS.filter(d => d.jurisdiction.includes("SEC")) },
+              { agency: "FDA", full: "Food and Drug Administration", domains: POLICY_DOMAINS.filter(d => d.jurisdiction.some(j => j.startsWith("FDA"))) },
+              { agency: "DOJ", full: "Department of Justice", domains: POLICY_DOMAINS.filter(d => d.jurisdiction.includes("DOJ")) },
+              { agency: "USDA", full: "Department of Agriculture", domains: POLICY_DOMAINS.filter(d => d.jurisdiction.some(j => j.startsWith("USDA"))) },
+              { agency: "DOD", full: "Department of Defense", domains: POLICY_DOMAINS.filter(d => d.jurisdiction.includes("DOD")) },
             ].filter(a => a.domains.length > 0).map(a => (
               <div key={a.agency} style={{ marginBottom: 12, padding: "12px 16px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -587,7 +606,7 @@ export default function PolicyLab() {
             <div style={{ fontFamily: M, fontSize: 17, color: GOLD, letterSpacing: 2, marginBottom: 12, marginTop: 32 }}>CONGRESSIONAL COMMITTEES — DOMAIN EXPOSURE</div>
             {(() => {
               const committees = {};
-              DOMAINS.forEach(d => {
+                POLICY_DOMAINS.forEach(d => {
                 d.committee.us.split(";").map(c => c.trim()).forEach(c => {
                   if (!committees[c]) committees[c] = [];
                   committees[c].push(d);
@@ -599,7 +618,7 @@ export default function PolicyLab() {
                   <div key={name} style={{ display: "flex", alignItems: "center", gap: 12, padding: "8px 16px", borderBottom: `1px solid ${BORDER}` }}>
                     <span style={{ fontFamily: M, fontSize: 15, color: TEXT, width: 280 }}>{name}</span>
                     <div style={{ flex: 1, height: 16, background: "rgba(255,255,255,0.03)", borderRadius: 2, overflow: "hidden" }}>
-                      <div style={{ width: `${(domains.length / DOMAINS.length) * 100}%`, height: "100%", background: `rgba(245,158,11,${0.15 + domains.length * 0.03})`, borderRadius: 2 }} />
+                      <div style={{ width: `${(domains.length / POLICY_DOMAINS.length) * 100}%`, height: "100%", background: `rgba(245,158,11,${0.15 + domains.length * 0.03})`, borderRadius: 2 }} />
                     </div>
                     <span style={{ fontFamily: M, fontSize: 14, color: GOLD, width: 30, textAlign: "right" }}>{domains.length}</span>
                   </div>
@@ -610,7 +629,7 @@ export default function PolicyLab() {
             <div style={{ fontFamily: S, fontSize: 17, color: DIM, lineHeight: 1.8, marginBottom: 16 }}>
               Every domain below maps the responsible regulatory body in each country where the domain applies. Click any domain to see who owns it — everywhere.
             </div>
-            {DOMAINS.map(d => (
+            {POLICY_DOMAINS.map(d => (
               <div key={d.name} style={{ marginBottom: 4, padding: "6px 0", borderBottom: `1px solid ${BORDER}`, display: "flex", alignItems: "center", gap: 12 }}>
                 <span style={{ fontFamily: M, fontSize: 14, color: TEXT, width: 280, flexShrink: 0 }}>{d.name}</span>
                 <span style={{ fontFamily: M, fontSize: 13, color: betaColor(d.beta) }}>β<sub>W</sub>={fmtBeta(d.beta)}</span>
@@ -629,7 +648,7 @@ export default function PolicyLab() {
               </div>
             </div>
 
-            {DOMAINS.map(d => (
+            {POLICY_DOMAINS.map(d => (
               <div key={d.name} style={{ marginBottom: 2, padding: "12px 16px", background: SURFACE, borderLeft: `3px solid ${betaColor(d.beta)}` }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
                   <span style={{ fontFamily: M, fontSize: 15, color: TEXT }}>{d.name}</span>
@@ -656,7 +675,7 @@ export default function PolicyLab() {
         {tab === "howto" && (
           <div>
             <div style={{ fontFamily: S, fontSize: 20, color: TEXT, lineHeight: 1.8, marginBottom: 24 }}>
-              This tool prints the number. β<sub>W</sub> tells you how many dollars of system welfare are destroyed per dollar of private gain. The triage table sorts by that number. The playbooks tell you what to do about it. Here is who you are and what you need.
+              This tool prints the number. β<sub>W</sub> tells you how many dollars of system welfare are destroyed per dollar of revenue. The triage table sorts by that number. The playbooks tell you what to do about it. Here is who you are and what you need.
             </div>
 
             {[
@@ -666,7 +685,7 @@ export default function PolicyLab() {
                   "Sort by Urgency — five domains are classified CRITICAL. They are not waiting for you.",
                   "Sort by Addressability — Pharmacy Benefit Management, Algorithmic Pricing, Ultra-Processed Food, and Gambling are VERY HIGH or HIGH addressability. Maximum impact per unit of political capital.",
                   "The Playbooks tab has intervention language and the existing legislation your bill would amend.",
-                  "βW is the number you use in committee testimony. 'This sector destroys $6.58 of system welfare per dollar of private gain.' That is not rhetoric. It is a Monte Carlo estimate with 10,000 draws.",
+                  "βW is the number you use in committee testimony. 'This sector destroys $6.58 of system welfare per dollar of revenue.' That is not rhetoric. It is a Monte Carlo estimate with 10,000 draws.",
                 ]},
               { who: "FEDERAL AGENCY STAFF (EPA, FTC, SEC, FDA)",
                 steps: [
@@ -692,7 +711,7 @@ export default function PolicyLab() {
                 steps: [
                   "Orbital Debris, Weapons of Mass Destruction Diffusion, Gene Drives, and Fisheries (climate forcing) — these cannot be addressed at the national level. The commons is global. The governance must be.",
                   "The Montreal Protocol is the model. Universal participation, binding targets, trade sanctions for non-compliance, dedicated funding mechanism. It worked for ozone. The architecture is transferable.",
-                  "The welfare beta is the argument for treaty prioritization. Higher beta means the commons is being destroyed faster per dollar of private gain. Firearms is 50.99. Weapons of Mass Destruction is 21.92. Opioids are 14.96. The numbers do the work.",
+                  "The welfare beta is the argument for treaty prioritization. Higher beta means the commons is being destroyed faster per dollar of revenue. Firearms is 50.99. Weapons of Mass Destruction is 21.92. Opioids are 14.96. The numbers do the work.",
                 ]},
             ].map(section => (
               <div key={section.who} style={{ marginBottom: 20, padding: "20px 24px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>

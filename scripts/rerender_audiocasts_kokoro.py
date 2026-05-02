@@ -3,8 +3,8 @@
 Re-render all audiocasts using Kokoro TTS instead of macOS `say`.
 
 Voices:
-  Alex (female host):  af_heart   — warmest, most expressive
-  Jordan (male host):  am_michael — smoothest male voice
+  Alex (female host):  bf_emma    — British female, clear and professional
+  Jordan (male host):  bm_george  — British male, deep and authoritative
 
 Dialogue is regenerated via Gemini (cached to scripts/dialogue_cache/{slug}.txt
 on first run — subsequent runs reuse cache, zero Gemini cost).
@@ -31,12 +31,12 @@ except ImportError:
 
 # ── CONFIG ──────────────────────────────────────────────────────
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-GEMINI_MODEL   = "gemini-3.1-pro-preview"
+GEMINI_MODEL   = "gemini-3-flash-preview"
 GEMINI_URL     = (f"https://generativelanguage.googleapis.com/v1beta/models/"
                   f"{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}")
 
 BASE           = Path("/Users/erikpostnieks/Projects")
-OUTPUT_DIR     = BASE / "ppt-companion/public/audio"
+OUTPUT_DIR     = BASE / "ppt-companion/out/audio-british"
 CACHE_DIR      = BASE / "ppt-companion/scripts/dialogue_cache"
 PAPER_DATA_DIR = BASE / "ppt-companion/src/paperData"
 DEEP_RESEARCH  = BASE / "deep-research/output"
@@ -44,8 +44,8 @@ DEEP_RESEARCH  = BASE / "deep-research/output"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
-VOICE_ALEX   = "af_heart"    # female — Alex
-VOICE_JORDAN = "am_michael"  # male   — Jordan
+VOICE_ALEX   = "bf_emma"     # British female — Alex
+VOICE_JORDAN = "bm_george"   # British male   — Jordan
 
 # ── PAPER SLUGS (all 75) ─────────────────────────────────────────
 DOMAIN_SLUGS = [
@@ -67,7 +67,7 @@ FOUNDATIONAL_SLUGS = [
     "ppt","hollow-win","conflictoring","reform-dividend","disclosure-futility",
     "fiscal-capture","postnieks-law","substitution-trap",
 ]
-DA_SLUGS = ["da-1","da-2","da-3","da-4"]
+DA_SLUGS = ["da-1","da-2","da-3","da-4","da-5"]
 OT_SLUGS = ["ot-da-chapter1","ot-da-chapter5","ot-da-chapter9"]
 ALL_SLUGS = DOMAIN_SLUGS + FOUNDATIONAL_SLUGS + DA_SLUGS + OT_SLUGS
 
@@ -90,7 +90,7 @@ def find_source(slug: str) -> str:
         if c and c.exists():
             text = c.read_text(errors="ignore")
             if len(text) > 5000:
-                return text[:120000]
+                return text
     # Fallback: paperData JSON
     for f in PAPER_DATA_DIR.rglob("*.js"):
         content = f.read_text(errors="ignore")
@@ -104,8 +104,17 @@ Alex (female, curious, asks probing questions) and Jordan (male, analytical, dri
 Natural banter: interruptions, "Right—", "Exactly, and—", "Wait, hold on—", "That's the key point".
 Go deep on the data, mechanisms, implications. ~10,000 words. No truncation."""
 
+def _gemini_call(messages: list) -> str:
+    """Single Gemini API call, returns text."""
+    resp = requests.post(GEMINI_URL, json={
+        "contents": messages,
+        "generationConfig": {"maxOutputTokens": 65536, "temperature": 0.85},
+    }, timeout=600)
+    resp.raise_for_status()
+    return resp.json()["candidates"][0]["content"]["parts"][0]["text"]
+
 def generate_dialogue(slug: str, content: str) -> str:
-    """Generate dialogue via Gemini or load from cache."""
+    """Generate dialogue via Gemini (multi-turn until ~10,000 words) or load from cache."""
     cache_file = CACHE_DIR / f"{slug}.txt"
     if cache_file.exists() and cache_file.stat().st_size > 5000:
         return cache_file.read_text()
@@ -113,7 +122,7 @@ def generate_dialogue(slug: str, content: str) -> str:
     if not GEMINI_API_KEY:
         raise RuntimeError("GEMINI_API_KEY not set and no cached dialogue found")
 
-    prompt = f"""{SYSTEM_PROMPT}
+    initial_prompt = f"""{SYSTEM_PROMPT}
 
 SOURCE PAPER:
 {content}
@@ -121,13 +130,25 @@ SOURCE PAPER:
 Generate a complete 10,000-word long-form podcast dialogue between Alex and Jordan.
 Begin immediately with ALEX: and alternate ALEX:/JORDAN: throughout."""
 
-    resp = requests.post(GEMINI_URL, json={
-        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-        "generationConfig": {"maxOutputTokens": 16384, "temperature": 0.85},
-    }, timeout=120)
-    resp.raise_for_status()
-    data = resp.json()
-    dialogue = data["candidates"][0]["content"]["parts"][0]["text"]
+    messages = [{"role": "user", "parts": [{"text": initial_prompt}]}]
+    dialogue = _gemini_call(messages)
+    word_count = len(dialogue.split())
+
+    # Continue until we reach 9,000+ words (allow for variation)
+    # Use a slim context for continuations — just the tail of the dialogue, not the full source
+    turn = 0
+    while word_count < 9000 and turn < 4:
+        turn += 1
+        print(f"    [{slug}] {word_count:,} words so far, continuing (turn {turn})...")
+        # Send only the last ~2000 words of dialogue as context to keep payload small
+        tail = " ".join(dialogue.split()[-2000:])
+        continuation_messages = [
+            {"role": "user", "parts": [{"text": f"You are continuing a podcast dialogue between Alex and Jordan. Here is where it left off:\n\n{tail}\n\nContinue the dialogue from exactly where it left off. Do not repeat anything. Keep the same ALEX:/JORDAN: format. Write at least 3,000 more words."}]},
+        ]
+        continuation = _gemini_call(continuation_messages)
+        dialogue = dialogue.rstrip() + "\n" + continuation.lstrip()
+        word_count = len(dialogue.split())
+
     cache_file.write_text(dialogue)
     return dialogue
 
@@ -200,7 +221,7 @@ def render_segments_kokoro(segments: list[tuple[str, str]], output_path: Path) -
             if not sentence.strip():
                 continue
             try:
-                for _, _, audio in pipeline(sentence, voice=voice, speed=1.0):
+                for _, _, audio in pipeline(sentence, voice=voice, speed=1.45):
                     seg_audio.append(audio)
                     break  # one segment per sentence
             except Exception as e:

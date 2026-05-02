@@ -77,7 +77,7 @@ export default function ChapterPage({ slug }) {
               padding: "10px 16px", border: `1px solid ${BORDER}`, borderRadius: 4,
               flex: 1, maxWidth: "45%",
             }}>
-              <div style={{ color: MUTED, fontSize: 10, marginBottom: 4 }}>{"\u2190"} PREVIOUS</div>
+              <div style={{ color: MUTED, fontSize: 11, marginBottom: 4 }}>{"\u2190"} PREVIOUS</div>
               <div style={{ color: TEXT }}>Ch. {prev.id}: {prev.title}</div>
             </a>
           ) : <div />}
@@ -87,7 +87,7 @@ export default function ChapterPage({ slug }) {
               padding: "10px 16px", border: `1px solid ${BORDER}`, borderRadius: 4,
               flex: 1, maxWidth: "45%", textAlign: "right",
             }}>
-              <div style={{ color: MUTED, fontSize: 10, marginBottom: 4 }}>NEXT {"\u2192"}</div>
+              <div style={{ color: MUTED, fontSize: 11, marginBottom: 4 }}>NEXT {"\u2192"}</div>
               <div style={{ color: TEXT }}>Ch. {next.id}: {next.title}</div>
             </a>
           ) : <div />}

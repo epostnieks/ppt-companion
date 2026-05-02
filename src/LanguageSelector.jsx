@@ -8,7 +8,7 @@ const GOLD = "#F59E0B";
 const SURFACE = "#1A1A1A";
 const BORDER = "rgba(255,255,255,0.1)";
 const TEXT = "#F5F0E8";
-const MUTED = "rgba(255,255,255,0.35)";
+const MUTED = "#C8C8C8";
 
 export default function LanguageSelector() {
   const { i18n } = useTranslation();

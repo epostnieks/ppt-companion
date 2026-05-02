@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Tip } from "./Glossary";
 
 // ══════════════════════════════════════════════════════════════
-// EXECUTIVE BRIEF — Is Your Company in a Hollow Win?
+// EXECUTIVE BRIEF — Sector-Level Hollow Win Exposure
 // Erik Postnieks © 2026
 // ══════════════════════════════════════════════════════════════
 
@@ -15,12 +15,12 @@ const TEXT = "#F5F0E8";
 const GOLD = "#F59E0B";
 const RED = "#EF4444";
 const GREEN = "#22C55E";
-const MUTED = "rgba(255,255,255,0.35)";
+const MUTED = "#C8C8C8";
 const BORDER = "rgba(255,255,255,0.1)";
-const DIM = "rgba(255,255,255,0.55)";
+const DIM = "#C8C8C8";
 
 const betaColor = (b) => {
-  if (b === null || b === undefined) return "rgba(255,255,255,0.35)";
+  if (b === null || b === undefined) return "#C8C8C8";
   if (b >= 10) return "#DC2626";
   if (b >= 6) return "#E85D3A";
   if (b >= 4) return "#F59E0B";
@@ -38,7 +38,7 @@ const SECTORS = [
   ]},
   { sector: "Technology & Platforms", domains: [
     { name: "Big Tech Platform Monopoly", beta: 7.81, revenue: "$128B (Big Tech revenue)", risk: "Department of Justice (DOJ) v. Google. Federal Trade Commission (FTC) v. Meta. EU Digital Markets Act (DMA) enforcement. Structural separation. The EU moved first. The US litigation is years from resolution.", timeline: "2–5 years" },
-    { name: "Frontier AI", beta: 7.51, revenue: "$30B (AI infrastructure + services)", risk: "No US federal AI legislation. Executive order is revocable. EU AI Act does not address frontier capability scaling. Alignment problem unsolved while capability scaling continues. Voluntary commitments are unenforceable. The race is on and the referee has no whistle.", timeline: "1–3 years" },
+    { name: "Frontier AI", beta: 7.51, revenue: "$30B (AI infrastructure + services)", risk: "No US federal AI statute. Executive orders are revocable. EU AI Act (2024) addresses certain high-risk applications but does not constrain frontier capability scaling. Industry voluntary commitments lack enforcement mechanisms. International coordination is nascent.", timeline: "1–3 years" },
     { name: "Algorithmic Pricing", beta: 5.38, revenue: "$40B (rental pricing software)", risk: "DOJ v. RealPage. Machine-learning pricing algorithms reach supracompetitive equilibria (prices higher than any competitive market would produce) without communication. The Sherman Antitrust Act §1 requires 'agreement.' The algorithms don't agree — they converge.", timeline: "1–3 years" },
     { name: "Gig Economy Platforms", beta: 0.76, revenue: "$45B (gig platform revenue)", risk: "EU Platform Work Directive passed. Federal classification reform coming. The platform decides the dispatch, the price, and the deactivation. The worker does not know why.", timeline: "2–4 years" },
     { name: "Social Media & Youth Mental Health", beta: 5.79, revenue: "$68B (social media advertising)", risk: "Engagement optimization algorithms structurally maximize dopaminergic response without regard to user welfare. Internal research suppressed. Kids Online Safety Act (KOSA) advancing. The algorithm does not know the user is fourteen.", timeline: "1–3 years" },
@@ -48,7 +48,7 @@ const SECTORS = [
     { name: "Coal Combustion", beta: 6.95, revenue: "$990B (global coal revenue)", risk: "Phase-out acceleration. Insurance withdrawal. Carbon pricing trajectory. The question is not whether coal ends — it is how much T* is left.", timeline: "5–10 years" },
     { name: "Deep-Sea Mining", beta: 6.90, revenue: "$5B (polymetallic nodules)", risk: "32 countries calling for moratorium. International Seabed Authority Mining Code not finalized. Nodules form at 10–20 mm per million years. There is no sustainable harvest rate.", timeline: "3–7 years" },
     { name: "Bitcoin Proof-of-Work (PoW) Mining", beta: 5.00, revenue: "$42B (mining rewards)", risk: "Energy disclosure mandates. Carbon fee on computation. The Protocol Welfare Floor guarantees βW ≥ 1.0 — regulation can reduce the beta but cannot eliminate it.", timeline: "3–5 years" },
-    { name: "Nuclear Fission", beta: 2.94, revenue: "$44B (global nuclear power)", risk: "Two-beta architecture: marginal beta captures the incremental welfare cost of nuclear waste accumulation per dollar of revenue. Barriers are regulatory and political. Licensing reform for advanced reactors and SMRs is the intervention.", timeline: "Opportunity" },
+    { name: "Nuclear Fission", beta: 0.54, revenue: "$44B (global nuclear power)", risk: "βW < 1 control/comparator. Barriers are regulatory and political. Licensing reform for advanced reactors and SMRs is the intervention.", timeline: "Opportunity" },
     { name: "Mining & Rare Earth Extraction", beta: 11.15, revenue: "$150B (global mining revenue)", risk: "Tailings dam failures. Acid mine drainage persists for centuries. Rare earth processing generates radioactive thorium waste. The energy transition requires the minerals. The extraction destroys the communities.", timeline: "3–7 years" },
     { name: "Groundwater / Ogallala Aquifer", beta: 3.46, revenue: "$15B (irrigated agriculture revenue)", risk: "Recharge rate: 0.5 inches/year. Extraction rate: 12+ inches/year. The Ogallala took 10 million years to fill. Kansas will exhaust its share in 25 years. The aquifer is not renewable on any human timescale.", timeline: "Active" },
   ]},
@@ -69,7 +69,7 @@ const SECTORS = [
     { name: "Insurance & Climate Risk Mispricing", beta: 4.57, revenue: "$90B (P&C insurance revenue)", risk: "Fat-tail climate risk cannot be priced by historical loss models. Insurers withdrawing from California, Florida, Louisiana. The market that prices risk is leaving the places where risk is highest. The remaining exposure is socialized.", timeline: "Active" },
     { name: "Stablecoins & Shadow Banking", beta: 2.53, revenue: "$56B (stablecoin issuer revenue)", risk: "Reserve opacity. Tether audit still incomplete. $130B+ in tokens backed by undisclosed commercial paper and Treasury holdings. The peg holds until it doesn't. The run happens in minutes, not days.", timeline: "1–3 years" },
     { name: "Sovereign Debt & Intergenerational Extraction", beta: 4.67, revenue: "$35B (debt service extraction)", risk: "Vulture fund litigation against sovereign restructuring. Argentina, Sri Lanka, Zambia — the pattern repeats. Debt contracted by one generation, serviced by the next. The borrower and the payer are not the same person.", timeline: "Ongoing" },
-    { name: "Financial Benchmark Manipulation", beta: 5.13, revenue: "$3.2B (trading desk revenues)", risk: "Self-referential benchmark: the banks setting the rate were the banks trading on it. $350T in contracts mispriced. Replaced by the Secured Overnight Financing Rate (SOFR) but the structural vulnerability — self-reported benchmarks — persists in other markets.", timeline: "Partially resolved" },
+    { name: "FX-Fixing Benchmark Governance", beta: 5.13, revenue: "$3.2B (dealer fixing extraction)", risk: "The active benchmark problem is FX-Fixing. LIBOR was structurally migrated to SOFR; the WM/Reuters 4pm FX Fix still governs asset valuation while dealer order-flow advantage, index embedding, and fiduciary tracking-error constraints preserve the trap.", timeline: "Active" },
   ]},
   { sector: "Chemicals & Materials", domains: [
     { name: "Forever Chemicals (PFAS)", beta: 5.31, revenue: "$187B (Forever Chemicals-using industries)", risk: "Comprehensive Environmental Response, Compensation, and Liability Act (CERCLA) strict liability. Class-wide production ban advancing in EU. Remediation costs projected at $100B+. The carbon-fluorine bond has never lost an arbitration.", timeline: "Active" },
@@ -131,14 +131,14 @@ const CALC_DOMAINS = [
   { name: "Tax Havens", beta: 6.27 }, { name: "Persistent Organic Pollutants", beta: 6.23 }, { name: "Data Brokerage", beta: 6.13 },
   { name: "Antimicrobial Resistance", beta: 5.84 }, { name: "Social Media", beta: 5.79 }, { name: "Gene Drives", beta: 5.77 },
   { name: "Water Privatization", beta: 5.61 }, { name: "Algorithmic Pricing", beta: 5.38 }, { name: "Forever Chemicals (PFAS)", beta: 5.31 },
-  { name: "PE Healthcare", beta: 5.24 }, { name: "Benchmark Rate/FX", beta: 5.13 }, { name: "Bitcoin PoW", beta: 5.00 },
+  { name: "PE Healthcare", beta: 5.24 }, { name: "FX-Fixing", beta: 5.13 }, { name: "Bitcoin PoW", beta: 5.00 },
   { name: "Aviation", beta: 4.97 }, { name: "Defense Procurement", beta: 4.88 }, { name: "Orbital Debris", beta: 4.82 },
   { name: "Fisheries", beta: 4.70 }, { name: "Sovereign Debt", beta: 4.67 }, { name: "Insurance Climate", beta: 4.57 },
   { name: "Topsoil", beta: 4.41 }, { name: "Ultra-Processed Food", beta: 4.06 }, { name: "Groundwater", beta: 3.46 },
-  { name: "Proof-of-Stake", beta: 3.14 }, { name: "Nuclear", beta: 2.94 }, { name: "Arms Exports", beta: 2.54 },
+  { name: "Proof-of-Stake", beta: 3.14 }, { name: "Arms Exports", beta: 2.54 },
   { name: "Stablecoins", beta: 2.53 }, { name: "Private Military", beta: 2.06 }, { name: "Oil & Gas", beta: 1.63 },
   { name: "Shipping", beta: 1.34 }, { name: "Alcohol", beta: 1.33 }, { name: "Factory Farming", beta: 1.02 },
-  { name: "Gig Economy", beta: 0.76 },
+  { name: "Gig Economy", beta: 0.76 }, { name: "Nuclear", beta: 0.54 },
 ];
 
 const TABS = [
@@ -186,7 +186,7 @@ export default function ExecutiveBrief() {
         <div style={{ paddingTop: 72, marginBottom: 32 }}>
           <div style={{ fontFamily: M, fontSize: 14, color: GOLD, letterSpacing: 3, marginBottom: 8 }}>EXECUTIVE BRIEF</div>
           <h1 style={{ fontFamily: S, fontSize: 32, fontWeight: 300, color: TEXT, margin: 0 }}>
-            Is Your Company in a <Tip term="Hollow Win">Hollow Win</Tip>?
+            Sector-Level <Tip term="Hollow Win">Hollow Win</Tip> Exposure
           </h1>
           <div style={{ fontFamily: S, fontSize: 20, color: DIM, marginTop: 12, lineHeight: 1.7, fontStyle: "italic" }}>
             Your P&L says you are winning. Your share price says you are winning. The system you are built on is collapsing. By the time the collapse reaches your balance sheet, the adjustment is not gradual. It is discontinuous.
@@ -265,6 +265,11 @@ export default function ExecutiveBrief() {
         {/* ═══ SECTOR EXPOSURE ═══ */}
         {tab === "exposure" && (
           <div>
+            <div style={{ padding: "14px 18px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4, marginBottom: 16 }}>
+              <div style={{ fontFamily: S, fontSize: 16, color: DIM, lineHeight: 1.7 }}>
+                Domains are ordered by posterior-mean welfare-beta (β<sub>W</sub> = &Delta;W / &Pi;, revenue-denominated) from the 59-market-failure-domain-plus-controls Monte Carlo panel. The ranking is by magnitude of welfare destruction per dollar of industry revenue &mdash; not by policy priority, moral weight, or urgency of reform. Ninety-percent confidence intervals are reported in each individual domain paper; posterior means are estimated from 10,000 draws under three distributional families (seed 42).
+              </div>
+            </div>
             {SECTORS.map((s, si) => (
               <div key={s.sector} style={{ marginBottom: 16 }}>
                 <div
@@ -373,19 +378,19 @@ export default function ExecutiveBrief() {
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12 }}>
                     <div style={{ textAlign: "center" }}>
                       <div style={{ fontFamily: M, fontSize: 24, fontWeight: 700, color: weightedBeta >= 4 ? RED : GOLD }}>{weightedBeta.toFixed(2)}</div>
-                      <div style={{ fontFamily: M, fontSize: 10, color: MUTED, letterSpacing: 1 }}>WEIGHTED βW</div>
+                      <div style={{ fontFamily: M, fontSize: 11, color: MUTED, letterSpacing: 1 }}>WEIGHTED βW</div>
                     </div>
                     <div style={{ textAlign: "center" }}>
                       <div style={{ fontFamily: M, fontSize: 24, fontWeight: 700, color: TEXT }}>${totalRevenue.toLocaleString()}M</div>
-                      <div style={{ fontFamily: M, fontSize: 10, color: MUTED, letterSpacing: 1 }}>TOTAL REVENUE</div>
+                      <div style={{ fontFamily: M, fontSize: 11, color: MUTED, letterSpacing: 1 }}>TOTAL REVENUE</div>
                     </div>
                     <div style={{ textAlign: "center" }}>
                       <div style={{ fontFamily: M, fontSize: 24, fontWeight: 700, color: RED }}>${totalWelfareCost.toLocaleString()}M</div>
-                      <div style={{ fontFamily: M, fontSize: 10, color: MUTED, letterSpacing: 1 }}>WELFARE COST</div>
+                      <div style={{ fontFamily: M, fontSize: 11, color: MUTED, letterSpacing: 1 }}>WELFARE COST</div>
                     </div>
                     <div style={{ textAlign: "center" }}>
                       <div style={{ fontFamily: M, fontSize: 24, fontWeight: 700, color: overallRisk === "GREEN" ? GREEN : overallRisk === "AMBER" ? GOLD : RED }}>{overallRisk}</div>
-                      <div style={{ fontFamily: M, fontSize: 10, color: MUTED, letterSpacing: 1 }}>RISK CLASS</div>
+                      <div style={{ fontFamily: M, fontSize: 11, color: MUTED, letterSpacing: 1 }}>RISK CLASS</div>
                     </div>
                   </div>
                 </div>

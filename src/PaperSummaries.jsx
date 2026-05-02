@@ -5,7 +5,7 @@ import DOMAINS from "./data/domains";
 import { GENERATED_CONTENT } from "./generatedPaperContent";
 
 // ══════════════════════════════════════════════════════════════
-// PAPER SUMMARIES — College-Level Summaries of All 75 Papers
+// PAPER SUMMARIES — College-Level Summaries of the Ranked Corpus
 // Erik Postnieks © 2026
 // ══════════════════════════════════════════════════════════════
 
@@ -21,6 +21,7 @@ const CYAN = "#22D3EE";
 const MUTED = "#C8C8C8";
 const BORDER = "rgba(255,255,255,0.1)";
 const DIM = "#C8C8C8";
+const PERSONAL_VOICE_SLUGS = new Set(["hollow-win", "da-1", "ppt", "ppt-long-form"]);
 
 function getTheoremBadgeColor(type) {
   if (type === "Impossibility") return RED;
@@ -58,7 +59,7 @@ export const PAPER_CONTENT = {
       { q: "Why is the firearms βW so much higher than any other domain?", a: "Because the denominator (Π = $10B annual revenue) is small relative to the welfare destruction ($509.9B). Firearms is a low-revenue, high-destruction industry. The $10B figure captures domestic firearms and ammunition sales. The $509.9B captures medical costs, lost productivity, criminal justice costs, employer costs, and quality-of-life losses. The ratio is 51:1." },
       { q: "Does the Second Amendment make reform impossible?", a: "The theorem says reform within the current constitutional framework cannot reduce βW below 3.0. That floor is set by the Constitutional Ratchet. But constitutional amendments are possible — the 18th and 21st Amendments prove it. Australia's 1996 reform required no constitutional change because firearms were never constitutionally entrenched. The impossibility is institutional, not physical." },
       { q: "What would a post-reform βW look like?", a: "Australia's post-Port Arthur βW is approximately 2.1. Japan's is below 0.5. The UK's is approximately 1.8. These are achievable endpoints — but only after removing constitutional entrenchment, PLCAA immunity, and Dickey Amendment suppression. All three peer nations demonstrate that comprehensive reform works." },
-      { q: "Why classify firearms as Intractability rather than Impossibility?", a: "The constraint is constitutional/institutional, not physical. The Second Amendment is a legal construct, not a law of nature. It can be amended. Australia proved it. The classification follows the taxonomy: institutional constraints that can be changed given sufficient political will = Intractability. Physical/chemical/biological constraints that no policy can override = Impossibility." },
+      { q: "Why classify firearms as Intractability rather than Impossibility?", a: "The constraint is constitutional/institutional, not physical. The Second Amendment is a legal construct, not a law of nature. It can be amended. Australia proved it. The classification follows the taxonomy: institutional constraints that can be changed given sufficient political will = Intractability. Physical/chemical/biological/informational constraints that no policy can override = Impossibility." },
     ],
   },
 
@@ -233,7 +234,7 @@ export const PAPER_CONTENT = {
   "child-labor": {
     epigraph: "The cheapest hands on Earth belong to the smallest bodies.",
     keyFindings: [
-      "Each dollar of private profit from child labor destroys $21.83 in system welfare — fifth-highest in the System Asset Pricing Model canon.",
+      "Each dollar of revenue associated with child labor destroys $21.83 in system welfare — fifth-highest in the System Asset Pricing Model canon.",
       "160 million children at risk; $381–537B per year in human capital destruction via foregone education alone (9–10% returns per lost school-year).",
       "Elimination requires 11× acceleration of current eradication speed; at current rates, the crossover time T* stretches to 2045–2060.",
       "System-adjusted payoff is deeply negative: −$701B to −$967B annually.",
@@ -260,10 +261,10 @@ export const PAPER_CONTENT = {
   "conflict-minerals": {
     epigraph: "The mineral is fungible. The blood is not.",
     keyFindings: [
-      "Each dollar of private payoff from conflict minerals generates $12.60 in system welfare destruction — roughly 10× the DRC's entire GDP.",
+      "Each dollar of revenue from conflict minerals generates $12.60 in system welfare destruction — roughly 10× the DRC's entire GDP.",
       "143% infant mortality increase from Dodd-Frank §1502 de facto embargo, demonstrating regulatory intervention can amplify rather than reduce welfare beta.",
       "97% certification failure rate under Dodd-Frank — companies could not determine whether minerals financed armed groups.",
-      "μ* = 0.31: redirecting 31 cents of every dollar of private payoff into institutional capacity would theoretically drive welfare beta to unity. Current reinvestment: ~2 cents.",
+      "μ* = 0.31: redirecting 31 cents of every dollar of revenue into institutional capacity would theoretically drive welfare beta to unity. Current reinvestment: ~2 cents.",
     ],
     theorem: {
       formal: "Under Geological Concentration (A1), Demand Inelasticity (A2), and Governance Vacuum (A3): no Coasean bargain, Pigouvian tax, or voluntary certification scheme can simultaneously achieve conflict-free sourcing, artisanal livelihood preservation, and supply-chain continuity.",
@@ -468,7 +469,7 @@ export const PAPER_CONTENT = {
   deforestation: {
     epigraph: "A century to grow. An afternoon to fall. A millennium to return.",
     keyFindings: [
-      "Each dollar of private profit from deforestation destroys $7.21 in system welfare — $866 billion per year across six channels.",
+      "Each dollar of revenue from deforestation destroys $7.21 in system welfare — $866 billion per year across six channels.",
       "Indonesia and Brazil account for ~84% of commodity-driven deforestation (geographic concentration κ = 0.84).",
       "System-adjusted payoff: −$746 billion per year. The private profit ($120B) is 14% of the welfare destruction it causes.",
     ],
@@ -718,7 +719,7 @@ export const PAPER_CONTENT = {
   student_loans: {
     epigraph: "The loan guarantees the tuition. The tuition guarantees the loan.",
     keyFindings: [
-      "Each dollar of private payoff destroys $6.36 in system welfare — $297.6B per year.",
+      "Each dollar of revenue destroys $6.36 in system welfare — $297.6B per year.",
       "48% twelve-year default rate at for-profit institutions (4× the public sector rate).",
       "$4 billion in unnecessary interest from forbearance steering alone (2010-2015).",
     ],
@@ -843,7 +844,7 @@ export const PAPER_CONTENT = {
   pops: {
     epigraph: "The molecule outlasts the civilization that created it.",
     keyFindings: [
-      "Each dollar of historical private payoff destroyed $6.23 in system welfare.",
+      "Each dollar of historical revenue destroyed $6.23 in system welfare.",
       "266B/yr in neurodevelopmental damage from polybrominated diphenyl ethers (11 million lost IQ points annually in the US alone).",
       "10-14 million tonnes of polychlorinated biphenyl-contaminated material remain globally, with <30% on track for 2028 management deadline.",
     ],
@@ -891,9 +892,9 @@ export const PAPER_CONTENT = {
   },
 
   amr: {
-    epigraph: "Each dollar of private gain depletes $2.10 of the effectiveness commons at the margin.",
+    epigraph: "Each dollar of revenue depletes $2.10 of the effectiveness commons at the margin.",
     keyFindings: [
-      "Marginal βW = 5.84: each dollar of private payoff depletes the effectiveness commons.",
+      "Marginal βW = 5.84: each dollar of revenue depletes the effectiveness commons.",
       "The Efficacy Ceiling: cure and depletion are the same molecular event — no within-system escape.",
       "100,000 Monte Carlo draws confirm welfare negativity in all draws; classification invariant across perturbations.",
     ],
@@ -1065,35 +1066,36 @@ export const PAPER_CONTENT = {
     ],
   },
 
-  libor: {
-    epigraph: "The rate that priced the world was priced by the banks it was supposed to discipline.",
+  "fx-fixing": {
+    epigraph: "The fix that values the portfolio is still formed inside the market it is supposed to measure.",
     keyFindings: [
-      "βW = 5.13 during active manipulation era. $16.4B in system welfare destruction per year.",
-      "Six welfare channels: direct transfers, hedging inefficiency, monetary signal distortion, regulatory deadweight, litigation costs, trust erosion.",
-      "The Benchmark Rate-to-Secured Overnight Financing Rate (SOFR) transition demonstrates structural prevention works better than criminal prosecution.",
+      "FX-Fixing, not LIBOR, is the active benchmark-governance target. LIBOR was structurally resolved through SOFR; the WM/Reuters 4pm FX Fix remains embedded in passive fund valuation and corporate hedging.",
+      "βW = 5.13. The paper estimates $16.4B in annual system welfare destruction against $3.2B in dealer fixing extraction.",
+      "The live trap is architectural: dealer banks receive client order-flow information before the fix, passive managers are locked into index tracking, and benchmark administrators preserve the valuation convention.",
     ],
     theorem: {
-      formal: "Institutional Private-Systemic Tension (Self-Referential Pricing Trap). The governance architecture created structural conflicts of interest. Benchmark Rate-Secured Overnight Financing Rate (SOFR) transition demonstrates institutional redesign eliminates manipulation channels.",
-      plain: "Banks submitting false rates to a panel they controlled reaped billions while municipal pension funds lost billions. The fix was not prosecuting the manipulators — it was removing human judgment from rate-setting entirely. Secured Overnight Financing Rate (SOFR) is transaction-based, not survey-based. The architecture eliminated the game.",
+      formal: "Institutional Private-Systemic Tension (Self-Referential Pricing Trap, dual lock-in variant). A benchmark formed through dealer-intermediated fix-window trading remains welfare-destructive when users are fiduciarily and operationally locked into the benchmark.",
+      plain: "The problem is not just bad traders in chat rooms. The problem is a benchmark architecture where the dealer executing the order can know directional client demand before the benchmark is formed, while the passive fund manager cannot simply opt out without creating tracking error. Disclosure inside the same game does not solve that. The rule change must transform benchmark construction, index obligations, and fiduciary safe harbors together.",
     },
     mcResults: { beta: 5.13, ci: "[3.42, 8.16]", dw: 16.4, pi: 3.2 },
     agents: {
-      whistleblower: "Document benchmark manipulation in remaining human-judgment-based indices. The Benchmark Rate template applies to commodity benchmarks, environmental, social, and governance ratings, and any index based on self-reported submissions. The evidence is in submission patterns showing clustering around advantageous fixing points.",
-      plaintiff: "Benchmark Rate antitrust MDL resulted in $11B+ in settlements. The litigation template applies to any benchmark where submitters have trading positions in the benchmarked instrument. Discovery targets: trader-submitter communications and correlation between submissions and proprietary positions.",
-      regulator: "CFTC, SEC, FCA (UK), and national regulators share jurisdiction. The International Organization of Securities Commissions (IOSCO) Principles for Financial Benchmarks (2013) established global standards. The enforcement success: $9B+ in regulatory fines across 10+ banks.",
-      legislator: "Committee jurisdiction: Banking (Senate), Financial Services (House). The structural intervention is already largely implemented: transaction-based benchmarks (Secured Overnight Financing Rate (SOFR)) replacing submission-based benchmarks (Benchmark Rate). The remaining gap: Secured Overnight Financing Rate (SOFR)-Benchmark Rate transition basis risk in legacy contracts.",
-      investor: "Legacy Benchmark Rate-linked contracts (estimated $100T+ in notional value) create transition basis risk. New originations reference Secured Overnight Financing Rate (SOFR). Portfolio screening: legacy contract transition status, basis risk exposure, and fallback language adequacy.",
-      supranational: "FSB OSSG coordinated the global Benchmark Rate transition. ISDA IBOR Fallback Protocol provides standardized contractual fallbacks. The transition is the most successful international financial reform in the System Asset Pricing Model canon — a structural fix that eliminated the game rather than punishing the players.",
+      whistleblower: "Document order-flow handling, pre-hedging, benchmark-window trading, and transaction-cost analysis around the 4pm fix. The useful evidence is not merely misconduct language; it is the operational record linking client fix orders, dealer positioning, benchmark movement, and beneficiary cost.",
+      plaintiff: "Potential claims focus on pension beneficiaries, passive funds, corporate hedgers, and fiduciary monitoring duties. Discovery targets include execution-quality studies, communications with index providers, pre-hedging policies, and internal estimates of implementation shortfall.",
+      regulator: "FCA, CFTC, SEC, IOSCO, FSB, central banks, and benchmark supervisors divide authority. The game-changing instrument is not another conduct notice; it is coordinated benchmark transition, transaction-based construction, index-provider migration, and statutory protection for managers during the change.",
+      legislator: "The legislative gap is a safe-harbor and transition statute analogous in function to LIBOR transition protection but tailored to FX asset valuation. Without protection, fund managers face fiduciary liability for tracking error even when the alternative benchmark is system-superior.",
+      investor: "Institutional investors should demand explicit transaction-cost analysis for FX execution at the fix, benchmark-exposure reporting, and manager justification under DA Field 16. The welfare cost is borne by beneficiaries even when no single trade looks illegal.",
+      supranational: "FSB and IOSCO are the natural coordination layer because no single jurisdiction controls the benchmark, index providers, dealer banks, passive funds, and cross-border asset valuation together. Singapore's SORA transition is a proof of institutional possibility, not a complete FX template.",
     },
     faq: [
-      { q: "Why is this ranked as Intractability, not Impossibility?", a: "Because the fix worked. Secured Overnight Financing Rate (SOFR) replaced Benchmark Rate. The manipulation channel was eliminated through institutional redesign. Impossibility theorems describe constraints that no policy can overcome (physics, chemistry). Benchmark Rate manipulation was institutional — and institutions can be redesigned. The Secured Overnight Financing Rate (SOFR) transition is the proof." },
+      { q: "Why is this ranked as Intractability, not Impossibility?", a: "Because the binding constraint is institutional, not physical. LIBOR's SOFR transition proves benchmark architecture can be redesigned. FX-Fixing is harder because it governs asset valuation and is embedded in index tracking, but the obstacle is coordinated rule change, not physics." },
+      { q: "Why is LIBOR no longer the active target?", a: "LIBOR was structurally replaced by SOFR for the relevant U.S. dollar rate benchmark. It remains a comparison case and proof that financial infrastructure can be migrated. The active benchmark-source concentration problem is FX-Fixing." },
     ],
   },
 
   bitcoin: {
     epigraph: "Every Bloomberg terminal prints the gain. None prints the five-dollar invoice the commons receives for each dollar of it.",
     keyFindings: [
-      "Each dollar of Bitcoin private gain destroys $5.00 of system welfare across six channels.",
+      "Each dollar of Bitcoin-related revenue destroys $5.00 of system welfare across six channels.",
       "The Protocol Welfare Floor: no permissionless blockchain can achieve βW < 1.0.",
       "Classification invariant across all 25 sensitivity cells and 10,000 Monte Carlo simulations.",
     ],
@@ -1199,7 +1201,7 @@ export const PAPER_CONTENT = {
     ],
     theorem: {
       formal: "Institutional Private-Systemic Tension (Oceanic Rent Gap). No impossibility theorem — biological reversibility makes welfare recovery feasible on decadal timescales.",
-      plain: "Overfishing depletes stocks, subsidies keep unprofitable fleets running, and bycatch destroys habitat. The system destroys $4.70 in welfare for every $1 of private rent. But fishing is reversible through institutional redesign — the Magnuson-Stevens Act and PNA Vessel Day Scheme prove it.",
+      plain: "Overfishing depletes stocks, subsidies keep unprofitable fleets running, and bycatch destroys habitat. The system destroys $4.70 in welfare for every $1 of revenue. But fishing is reversible through institutional redesign — the Magnuson-Stevens Act and PNA Vessel Day Scheme prove it.",
     },
     mcResults: { beta: 4.70, ci: "[3.80, 5.60]", dw: 178.6, pi: 38.0 },
     agents: {
@@ -1369,13 +1371,13 @@ export const PAPER_CONTENT = {
     keyFindings: [
       "Weighted average βW = 0.53 (marginal βW = 0.70). 91% of Monte Carlo draws produce βW < 1.0.",
       "System-adjusted payoff: +$70B/yr — positive but reduced 53% by welfare costs.",
-      "The ONLY System Asset Pricing Model domain with positive payoff AND an impossibility theorem.",
+      "A βW < 1 control/comparator, not a Wave 1 market-failure flagship.",
     ],
     theorem: {
-      formal: "Persistence Floor (Impossibility Theorem #22). No fuel cycle can guarantee radiotoxicity below any fixed threshold on civilizational timescales. The decay constant is a physical law.",
+      formal: "Control / Comparator. No fuel cycle can guarantee radiotoxicity below any fixed threshold on civilizational timescales, but βW remains below 1.",
       plain: "Nuclear fission is welfare-positive: it produces clean electricity with a system cost well below its social benefit. But the Persistence Floor theorem is real: spent fuel remains radioactive for 100,000+ years. No human institution has survived 10,000 years. The impossibility is temporal, not economic.",
     },
-    mcResults: { beta: 2.94, ci: "[1.87, 4.01]", dw: null, pi: null },
+    mcResults: { beta: 0.54, ci: "[0.40, 0.70]", dw: 23.7, pi: 44.0 },
     agents: {
       whistleblower: "Document the gap between decommissioning cost estimates and actual costs. Decommissioning funds are chronically underfunded. The evidence is in NRC decommissioning fund reports, actual vs. estimated decommissioning costs for completed projects, and unfunded liability calculations.",
       plaintiff: "Price-Anderson Act liability cap ($13.6B) socializes catastrophic risk. Claims against DOE for Yucca Mountain inaction (utilities have recovered $10B+ in damages for DOE's failure to accept spent fuel as contractually obligated). Property value diminution claims near nuclear facilities.",
@@ -1485,7 +1487,7 @@ export const PAPER_CONTENT = {
       supranational: "The Paris Agreement Article 2.1(c) requires financial flows consistent with low-emission pathways. COP28 (2023) called for 'transitioning away from fossil fuels.' No binding phase-out timeline exists. The gap: international agreement on managed decline timeline and financial support for producing-country transitions.",
     },
     faq: [
-      { q: "Why is βW only 1.63 when oil & gas causes the most absolute damage?", a: "Because βW is a ratio: ΔW/Π. Oil and gas destroys $5.69T but generates $3.5T in revenue. The ratio is 1.63. Firearms destroys $510B but generates only $10B — ratio 51. βW measures the efficiency of destruction per dollar of private gain. Oil and gas is massively destructive in absolute terms but the industry is large enough that the ratio is moderate." },
+      { q: "Why is βW only 1.63 when oil & gas causes the most absolute damage?", a: "Because βW is a ratio: ΔW/Π. Oil and gas destroys $5.69T but generates $3.5T in revenue. The ratio is 1.63. Firearms destroys $510B but generates only $10B — ratio 51. βW measures the efficiency of destruction per dollar of revenue. Oil and gas is massively destructive in absolute terms but the industry is large enough that the ratio is moderate." },
     ],
   },
 
@@ -1596,7 +1598,7 @@ export const PAPER_CONTENT = {
       "Bilateral negotiation is constitutively blind to system welfare. This is not a market failure — it is a mathematical property of the payoff space. No function of Party A's utility and Party B's utility can determine the state of the system they both depend on.",
       "The Private Pareto Theorem proves that under three empirically verifiable axioms — overlapping interests, system independence, system dependence — every Pareto-efficient bilateral agreement is compatible with system destruction. The result is an impossibility, not a tendency.",
       "Eight outcomes exist in three-dimensional space (C, A, B). Standard theory recognizes four (the bilateral quadrant). The other four — including the Hollow Win (0,1,1) — are invisible to every framework that operates in two dimensions.",
-      "61 domain theorems calibrate the welfare beta (βW) across sectors from firearms (βW = 50.99) to gig economy (βW = 0.76). Total annual welfare destruction: $85.3 trillion — approximately 81% of global GDP.",
+      "59 market-failure domain theorems calibrate the welfare beta (βW) across sectors from firearms (βW = 50.99) to factory farming (βW = 1.02), with nuclear and gig economy retained as βW < 1 controls. Total annual welfare destruction remains a working aggregate pending final source harmonization.",
       "The six-agent Conflictoring protocol provides a constructive escape from every Hollow Win. Postnieks's Law: for every Private-Systemic Tension domain, there exists k* ≤ 6 agents whose simultaneous activation makes the Hollow Win strictly dominated.",
     ],
     theorem: {
@@ -1614,22 +1616,22 @@ export const PAPER_CONTENT = {
 
   // ─── FRAMEWORK PAPERS ──────────────────────────────────────────
   "fw-reform-dividend": {
-    epigraph: "\"That which is seen, and that which is not seen.\" — Frédéric Bastiat, 1850. GDP records the seen. System Asset Pricing Model measures the unseen. The unseen is $85.3 trillion per year.",
+    epigraph: "\"That which is seen, and that which is not seen.\" — Frédéric Bastiat, 1850. GDP records the seen. System Asset Pricing Model measures the unseen. The unseen is $89.2 trillion per year.",
     keyFindings: [
-      "Across 61 System Asset Pricing Model-calibrated domains, total annual welfare destruction is $85.3 trillion — approximately 81% of global GDP. This decomposes into four channels: Value of Statistical Life ($26.3T), Cleanup GDP ($14.6T), Suppressed Productivity ($17.8T), and Future Damages ($27.6T).",
+      "Across 59 market-failure System Asset Pricing Model-calibrated domains, total annual welfare destruction is $89.2 trillion — approximately the same order as nominal global GDP. This decomposes into four channels: Value of Statistical Life, cleanup GDP, suppressed productivity, and future damages.",
       "Reform produces a net GDP gain, not a loss. Current GDP ($107T) minus cleanup spending removed ($14.6T) plus productivity restored ($17.8T) equals reformed GDP ($110.2T). The standard objection — 'we cannot afford reform' — is arithmetically backwards.",
       "10–15 million preventable deaths per year across tobacco, air pollution, industrial agriculture, Ultra-Processed Food, alcohol, opioids, and occupational exposure. Each death is counted by GDP as healthcare revenue.",
       "The Reform Dividend Law proves that eliminating a Hollow Win releases a dividend equal to ΔW minus transition costs. The dividend is positive whenever transition costs remain below 40% of ΔW — a condition satisfied in every System Asset Pricing Model domain with a proven working model.",
     ],
     theorem: {
-      formal: "For any Private-Systemic Tension domain with welfare destruction ΔW and transition cost T, the reform dividend D = ΔW − T > 0 whenever T < 0.4 × ΔW. The aggregate reform dividend across all 61 domains exceeds $50 trillion per year.",
-      plain: "Every Hollow Win that gets fixed releases trapped value. The cleanup spending disappears from GDP (that is the point — you no longer need to clean up the mess). The suppressed productivity reappears. The net effect is positive. Reform does not shrink the economy. It grows it. The $85.3 trillion is not a cost of reform. It is the cost of not reforming.",
+      formal: "For any Private-Systemic Tension domain with welfare destruction ΔW and transition cost T, the reform dividend D = ΔW − T > 0 whenever T < 0.4 × ΔW. The aggregate reform dividend across the market-failure domain slate exceeds $50 trillion per year.",
+      plain: "Every Hollow Win that gets fixed releases trapped value. The cleanup spending disappears from GDP (that is the point — you no longer need to clean up the mess). The suppressed productivity reappears. The net effect is positive. Reform does not shrink the economy. It grows it. The $89.2 trillion is not a cost of reform. It is the cost of not reforming.",
     },
     mcResults: null,
     agents: null,
     faq: [
       { q: "How can welfare destruction exceed GDP?", a: "Because welfare destruction includes channels that GDP does not measure: the Value of Statistical Life (premature deaths), future damages (climate, ecosystem degradation), and suppressed productivity (foregone innovation in distorted markets). GDP only counts current-year transactions. Welfare destruction counts what those transactions cost, including across time and across the living." },
-      { q: "Is the $85.3T number double-counted?", a: "No. Each domain's ΔW is computed independently using domain-specific Monte Carlo simulations with distinct welfare channels. Cross-domain interactions (e.g., coal emissions affecting agriculture) are not double-counted because each domain's ΔW is calibrated against its own industry revenue Π, not against shared environmental stocks." },
+      { q: "Is the $89.2T number double-counted?", a: "No. Each domain's ΔW is computed independently using domain-specific Monte Carlo simulations with distinct welfare channels. Cross-domain interactions are handled conservatively because each domain's ΔW is calibrated against its own industry revenue Π, not against a single shared environmental stock." },
     ],
   },
 
@@ -1694,7 +1696,7 @@ export const PAPER_CONTENT = {
     epigraph: "\"The question is not whether escape is possible. The question is why most jurisdictions have not done what the successful ones already proved works.\"",
     keyFindings: [
       "Postnieks's Law: for every game G satisfying the three Private-Systemic Tension axioms, there exists a coalition K of conflictoring agents with |K| = k* ≤ 6 such that simultaneous activation of all agents in K makes the Hollow Win strategy profile strictly dominated.",
-      "39 intractability domains each have at least one jurisdiction that has activated enough agents to escape the Hollow Win. These are not theoretical claims — they are documented existence proofs. Australia (firearms), Brazil (child labor), Norway (gambling, oil & gas), Spain (gig economy), Denmark (Forever Chemicals in food packaging).",
+      "39 intractability domains each have at least one jurisdiction that has activated enough agents to escape the Hollow Win. These are not theoretical claims — they are documented existence proofs. Australia (firearms), Brazil (child labor), Norway (gambling, oil & gas), Denmark (Forever Chemicals in food packaging), and global benchmark-rate reform.",
       "The theorem's power is its universal quantifier: for every Private-Systemic Tension domain, not 'for some domains' or 'under favorable conditions.' Each conflictoring agent attacks a distinct structural condition necessary for the Hollow Win to persist. Six agents cover six conditions. Breaking any sufficient subset eliminates the equilibrium.",
       "Leaded gasoline took 75 years and 5 agents. The Montreal Protocol took 13 years and 5 agents. The k* threshold predicts: no Private-Systemic Tension domain escapes the Hollow Win until enough agents are simultaneously active. The protocol requires coordination, not perfection.",
     ],
@@ -1732,10 +1734,10 @@ export const PAPER_CONTENT = {
     epigraph: "\"Getting to Yes taught the world to find mutual gains. It forgot to ask whether the system survived the deal.\" — Written for the Harvard Program on Negotiation. The missing third dimension in sixty years of negotiation theory.",
     keyFindings: [
       "The Ury-Fisher two-by-two outcome matrix (win-win, win-lose, lose-win, lose-lose) is structurally incomplete. It operates in bilateral space (A, B) and has no axis for the system (C). The Hollow Win replaces it with an eight-outcome three-dimensional matrix (C, A, B), where each dimension is binary (preserved/degraded or gains/loses). No equations. No proofs. Just the taxonomy and what it means for anyone who negotiates for a living.",
-      "The Hollow Win (0,1,1) is the most consequential outcome: both parties gain while the system they depend on degrades. Standard negotiation analysis — from Getting to Yes through the Harvard PON canon — classifies this as 'mutual gain' and recommends acceptance. Across 61 calibrated domains, the annual cost of deals that look like wins but destroy the system is $85.3 trillion — approximately 81% of global GDP.",
+      "The Hollow Win (0,1,1) is the most consequential outcome: both parties gain while the system they depend on degrades. Standard negotiation analysis — from Getting to Yes through the Harvard PON canon — classifies this as 'mutual gain' and recommends acceptance. Across 59 calibrated market-failure domains, the annual cost of deals that look like wins but destroy the system is $89.2 trillion — approximately the same order as nominal global GDP.",
       "Seven case studies form the empirical backbone: (1) Benchmark Rate/FX Fixing — benchmark manipulation disguised as bilateral cooperation, (2) Volkswagen Dieselgate — emissions fraud as cost optimization, (3) Boeing 737 MAX — safety certification as regulatory efficiency, (4) Wells Fargo cross-selling — account fraud as sales excellence, (5) Lysine cartel — price-fixing as supply chain coordination, (6) Algorithmic collusion — pricing algorithms converging on supracompetitive prices without human communication, (7) Leaded gasoline — 75 years of system destruction classified as economic growth.",
       "The crossover time T* predicts when a Hollow Win collapses into outright failure. Benchmark Rate: the system had already failed by the time regulators noticed. Boeing 737 MAX: 2.1 years between the first crash and the second. Wells Fargo: 14 years of fake accounts before detection. Leaded gasoline: 75 years. Every Hollow Win has a clock. The question is whether anyone is watching it.",
-      "The paper connects to the full System Asset Pricing Model architecture without requiring the reader to learn any of it: 61 domain papers calibrate the damage across every major industry. Six framework papers (Reform Dividend, Fiscal Capture, Substitution Trap, Disclosure Futility, Postnieks's Law, Conflictoring Protocol) provide the tools for escape. The six-agent Conflictoring protocol gives practitioners a concrete action plan — Whistleblower, Plaintiff, Regulator, Legislator, Investor, Supranational — for breaking any Hollow Win. Decision Accounting provides the audit trail. The Hollow Win is the front door to the entire program for non-economists.",
+      "The paper connects to the full System Asset Pricing Model architecture without requiring the reader to learn any of it: 59 market-failure papers calibrate the damage across high-leverage domains, with controls used to test the boundary. Six framework papers (Reform Dividend, Fiscal Capture, Substitution Trap, Disclosure Futility, Postnieks's Law, Conflictoring Protocol) provide the tools for escape. The six-agent Conflictoring protocol gives practitioners a concrete action plan — Whistleblower, Plaintiff, Regulator, Legislator, Investor, Supranational — for breaking any Hollow Win. Decision Accounting provides the audit trail. The Hollow Win is the front door to the entire program for non-economists.",
     ],
     theorem: {
       formal: "The Ury-Fisher taxonomy maps outcomes to four cells (win/lose × win/lose). The Private Pareto Theorem taxonomy maps outcomes to eight cells (system preserved/degraded × A gains/loses × B gains/loses). The Hollow Win — both parties gain, system degrades — is invisible in the 2×2 matrix. No bilateral evaluation can distinguish a Hollow Win from a genuine Win-Win-Win. The two-by-two matrix is not an approximation. It is a structural exclusion of the system dimension.",
@@ -1745,10 +1747,10 @@ export const PAPER_CONTENT = {
     agents: null,
     faq: [
       { q: "How does this relate to Getting to Yes?", a: "Getting to Yes (Fisher & Ury, 1981) introduced principled negotiation: separate people from problems, focus on interests not positions, generate options for mutual gain, use objective criteria. The framework is brilliant and correct — within two dimensions. The Hollow Win paper proves it is incomplete. 'Mutual gain' is a two-dimensional concept. In three dimensions, mutual gain is compatible with system destruction. Getting to Yes needs a fifth principle: verify system preservation." },
-      { q: "Why seven case studies?", a: "Each case study isolates a different mechanism by which Hollow Wins arise: regulatory arbitrage (VW), benchmark manipulation (Benchmark Rate), safety erosion (Boeing), metric gaming (Wells Fargo), price coordination (Lysine), algorithmic emergence (Q-learning collusion), and temporal displacement (leaded gasoline). Together they prove the Hollow Win is not industry-specific — it is structural. The cases are also the bridge to the 61 System Asset Pricing Model domain papers — Benchmark Rate connects to the Benchmark Rate/FX Fixing domain (βW = 5.13), VW connects to Industrial Agriculture Methane and Aviation Emissions, leaded gasoline is the canonical existence proof for the Conflictoring Protocol." },
-      { q: "Is this paper accessible to non-economists?", a: "By design. The Hollow Win contains no equations, no formal proofs, and no Greek letters. It uses case studies, the 8-outcome taxonomy (a simple 2×2×2 table), and plain language throughout. The formal mathematics lives in the Private Pareto Theorem paper and the 61 domain papers. The Hollow Win is the entry point for negotiators, lawyers, mediators, executives, and policymakers who need to understand the result without learning the calculus behind it." },
-      { q: "How does The Hollow Win connect to the other System Asset Pricing Model papers?", a: "It is the practitioner's front door to the entire program. The seven case studies connect directly to calibrated domain papers (Benchmark Rate, Aviation, Industrial Ag, etc.). The 8-outcome taxonomy comes from the Private Pareto Theorem foundational paper. The escape protocol references the Conflictoring paper. The $85.3T figure comes from the Reform Dividend and c-Adjusted GDP papers. The reason disclosure alone does not fix Hollow Wins is explained in the Disclosure Futility paper. The Hollow Win ties all 75 papers together for an audience that will never read the formal proofs." },
-      { q: "What is the crossover time and how is it estimated?", a: "T* is how long a Hollow Win can continue before the accumulated system damage overwhelms the private gains. Short T* means fast collapse (Boeing: 2.1 years between crashes). Long T* means the damage is real but slow (leaded gasoline: 75 years), which is worse because it accumulates below the detection threshold. Each of the 61 domain papers estimates T* for its sector. The Hollow Win paper presents the concept through case studies without the underlying formula." },
+      { q: "Why seven case studies?", a: "Each case study isolates a different mechanism by which Hollow Wins arise: regulatory arbitrage (VW), benchmark manipulation (Benchmark Rate), safety erosion (Boeing), metric gaming (Wells Fargo), price coordination (Lysine), algorithmic emergence (Q-learning collusion), and temporal displacement (leaded gasoline). Together they prove the Hollow Win is not industry-specific — it is structural. The cases are also the bridge to the 59 market-failure domain papers — Benchmark Rate connects to the Benchmark Rate/FX-Fixing domain (βW = 5.13), VW connects to Industrial Agriculture Methane and Aviation Emissions, leaded gasoline is the canonical existence proof for the Conflictoring Protocol." },
+      { q: "Is this paper accessible to non-economists?", a: "By design. The Hollow Win contains no equations, no formal proofs, and no Greek letters. It uses case studies, the 8-outcome taxonomy (a simple 2×2×2 table), and plain language throughout. The formal mathematics lives in the Private Pareto Theorem paper and the market-failure domain papers. The Hollow Win is the entry point for negotiators, lawyers, mediators, executives, and policymakers who need to understand the result without learning the calculus behind it." },
+      { q: "How does The Hollow Win connect to the other System Asset Pricing Model papers?", a: "It is the practitioner's front door to the entire program. The seven case studies connect directly to calibrated domain papers (Benchmark Rate, Aviation, Industrial Ag, etc.). The 8-outcome taxonomy comes from the Private Pareto Theorem foundational paper. The escape protocol references the Conflictoring paper. The $89.2T figure comes from the Reform Dividend and c-Adjusted GDP papers. The reason disclosure alone does not fix Hollow Wins is explained in the Disclosure Futility paper. The Hollow Win ties the Wave 1 research slate together for an audience that will never read the formal proofs." },
+      { q: "What is the crossover time and how is it estimated?", a: "T* is how long a Hollow Win can continue before the accumulated system damage overwhelms the private gains. Short T* means fast collapse (Boeing: 2.1 years between crashes). Long T* means the damage is real but slow (leaded gasoline: 75 years), which is worse because it accumulates below the detection threshold. Each market-failure domain paper estimates T* for its sector. The Hollow Win paper presents the concept through case studies without the underlying formula." },
     ],
   },
 
@@ -1762,8 +1764,8 @@ export const PAPER_CONTENT = {
       "Channel decomposition classifies each domain's ΔW into four buckets: Value of Statistical Life, Cleanup GDP, Suppressed Productivity, and Future Damages. Each channel has a different relationship to GDP and a different reform dividend calculation.",
     ],
     theorem: {
-      formal: "βW = −dW/dΠ where Π is annual industry revenue. ΔW = βW × Π. c-adjusted GDP = Nominal GDP − Σ(ΔW_i) across all i ∈ {1,...,61}. Each βW is computed via Monte Carlo simulation with N = 10,000 draws across 3+ distribution families.",
-      plain: "The welfare beta measures how much system damage each dollar of industry revenue produces. Multiply by total revenue and you get the annual welfare cost. Subtract all 61 domains' welfare costs from GDP and you get c-adjusted GDP — the number GDP was supposed to be. The methodology is transparent, replicable, and published in 61 public Monte Carlo repositories.",
+      formal: "βW = −dW/dΠ where Π is annual industry revenue. ΔW = βW × Π. c-adjusted GDP = Nominal GDP − Σ(ΔW_i) across the 59 market-failure domains. Each βW is computed via Monte Carlo simulation with N = 10,000 draws across 3+ distribution families.",
+      plain: "The welfare beta measures how much system damage each dollar of industry revenue produces. Multiply by total revenue and you get the annual welfare cost. Subtract the market-failure panel's welfare costs from GDP and you get c-adjusted GDP — the number GDP was supposed to be. The methodology is transparent, replicable, and published in public Monte Carlo repositories.",
     },
     mcResults: null,
     agents: null,
@@ -1773,16 +1775,16 @@ export const PAPER_CONTENT = {
   },
 
   "ot-da-chapter5": {
-    epigraph: "\"61 domains. One framework. The pattern holds everywhere we look — from the C-F bond to the gig economy.\"",
+    epigraph: "\"Fifty-nine market failures, two controls. One framework. The pattern holds where βW clears the threshold.\"",
     keyFindings: [
-      "Cross-domain analysis reveals a structural break between impossibility theorems (22 domains, physical/chemical/biological constraints) and intractability theorems (39 domains, institutional/jurisdictional constraints). The distinction determines whether reform is theoretically possible.",
-      "βW ranges from 50.99 (firearms — constitutional entrenchment) to 0.76 (gig economy — solvable with classification reform). The distribution is right-skewed: most domains cluster in the 4–8 range, with extreme outliers driven by either very small Π (firearms: $10B) or very high ΔW (cybercrime: $6.4T).",
+      "Cross-domain analysis reveals a structural break between impossibility domains, where no policy/rule-change path escapes the binding welfare-destroying condition, and intractability domains, where a rule change can transform the game. Intractability papers can still contain impossibility/floor theorems inside the current game.",
+      "βW ranges from extreme outliers such as firearms (constitutional entrenchment) to lower-ratio domains that still clear the market-failure threshold. The distribution is right-skewed: most domains cluster in the 4–8 range, with extreme outliers driven by either very small Π or very high ΔW.",
       "Every intractability domain has at least one proven working model — a jurisdiction that has already solved the problem. The cross-domain evidence is the empirical foundation of Postnieks's Law.",
-      "Axiom classification is consistent across all 61 domains: Private-Systemic Tension-1 (overlapping interests) and Private-Systemic Tension-3 (system dependence) hold universally. Private-Systemic Tension-2 (system independence) is the axiom that distinguishes Private-Systemic Tension domains from standard externality problems.",
+      "Axiom classification is consistent across the market-failure panel and controls: Private-Systemic Tension-1 (overlapping interests) and Private-Systemic Tension-3 (system dependence) hold broadly. Private-Systemic Tension-2 (system independence) is the axiom that distinguishes Private-Systemic Tension domains from standard externality problems.",
     ],
     theorem: {
-      formal: "Classification rule: any domain whose constraint category contains Institutional, Jurisdictional, Financial, Legal, Economic, or Political → Intractability Theorem. Purely Physical, Thermodynamic, Biological/Evolutionary, Geochemical, Hydrogeological, Computational/Developmental, or Informational → Impossibility Theorem.",
-      plain: "If the constraint is a law of nature (C-F bond energy, radioactive decay, conservation of mass), no policy can fix it — that is an impossibility. If the constraint is a law of humans (jurisdictional fragmentation, regulatory capture, fiscal dependency), a sufficiently well-designed policy can fix it — that is an intractability. The distinction is not academic. It determines whether reform resources should be spent.",
+      formal: "Classification rule: if rule change R can transform game G into G' and create a policy way out, classify the domain as Intractability even when the current-game proof contains an impossibility/floor theorem. If no policy or rule-change path can escape the binding welfare-destroying condition, classify as Impossibility.",
+      plain: "The question is not whether the paper proves an impossibility somewhere. All intractability papers can do that. The question is whether there is a policy way out. If yes, it is intractability. If no, it is impossibility. We do science here, not count-fitting.",
     },
     mcResults: null,
     agents: null,
@@ -1795,7 +1797,7 @@ export const PAPER_CONTENT = {
     epigraph: "\"Each agent attacks a distinct structural condition. Six conditions, six agents. The number is not arbitrary — it is derived from the structure of the game.\"",
     keyFindings: [
       "The six-agent architecture maps to six structural conditions that sustain every Hollow Win: information asymmetry (Whistleblower), unpunished harm (Plaintiff), regulatory tolerance (Regulator), legal protection (Legislator), mispriced capital (Investor), and jurisdictional arbitrage (Supranational).",
-      "The k* threshold varies by domain: Benchmark Rate required Tier 4 (supranational coordination for Secured Overnight Financing Rate (SOFR) transition). Leaded gasoline required 5 agents over 75 years. The Montreal Protocol required 5 agents over 13 years. Simpler domains (gig economy) may require only Tier 2–3.",
+      "The k* threshold varies by domain: Benchmark Rate required Tier 4 (supranational coordination for Secured Overnight Financing Rate (SOFR) transition). Leaded gasoline required 5 agents over 75 years. The Montreal Protocol required 5 agents over 13 years. Simpler institutional domains may require only Tier 2-3.",
       "Agent activation is not sequential — the k* theorem requires simultaneous activation. A whistleblower without a regulator produces headlines but no reform. A regulator without legislative authority produces guidelines but no enforcement. The coalition structure matters.",
       "Prat's conformism theorem (2005) provides the micro-foundation: reputation-concerned experts suppress private information and herd. At system scale, this is Private Pareto Theorem conformism — every bilateral optimizer conforms to the two-dimensional framework because deviating (monitoring W) is reputationally costly.",
     ],
@@ -1811,16 +1813,16 @@ export const PAPER_CONTENT = {
   },
 
   "ot-c-adjusted-gdp": {
-    epigraph: "\"GDP measures transactions, not welfare. Now we can measure both for the first time. The difference is $85.3 trillion.\"",
+    epigraph: "\"GDP measures transactions, not welfare. Now we can measure both for the first time. The difference is $89.2 trillion.\"",
     keyFindings: [
-      "c-adjusted GDP = GDP − μΣβ_WΠ. At full calibration (μ = 1.0), approximately $85.3 trillion disappears from measured global output. What remains is the economic activity that does not destroy the systems it depends on.",
+      "c-adjusted GDP = GDP − μΣβ_WΠ. At full calibration (μ = 1.0), approximately $89.2 trillion disappears from measured global output. What remains is the economic activity that does not destroy the systems it depends on.",
       "Country-level decomposition for 190 nations reveals massive variation. Norway's c-adjusted GDP is 96% of nominal (low φ, Government Pension Fund Global decoupling). Venezuela's is negative (petroleum revenue dependency exceeds productive output). The United States drops from $29.2T to approximately $5.5T.",
       "The c-adjustment is not a penalty — it is a correction. GDP currently counts cancer treatment, oil spill cleanup, and prison construction as positive output. c-adjusted GDP subtracts the welfare cost of the activity that made those expenditures necessary.",
       "The Reform Pathfinder tool extends this to reform pathfinding: for each of 190 countries, it identifies which domains are reformable given institutional capacity and which proven models are applicable.",
     ],
     theorem: {
-      formal: "GDP*(c) = GDP − μ · Σᵢ βW(i) · Π(i), where the sum runs over all 61 System Asset Pricing Model domains, μ ∈ [0, 1] is the shadow price of welfare, βW(i) is the welfare beta for domain i, and Π(i) is annual industry revenue. At μ = 1.0 (full calibration), GDP* ≈ GDP − $85.3T.",
-      plain: "Take global GDP. Subtract what it costs the world for each of the 61 industries that destroy the systems they depend on. What remains is the economy that is actually sustainable. The number is smaller than anyone expected, and the gap is the reform dividend — the value that reform would release.",
+      formal: "GDP*(c) = GDP − μ · Σᵢ βW(i) · Π(i), where the sum runs over the market-failure System Asset Pricing Model domains, μ ∈ [0, 1] is the shadow price of welfare, βW(i) is the welfare beta for domain i, and Π(i) is annual industry revenue. At μ = 1.0 (full calibration), GDP* ≈ GDP − $89.2T.",
+      plain: "Take global GDP. Subtract what it costs the world for each of the 59 market-failure domains that destroy the systems they depend on. What remains is the economy that is actually sustainable. The number is smaller than anyone expected, and the gap is the reform dividend — the value that reform would release.",
     },
     mcResults: null,
     agents: null,
@@ -1830,16 +1832,16 @@ export const PAPER_CONTENT = {
   },
 
   "ot-pst-breaker": {
-    epigraph: "\"190 countries. 61 domains. For each country, which reforms are achievable given its institutional capacity — and which proven models already exist?\"",
+    epigraph: "\"190 countries. 59 market-failure domains. For each country, which reforms are achievable given its institutional capacity — and which proven models already exist?\"",
     keyFindings: [
-      "Reform Pathfinder provides country-specific reform paths for all 190 nations across all 61 System Asset Pricing Model domains. Each entry identifies the binding constraint, the applicable proven model, the required k* agents, and the estimated reform dividend.",
+      "Reform Pathfinder provides country-specific reform paths for all 190 nations across the 59 market-failure System Asset Pricing Model domains. Each entry identifies the binding constraint, the applicable proven model, the required k* agents, and the estimated reform dividend.",
       "22-language localization planned — reform pathways must be accessible to policymakers, legislators, and civil society in their own language to be actionable.",
       "Institutional capacity scoring uses a composite of World Bank governance indicators, corruption perception indices, and demonstrated reform history. Countries that have already solved one domain (e.g., Australia on firearms) receive higher feasibility scores for structurally similar reforms.",
       "The tool operationalizes Postnieks's Law at the country level: for each country-domain pair, it identifies which conflictoring agents are already active, which are missing, and what it would take to activate them.",
     ],
     theorem: {
       formal: "For each country c and domain d, Reform Pathfinder computes: Feasibility(c, d) = f(governance_score(c), reform_history(c), k*_active(c, d), proven_model_applicability(c, d)). Reform path = {agent activations needed to reach k*(d) in country c}.",
-      plain: "For every country in the world, the tool answers: which of the 61 Hollow Wins can this country fix, given what it has already demonstrated it can do? If Australia solved firearms with a buyback, which other high-βW domains could it tackle with similar institutional capacity? The answers are specific, actionable, and grounded in proven models.",
+      plain: "For every country in the world, the tool answers: which of the 59 market-failure Hollow Wins can this country fix, given what it has already demonstrated it can do? If Australia solved firearms with a buyback, which other high-βW domains could it tackle with similar institutional capacity? The answers are specific, actionable, and grounded in proven models.",
     },
     mcResults: null,
     agents: null,
@@ -1849,16 +1851,16 @@ export const PAPER_CONTENT = {
   },
 
   "ot-curriculum": {
-    epigraph: "\"From 'The Lie in the Number' through the domain theorems — the complete Private Pareto Theorem framework in 16 chapters.\"",
+    epigraph: "\"From 'The Lie in the Number' through accountability reconstruction — the complete Private Pareto Theorem framework in 17 chapters.\"",
     keyFindings: [
-      "The curriculum distills the entire Private Pareto Theorem framework into 16 interactive chapters with a 4-hour completion time. From GDP's constitutive blindness through the domain theorems and reform arithmetic.",
-      "Interactive elements throughout: hoverable glossary terms, expand/collapse sections, sortable data tables, visual comparisons (GDP ledger vs. welfare ledger), and the full 61-domain βW ranking.",
-      "Key intellectual pathway: GDP blindness → missing third dimension → eight outcomes → Private Pareto Theorem proof → Capital Asset Pricing Model-to-System Asset Pricing Model → Group Decision Support System problem → Conflictoring protocol → domain theorems → Decision Accounting → six agents → reform dividend → fiscal capture → substitution trap → disclosure futility → Postnieks's Law.",
+      "The curriculum distills the entire Private Pareto Theorem framework into 17 interactive chapters with an approximately 8.5-hour completion time. From GDP's constitutive blindness through the domain theorems, reform arithmetic, Decision Accounting, and accountability reconstruction.",
+      "Interactive elements throughout: hoverable glossary terms, expand/collapse sections, sortable data tables, visual comparisons (GDP ledger vs. welfare ledger), and the full market-failure βW ranking with controls clearly labeled.",
+      "Key intellectual pathway: GDP blindness → missing third dimension → eight outcomes → Private Pareto Theorem proof → Capital Asset Pricing Model-to-System Asset Pricing Model → Group Decision Support System problem → Conflictoring protocol → domain theorems → Decision Accounting → six agents → reform dividend → fiscal capture → substitution trap → disclosure futility → Postnieks's Law → accountability reconstruction.",
       "The curriculum is designed for three audiences: policymakers (what to fix and where to start), academics (the formal architecture and proof structure), and practitioners (the eight-step diagnostic protocol).",
     ],
     theorem: {
-      formal: "The curriculum covers the complete deductive chain: from the three Private-Systemic Tension axioms through the Private Pareto Theorem, the eight-outcome taxonomy, the System Asset Pricing Model calibration framework, 61 domain theorems, and Postnieks's Law (k* ≤ 6 universal escape theorem).",
-      plain: "Everything you need to understand why bilateral negotiation fails, how to measure the damage, and what to do about it. Sixteen chapters, four hours, and the only framework in economics that tells you which deals are destroying the systems they depend on.",
+      formal: "The curriculum covers the complete deductive chain: from the three Private-Systemic Tension axioms through the Private Pareto Theorem, the eight-outcome taxonomy, the System Asset Pricing Model calibration framework, the market-failure domain theorems, and Postnieks's Law (k* ≤ 6 universal escape theorem).",
+      plain: "Everything you need to understand why bilateral negotiation fails, how to measure the damage, what to do about it, and how to make accountable decisions reconstructible. Seventeen chapters, roughly eight and a half hours, and the only framework in economics that tells you which deals are destroying the systems they depend on.",
     },
     mcResults: null,
     agents: null,
@@ -1953,7 +1955,7 @@ function PaperCard({ paper, rank }) {
 
         {/* Theorem type badge */}
         <div style={{
-          fontFamily: M, fontSize: 10, letterSpacing: 1,
+          fontFamily: M, fontSize: 11, letterSpacing: 1,
           color: badgeColor, padding: "3px 10px",
           background: `${badgeColor}15`,
           border: `1px solid ${badgeColor}30`,
@@ -2075,7 +2077,7 @@ function FAQItem({ question, answer }) {
 // ─── ZINGER EXTRACTION ──────────────────────────────────────────
 // Pull the first sentence as the zinger/headline; rest is the expandable body
 function splitZinger(text) {
-  // Split on first period followed by space (but not abbreviations like "βW" or "$85.3T")
+  // Split on first period followed by space (but not abbreviations like "βW" or "$89.2T")
   const match = text.match(/^(.+?(?:\$[\d.]+[BTM]?|[A-Z]{2,}|(?:Dr|Mr|Ms|St|vs|etc|e\.g|i\.e)\.)*[^.]*\.)\s+(.+)$/s);
   if (match) return { zinger: match[1], body: match[2] };
   return { zinger: text, body: null };
@@ -2084,10 +2086,11 @@ function splitZinger(text) {
 // ─── FULL CONTENT (for papers with PAPER_CONTENT) ────────────────
 function FullContent({ paper }) {
   const c = paper.content;
+  const showEpigraph = c.epigraph && PERSONAL_VOICE_SLUGS.has(paper.slug);
   return (
     <div style={{ paddingTop: 16 }}>
       {/* ── Epigraph ──────────────────────────────────────────── */}
-      {c.epigraph && (
+      {showEpigraph && (
         <div style={{
           fontFamily: S, fontSize: 18, fontStyle: "italic", color: GOLD,
           padding: "16px 24px", marginBottom: 20,
@@ -2146,7 +2149,7 @@ function FullContent({ paper }) {
           {c.theorem.formal}
         </div>
         <div style={{
-          fontFamily: M, fontSize: 10, color: MUTED, letterSpacing: 1, marginBottom: 6,
+          fontFamily: M, fontSize: 11, color: MUTED, letterSpacing: 1, marginBottom: 6,
         }}>
           PLAIN ENGLISH
         </div>
@@ -2347,12 +2350,12 @@ function AudioPlayer({ slug }) {
             }} />
           </div>
           <div style={{ display: "flex", justifyContent: "space-between", marginTop: 4 }}>
-            <span style={{ fontFamily: M, fontSize: 10, color: MUTED }}>{fmt(currentTime)}</span>
-            <span style={{ fontFamily: M, fontSize: 10, color: MUTED }}>{duration ? fmt(duration) : "loading..."}</span>
+            <span style={{ fontFamily: M, fontSize: 11, color: MUTED }}>{fmt(currentTime)}</span>
+            <span style={{ fontFamily: M, fontSize: 11, color: MUTED }}>{duration ? fmt(duration) : "loading..."}</span>
           </div>
         </div>
         <a href={`/audio/${slug}.m4a`} download style={{
-          fontFamily: M, fontSize: 10, letterSpacing: 1, color: GOLD,
+          fontFamily: M, fontSize: 11, letterSpacing: 1, color: GOLD,
           padding: "5px 10px", background: "rgba(245,158,11,0.08)",
           border: "1px solid rgba(245,158,11,0.2)", borderRadius: 4,
           textDecoration: "none", flexShrink: 0,
@@ -2372,7 +2375,7 @@ function MCStatBox({ label, value, color }) {
       border: `1px solid ${BORDER}`, borderRadius: 4, textAlign: "center",
     }}>
       <div style={{ fontFamily: M, fontSize: 18, fontWeight: 700, color }}>{value || "TBD"}</div>
-      <div style={{ fontFamily: M, fontSize: 10, color: MUTED, letterSpacing: 1, marginTop: 4 }}>{label}</div>
+      <div style={{ fontFamily: M, fontSize: 11, color: MUTED, letterSpacing: 1, marginTop: 4 }}>{label}</div>
     </div>
   );
 }
@@ -2394,7 +2397,7 @@ function LinkBadge({ label, href, disabled = false, note }) {
         cursor: disabled ? "default" : "pointer",
       }}
     >
-      {label} {note && <span style={{ color: MUTED, fontSize: 10 }}>({note})</span>}
+      {label} {note && <span style={{ color: MUTED, fontSize: 11 }}>({note})</span>}
     </a>
   );
 }
@@ -2452,11 +2455,11 @@ export default function PaperSummaries() {
             PAPER SUMMARIES
           </div>
           <h1 style={{ fontFamily: S, fontSize: 32, fontWeight: 300, color: TEXT, margin: "0 0 12px", lineHeight: 1.3 }}>
-            75 Working Papers in 15 Minutes Each
+            Ranked Research Corpus
           </h1>
           <div style={{ fontFamily: S, fontSize: 18, color: DIM, lineHeight: 1.7, maxWidth: 650, margin: "0 auto" }}>
             Section-by-section summaries for college-level readers. Key findings, formal theorems in plain English,
-            Monte Carlo results, six-agent advice, and FAQs.
+            Monte Carlo results, policy translation, six-agent advice, and FAQs.
           </div>
           <div style={{ fontFamily: M, fontSize: 11, color: MUTED, marginTop: 12 }}>
             {populatedCount} papers with full summaries | {allPapers.length} total

@@ -6,7 +6,7 @@ const S = "'Newsreader',serif";
 const GOLD = "#F59E0B";
 const SURFACE = "#1A1A1A";
 const TEXT = "#F5F0E8";
-const DIM = "rgba(255,255,255,0.55)";
+const DIM = "#C8C8C8";
 const BORDER = "rgba(255,255,255,0.1)";
 
 export default class ErrorBoundary extends Component {

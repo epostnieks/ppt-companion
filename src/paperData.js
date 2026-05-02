@@ -64,7 +64,7 @@ export const CANONICAL_BETA = {
   algorithmic_pricing: { beta: 5.38, ci: "[3.90, 6.90]", dw: 215.2, pi: 40.0 },
   pfas: { beta: 5.31, ci: "[4.02, 6.61]", dw: null, pi: null },
   pe_healthcare: { beta: 5.24, ci: "[4.00, 6.50]", dw: 162.4, pi: 31.0 },
-  libor: { beta: 5.13, ci: "[3.42, 8.16]", dw: 16.4, pi: 3.2 },
+  "fx-fixing": { beta: 5.13, ci: "[3.42, 8.16]", dw: 16.4, pi: 3.2 },
   bitcoin: { beta: 5.00, ci: "[3.20, 7.80]", dw: 210.0, pi: 42.0 },
   aviation: { beta: 4.97, ci: "[3.60, 6.40]", dw: 497.5, pi: 100.0 },
   defense_procurement: { beta: 4.88, ci: "[4.20, 5.60]", dw: 164.4, pi: 33.7 },
@@ -76,7 +76,7 @@ export const CANONICAL_BETA = {
   upf: { beta: 4.06, ci: "[3.39, 4.95]", dw: 1829.0, pi: 450.0 },
   groundwater: { beta: 3.46, ci: "[2.30, 4.60]", dw: 32.9, pi: null },
   pos: { beta: 3.14, ci: "[2.31, 3.98]", dw: 6.0, pi: 12.0 },
-  nuclear: { beta: 2.94, ci: "[1.87, 4.01]", dw: null, pi: null },
+  nuclear: { beta: 0.54, ci: "[0.40, 0.70]", dw: 23.7, pi: 44.0 },
   arms_exports: { beta: 2.54, ci: "[1.90, 3.20]", dw: 75.0, pi: 29.6 },
   stablecoins: { beta: 2.53, ci: "[2.00, 3.10]", dw: 141.7, pi: 56.0 },
   pmc: { beta: 2.06, ci: "[1.70, 2.40]", dw: 536.3, pi: 260.0 },
@@ -99,18 +99,19 @@ export const FRAMEWORK_PAPERS = [
   { id: "fw-fiscal-capture", name: "The Fiscal Capture Theorem", shortName: "Fiscal Capture", theoremType: "Framework", summary: "Demonstrates that governments dependent on tax revenue from system-degrading industries face a structural conflict: enforcement reduces the tax base. The theorem explains regulatory paralysis." },
   { id: "fw-substitution-trap", name: "The Substitution Trap Law", shortName: "Substitution Trap", theoremType: "Framework", summary: "Proves that banning one Hollow Win domain without addressing demand shifts welfare destruction to substitute domains. Prohibition of alcohol shifted welfare costs to illicit markets." },
   { id: "fw-disclosure-futility", name: "The Disclosure Futility Theorem", shortName: "Disclosure Futility", theoremType: "Framework", summary: "Shows that mandatory disclosure alone cannot resolve a Hollow Win. Parties already know their bilateral payoffs. The missing information (W) is structurally outside the disclosure space." },
+  { id: "fw-accountability-reconstruction", name: "The Accountability Reconstruction Framework", shortName: "Accountability Reconstruction", theoremType: "Framework", summary: "Shows why, in process-sensitive accountability regimes, a contemporaneous reconstruction-complete decision record is the evidentiary object that separates good-faith failure from negligent failure. Field 16 remains System Welfare; signatures, timestamps, version history, and hash chains belong in the record-integrity layer." },
   { id: "fw-postnieks-law", name: "Postnieks\u2019s Law", shortName: "Postnieks\u2019s Law", theoremType: "Framework", summary: "The cross-domain result: in any bilateral game satisfying the three Private Pareto axioms, the time to system collapse T* is inversely proportional to \u03B2W. Higher beta means faster collapse." },
   { id: "fw-conflictoring", name: "The Conflictoring Protocol", shortName: "Conflictoring", theoremType: "Framework", summary: "The six-agent diagnostic protocol that breaks the Private Systemic Tension. When k* agents activate simultaneously, conformism to the trap becomes strictly dominated." },
-  { id: "fw-hollow-win", name: "The Hollow Win", shortName: "Hollow Win", theoremType: "Framework", summary: "Written for the Harvard Program on Negotiation (PON) audience. The practitioner\u2019s entry point to the entire System Asset Pricing Model program. Replaces Ury-Fisher\u2019s two-by-two outcome matrix with an eight-outcome three-dimensional classification. Seven case studies \u2014 Benchmark Rate, Volkswagen, Boeing 737 MAX, Wells Fargo, the Lysine cartel, algorithmic collusion, and leaded gasoline \u2014 demonstrate that the most common negotiation outcome is invisible to every bilateral framework. No equations by design. Connects to all 61 domain papers, the six-agent Conflictoring protocol, Decision Accounting, and the $85.3T welfare cost." },
+  { id: "fw-hollow-win", name: "The Hollow Win", shortName: "Hollow Win", theoremType: "Framework", summary: "Written for the Harvard Program on Negotiation (PON) audience. The practitioner\u2019s entry point to the entire System Asset Pricing Model program. Replaces Ury-Fisher\u2019s two-by-two outcome matrix with an eight-outcome three-dimensional classification. Seven case studies \u2014 FX-Fixing, Volkswagen, Boeing 737 MAX, Wells Fargo, the Lysine cartel, algorithmic collusion, and leaded gasoline \u2014 demonstrate that the most common negotiation outcome is invisible to every bilateral framework. No equations by design. Connects to the 59 market-failure domain papers, the six-agent Conflictoring protocol, Decision Accounting, and the working aggregate welfare-cost estimate." },
 ];
 
 export const OTHER_PAPERS = [
-  { id: "ot-da-chapter1", name: "Domain Analysis Chapter 1: Methodology", shortName: "Decision Accounting Ch.1", theoremType: "Methodology", summary: "Establishes the channel decomposition methodology, Monte Carlo simulation protocol (N=10,000, seed=42), and \u03B2W computation standards used across all 61 domain papers." },
-  { id: "ot-da-chapter5", name: "Domain Analysis Chapter 5: Cross-Domain", shortName: "Decision Accounting Ch.5", theoremType: "Methodology", summary: "Cross-domain analysis comparing all 61 \u03B2W estimates, identifying structural patterns across impossibility and intractability domains." },
+  { id: "ot-da-chapter1", name: "Domain Analysis Chapter 1: Methodology", shortName: "Decision Accounting Ch.1", theoremType: "Methodology", summary: "Establishes the channel decomposition methodology, Monte Carlo simulation protocol (N=10,000, seed=42), and \u03B2W computation standards used across the market-failure domain papers and controls." },
+  { id: "ot-da-chapter5", name: "Domain Analysis Chapter 5: Cross-Domain", shortName: "Decision Accounting Ch.5", theoremType: "Methodology", summary: "Cross-domain analysis comparing the market-failure \u03B2W estimates and controls, identifying structural patterns across impossibility and intractability domains." },
   { id: "ot-da-chapter9", name: "Domain Analysis Chapter 9: Agent Architecture", shortName: "Decision Accounting Ch.9", theoremType: "Methodology", summary: "Defines the six-agent architecture (Whistleblower, Plaintiff, Regulator, Legislator, Investor, Supranational) and the conditions under which multi-agent activation breaks the Private Systemic Tension." },
   { id: "ot-c-adjusted-gdp", name: "C-Adjusted GDP: The Number GDP Was Supposed To Be", shortName: "C-Adjusted GDP", theoremType: "Measurement", summary: "Introduces GDP* = GDP - \u03BC\u03A3\u03B2W\u03A0. At full calibration (\u03BC=1.0), approximately $20 trillion disappears from measured global output. Country-level decomposition for 190 nations." },
-  { id: "ot-pst-breaker", name: "Reform Pathfinder: 190 Countries \u00D7 61 Domains", shortName: "Reform Pathfinder", theoremType: "Tool", summary: "Country-specific reform paths for all 190 nations across all 61 domains. Identifies which reforms are achievable given each country\u2019s institutional capacity." },
-  { id: "ot-curriculum", name: "The Private Pareto Theorem Curriculum: 15 Chapters \u00B7 4 Hours", shortName: "Curriculum", theoremType: "Education", summary: "The complete System Asset Pricing Model framework in 15 interactive chapters. From \u2018The Lie in the Number\u2019 through Decision Accounting, the six-agent Conflictoring protocol, all 61 domain theorems, and the five structural laws. Interactive charts and glossary tooltips throughout." },
+  { id: "ot-pst-breaker", name: "Reform Pathfinder: 190 Countries \u00D7 59 Market-Failure Domains", shortName: "Reform Pathfinder", theoremType: "Tool", summary: "Country-specific reform paths for all 190 nations across the 59 market-failure domains. Identifies which reforms are achievable given each country\u2019s institutional capacity." },
+  { id: "ot-curriculum", name: "The Private Pareto Theorem Curriculum: Expanded Core", shortName: "Curriculum", theoremType: "Education", summary: "The expanded System Asset Pricing Model curriculum. The core path now needs roughly eight hours, with separate tracks for theorem foundations, Decision Accounting, public policy, global jurisdiction, domain papers, books, source packages, and publication strategy." },
   { id: "da_1", name: "General Equilibrium Properties of Process Disclosure: Five Theorems on Governance Documentation", shortName: "DA-1: GE Theory", theoremType: "Foundational", summary: "Develops the general equilibrium theory of process disclosure. Five theorems establish threshold adoption, coordination cascades, under-adoption, cost-of-capital amplification, and strategic complementarity. Resolves Prat\u2019s (2005) conformism paradox through multi-audience common agency." },
   { id: "da_2", name: "Regulatory Convergence: Independent Discovery of Governance Documentation Standards", shortName: "DA-2: Convergence", theoremType: "Foundational", summary: "Documents the empirical finding that sixteen independent regulatory jurisdictions converged on structurally identical governance documentation requirements. Thirteen of fifteen fields appear in all sixteen regimes with probability < 0.001 under random assignment." },
   { id: "da_3", name: "Behavioral Properties of Governance Documentation: From Nudge to Guardrail", shortName: "DA-3: Behavioral", theoremType: "Foundational", summary: "Establishes four behavioral properties of governance documentation: nudge insufficiency for governance, decay transformation, normalization resistance, and noise reduction. Introduces the guardrail as a structural intervention distinct from both nudges and mandates." },
@@ -125,7 +126,7 @@ export const OTHER_PAPERS = [
 // ─── BUILD SORTED PAPER LIST ──────────────────────────────────
 export function buildPaperList(paperContent = {}) {
   const domainPapers = DOMAINS
-    .filter(d => d.id !== "ppt")
+    .filter(d => !["ppt", "nuclear", "gig_economy"].includes(d.id))
     .map(d => {
       const canonical = getCanonicalBeta(d);
       return {
@@ -141,6 +142,7 @@ export function buildPaperList(paperContent = {}) {
         theoremType: getTheoremType(d),
         theoremName: d.theorem?.name || null,
         summary: d.paper?.summary || d.risk || "Domain paper in the System Asset Pricing Model series.",
+        ssrnUrl: d.paper?.ssrnUrl || null,
         content: paperContent[d.id] || null,
         slug: d.id,
       };
@@ -158,6 +160,7 @@ export function buildPaperList(paperContent = {}) {
     theoremType: "Foundational",
     theoremName: "The Private Pareto Theorem",
     summary: pptDomain.paper.summary,
+    ssrnUrl: pptDomain.paper?.ssrnUrl || null,
     content: paperContent["ppt"] || null,
     slug: "ppt",
   };
@@ -172,6 +175,7 @@ export function buildPaperList(paperContent = {}) {
     theoremType: p.theoremType,
     theoremName: p.name,
     summary: p.summary,
+    ssrnUrl: p.ssrnUrl || null,
     content: paperContent[p.id] || null,
     slug: p.id,
   }));
@@ -186,6 +190,7 @@ export function buildPaperList(paperContent = {}) {
     theoremType: p.theoremType,
     theoremName: p.name,
     summary: p.summary,
+    ssrnUrl: p.ssrnUrl || null,
     content: paperContent[p.id] || null,
     slug: p.id,
   }));

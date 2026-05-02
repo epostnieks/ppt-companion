@@ -18,9 +18,9 @@ const TEXT = "#F5F0E8";
 const GOLD = "#F59E0B";
 const RED = "#EF4444";
 const GREEN = "#22C55E";
-const MUTED = "rgba(255,255,255,0.35)";
+const MUTED = "#C8C8C8";
 const BORDER = "rgba(255,255,255,0.1)";
-const DIM = "rgba(255,255,255,0.55)";
+const DIM = "#C8C8C8";
 
 const AXIOM_COLORS = [GOLD, "#627EEA", RED];
 
@@ -87,14 +87,14 @@ export default function PSTBreaker() {
           display: "flex", gap: 20, flexWrap: "wrap", padding: "12px 16px",
           background: "rgba(255,255,255,0.02)", border: `1px solid ${BORDER}`, borderRadius: 4, marginBottom: 20,
         }}>
-          <div style={{ fontFamily: M, fontSize: 10, color: MUTED, letterSpacing: 1, alignSelf: "center" }}>AXIOM STATUS:</div>
+          <div style={{ fontFamily: M, fontSize: 11, color: MUTED, letterSpacing: 1, alignSelf: "center" }}>AXIOM STATUS:</div>
           {AXIOMS.map((ax, i) => (
             <div key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
               <span style={{ width: 10, height: 10, borderRadius: "50%", background: AXIOM_COLORS[i], display: "inline-block" }} />
               <span style={{ fontFamily: M, fontSize: 11, color: DIM }}>{ax.short}</span>
             </div>
           ))}
-          <div style={{ fontFamily: M, fontSize: 10, color: MUTED, marginLeft: "auto" }}>
+          <div style={{ fontFamily: M, fontSize: 11, color: MUTED, marginLeft: "auto" }}>
             <span style={{ color: RED }}>●</span> Holds (trap active) &nbsp;
             <span style={{ color: GREEN }}>●</span> Broken (reform possible)
           </div>

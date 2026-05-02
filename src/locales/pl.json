@@ -7,7 +7,7 @@
     "subtitle": "Celem jest zmiana gry z welfare-trap na nie-PST. Wybierz swój kraj. Wybierz swój sektor. Dowiedz się, który aksjomat się łamie — i co zrobić, żeby go złamać.",
     "globalLoss": "20,9 bln $",
     "globalLossLabel": "Roczna systemowa utrata dobrobytu z gier welfare-trap w 190 krajach",
-    "globalLossExplain": "Model System Asset Pricing Model mierzy niszczenie dobrobytu w 27 kanałach i 190 gospodarkach. Przy μ=1,0 zagregowana luka c-skorygowanego PKB wynosi 85,3 bln $ — 77% konwencjonalnego światowego PKB. To jest odzyskiwalny dobrobyt. Każda gra welfare-trap przekształcona w nie-PST zmniejsza tę lukę. To narzędzie mapuje ścieżkę instytucjonalną dla każdego kraju i sektora.",
+    "globalLossExplain": "Model System Asset Pricing Model mierzy niszczenie dobrobytu w 27 kanałach i 190 gospodarkach. Przy μ=1,0 zagregowana luka c-skorygowanego PKB wynosi 89,2 bln $ — 77% konwencjonalnego światowego PKB. To jest odzyskiwalny dobrobyt. Każda gra welfare-trap przekształcona w nie-PST zmniejsza tę lukę. To narzędzie mapuje ścieżkę instytucjonalną dla każdego kraju i sektora.",
     "selectCountry": "WYBIERZ SWÓJ KRAJ",
     "sectorsMapped": "ZMAPOWANE SEKTORY",
     "selectSector": "WYBIERZ SEKTOR",

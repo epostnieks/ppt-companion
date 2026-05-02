@@ -1,8 +1,8 @@
 import PaperSummaries from '../../src/PaperSummaries';
 
 export const metadata = {
-  title: "Paper Summaries — 75 Working Papers | System Asset Pricing Model Program",
-  description: "College-level summaries of all 75 working papers.",
+  title: "Paper Summaries — Ranked Research Corpus | System Asset Pricing Model Program",
+  description: "College-level summaries of the ranked paper corpus, with policy, source, and curriculum context.",
 };
 
 export default function SummariesPage() {

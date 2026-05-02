@@ -24,8 +24,8 @@ const PROPOSITIONS = [
     formal: "Let W: Ω → ℝ be a measurable function on the state space Ω of a shared system (market, commons, benchmark, ecosystem). W is system welfare if and only if W cannot be computed as a function of bilateral payoffs: W ≠ f(πᴬ, πᴮ) for any f: ℝ² → ℝ.",
     plain: "W measures whether the system — the market, the benchmark, the ecosystem, the commons — is healthy. The defining property: you cannot compute it from what A got and what B got. It is genuinely independent information. No amount of bilateral data can reconstruct it. That is the whole problem." },
   { id: "D2", type: "Definition", title: "Welfare Beta (βW)",
-    formal: "βW = −∂W/∂Π, where Π = πᴬ + πᴮ is the total bilateral payoff. βW measures the marginal rate of system welfare destruction per dollar of private gain.",
-    plain: "How many dollars of system welfare does one dollar of private gain destroy? That is βW. Firearms is 50.99. Cybercrime is 31.10. Gig Economy is 0.76 — the lowest. Nuclear is 2.94. 61 domains, calibrated. The number does the work." },
+    formal: "βW = −∂W/∂Π, where Π = πᴬ + πᴮ is the total bilateral payoff. βW measures the marginal rate of system welfare destruction per dollar of revenue.",
+    plain: "How many dollars of system welfare does one dollar of private gain destroy? That is βW. Firearms is 50.99. Cybercrime is 31.10. FX-Fixing is 5.13. Shipping is 1.34. The number does the work because each domain is placed on the same welfare-cost scale." },
   { id: "D3", type: "Definition", title: "Hollow Win",
     formal: "An outcome (c, a, b) = (0, 1, 1): both private parties gain (πᴬ > πᴬ₀, πᴮ > πᴮ₀) while the system degrades (ΔW < 0). The outcome is Pareto-improving in bilateral space and welfare-destructive in system space.",
     plain: "Both parties win. The system loses. Standard analysis calls this 'mutual gain' and moves on. It is not mutual gain. It is mutual extraction from a shared system that is collapsing. Every framework in negotiation theory classifies this identically to Win-Win-Win. That is the blindness the theorem exposes." },
@@ -62,13 +62,13 @@ const FALSIFICATION = [
   { criterion: "Demonstrate that W can be computed from bilateral payoffs (πᴬ, πᴮ) without additional information.",
     status: "OPEN", note: "This destroys Private-Systemic Tension-2. If system welfare is derivable from what the parties received, the whole architecture collapses. The Benchmark Rate case is the canonical counterexample: the benchmark's integrity cannot be computed from any trader's P&L. But show me a domain where it can, and I will retract." },
   { criterion: "Identify a domain where all three Private-Systemic Tension axioms hold and βW < 1.",
-    status: "FOUND", note: "Nuclear fission. βW = 0.53. All three axioms hold. βW is below 1.0. This does not falsify the theorem — it confirms it. The theorem says Hollow Wins occur when βW > 1. Nuclear is below the threshold. The framework correctly identifies the only domain where private activity creates net welfare benefit." },
+    status: "INTERNAL CONTROL", note: "Below-threshold comparator drafts are excluded from the public market-failure slate. They remain useful as internal boundary tests, but the public program is organized around domains where βW clears the market-failure threshold." },
   { criterion: "Show that a Group Decision Support System monitoring only bilateral payoffs successfully prevented a documented Hollow Win.",
     status: "OPEN", note: "This disproves Corollary C1. I have reviewed every published Group Decision Support System case study across INSPIRE, SmartSettle, Negoisst, and GMCR. None monitors system welfare. None prevented a Hollow Win. None could. The tool cannot detect the thing it was not designed to detect." },
   { criterion: "Demonstrate systematic bias in the Monte Carlo βW estimates.",
     status: "OPEN", note: "The simulation uses triangular, lognormal, and uniform distributions fitted to published source data. Every channel in every domain has cited sources. Sensitivity analysis shows floor effects — minimum βW under simultaneously hostile assumptions. If you can demonstrate that the channel distributions are systematically wrong, the calibration moves. The classification has not changed under any sensitivity test yet conducted." },
   { criterion: "Find an impossibility theorem in the canon (1-17) that subsumes or contradicts the Private Pareto Theorem.",
-    status: "OPEN", note: "Arrow addresses preference aggregation. Sen addresses rights versus efficiency. Myerson-Satterthwaite addresses bilateral trade under private information. The Private Pareto Theorem addresses bilateral efficiency versus system welfare. Different axis. Different impossibility. If you can show that one of the 17 existing theorems already covers this result, I do not need an 18th." },
+    status: "OPEN", note: "Arrow addresses preference aggregation. Sen addresses rights versus efficiency. Myerson-Satterthwaite addresses bilateral trade under private information. The Private Pareto Theorem addresses bilateral efficiency versus system welfare. Different axis. Different proposed result. Pending peer review, the conservative claim is contribution to the canon, not ratified canon status." },
 ];
 
 // ─── RESEARCH AGENDA ────────────────────────────────────────
@@ -78,11 +78,11 @@ const RESEARCH_AGENDA = [
       "The Private Pareto Theorem is bilateral. Extend it to n parties. Supply chains have dozens of bilateral interactions, each potentially system-destructive. Does the impossibility compound, or does multi-party structure create escape routes?",
       "The Folk Theorem says patient agents can sustain cooperation. Does patience help against Hollow Wins? If agents are sufficiently patient, can a Hollow Win persist indefinitely — or does T* always arrive?",
       "Private-Systemic Tension-2 is sharp — W is fully independent of bilateral payoffs. Weaken it. Partial system independence — agents see 10% of W, or 50%. Does the impossibility survive? At what visibility threshold does it break?",
-      "βW = 1.0 is a knife edge. Gig Economy is 0.76 — close to neutral. Firearms is 50.99 — off the charts. What happens at β = 1.01? Is there a continuous version of the theorem, or is the threshold genuinely discontinuous?",
+      "βW = 1.0 is a knife edge. Factory Farming is close to the boundary. Firearms is 50.99 — off the charts. What happens at β = 1.01? Is there a continuous version of the theorem, or is the threshold genuinely discontinuous?",
     ]},
   { area: "Empirical Calibration",
     questions: [
-      "61 domains calibrated and published. All 22 Impossibility and 39 Intractability theorems have formal proofs, Monte Carlo simulations, and falsification bounties. The pipeline of additional domains remains open — suggest new ones.",
+      "59 market-failure domains calibrated and published. The market-failure slate has formal proofs, Monte Carlo simulations, and falsification bounties. The pipeline of additional domains remains open — suggest new ones.",
       "Can βW be estimated from market data alone — event studies around regulatory announcements, litigation outcomes, enforcement actions — rather than from channel decomposition? A revealed-preference βW would be powerful.",
       "Cross-domain coupling: coal combustion (β = 6.95) acidifies oceans, which destroys fisheries (β = 4.70). Forever Chemicals (β = 5.31) contaminates water (β = 5.61). Do coupled domains have additive or multiplicative βW?",
       "Temporal dynamics: how does βW change as regulation tightens, technology shifts, or system damage accumulates? Is Bitcoin's β = 5.00 stable, or is it trending as the halving cycle reduces mining rewards?",
@@ -128,7 +128,7 @@ const METHODOLOGY = [
       "Π = total annual private payoff (annual industry revenue — always revenue, never profit or market size)",
       "Each wᵢ estimated from 3-point range (low, mid, high) fitted to source data",
     ],
-    validation: "βW is dimensionless — dollars of welfare cost per dollar of private gain. Cross-domain comparability is ensured by consistent methodology. The ratio, not the absolute cost, is the measurement.",
+    validation: "βW is dimensionless — dollars of welfare cost per dollar of revenue. Cross-domain comparability is ensured by consistent methodology. The ratio, not the absolute cost, is the measurement.",
     selfLaceration: "The denominator (Π) varies by domain — sometimes revenue, sometimes profit, sometimes market size. This is a choice, stated and justified per domain. A hostile referee can recompute with a different denominator. In the Bitcoin paper, the steelman uses the most generous Π available. Classification unchanged." },
   { title: "T* Estimation",
     params: [
@@ -170,10 +170,10 @@ export default function AcademicHub() {
             The Formal Architecture
           </h1>
           <div style={{ fontFamily: S, fontSize: 20, color: DIM, marginTop: 12, lineHeight: 1.7, fontStyle: "italic" }}>
-            Three axioms. One foundational impossibility. Sixty-one domain analyses: twenty-two Impossibility Theorems and thirty-nine Intractability Theorems. This page assembles the definitions, axioms, theorems, and corollaries so that each claim can be examined on its own terms. Falsification conditions are stated for every theorem; counterexamples are welcome.
+            Three axioms. One foundational impossibility. Fifty-nine market-failure domain analyses. This page assembles the definitions, axioms, theorems, and corollaries so that each claim can be examined on its own terms. Falsification conditions are stated for every theorem; counterexamples are welcome.
           </div>
           <div style={{ fontFamily: M, fontSize: 14, color: MUTED, marginTop: 12 }}>
-            Postnieks, E. (2026). 75 Working Papers &middot; 62 Theorems &middot; System Asset Pricing Model Program.
+            Postnieks, E. (2026). Ranked research corpus &middot; System Asset Pricing Model Program.
           </div>
         </div>
 
@@ -367,7 +367,7 @@ export default function AcademicHub() {
         <div style={{ marginTop: 48, padding: "32px 0", borderTop: `1px solid ${BORDER}` }}>
           <div style={{ fontFamily: M, fontSize: 14, color: GOLD, letterSpacing: 2, marginBottom: 16 }}>CITATION GENERATOR</div>
           <div style={{ fontFamily: S, fontSize: 17, color: DIM, lineHeight: 1.8, marginBottom: 20 }}>
-            All 75 papers forthcoming on SSRN. Each paper has a public Monte Carlo replication repository.
+            Papers are forthcoming on SSRN. Quantitative domain papers have public Monte Carlo replication repositories where applicable.
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
             <div style={{ padding: "16px 20px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>
@@ -389,7 +389,7 @@ export default function AcademicHub() {
             <div style={{ padding: "16px 20px", background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: 4 }}>
               <div style={{ fontFamily: M, fontSize: 11, color: GOLD, letterSpacing: 1, marginBottom: 8 }}>FULL PROGRAM</div>
               <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.6, marginBottom: 8 }}>
-                Postnieks, E. (2026). The System Asset Pricing Model program: 62 theorems across 61 domains. Available at https://ppt-companion.vercel.app.
+                Postnieks, E. (2026). The System Asset Pricing Model program: 59 market-failure domains. Available at https://ppt-companion.vercel.app.
               </div>
               <a href="https://ppt-companion.vercel.app" style={{ fontFamily: M, fontSize: 11, color: GOLD, textDecoration: "none" }}>WEBSITE →</a>
             </div>
@@ -410,7 +410,7 @@ export default function AcademicHub() {
         <div style={{ marginTop: 24, padding: "16px 20px", background: "rgba(245,158,11,0.04)", border: `1px solid rgba(245,158,11,0.15)`, borderRadius: 4 }}>
           <div style={{ fontFamily: M, fontSize: 12, color: GOLD, letterSpacing: 1, marginBottom: 8 }}>REPLICATION</div>
           <div style={{ fontFamily: S, fontSize: 15, color: DIM, lineHeight: 1.7 }}>
-            All 61 domain papers have public Monte Carlo replication repositories at github.com/epostnieks/sapm-mc-[slug]. Each repository contains the simulation code, input assumptions, and output data needed to reproduce every βW estimate in the program.
+            The 59 market-failure domain papers have public Monte Carlo replication repositories at github.com/epostnieks/sapm-mc-[slug]. Each repository contains the simulation code, input assumptions, and output data needed to reproduce every βW estimate in the program.
           </div>
         </div>
 

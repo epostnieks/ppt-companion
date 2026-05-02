@@ -42,7 +42,7 @@ export default function CountryPage({ code }) {
         {/* Breadcrumb */}
         <div style={{ paddingTop: 72, marginBottom: 16 }}>
           <div style={{ fontFamily: M, fontSize: 11, color: MUTED }}>
-            <a href="/pst-breaker/" style={{ color: GOLD, textDecoration: "none" }}>Reform Pathfinder</a>
+            <a href="/reform-pathfinder/" style={{ color: GOLD, textDecoration: "none" }}>Reform Pathfinder</a>
             <span style={{ margin: "0 8px" }}>/</span>
             <span>{country.name}</span>
           </div>
@@ -94,7 +94,7 @@ export default function CountryPage({ code }) {
             {/* Axiom status */}
             <div style={{ display: "flex", gap: 16, marginBottom: 10 }}>
               {AXIOMS.map((ax, j) => (
-                <div key={j} style={{ fontFamily: M, fontSize: 10, color: MUTED, display: "flex", alignItems: "center", gap: 4 }}>
+                <div key={j} style={{ fontFamily: M, fontSize: 11, color: MUTED, display: "flex", alignItems: "center", gap: 4 }}>
                   <AxiomDot holds={sector.pst?.[j]} />
                   {ax.short}
                 </div>
@@ -104,14 +104,14 @@ export default function CountryPage({ code }) {
             {/* Most breakable */}
             {sector.whyBreakable && (
               <div style={{ fontFamily: S, fontSize: 14, color: DIM, lineHeight: 1.6, marginBottom: 8 }}>
-                <span style={{ fontFamily: M, fontSize: 10, color: GREEN, marginRight: 6 }}>MOST BREAKABLE:</span>
+                <span style={{ fontFamily: M, fontSize: 11, color: GREEN, marginRight: 6 }}>MOST BREAKABLE:</span>
                 {sector.whyBreakable}
               </div>
             )}
 
             {/* Actor count */}
             {sector.actors && (
-              <div style={{ fontFamily: M, fontSize: 10, color: MUTED, marginTop: 8 }}>
+              <div style={{ fontFamily: M, fontSize: 11, color: MUTED, marginTop: 8 }}>
                 {sector.actors.length} agent pathways mapped
               </div>
             )}
@@ -122,7 +122,7 @@ export default function CountryPage({ code }) {
         <div style={{
           display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 24,
         }}>
-          <a href="/pst-breaker/" style={{
+          <a href="/reform-pathfinder/" style={{
             padding: "20px", textAlign: "center", textDecoration: "none",
             background: "rgba(245,158,11,0.04)", border: `1px solid rgba(245,158,11,0.15)`, borderRadius: 6,
           }}>
@@ -137,7 +137,7 @@ export default function CountryPage({ code }) {
           }}>
             <div style={{ fontFamily: M, fontSize: 11, color: GREEN, letterSpacing: 1, marginBottom: 6 }}>POLICYLAB</div>
             <div style={{ fontFamily: S, fontSize: 14, color: DIM }}>
-              Detailed policy options across 61 domains for {country.name}
+              Detailed policy options across 59 market-failure domains for {country.name}
             </div>
           </a>
         </div>

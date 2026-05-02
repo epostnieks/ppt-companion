@@ -16,8 +16,8 @@ const FONTS = {
 const BG = "#0A0A0F";
 const SURFACE = "rgba(255,255,255,0.02)";
 const BORDER = "rgba(255,255,255,0.06)";
-const MUTED = "rgba(255,255,255,0.35)";
-const DIM = "rgba(255,255,255,0.5)";
+const MUTED = "#C8C8C8";
+const DIM = "#C8C8C8";
 const ACCENT = "#F59E0B";
 const GREEN = "#22C55E";
 const RED = "#DC2626";
@@ -126,13 +126,13 @@ export default function DistributionalRobustness() {
           Distributional Robustness Test
         </h2>
         <div style={{ fontFamily: FONTS.serif, fontSize: 15, color: DIM, marginTop: 8, lineHeight: 1.6, fontStyle: "italic" }}>
-          Does the G2 result — β<sub>W</sub> &gt; 1.0 at the 5th percentile in 60/61 domains — survive when we replace the uniform sampling assumption with three alternative distribution families?
+          Does the market-failure classification survive when we replace the uniform sampling assumption with three alternative distribution families?
         </div>
       </div>
 
       {/* Verdict strip */}
       <div style={{ display: "flex", gap: 16, marginBottom: 32, flexWrap: "wrap" }}>
-        <VerdictBox value="60/61" label="INVARIANT" color="#16A34A" />
+        <VerdictBox value="59" label="MARKET-FAILURE DOMAINS" color="#16A34A" />
         <VerdictBox value="4" label="DISTRIBUTIONS" color="#1F4E79" />
         <VerdictBox value="2.44M" label="TOTAL DRAWS" color="#1F4E79" />
         <VerdictBox value="<0.01" label="MAX R² (G1)" color="#1F4E79" />
@@ -164,7 +164,7 @@ export default function DistributionalRobustness() {
 
       {/* G2: 5th-percentile table */}
       <div style={{ marginBottom: 32 }}>
-        <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: ACCENT, letterSpacing: 2, marginBottom: 12 }}>G2 — 5TH-PERCENTILE β<sub style={{ fontSize: 10 }}>W</sub> ACROSS FAMILIES</div>
+        <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: ACCENT, letterSpacing: 2, marginBottom: 12 }}>G2 — 5TH-PERCENTILE β<sub style={{ fontSize: 11 }}>W</sub> ACROSS FAMILIES</div>
         <div style={{ overflowX: "auto" }}>
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
             <thead>
@@ -207,7 +207,7 @@ export default function DistributionalRobustness() {
               <TH>Clear</TH>
               <TH>Weakest</TH>
               <TH>Floor (excl Nuclear)</TH>
-              <TH>Mean P(β<sub style={{ fontSize: 9 }}>W</sub>&gt;1)</TH>
+              <TH>Mean P(β<sub style={{ fontSize: 11 }}>W</sub>&gt;1)</TH>
             </tr>
           </thead>
           <tbody>
@@ -227,15 +227,15 @@ export default function DistributionalRobustness() {
       {/* Beta(2,5) stress test */}
       <div style={{ marginBottom: 32 }}>
         <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: RED, letterSpacing: 2, marginBottom: 4 }}>STRESS TEST</div>
-        <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, letterSpacing: 1, marginBottom: 12 }}>P(β<sub style={{ fontSize: 9 }}>W</sub> &gt; 1) under Beta(2,5) — most conservative distribution</div>
+        <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: MUTED, letterSpacing: 1, marginBottom: 12 }}>P(β<sub style={{ fontSize: 11 }}>W</sub> &gt; 1) under Beta(2,5) — most conservative distribution</div>
         <table style={{ width: "100%", borderCollapse: "collapse" }}>
           <thead>
             <tr>
               <TH width="200">Domain</TH>
-              <TH>Mean β<sub style={{ fontSize: 9 }}>W</sub></TH>
+              <TH>Mean β<sub style={{ fontSize: 11 }}>W</sub></TH>
               <TH>5th pct</TH>
               <TH>95th pct</TH>
-              <TH>P(β<sub style={{ fontSize: 9 }}>W</sub>&gt;1)</TH>
+              <TH>P(β<sub style={{ fontSize: 11 }}>W</sub>&gt;1)</TH>
             </tr>
           </thead>
           <tbody>
@@ -307,7 +307,7 @@ export default function DistributionalRobustness() {
       }}>
         <div style={{ fontFamily: FONTS.mono, fontSize: 12, color: ACCENT, letterSpacing: 1, marginBottom: 6, fontWeight: 700 }}>KEY RESULT</div>
         <div style={{ fontFamily: FONTS.serif, fontSize: 15, color: "rgba(255,255,255,0.85)", lineHeight: 1.7 }}>
-          The G2 classification — 60 of 61 domains clearing β<sub>W</sub> &gt; 1.0 at the 5th percentile — is invariant across all four distribution families. The distributional assumption is not a degree of freedom. Nuclear Fission remains the sole exception under every distribution tested. The choice of sampling distribution cannot rescue bilateral analysis.
+          The market-failure slate is evaluated separately from the β<sub>W</sub> &lt; 1 controls. Nuclear Fission and Gig Economy are controls/comparators, not market-failure claims. The distributional test therefore supports the classification doctrine only when the controls are labeled correctly.
         </div>
       </div>
 
@@ -316,7 +316,7 @@ export default function DistributionalRobustness() {
         fontFamily: FONTS.mono, fontSize: 11, color: MUTED, padding: "12px 0",
         borderTop: `1px solid ${BORDER}`, marginBottom: 40,
       }}>
-        Source: distributional_robustness.py · 10,000 draws per domain × 61 domains × 4 distributions = 2,440,000 total draws · Postnieks (2026a) Private Pareto Theorem §5.9
+        Source: distributional_robustness.py · 10,000 draws per domain × market-failure panel plus controls × 4 distributions · Postnieks (2026a) Private Pareto Theorem §5.9
       </div>
     </div>
   );

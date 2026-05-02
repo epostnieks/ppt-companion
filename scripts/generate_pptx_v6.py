@@ -317,7 +317,7 @@ def html_metrics(data):
         <div class="card">
           <div class="card-title">System Beta (βW)</div>
           <div class="card-value" style="color:{NAVY};">{esc(str(beta))}</div>
-          <div class="card-desc">Welfare destruction per dollar of private gain</div>
+          <div class="card-desc">Welfare destruction per dollar of revenue</div>
         </div>
         <div class="card">
           <div class="card-title">90% Confidence Interval</div>

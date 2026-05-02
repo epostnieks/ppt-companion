@@ -1,0 +1,322 @@
+ALEX: Okay, I’m still just… absorbing that opening statistic. I mean, we spent *billions* trying to stop the opioid crisis, right? All this regulatory effort, all these resources, and this paper says overdose deaths went from something like sixteen thousand in 2010 to eighty thousand in 2022? A five-fold increase?
+JORDAN: Yeah, a five-fold increase. During a period of continuous, escalating regulatory action. It’s… it’s like we tried to put out a fire with gasoline, but we genuinely *thought* it was water. That number just stopped me cold.
+ALEX: But how? I mean, how does that even happen? You ban one thing, something else pops up, sure, but for it to get *worse*? Like, demonstrably, tragically worse.
+JORDAN: Well, that’s the core of what this paper calls the “Substitution Trap Law.” It’s this almost invisible, almost inevitable mechanism.
+ALEX: Huh.
+JORDAN: It basically guarantees that when regulators target a specific problem, they often just shift it, or even amplify it, without ever actually reducing the fundamental harm.
+ALEX: So, it’s not that the regulators are *bad* at their jobs, or corrupt… it’s that the system itself is, like, rigged against them?
+JORDAN: Exactly. The paper nails it: “The stone age did not end because we ran out of stones.” We don’t solve systemic problems by just running out of one specific manifestation of the problem. It’s much deeper.
+ALEX: Okay, so give it to me in plain English. What’s the core mechanism? What are they missing?
+JORDAN: It comes down to something they call “W-Independence.” Which, I know, sounds like jargon.
+ALEX: Yeah.
+JORDAN: But it’s actually really simple. Think of it this way: the *private gain* from a transaction, you know, your personal profit, my personal satisfaction… that’s one thing.
+ALEX: Right.
+JORDAN: But the *system-wide harm*… the welfare destruction, as they call it, the ΔW… that’s completely separate. It's not baked into the price, it’s not something the two people doing the deal can even see.
+ALEX: Oh, I get it. Like, if I buy a fast fashion dress for five bucks, I get a dress, the company gets five bucks. We’re both happy. But the environmental impact, the labor exploitation… that’s not part of *our* transaction.
+JORDAN: Precisely. And because regulators can’t directly measure that system-wide harm—
+ALEX: Because it’s not computable from our private transaction data.
+JORDAN: Right. So, they have to use proxies. They have to target something *observable*. A specific chemical, a legal product classification, a particular jurisdiction.
+ALEX: Ah. So, they can’t ban “endocrine disruption,” because that’s a functional property that’s hard to measure directly. But they *can* ban “Bisphenol A.”
+JORDAN: Exactly! And that’s where the trap springs. Because the industry, which is optimizing for private revenue, just says, “Okay, you banned BPA? Fine. We’ll use BPS.” Or BPF.
+ALEX: Yeah?
+JORDAN: Or any other bisphenol analogue. Because the *functional property* that causes the harm – the structural similarity to estrogen that disrupts hormones – that’s still there. The regulator banned the proxy, not the function.
+ALEX: So, “BPA-Free” isn’t actually endocrine-disruptor-free?
+JORDAN: Not necessarily. That’s one of the most jarring examples in the paper. Consumers think they’re buying a safer product, but studies show BPS and BPF have comparable, sometimes even worse, estrogen-mimicking effects.
+ALEX: Wow.
+JORDAN: And they’re now found in human serum and breast milk at levels similar to what BPA used to be. It’s a complete substitution.
+ALEX: Wait—so the solution, then, is to ban the *function*? Like, “any chemical that mimics estrogen at X concentration”?
+JORDAN: That’s what the paper argues for: functional-class regulation. But it’s technically demanding, and as we’ll get into, politically obstructed.
+ALEX: Yeah, I can imagine.
+JORDAN: It’s hard to define, and it’s even harder to enforce against a multi-billion dollar industry.
+ALEX: Okay, so BPA to BPS, that makes sense. But the opioid crisis… that’s on a totally different scale. How does *that* fit this “substitution trap”?
+JORDAN: Oh, it’s the Iron Law of Prohibition on steroids. They banned prescription opioids, then cracked down on heroin. What did the market do?
+ALEX: Fentanyl.
+JORDAN: Exactly! It substituted to fentanyl. Why? Because fentanyl is like a hundred times more potent than heroin by weight.
+ALEX: So, less volume for the same high. Easier to smuggle. Higher profit margins per unit of risk.
+JORDAN: Bingo. The welfare-destroying property is neurochemical dependency. That’s what people are addicted to. That’s the *function*.
+ALEX: Right.
+JORDAN: The specific molecule, whether it’s OxyContin or heroin or fentanyl, that’s just the proxy. So, as each proxy was targeted, the market moved to a more potent, more dangerous substitute.
+ALEX: And the numbers just… kept climbing. You said 80,000 deaths?
+JORDAN: Yeah. And then it gets even wilder. When fentanyl analogues were scheduled, what came next?
+ALEX: What, uh… what could be worse?
+JORDAN: Xylazine-adulterated fentanyl. Xylazine isn’t even an opioid. It’s a veterinary tranquilizer.
+ALEX: Oh my god.
+JORDAN: It extends the fentanyl high, but it’s not reversed by Narcan, and it causes horrific skin wounds. So, the substitution didn’t just preserve the harm, it *amplified* it.
+ALEX: Unbelievable.
+JORDAN: Each step increased mortality per dose by roughly two to ten times.
+ALEX: That’s… yeah, that’s a lot. And it’s not just chemicals or drugs, right? This paper spans eight different domains.
+JORDAN: Eight domains, eight substitution sequences, eight preserved welfare costs. They call the trap a “manufacturing process.” Another big one: fast fashion.
+ALEX: Oh, like H&M’s “Conscious” collection? Or Zara’s “Join Life”?
+JORDAN: Precisely. The regulatory pressure, the consumer demand, it’s all about “sustainability claims.” The proxy is: “Are you using recycled materials? Organic cotton? Are you carbon-offsetting?”
+ALEX: Sounds good, right?
+JORDAN: And the brands say, “Yes! Look at our new line!”
+ALEX: Which sounds great, on the surface.
+JORDAN: It does. But the welfare destruction in fast fashion isn’t just about the *type* of fiber. It’s volume.
+ALEX: Ah.
+JORDAN: Producing a hundred billion garments a year, used seven to ten times before disposal, with horrific labor practices and microfiber shedding into the ocean.
+ALEX: So, the "Conscious" collections…
+JORDAN: They make up maybe two to ten percent of total production, often at a higher margin.
+ALEX: And the other ninety percent just keeps chugging along, or even *increases*?
+JORDAN: That’s what the paper found. Zara’s parent company, Inditex, increased total garment production by thirty percent in the three years after launching its “Join Life” collection.
+ALEX: Whoa.
+JORDAN: The “sustainable” line becomes a marketing platform that generates premium pricing, which then subsidizes the continued expansion of the conventional, high-volume, high-harm segment.
+ALEX: So, the “conscious consumer” is actually just paying more for a small percentage of slightly better stuff, while the overall harm just… continues. Maybe even gets worse because the company has more capital from those higher margins.
+JORDAN: It’s a masterclass in regulatory arbitrage. The label satisfies the proxy, but the functional harm—the sheer volume and waste—is completely preserved.
+ALEX: This is starting to feel like a recurring nightmare. What about something like, you know, payday loans? Those have been heavily regulated, right? APR caps, even outright bans in some states.
+JORDAN: Oh, the consumer finance section is particularly brutal. You have usury caps on payday loans, say, 36% APR. The paper highlights the “debt trap” dynamic: high-cost credit, structured for rollover.
+ALEX: Making it impossible for low-income borrowers to escape.
+JORDAN: That’s the *functional harm*.
+ALEX: So what’s the substitute?
+JORDAN: Earned Wage Access apps. DailyPay, Even, Earnin. They argued successfully in most jurisdictions that they weren’t “loans.” They were just “advances on already-earned wages,” or they operated on a “tip” model.
+ALEX: Tips? For getting your own money earlier?
+JORDAN: Yeah. And the CFPB, the Consumer Financial Protection Bureau, found these “tip-and-fee” structures were equivalent to three hundred to seven hundred percent APR.
+ALEX: Are you kidding?
+JORDAN: The same functional debt trap, the same high repeat-use rates among low-income workers without savings. Just a new legal classification.
+ALEX: That’s wild. That’s just… straight-up renaming the problem.
+JORDAN: And then you have Buy Now Pay Later, like Klarna or Afterpay. “Zero percent interest!” they say. The fees are just built into the merchant discount rate.
+ALEX: So it just bypasses the law.
+JORDAN: No explicit consumer interest, so it evades usury laws. It also often doesn’t get reported to credit bureaus, making the debt invisible, letting people overextend without being flagged.
+ALEX: Same debt trap, new packaging.
+JORDAN: Exactly.
+ALEX: So, the industry just keeps innovating around the regulatory definition. And the regulators are always a step behind.
+JORDAN: Always. The paper calls it the “innovation gap.” Regulators have to go through notice-and-comment rulemaking, legislative authorization. That’s slow.
+ALEX: Right.
+JORDAN: Industry, on the other hand, is just constrained by R&D costs, which are funded by the massive profits they’re trying to preserve. They can launch a new financial product in weeks. Regulators take years to even propose a rule.
+ALEX: The regulator plays chess. The industry plays poker.
+JORDAN: And the regulator announces its moves in advance through notice-and-comment rulemaking. The industry does not. It’s structurally asymmetric.
+ALEX: Okay, so this innovation gap, this speed differential… that's one reason. But there's a deeper, almost cynical reason, isn't there? The "Fiscal Capture Theorem"?
+JORDAN: You got it. This is where it gets really uncomfortable. Governments, it turns out, often have a direct fiscal incentive to *allow* this regulatory arbitrage.
+ALEX: Because they get tax revenue from these industries?
+JORDAN: Precisely. Take gambling. The paper analyzed US state governments. They collect roughly $15.9 billion annually in gaming tax revenues. That sounds like a lot, right?
+ALEX: Yeah, that's a significant amount for state budgets.
+JORDAN: But the welfare destruction attributable to that same industry is estimated at $277 billion. That’s $5.27 of welfare destroyed for every single dollar of tax revenue collected.
+ALEX: Wow. That's… that's quite a multiplier. Five dollars lost for every one gained.
+JORDAN: And that ratio is above a certain threshold, what they call φ*, which structurally ensures that the same governments who are supposedly mandating things like self-exclusion registries for problem gamblers…
+ALEX: Uh-huh?
+JORDAN: They actually have a direct fiscal interest in the market activity those registries are designed to *reduce*.
+ALEX: So, the government wants the gambling to continue, because it’s a revenue stream. Even if it hurts people.
+JORDAN: It creates a perverse incentive. Proxy-based regulation becomes the politically stable equilibrium. The government can announce action, satisfy public health advocates.
+ALEX: And the industry?
+JORDAN: The industry can substitute to a new product that preserves its profits, and thus preserves the tax revenue. Functional-class regulation, which would actually close the substitution space and reduce profits, would also reduce government tax revenue.
+ALEX: And that’s a political non-starter.
+JORDAN: Exactly.
+ALEX: So, the UK Gambling Commission’s self-exclusion registry was designed for the people most likely to be harmed by gambling. And offshore crypto casinos were designed for people who don’t want to be found. These populations overlap with near-perfect precision.
+JORDAN: It’s stark. The paper highlights UK research showing that problem gamblers who self-excluded from licensed operators were the highest-engagement cohort on offshore crypto casino platforms.
+ALEX: No way.
+JORDAN: The very tool designed to protect the most vulnerable was completely circumvented. And the government, receiving tax revenue from the *licensed* industry, is in a bind.
+ALEX: This is starting to feel incredibly bleak. Is there *any* way to break this trap? Or are we just doomed to this endless cycle of whack-a-mole?
+JORDAN: The paper does lay out three conditions for breaking the trap, though they are, as it says, “individually rare and jointly almost unprecedented.”
+ALEX: Okay, give me some hope. What are they?
+JORDAN: First is genuine technological displacement. Not just a substitution within the same problematic class, but something fundamentally different.
+ALEX: Like the stone age ending because we invented bronze tools, not because we ran out of stones.
+JORDAN: Exactly! The example in the paper is kerosene and electric lighting displacing whale oil for illumination. The function – light – was achieved by a mechanism that didn’t involve whale hunting.
+ALEX: That’s a good one.
+JORDAN: Or electric vehicles displacing internal combustion engines. Tailpipe emissions are *structurally absent* in EVs. It’s not just a slightly cleaner combustion engine.
+ALEX: So, bio-based plastics aren't displacement, because they still create microplastics and environmental burden, just from a different source.
+JORDAN: Right. They evade the “fossil polymer” proxy, but don’t solve the functional problem of persistent plastic waste. That’s a substitution, not a displacement.
+ALEX: Okay, so displacement is one. What’s the second?
+JORDAN: “Multi-audience transparency architecture.” This is about eliminating the information asymmetry.
+ALEX: The trap works because the regulator can’t really observe the *true* welfare harm.
+JORDAN: Precisely. Because it’s not computable from the bilateral transaction. W-Independence again.
+ALEX: Right.
+JORDAN: But what if the industry had to justify its actions to multiple audiences, each probing different dimensions of welfare impact? Not just a financial regulator.
+ALEX: But an environmental impact investor, say.
+JORDAN: Or a public health advocate, a plaintiffs’ attorney quantifying liability.
+ALEX: So, if an EWA app has to prove to a financial regulator it’s not a loan, but also prove to an insurance underwriter that it’s not increasing default risk, *and* satisfy an impact investor that it’s not creating debt traps for vulnerable populations… it’s a lot harder to just rename the product.
+JORDAN: Much harder. The paper points to something called the “Conflictoring Protocol” as a formal architecture for this, where decisions are scrutinized from so many angles that compliance theatre becomes impossible.
+ALEX: Okay, so displacement, multi-audience transparency. What’s the third?
+JORDAN: Dynamic regulatory adjustment. Essentially, the regulator has to move faster than the industry. Or at least, keep pace.
+ALEX: Which is what we said was the core problem. The innovation gap.
+JORDAN: Right. So, you need regulatory frameworks that explicitly anticipate substitution. For example, the EU Emissions Trading System has a Market Stability Reserve.
+ALEX: What does that do?
+JORDAN: If supplementary policies reduce emissions in one sector, freeing up allowances, the MSR actually *cancels* those excess allowances. It prevents the Waterbed Effect.
+ALEX: So, the cap isn’t static, it *adjusts* to the actual outcome. It tracks total emissions, not just individual reductions.
+JORDAN: Exactly. And for chemicals, this means moving to preemptive, class-level scheduling. Not just banning BPA, but banning the *bisphenol class* based on its estrogenic activity.
+ALEX: Or for opioids, too?
+JORDAN: Or for opioids, scheduling entire neurochemical classes rather than playing whack-a-mole with individual compounds.
+ALEX: But that’s the hardest part, isn’t it? The political will to do that? Because of the Fiscal Capture.
+JORDAN: It is. The paper says that functional-class regulation is the only approach that works. And it’s also the approach that industry lobbies hardest to prevent.
+ALEX: Which kind of confirms the theorem, doesn't it?
+JORDAN: It does. They don’t lobby against it because it’s impossible; they lobby against it because it would actually *work* and reduce their profits.
+ALEX: So, the EU’s proposed class-level restriction on PFAS, the "forever chemicals," which targets the carbon-fluorine bond itself… that’s an example of functional-class regulation.
+JORDAN: It is. And it’s facing massive resistance from semiconductor manufacturers, medical device companies, who argue there are no current alternatives for their applications.
+ALEX: Yeah.
+JORDAN: It shows how entrenched these industries are, and how difficult it is to shift away from proxy-based regulation.
+ALEX: So, to really break this trap, you need all three. A genuinely new technology…
+JORDAN: Check.
+ALEX: Multiple audiences scrutinizing the real harm…
+JORDAN: Yes.
+ALEX: And regulators who can move faster or at least keep pace with industry innovation, ideally targeting the function, not just the proxy. And you need to break the government's fiscal dependency on these harmful industries.
+JORDAN: That’s the full architecture. The paper stresses that the Substitution Trap isn’t a puzzle without a solution, it’s a puzzle whose solution requires the *full* architecture of the SAPM reform framework, not any single instrument applied in isolation.
+ALEX: It makes you wonder, if this has been happening for decades, in so many different domains, how much unnecessary harm have we collectively endured? How many times have we celebrated a regulatory “win” that was actually just a substitution?
+JORDAN: And how much social capital, how much political will, have we burnt up fighting these proxy battles, when the real war was always elsewhere? It’s a sobering thought.
+ALEX: It really is. It shifts the entire way you think about… well, pretty much every news story about a new regulation. Or a new “sustainable” product.
+JORDAN: It does. It makes you ask: if the welfare cost is preserved across every substitution, who is the regulation *really* protecting?
+ALEX: Yeah. That's the question, isn't it? Who is it protecting? Okay, I think we have to leave it there. That’s a lot to chew on.
+JORDAN: A lot to chew on, indeed. This paper is going to stick with me for a while.
+ALEX: Same here. Pretty mind-blowing, if terrifying, stuff. Thanks for diving into it with me.
+JORDAN: Always a pleasure.
+ALEX: We’ll catch you next time.
+ALEX: *[A beat, then a sigh]* Actually, Jordan, can we just… rewind that sign-off for a second? My brain is still reeling. I just said "we'll catch you next time," but I feel like we've only scratched the surface of the implications.
+JORDAN: (Chuckles) I was wondering if you'd do that. My mind's still buzzing too. What else is nagging at you?
+ALEX: It’s the sheer pervasiveness of it all. This isn't just about gambling or payday loans, is it? Once you have the framework of the Substitution Trap and the Fiscal Capture Theorem, you start seeing it everywhere.
+JORDAN: Yeah.
+ALEX: It’s like a pair of glasses you can’t un-see.
+JORDAN: Totally. The paper makes a point of saying these aren't isolated phenomena; they're structural features of modern regulatory systems when faced with industries that generate welfare destruction.
+ALEX: Okay, so let's push on that. What other major societal problems, once viewed through this lens, suddenly make more sense? My mind immediately goes to climate change.
+JORDAN: Oh, for sure.
+ALEX: All the talk about "green initiatives" and "sustainable alternatives"... how much of that is just substitution?
+JORDAN: A huge amount, arguably. Think about carbon offsets. You fly, you pay to plant trees somewhere else. It’s a classic proxy.
+ALEX: Right.
+JORDAN: You’re not reducing your *own* emissions, you’re just paying someone else to theoretically offset them. And, um, the efficacy of many offset programs is highly debated.
+ALEX: So it's a way for industries to continue their core profit-generating activities while appearing to address the problem.
+JORDAN: Precisely.
+ALEX: Or electric vehicles. While they are a displacement in the sense of tailpipe emissions, as we discussed…
+JORDAN: A specific functional harm, yeah.
+ALEX: The manufacturing of batteries and the disposal of those batteries creates its own environmental burden – mining for rare earth minerals, energy consumption in production, end-of-life recycling challenges.
+JORDAN: Yeah.
+ALEX: Are we just substituting one environmental problem for another, even if it's a "better" one?
+JORDAN: That’s a crucial distinction the paper would make. Is it *displacement* or *substitution*? EVs are arguably a displacement from a tailpipe emissions perspective.
+ALEX: But if the overall functional harm of "environmental burden from transportation"—
+JORDAN: If that's merely shifted to another part of the supply chain, then it's a substitution at a higher functional level. The paper emphasizes looking at the *highest* level of functional harm.
+ALEX: To determine if it's a true displacement.
+JORDAN: Exactly.
+ALEX: So, if the functional problem is "humanity's overall ecological footprint," then an EV that just shifts the footprint from combustion to mining/manufacturing isn't a displacement. It's only a displacement if it *fundamentally reduces* that overall footprint.
+JORDAN: You got it. And that's a much harder bar to clear. It requires a systemic re-evaluation of the entire value chain, not just the point of consumption or immediate emission.
+ALEX: And the Fiscal Capture Theorem would apply here too, wouldn't it? Governments collect massive tax revenues from the fossil fuel industry – gasoline taxes, corporate taxes from oil and gas companies.
+JORDAN: Oh, for sure.
+ALEX: They also subsidize these industries. So, any genuine displacement that threatens those revenue streams or jobs is going to face immense political resistance.
+JORDAN: Definitely. The tension between environmental protection and economic stability, or perceived stability, is often a direct manifestation of fiscal capture.
+ALEX: Right.
+JORDAN: Governments are reliant on the tax revenue and employment generated by these industries, even while acknowledging their harmful externalities. It creates that perverse incentive to regulate proxies rather than functions.
+ALEX: So, all the lobbying from the fossil fuel industry, all the political gridlock on climate policy… it’s not just about greed, it’s about a government’s direct fiscal interest in maintaining the status quo, or at least managing a slow, controlled transition that doesn't disrupt revenue too quickly.
+JORDAN: It's a powerful and often overlooked component of the political economy of climate change. It's not just "big oil" against "the planet"; it's "big oil's tax revenue" against "the planet."
+ALEX: That’s incredibly depressing. It makes you question almost every "solution" being proposed. What about public health? Like, nutrition guidelines, or efforts to combat obesity. Are we seeing the trap there?
+JORDAN: Definitely. Take sugar, for example. Governments try to regulate sugar content, or tax sugary drinks. But then the food industry substitutes high-fructose corn syrup, or artificial sweeteners.
+ALEX: Or ultra-processed foods.
+JORDAN: Exactly. Foods that are low in sugar but high in other problematic ingredients. The functional harm isn't just "sugar causing obesity," it's "unhealthy diets causing chronic disease." And that functional harm persists, even as the proxies change.
+ALEX: And the fiscal capture? Governments collect sales tax on all these ultra-processed foods, agricultural subsidies for corn syrup production, corporate taxes from the massive food conglomerates.
+JORDAN: Right. The incentives align against truly disruptive, functional-class regulation. Imagine regulating "empty calories" or "highly processed ingredients" as a class.
+ALEX: The pushback would be insane.
+JORDAN: It would be immense because it would fundamentally disrupt a huge chunk of the food industry and its associated tax revenues and employment.
+ALEX: So, instead, we get "low-fat" products that are high in sugar, or "gluten-free" products that are nutritionally devoid and full of starches. We're constantly chasing the proxy, and the industry is constantly innovating around it.
+JORDAN: It’s the same dynamic. The innovation gap, the W-independence, the fiscal capture. It's a universal framework for understanding these seemingly intractable problems.
+ALEX: What about the tech industry? Data privacy, harmful content on social media. We try to regulate "misinformation," but then it just evolves into deepfakes.
+JORDAN: Or more subtle forms of manipulation, or moves to encrypted platforms.
+ALEX: Yeah.
+JORDAN: That's a perfect example. Regulating "misinformation" is a proxy. The functional harm is "erosion of trust," "polarization," "manipulation of public discourse."
+ALEX: And that's so hard to quantify.
+JORDAN: Exactly. It's extraordinarily hard to quantify and attribute to specific platforms or content, thanks to W-independence. And the tech companies are masters of innovation.
+ALEX: Always developing new algorithms.
+JORDAN: New features, new ways to engage users – which often means new ways to facilitate the spread of harmful content.
+ALEX: And governments are incredibly dependent on the tech industry for economic growth, innovation, jobs, and also for surveillance capabilities. So, they have a fiscal *and* strategic capture.
+JORDAN: You've hit on a critical point: fiscal capture isn't just about tax revenue. It can be about strategic national interests, like technological leadership.
+ALEX: Or social stability through employment.
+JORDAN: The core idea is that the government has a vested interest in the *existence* and *profitability* of the industry, even if that industry generates welfare destruction.
+ALEX: This makes me think about the "multi-audience transparency architecture" solution. For tech, that would mean not just regulators looking at data privacy.
+JORDAN: But perhaps psychologists looking at mental health impacts, sociologists looking at polarization, national security experts looking at foreign influence, ethicists looking at algorithmic bias.
+ALEX: That's a lot of different perspectives.
+JORDAN: Precisely. If a social media company had to justify its algorithms and business models to *all* those audiences, with each audience able to quantify and demand accountability…
+ALEX: It would be much harder to innovate around the problem. The "compliance theatre" would be exposed.
+JORDAN: Much harder. The paper points to something called the “Conflictoring Protocol” as a formal architecture for this, where decisions are scrutinized from so many angles that compliance theatre becomes impossible.
+ALEX: But that sounds incredibly complex to implement. Imagine getting all those different disciplines, with their different metrics and priorities, to agree on a common framework for accountability.
+JORDAN: It is. The paper acknowledges the difficulty. The "Conflictoring Protocol" it mentions is a theoretical framework, but the practical implementation would be a monumental challenge.
+ALEX: A fundamental shift in how we conceive of regulation.
+JORDAN: From siloed, reactive efforts to integrated, preemptive, multi-dimensional scrutiny.
+ALEX: And the dynamic regulatory adjustment condition. For tech, that would mean regulators need to be able to understand and respond to new AI models, new platform features, new forms of content manipulation…
+JORDAN: Almost in real-time.
+ALEX: Or at least with predictive capability. Which means regulators need to be as technologically sophisticated as the industry itself, which they almost never are.
+JORDAN: And critically, they need to be able to regulate at the functional class level. Not just "ban specific misinformation" but regulate the "propagation of content designed to manipulate or incite."
+ALEX: Which is a far more abstract and difficult regulatory target.
+JORDAN: But it's the only one that closes the substitution space.
+ALEX: So, the EU's Digital Services Act or Digital Markets Act, are those attempts at functional-class regulation for tech? Or are they still largely proxy-based?
+JORDAN: They are certainly *more* functional than previous regulations, trying to address systemic issues like market dominance and content moderation duties. But even they struggle with the speed of innovation and the W-independence problem.
+ALEX: Like, the "very large online platform" designation.
+JORDAN: That’s still a proxy based on user numbers, not a functional assessment of its welfare destruction. They're a step in the right direction, but likely still susceptible to aspects of the trap.
+ALEX: It seems like the common thread is that functional-class regulation is always the most effective, but also the most politically unpalatable.
+JORDAN: That's the crux of it. Because functional-class regulation, by definition, closes the substitution space. And by closing that space, it genuinely reduces the welfare destruction.
+ALEX: Which means it genuinely reduces the profits.
+JORDAN: Exactly. And that's where the fiscal capture kicks in, and the political will, um, just evaporates.
+ALEX: It makes you wonder how *any* progress is made at all. Are there examples of successful functional-class regulation that actually broke the trap?
+JORDAN: The paper points to a few, usually when the welfare destruction became so undeniably catastrophic that it forced a shift. The Montreal Protocol banning CFCs, for example.
+ALEX: For the ozone layer.
+JORDAN: The functional harm was "ozone depletion." CFCs were a proxy, but the substitutes also had to be non-ozone depleting. It was a class-level restriction.
+ALEX: And it faced massive industry resistance.
+JORDAN: Initially, yes, but the scientific evidence was overwhelming, and the alternatives were eventually developed.
+ALEX: So, a genuine technological displacement was also part of that. Alternatives that didn't just substitute the chemical, but actually didn't harm the ozone layer.
+JORDAN: Precisely. That combination – overwhelming evidence of a clear, undeniable functional harm, coupled with a genuine technological displacement that didn't just shift the problem – that's when you see progress.
+ALEX: But those conditions…
+JORDAN: As the paper says, they are "individually rare and jointly almost unprecedented."
+ALEX: So, for something like climate change, the scientific evidence is overwhelming, but the technological displacement isn't quite there yet for *all* sectors, and the fiscal capture is so deeply entrenched.
+JORDAN: And the problem is so diffuse, affecting so many different industries and aspects of life, that a single "Montreal Protocol" type solution is incredibly difficult.
+ALEX: What about something like lead in gasoline or paint? That seems like a relatively successful functional-class regulation.
+JORDAN: That’s a good one. The functional harm was neurotoxicity. Lead was the proxy. The regulation banned lead in gasoline and paint, and substitutes that *weren't* neurotoxic were mandated or developed.
+ALEX: So not just a different heavy metal.
+JORDAN: Exactly. And while there was industry resistance, the alternatives were economically viable, and the health impacts were clear, especially on children. It took a long time, but it largely worked.
+ALEX: So, the key there was a clear, measurable functional harm, and viable, non-harmful substitutes.
+JORDAN: And crucially, the alternatives were not themselves generating new, equally severe, but different functional harms that would then kick off a new substitution trap. That’s the "displacement" element.
+ALEX: This framework also changes how I think about "sin taxes." You know, taxes on tobacco, alcohol, sugary drinks. The government is directly profiting from the consumption of these products.
+JORDAN: Even as they claim to be discouraging them.
+ALEX: Yeah.
+JORDAN: That's a classic example of fiscal capture. The tax revenue becomes a disincentive to genuinely eliminate the product or the functional harm.
+ALEX: So the government has an incentive to maintain consumption at a level that maximizes tax revenue.
+JORDAN: Not necessarily at a level that minimizes public health harm.
+ALEX: So, they don't want people to stop drinking or smoking *too much*, because then the tax revenue drops.
+JORDAN: The "optimal" level of consumption from a fiscal capture perspective is not zero, or even minimal. It's the point where the tax revenue is maximized, even if that means significant societal welfare destruction.
+ALEX: That's truly cynical. It makes you wonder about the very nature of government in a capitalist society. Is it inherently structured to fall into these traps?
+JORDAN: The paper argues that it's a structural feature, not necessarily a malevolent intent. The mechanisms – W-independence, innovation gap, fiscal capture – are inherent to how our regulatory and economic systems interact.
+ALEX: So it's a "politically stable equilibrium."
+JORDAN: Precisely. Because it allows governments to appear responsive to public concerns while preserving revenue streams, and it allows industries to continue profiting. Everyone gets *something*, even if society as a whole is suffering.
+ALEX: So, it's a stable, but suboptimal equilibrium. A Nash equilibrium where no single player can unilaterally improve their position without making another worse off, or disrupting the system too much.
+JORDAN: Exactly. And the "players" here include the government, the industry, and even the public, who often benefit from the convenience or perceived affordability of these substitute products, or the jobs they create.
+ALEX: This also makes me think about the role of public awareness. If the public understood this dynamic, would it change anything? Or are we just too susceptible to the same kind of "compliance theatre" that governments and industries put on?
+JORDAN: That's a fundamental question. The "multi-audience transparency architecture" implicitly relies on a more informed and engaged public.
+ALEX: Or at least, a public represented by highly informed and empowered advocates.
+JORDAN: Without that, even the transparency architecture might just become another venue for performative compliance.
+ALEX: So, it's not enough to just *have* the information; you need the capacity to *act* on it, and the political will to demand functional-class regulation.
+JORDAN: Which loops us back to the fiscal capture problem. Even with perfect information and widespread public understanding, if the government's budget relies heavily on the industry's profits, the political will to impose functional-class regulation will be severely constrained.
+ALEX: This paints a pretty bleak picture for democracy, doesn't it? If governments are structurally incentivized to allow harm for revenue, how do we ever truly solve these problems?
+JORDAN: The paper doesn't offer easy answers, but it does suggest that understanding the structure of the trap is the first step. If we keep fighting proxy battles, we'll keep losing.
+ALEX: We need to aim for the functional harm.
+JORDAN: Even if it's harder and more politically charged.
+ALEX: It’s like, instead of trying to ban specific types of plastic bags, you need to regulate "persistent, non-biodegradable waste" as a functional class.
+JORDAN: Which, you know, sounds great.
+ALEX: But then the plastic industry would argue that there are no alternatives, jobs would be lost, the economy would suffer…
+JORDAN: And the government would point to the jobs, the tax revenue, the convenience for consumers, and argue for a "balanced approach," which usually means proxy-based regulation.
+ALEX: So, the EU’s proposed class-level restriction on PFAS, the "forever chemicals," which targets the carbon-fluorine bond itself… that’s an example of functional-class regulation.
+JORDAN: It is. And it’s facing massive resistance from semiconductor manufacturers, medical device companies, who argue there are no current alternatives for their applications.
+ALEX: Yeah.
+JORDAN: It shows how entrenched these industries are, and how difficult it is to shift away from proxy-based regulation.
+ALEX: And the argument about "no current alternatives" is often true in the short term, but it also discourages innovation in that direction because the existing, harmful product is still allowed.
+JORDAN: It creates a disincentive for true displacement. Why invest billions in R&D for a genuinely harmless alternative if you can just innovate a slightly different version of the harmful one and continue profiting?
+ALEX: So, to really break this trap, you need all three. A genuinely new technology…
+JORDAN: Yes.
+ALEX: Multiple audiences scrutinizing the real harm…
+JORDAN: Right.
+ALEX: And regulators who can move faster or at least keep pace with industry innovation, ideally targeting the function, not just the proxy. And you need to break the government's fiscal dependency on these harmful industries.
+JORDAN: That’s the full architecture. The paper stresses that the Substitution Trap isn’t a puzzle without a solution, it’s a puzzle whose solution requires the *full* architecture of the SAPM reform framework, not any single instrument applied in isolation.
+ALEX: And that last part, breaking the fiscal dependency, seems like the hardest of all. How do you do that? Diversify revenue streams? Institute wealth taxes? Fund governments in ways that aren't tied to specific industries?
+JORDAN: The paper doesn't delve deeply into specific fiscal reforms, but it implies that a government truly committed to functional regulation would need to find ways to insulate its budget from the revenue generated by industries that create welfare destruction.
+ALEX: Which is a whole other political battle.
+JORDAN: Exactly. That could involve broader, less targeted tax bases, or even direct funding for regulatory agencies that is independent of the industries they regulate.
+ALEX: It makes you wonder, if this has been happening for decades, in so many different domains, how much unnecessary harm have we collectively endured? How many times have we celebrated a regulatory “win” that was actually just a substitution?
+JORDAN: And how much social capital, how much political will, have we burnt up fighting these proxy battles, when the real war was always elsewhere? It’s a sobering thought.
+ALEX: It really is. It shifts the entire way you think about… well, pretty much every news story about a new regulation. Or a new “sustainable” product.
+JORDAN: It does. It makes you ask: if the welfare cost is preserved across every substitution, who is the regulation *really* protecting?
+ALEX: Yeah. That's the question, isn't it? Who is it protecting? It sounds like it's protecting the industries and the governments' revenue streams, more than the public's actual welfare.
+JORDAN: In many cases, yes. The public gets the illusion of protection, the industry gets to maintain profits, and the government gets its revenue. A stable, but harmful, equilibrium.
+ALEX: This is going to fundamentally change the way I read the news. Every time I see a new regulation, I'm going to be asking: is this a proxy? Is there a substitution space? Is there fiscal capture at play?
+JORDAN: You'll see the trap everywhere now. It's a powerful lens.
+ALEX: It's also a deeply frustrating one, because the solutions seem so incredibly difficult to implement. It requires such a radical shift in thinking and political will.
+JORDAN: It does. But the paper’s contribution is in clearly articulating the problem and its structural causes. Once you understand the structure, you can at least aim for the right solutions, even if they're hard.
+ALEX: So we stop playing whack-a-mole.
+JORDAN: And start thinking about redesigning the game board.
+ALEX: That's a good way to put it. Redesigning the game board. Because right now, the industry has designed a game where they can't lose, and the public can't win.
+JORDAN: And the regulator is stuck playing by rules that are inherently disadvantaged.
+ALEX: Well, this has been an incredibly insightful conversation, Jordan. Seriously, thank you for breaking this down. My head is swimming with new perspectives.
+JORDAN: Always a pleasure, Alex. It's the kind of paper that demands a deep dive and a lot of discussion. Glad we could unpack it together.
+ALEX: Me too. I think our listeners – and certainly we – will be chewing on this for a long, long time. This is definitely one of those "once you see it, you can't unsee it" frameworks.
+JORDAN: It really is. It’s a paradigm shift.
+ALEX: Okay. *Now* I think we have to leave it there. My brain needs a moment to process all of this.
+JORDAN: (Laughs) Agreed. Time for some functional-class thinking on dinner.
+ALEX: (Chuckles) Indeed. For Jordan, I’m Alex. Thanks for listening, and we’ll catch you next time.

@@ -1,0 +1,479 @@
+ALEX: Okay, so I just finished reading this paper, and my head is, uh, still spinning a bit, you know? But there’s one number, I think, that just stopped me completely cold.
+
+JORDAN: Yeah? Which one? Because honestly, there were a few that really jumped out at me.
+
+ALEX: The one about the five dollars. That for every dollar of private gain from Bitcoin, five dollars of system welfare is destroyed. I mean, five to one? That's… that's quite a lot.
+
+JORDAN: It really is. And, uh, that’s the headline number, right? The system beta, or β~W~ as they call it, is 5.0. It’s the central finding of this whole System Asset Pricing Model—the SAPM.
+
+ALEX: Huh.
+
+JORDAN: And it’s not just some theoretical calculation. They actually put a dollar figure on it: a negative $168 billion per year in what they call "system-adjusted payoff."
+
+ALEX: Negative $168 billion *per year*. So, it’s not just inefficient, it’s actively destructive, on, like, a massive scale. But I thought Bitcoin was supposed to be this amazing innovation. A "peer-to-peer electronic cash system," right?
+
+JORDAN: That’s the promise, yeah. And look, the paper’s very clear: it’s not saying Bitcoin creates *no* value. It acknowledges the genuine demand for censorship-resistant settlement, permissionless transfers, a store of value.
+
+ALEX: Oh?
+
+JORDAN: It even puts a number on that: a "cooperative baseline" of around $12 billion a year. That’s what it *should* be worth if it only did what the whitepaper promised, without all these negative externalities.
+
+ALEX: So, the $12 billion is the good stuff, and the $168 billion is the bad stuff. And the bad stuff is… almost fifteen times bigger.
+
+JORDAN: Pretty much. And that’s what makes it a "Fast Hollow Win." This isn't just a win-win where everyone benefits. It’s a win for some private actors, but at a huge, accelerating cost to the broader system.
+
+ALEX: Right.
+
+JORDAN: Think of it like a factory making $100 million in profit, but the pollution from that factory costs the community $500 million to clean up every year. The factory owners are winning, but the community is just… losing big time.
+
+ALEX: Okay, that analogy helps. But where does this $5.00 of destruction actually come from? Is it all the environmental stuff that everyone talks about? The energy consumption?
+
+JORDAN: That’s a huge part of it, and, uh, it’s a great place to start. The paper breaks it down into six channels of what they call "Private-Systemic Tension," or PST. And the energy and carbon externalities channel? Oh, that’s definitely the biggest. Bitcoin consumes, get this, 211 terawatt-hours per year.
+
+ALEX: Wait, 211 TWh? Is that… a lot?
+
+JORDAN: I mean, it’s more electricity than the entire country of Thailand consumes in a year. And its carbon footprint? They say it ranges from New Zealand's to Poland's, depending on how you count it. The shocking part is, this isn't a bug.
+
+ALEX: It's a feature?
+
+JORDAN: It’s a feature.
+
+ALEX: What do you mean, it's a feature? Like, they *want* it to use that much energy?
+
+JORDAN: Well, not that they *want* to use it, but it’s architecturally mandated. The "Proof-of-Work" consensus mechanism, which is how Bitcoin secures itself, *is* the energy expenditure.
+
+ALEX: So…
+
+JORDAN: You can’t have Proof-of-Work consensus without making computational work expensive. The security *comes* from the energy cost. It's not a byproduct, it’s the core mechanism, you know?
+
+ALEX: So, it's like a car that runs on burning money. The more money it burns, the faster it goes, or the safer it is? But then everyone else has to breathe the smoke.
+
+JORDAN: That's a good way to put it. And the paper highlights this incredible example of what they call "W-Independence." Imagine two Bitcoin mining operations. One in Kazakhstan, using coal-powered electricity.
+
+ALEX: Okay.
+
+JORDAN: The other in Quebec, using stranded hydropower. They both spend the same amount on electricity, let's say $0.05 per kWh, and they both generate the same miner revenue, say $17.2 billion. So, privately, every agent's payoff is identical.
+
+ALEX: Right. Same revenue, same costs.
+
+JORDAN: But the welfare outcomes are wildly different. The Kazakhstan operation emits around 180 million tonnes of CO₂. The Quebec one? Near zero. At the EPA’s social cost of carbon, that’s a $34.2 billion difference in welfare.
+
+ALEX: Wow.
+
+JORDAN: But from within the protocol, or from the private payoff space, it's just… invisible. The market literally cannot see that $34 billion difference.
+
+ALEX: That’s wild. So, the system is designed to be blind to its own environmental impact. And that's just one channel. What else is contributing to this massive negative $168 billion?
+
+JORDAN: Well, here’s the one that really gets into the structural impossibility of it all. They call it the "Protocol Welfare Floor."
+
+ALEX: The Protocol Welfare Floor? That sounds… heavy.
+
+JORDAN: It is. It’s a new impossibility theorem. Like those famous ones in economics or computer science that say certain things *cannot* be achieved. This one says no permissionless blockchain—one that satisfies three core axioms: permissionless access, transaction irreversibility, and user sovereignty—can reduce its system beta below approximately 1.0 through protocol design alone.
+
+ALEX: So, it's baked in? Like, it doesn't matter how clever the engineers are, they can't get rid of this cost?
+
+JORDAN: Not without fundamentally changing what a permissionless blockchain *is*, you know? The floor, this irreducible welfare cost, comes from what they call the "Custody Dilemma."
+
+ALEX: The Custody Dilemma?
+
+JORDAN: Yeah. Think about how you hold your Bitcoin. You either self-custody—you hold your own private keys—or you delegate custody to a third party, like an exchange. The protocol offers both paths. But the dilemma is, both paths inherently produce welfare losses that the protocol *cannot* eliminate.
+
+ALEX: How so?
+
+JORDAN: Okay, Path A: self-custody. You hold your own keys. By design, transactions are irreversible. So, if you lose your keys, or they’re stolen, or you make an operational error, your funds are gone. Forever.
+
+ALEX: Right.
+
+JORDAN: The protocol *cannot* help you. It can't reverse the transaction, it can't freeze your assets. Doing so would violate the core principles of transaction irreversibility and user sovereignty. And humans are fallible, so key loss is always going to be greater than zero.
+
+ALEX: Right, because I can lose a hardware wallet, or forget a password, or whatever. That makes sense. So, that's one source of loss.
+
+JORDAN: It is. And then Path B: delegated custody. You trust an exchange, like FTX, or Celsius, or Mt. Gox. The problem here is "permissionless access." Anyone can offer custodial services without protocol-level authorization, licensing, or capital adequacy checks.
+
+ALEX: Because if it did, it wouldn't be "permissionless" anymore, it would be gatekeeping.
+
+JORDAN: Spot on. So, you end up with a market for "lemons," where bad actors can easily operate, and users can’t distinguish between trustworthy and untrustworthy custodians ex-ante. And we’ve seen the results.
+
+ALEX: Oh, for sure.
+
+JORDAN: Cumulative documented losses from these custodial failures exceed $55 billion. The Bybit hack in 2025, $1.5 billion lost, that’s just the most recent example, you know?
+
+ALEX: So, whether you hold your own keys or trust an exchange, you're exposed to an unavoidable risk of loss. And the protocol, by its very nature, can't fix either. That's the floor.
+
+JORDAN: That's the floor. And here’s the kicker: the paper says the gap between this permissionless floor, with a system beta of around 1.0, and regulated finance, where the system beta is around 0.001—that’s a thousand-fold difference—is what regulations like MiCA in the EU and the GENIUS Act in the US are trying to close.
+
+ALEX: So, regulation isn't just, like, a preference. It's a "Sovereign Necessity," as they put it, to even get close to traditional finance's level of safety.
+
+JORDAN: That’s their "Sovereign Necessity Corollary." It means the only way to escape this floor is through external, sovereign intervention that operates *outside* the protocol’s permission system. The protocol, uh, cannot self-correct on this point.
+
+ALEX: That's pretty profound. So, that's energy and custody. What about the other channels?
+
+JORDAN: Another big one is the "security budget erosion." This is the "time bomb" they mention. Bitcoin’s security is funded by a block subsidy, which halves every four years. It’s a deterministic schedule.
+
+ALEX: The halving, right? It just happened again recently.
+
+JORDAN: It did. The current subsidy generates about $13.6 billion a year. Transaction fees contribute maybe $1 to $2 billion, so less than 2% of the total revenue. But the security requirement doesn’t halve.
+
+ALEX: No, it doesn't.
+
+JORDAN: The network still needs immense resources to deter a 51% attack.
+
+ALEX: And a 51% attack is when one entity controls enough mining power to, like, rewrite the ledger, right?
+
+JORDAN: Precisely. They could double-spend transactions, censor others. And the paper cites research by Budish showing that maintaining security requires flow payments large enough that the computational infrastructure *cannot* be quickly repurposed for an attack. As subsidies decline, that flow payment shrinks.
+
+ALEX: Unless transaction fees pick up the slack, I guess.
+
+JORDAN: That’s the hope. But the research shows that even under optimal congestion pricing, at Bitcoin’s transaction rate of around 7 transactions per second, the fee revenue is simply insufficient to maintain the security level required by the network’s current value.
+
+ALEX: Uh-huh.
+
+JORDAN: By 2036, the block reward drops to a point where it's fifteen times *less* than what Budish's model says is needed for minimum viable security.
+
+ALEX: Fifteen times less? So the network is basically running on borrowed time, hoping the price of Bitcoin keeps going up enough to make up the difference, or that fees suddenly skyrocket.
+
+JORDAN: And the paper doesn't just assume this. It looks at smaller Proof-of-Work chains that *have* suffered 51% attacks—Bitcoin Gold, Ethereum Classic. It establishes that these attacks are not theoretical, you know, they’re empirically documented when security budgets fall below a certain threshold.
+
+ALEX: So, the security budget is like a slowly deflating balloon.
+
+JORDAN: Yeah, and the halving schedule is the pinprick. Then there's "mining centralization." Two mining pools, Foundry USA and AntPool, command half the global hashrate. An antitrust regulator would call that an oligopoly, HHI between 1,700 and 1,900.
+
+ALEX: Wait, two pools control half the network? I thought Bitcoin was supposed to be decentralized.
+
+JORDAN: It is, in principle. But in practice, economies of scale—bulk ASIC procurement, negotiated power purchase agreements—drive concentration. Risk-averse miners rationally join pools. It’s an equilibrium property, not a design flaw.
+
+ALEX: Right.
+
+JORDAN: And this centralization reduces the cost of a 51% attack, eroding the network’s deterrence value.
+
+ALEX: Okay, so that’s energy, custody, security, and centralization. What about the other two?
+
+JORDAN: "Speculation versus utility" is one. They found that about 90% of on-chain volume is spurious—internal exchange transfers, not actual transactions. Merchant acceptance has declined.
+
+ALEX: Wow.
+
+JORDAN: The transaction volume to market capitalization ratio is 0.001 to 1, compared to Visa’s 25 to 1. The "peer-to-peer electronic cash system" is, uh, neither peer-to-peer nor cash for most of its activity.
+
+ALEX: Wow. So it's mostly exchanges talking to themselves, and people speculating on the price.
+
+JORDAN: Pretty much. And finally, "Maximal Extractable Value," or MEV. This is value that block producers or specialized bots extract by strategically reordering, inserting, or excluding transactions.
+
+ALEX: Like front-running?
+
+JORDAN: Exactly. They call it "algorithmic front-running." It’s become a multi-billion-dollar industry, especially on chains with more complex smart contracts. While Bitcoin’s base layer has less of it, it’s growing on Bitcoin Layer 2s and through wrapped Bitcoin on other chains.
+
+ALEX: Huh.
+
+JORDAN: Retail traders get hit with "sandwich attacks" where bots buy just before their trade, drive up the price, then sell immediately after. It's pure extraction, providing zero utility to the user.
+
+ALEX: So, it's like a hidden tax on transactions that nobody really talks about.
+
+JORDAN: A hidden, predatory tax. And the paper argues that it creates deadweight loss and reduces retail participation, just like informed trading costs in traditional markets. So, you add all these up: energy, custody, security, centralization, speculation, and MEV. That’s where you get the aggregate system beta of 5.0.
+
+ALEX: It's a lot to take in. You've got this incredible, innovative technology, but it seems to have all these structural problems built in that lead to massive costs. And you mentioned a "cooperative baseline" of $12 billion. What does that actually mean?
+
+JORDAN: The cooperative baseline is what Bitcoin *would* earn if it only did what the whitepaper promises, operating efficiently and without these system-degrading costs. They derive it from three independent methods.
+
+ALEX: Okay.
+
+JORDAN: A "fee-equilibrium approach" if it were just a payment system, a "remittance-utility counterfactual" if it were primarily for remittances and censorship-resistant transfers, and an "infrastructure analogy" like SWIFT. All three converge around $8 to $15 billion a year.
+
+ALEX: So, that’s its true, fundamental value, if it were actually doing good in the world, without all the bad stuff?
+
+JORDAN: Yeah, that’s the vision. And they even consider the "Bitcoin Maximalist case," the "steelman" argument for its utility—censorship resistance for dissidents, monetizing stranded energy, inflation hedge, financial inclusion.
+
+ALEX: Right.
+
+JORDAN: Even if you grant all those at generous valuations, pushing the cooperative baseline to $20-33 billion, the system beta *still* comes out above 1.0, and often much higher.
+
+ALEX: So, even in the best-case scenario for its utility, it's still destroying more value than it creates?
+
+JORDAN: The paper puts it bluntly: "Digital gold with ten times the damage." Bitcoin's climate damages averaged 35% of market value creation, while gold mining's environmental damages are around 4%. The metaphor flatters; the measurement does not.
+
+ALEX: That’s a powerful line. So, if the protocol itself can't fix these fundamental problems, especially the Protocol Welfare Floor, what *can* be done? Is it just a lost cause?
+
+JORDAN: Not a lost cause, but it requires intervention from *outside* the protocol. That’s the "Sovereign Necessity Corollary" we talked about. For the custody channel, for example, the EU’s MiCA regulation, or the GENIUS Act in the US, are precisely the kind of external institutional intervention that can reduce those losses.
+
+ALEX: How does MiCA do that?
+
+JORDAN: MiCA gates entry for crypto-asset service providers. It requires capital, segregates assets, mandates transparency, imposes governance. These are all things the permissionless protocol *cannot* do.
+
+ALEX: Can't do.
+
+JORDAN: By regulating the off-chain entities that users actually interact with, it reduces the probability of fraud and operational failure, pushing that custody beta down.
+
+ALEX: So, it's not changing the core Bitcoin protocol, but it's changing the rules for the companies that operate *around* Bitcoin.
+
+JORDAN: Exactly. It's changing the game from *outside* the game. And the paper highlights the Ethereum Merge as another key piece of evidence. Ethereum, in a single protocol upgrade, eliminated 99.95% of its energy consumption.
+
+ALEX: Wow.
+
+JORDAN: It proved that the energy channel is *architecturally* eliminable.
+
+ALEX: So, Bitcoin *could* do that, in theory?
+
+JORDAN: In theory, yes. But Bitcoin’s governance structure makes a comparable transition almost impossible without a crisis. So, while Ethereum proved that one channel can be fixed by protocol change, the custody channel, for example, still persists on Ethereum. Its overall system beta is 2.4, still a Hollow Win, because the custody floor and MEV channel remain.
+
+ALEX: Okay. So, some parts are fixable by protocol design, but others, like the custody losses, seem to need external regulation. And for Bitcoin, even the architecturally fixable parts are politically or institutionally frozen.
+
+JORDAN: That’s the core tension. The paper doesn't prescribe banning Bitcoin. It says "triage, not prohibition." Price the carbon, regulate the custodians, enforce antitrust for mining, fund security research, regulate MEV as market manipulation. And measure everything in the same units.
+
+ALEX: This is a lot to chew on. It fundamentally changes how I think about the claims made about decentralized systems. It's not just about what a system *can* do, but what it *costs* the entire system to do it.
+
+JORDAN: And who bears those costs. The paper has a distributional decomposition showing that the system beta is deeply regressive. Large miners and exchange operators experience a beta near zero—it's a net positive transfer for them.
+
+ALEX: So, they win.
+
+JORDAN: But for retail users, it's 2.0 to 5.0, and for non-participants who bear the environmental costs without any private payoff, it's effectively infinite. The aggregate number masks a hugely unequal distribution of costs and benefits.
+
+ALEX: So, the "Bitcoin debate" isn't really about good or bad, but for whom, and at what cost.
+
+JORDAN: Precisely. The system that creates the value is also the system that destroys the commons. It secures the network by burning energy, and that burning degrades the environment. It empowers self-custody but guarantees losses. Its permissionless access enables financial freedom but also enables fraud.
+
+ALEX: That last point, the permissionless access enabling fraud, that really sits with me. It’s not just an accident; it's a direct consequence of the design.
+
+JORDAN: It is. The structural properties of a permissionless blockchain, the very things that define it, also create these irreducible welfare costs. The floor isn't a flaw. It's the definition.
+
+ALEX: So, the big question then, is if the system itself can't fix what it's breaking, and external regulation is the only way, what happens when that regulation isn't global? Or when it's slow?
+
+JORDAN: That’s the lingering question, isn't it? The paper notes that MiCA currently covers about 30% of global exchange volume. To really break through that custody floor in practice, it needs to be 60% or more.
+
+ALEX: Right.
+
+JORDAN: The jurisdictional arbitrage means an unregulated exchange in one country can still inflict losses globally. The model measures the problem, identifies the structural limits, and points to the solutions. But implementing them? That’s for the sovereign.
+
+ALEX: Wow. That's a powerful and frankly, pretty sobering thought. It really reframes the entire conversation.
+
+JORDAN: It does. And I think that’s what this research is trying to do. Not to tell us what to think, but to give us the tools to measure what truly matters, and to understand the structural geometry of these systems for the first time.
+
+ALEX: Well, I feel like I'm leaving this conversation with a much clearer picture, even if it's a picture of some pretty difficult truths. Thanks for walking through this.
+
+JORDAN: Always a pleasure. Take care.
+
+ALEX: You too.
+
+ALEX: (Pauses, then reconsiders) Actually, Jordan, if you have a few more minutes, I'm still trying to process some of this. Specifically, that "Sovereign Necessity Corollary" – the idea that outside intervention is the *only* way to fix these structural problems.
+
+JORDAN: Yeah?
+
+ALEX: It feels like a direct challenge to the very ethos of decentralization and permissionlessness. Isn't the whole point of Bitcoin to be resistant to external control?
+
+JORDAN: It's a fundamental tension, Alex. The paper doesn't shy away from that. The maximalist argument is that external intervention compromises the censorship resistance and sovereign-individual principles that are core to Bitcoin’s value proposition.
+
+ALEX: And the paper…
+
+JORDAN: It counters by asking: what is the cost of that absolute resistance? If the price of perfect permissionlessness is a system beta of 5.0, a regressive wealth transfer, and significant environmental damage, then the "freedom" it offers comes at an extremely high societal cost. And it's a cost that often isn't borne by those who benefit most.
+
+ALEX: So, it's a trade-off. You gain a certain type of freedom, but you lose another—like freedom from fraud, or freedom from environmental degradation.
+
+JORDAN: Exactly. The paper frames it as an economic choice. Do we value the ability for anyone, anywhere, to transact without oversight, regardless of the consequences, more than we value a secure, efficient, and equitable financial system?
+
+ALEX: Huh.
+
+JORDAN: The protocol itself, by design, cannot make that choice. It simply executes its rules. So, external institutions, representing collective societal preferences, *must* step in if these costs are deemed unacceptable.
+
+ALEX: But isn't there an argument that these external interventions, like regulation, stifle innovation? That by imposing rules, you prevent the very experimentation that might lead to a solution from within the system?
+
+JORDAN: That's a common argument, and the paper addresses it. It distinguishes between *innovation* and *rent-seeking*. Many of the activities it identifies as welfare-destroying—MEV, certain forms of speculative trading, even some aspects of mining concentration—are not innovation in the sense of creating new value or increasing utility.
+
+ALEX: They're not?
+
+JORDAN: They are mechanisms for extracting existing value, often at the expense of other participants. Regulation, when properly designed, aims to curb these extractive practices, not to stop genuine innovation. Think of it like financial markets: robust regulation didn't kill innovation in traditional finance; it helped create a more stable and trustworthy environment for it.
+
+ALEX: Okay, I see the distinction. It's not about stopping new technology, but about setting guardrails for how that technology operates in the real world. Let's go back to the custody channel for a moment. You mentioned MiCA and the GENIUS Act.
+
+JORDAN: Yeah.
+
+ALEX: What about self-custody? Isn't that the ultimate form of permissionlessness, where you hold your own keys and bypass any intermediary? Does the paper consider that?
+
+JORDAN: It does, and it’s a crucial point. Self-custody *in principle* offers the highest degree of censorship resistance and eliminates the intermediary risk. However, *in practice*, it introduces a different set of risks that contribute significantly to the custody channel’s welfare costs.
+
+ALEX: What kind of risks?
+
+JORDAN: The paper points to data on lost keys, forgotten passphrases, accidental destruction of hardware wallets, and phishing attacks targeting individuals who self-custody.
+
+ALEX: So, user error, essentially?
+
+JORDAN: More than just error. It’s the inherent difficulty and cognitive load of being your own bank, your own security expert, your own legal counsel for recovery. For the average user, managing cryptographic keys securely, protecting against sophisticated social engineering attacks, and ensuring proper inheritance planning is incredibly challenging.
+
+ALEX: Right.
+
+JORDAN: The paper cites studies showing that a significant portion of Bitcoin’s circulating supply is estimated to be permanently lost due to these self-custody failures. This represents a deadweight loss to the system, value that simply vanishes.
+
+ALEX: So, while it removes the *centralized* counterparty risk, it introduces a massive *individual* counterparty risk.
+
+JORDAN: Precisely. And this individual risk is also amplified by scams and fraud that prey on less sophisticated users attempting self-custody. While an exchange might be regulated and have insurance, a self-custodial user has no such recourse if they fall victim to a phishing scam or send funds to the wrong address.
+
+ALEX: Because it's irreversible.
+
+JORDAN: The transaction is irreversible, and the loss is absolute. So, the custody channel's beta isn't just about FTX or Mt. Gox; it's also about the aggregate losses from individuals attempting to navigate this complex, unforgiving landscape.
+
+ALEX: That makes sense. It highlights the often-overlooked human element in these supposedly purely technical systems. And what about the energy channel again?
+
+JORDAN: Uh-huh.
+
+ALEX: The maximalist counter-argument often focuses on "stranded energy"—that Bitcoin mining can monetize otherwise wasted energy, like flared natural gas or excess renewable energy in remote locations. Does the paper engage with that?
+
+JORDAN: It does, and it acknowledges the potential for *some* beneficial applications of Bitcoin mining in specific contexts. However, the paper argues that the scale of such "stranded energy" is orders of magnitude smaller than the overall energy consumption of the network.
+
+ALEX: So, it's not enough to offset the total.
+
+JORDAN: The vast majority of Bitcoin mining relies on grid power, and often incentivizes the expansion of fossil fuel-based generation, or diverts renewable energy from other, more productive uses.
+
+ALEX: So, the argument is that while it *can* use stranded energy, it mostly *doesn't*, or at least not enough to offset the total environmental cost.
+
+JORDAN: Exactly. The paper quantifies this. Even if you generously assume that 10-20% of Bitcoin's energy consumption comes from truly stranded or otherwise unmonetizable sources, the remaining 80-90% still constitutes a massive environmental externality.
+
+ALEX: Right.
+
+JORDAN: Furthermore, the very act of setting up mining operations in remote locations to capture stranded energy often involves significant infrastructure development, which itself has an environmental footprint. The core issue remains that Proof-of-Work *requires* continuous, massive energy expenditure to secure the network, and that expenditure is inherently inefficient from a societal perspective compared to alternative consensus mechanisms.
+
+ALEX: It's like saying a gas-guzzling car *can* be used to transport emergency medical supplies, but its primary impact is still high emissions from daily commuting.
+
+JORDAN: A fair analogy. The paper's point is that the *aggregate* effect is what matters for the system beta. While individual instances might have a positive story, the overall structural reliance on energy consumption means the channel remains a significant welfare cost.
+
+ALEX: And the "digital gold" narrative…
+
+JORDAN: It doesn't change the underlying energy consumption. Gold mining has environmental costs, yes, but they're significantly lower as a percentage of market value. And gold doesn't require continuous, massive energy input *after* it's mined to maintain its security.
+
+ALEX: That brings me back to the "speculation versus utility" channel. If it's not really peer-to-peer cash, and its "digital gold" status comes with these heavy costs, what *is* its primary utility? Is the paper suggesting it has none?
+
+JORDAN: Not that it has none, but that its *realized* utility is dwarfed by its speculative activity and associated costs. The paper’s "cooperative baseline" calculation *does* attribute utility to it.
+
+ALEX: Okay.
+
+JORDAN: Whether as a payment system, a remittance network, or even a censorship-resistant store of value for dissidents. The issue isn't zero utility, but that the value extraction mechanisms and inherent structural costs far exceed the actual utility delivered to the average user or society at large.
+
+ALEX: So, the promise is huge, but the delivery is... compromised.
+
+JORDAN: Precisely. The transaction volume to market cap ratio for Visa, 25:1, versus Bitcoin’s 0.001:1, is a stark empirical contrast. It indicates that the vast majority of Bitcoin's market value is based on speculative anticipation of future utility, rather than present-day, realized utility from its function as a payment or value transfer system.
+
+ALEX: And this speculative nature…
+
+JORDAN: It itself contributes to the system beta, as price volatility makes it a less stable store of value or medium of exchange for everyday use.
+
+ALEX: It's a self-reinforcing cycle then, in a way. High speculation leads to high volatility, which makes it less useful as a currency, which reinforces its role as a speculative asset.
+
+JORDAN: A vicious cycle of sorts, yes. And it’s exacerbated by the Maximal Extractable Value (MEV) channel. MEV thrives in environments where there's high trading volume and price volatility.
+
+ALEX: Makes sense.
+
+JORDAN: When users are constantly trying to arbitrage, or front-run, or execute complex DeFi strategies, there's more opportunity for block producers and specialized bots to extract value.
+
+ALEX: Can you give me a more concrete example of MEV beyond just front-running? How does it manifest on Bitcoin, or its Layer 2s?
+
+JORDAN: On Bitcoin's base layer, MEV is less prevalent than on smart contract platforms like Ethereum. However, it exists through things like transaction reordering in mempools, where miners can prioritize certain transactions for a fee, or even subtly delay others.
+
+ALEX: Huh.
+
+JORDAN: On Layer 2s, like the Lightning Network or through wrapped Bitcoin on other chains, it becomes more complex. For instance, on a DeFi platform using wrapped Bitcoin, bots might monitor large pending swaps and execute "sandwich attacks."
+
+ALEX: Oh, I've heard of those.
+
+JORDAN: They buy the asset just before the large swap, driving up the price, then sell immediately after the large swap executes, profiting from the price difference, leaving the original large trader with a worse execution price.
+
+ALEX: So, the retail trader gets squeezed.
+
+JORDAN: Exactly. The paper calls it "algorithmic predation." It's essentially a hidden tax on liquidity, and it disincentivizes retail participation because it adds an invisible cost to every transaction.
+
+ALEX: Wow.
+
+JORDAN: The value extracted isn't new value creation; it's a transfer from less informed users to more sophisticated actors, and it creates systemic inefficiency.
+
+ALEX: And the protocol, by design, allows this to happen because it prioritizes permissionless execution over fairness or equal access.
+
+JORDAN: That's the crux. The permissionless nature means anyone can run a bot, anyone can attempt to extract MEV. The protocol doesn't have an inherent mechanism to prevent or even detect these activities in a meaningful way without compromising its core design principles.
+
+ALEX: So, that's why regulation is needed.
+
+JORDAN: This is why the paper argues that regulating MEV, perhaps by reclassifying it as market manipulation or requiring transparent ordering mechanisms, falls under the "Sovereign Necessity Corollary." It requires an external, rule-making authority.
+
+ALEX: This is starting to feel less like a debate about technology and more like a debate about economic and social philosophy. What kind of society do we want to build with these tools?
+
+JORDAN: That's the deeper question the paper implicitly poses. It's moving beyond the techno-utopian narratives and applying rigorous economic and welfare analysis. It forces us to ask: What are the true costs of a system built on absolute trustlessness and permissionlessness? And are those costs worth the benefits?
+
+ALEX: The Protocol Welfare Floor…
+
+JORDAN: It isn't just an economic concept; it's a statement about the inherent limitations of purely decentralized systems when confronted with real-world complexities and societal needs.
+
+ALEX: So, if the floor is inherent, and external regulation is the only way to mitigate the damage, what happens if that regulation doesn't materialize, or is too slow, or uneven globally? You mentioned jurisdictional arbitrage.
+
+JORDAN: That’s the critical challenge. The paper acknowledges this. If major jurisdictions like the US, EU, and UK implement robust regulations for custodians, but large, unregulated exchanges continue to operate in other parts of the world, then a significant portion of the custody channel's losses will persist.
+
+ALEX: Users will just move to unregulated platforms.
+
+JORDAN: They will. Perpetuating the risks. The same applies to MEV or environmental costs—if carbon pricing isn't global, or if MEV isn't regulated universally, then the problem simply shifts geographically.
+
+ALEX: So, the "Sovereign Necessity Corollary" implies not just *some* regulation, but *coordinated global* regulation, which feels like an even bigger lift.
+
+JORDAN: It does. It points to the limitations of purely national or regional approaches when dealing with a globally distributed, permissionless network. However, the paper also notes that even partial regulation can have a significant impact by making regulated channels safer and more attractive, potentially drawing volume away from the riskier, unregulated ones over time. It's a long game, but the research provides the economic rationale and the measurement tools to guide policymakers.
+
+ALEX: This also makes me think about the "Hollow Win" for Ethereum after The Merge. You said its system beta is 2.4, still high, because custody and MEV remain.
+
+JORDAN: Right.
+
+ALEX: Does that imply that *any* permissionless blockchain, regardless of its consensus mechanism, will inherently face a Protocol Welfare Floor and associated welfare costs?
+
+JORDAN: That's a strong implication. While Ethereum dramatically reduced its energy costs, it remains a permissionless smart contract platform. The very features that make it powerful—programmability, open access, composability—also create opportunities for MEV and make it susceptible to the custody channel issues when users interact with centralized intermediaries.
+
+ALEX: So, it's not just Bitcoin.
+
+JORDAN: The paper suggests that the specific *magnitude* of the beta might vary between protocols based on their design choices, but the *existence* of these welfare channels is a fundamental property of permissionless systems.
+
+ALEX: So, the promise of a truly "decentralized financial system" that replaces traditional finance without any of the associated risks or costs is, according to this paper, an illusion.
+
+JORDAN: A costly illusion, yes. The paper argues that you don't eliminate the costs, you simply *redistribute* them, often into hidden externalities or onto less sophisticated users. The security of the network, the integrity of transactions, the safety of assets—these things inherently require resources, oversight, and governance.
+
+ALEX: Whether from inside or outside the protocol.
+
+JORDAN: Exactly. The idea that a purely code-based system can achieve all this without any external friction is, in this framework, economically unsound.
+
+ALEX: That’s a really profound point. It’s not about whether these costs *exist*, but *how* they're paid and *who* pays them. And the paper suggests that under the current design, the payments are inefficient and inequitable.
+
+JORDAN: Exactly. And it’s why the paper calls for "triage, not prohibition." It’s not saying Bitcoin or other crypto assets are inherently bad and should be banned. It’s saying we need to recognize the true costs, measure them, and then implement targeted interventions to mitigate the damage.
+
+ALEX: Like pricing carbon.
+
+JORDAN: Price the carbon, regulate the custodians, enforce antitrust in mining, fund security research, regulate MEV. These are all mechanisms to internalize externalities and reduce the deadweight loss, bringing the effective system beta closer to 1.0 or below.
+
+ALEX: So, it's about making the system accountable, even if it's designed to be unaccountable.
+
+JORDAN: Precisely. It's an attempt to reconcile the ideals of permissionless innovation with the realities of societal welfare. The paper argues that leaving these costs unaddressed isn't a neutral act; it's a choice to allow a system to generate significant negative externalities and extract value disproportionately.
+
+ALEX: This research feels like it could fundamentally alter the discourse around crypto. It moves it from a philosophical or technological debate into a measurable economic one.
+
+JORDAN: That's the ambition. To provide a rigorous, empirical framework for understanding the true societal costs and benefits. To move beyond anecdotes and maximalist rhetoric, and ground the discussion in quantifiable welfare analysis. It’s a call for intellectual honesty in how we evaluate these technologies.
+
+ALEX: And the implications extend beyond Bitcoin, right? To all the other L1s, DeFi protocols, NFTs, everything?
+
+JORDAN: Absolutely. The "Protocol Welfare Floor" is a generalizable concept. While the specific channels and their beta values might differ across protocols—a DeFi lending protocol would have different MEV dynamics than a pure payment chain, for example—the underlying principle remains: permissionless systems, by their very nature, create welfare costs that are often hidden or externalized.
+
+ALEX: And the paper provides the methodology to analyze any of them.
+
+JORDAN: It does.
+
+ALEX: It’s a huge undertaking. And I imagine it’s going to be met with a lot of resistance from within the crypto community.
+
+JORDAN: Undoubtedly. Any research that challenges deeply held beliefs or exposes inconvenient truths tends to be. But the strength of the paper lies in its rigorous methodology, its empirical grounding, and its willingness to directly confront the sacred cows of the space. It’s not an attack; it’s an economic analysis.
+
+ALEX: So, if you were to distill it to one core message for someone who is skeptical but open-minded about crypto, what would it be?
+
+JORDAN: I think it would be this: "Permissionless innovation comes with permissionless costs. And those costs are not hypothetical; they are measurable, substantial, and often borne by those least able to afford them."
+
+ALEX: Okay.
+
+JORDAN: "To truly realize the potential benefits of this technology, we must acknowledge and address its inherent welfare floor, rather than pretending it doesn't exist." It's about recognizing that every system, no matter how decentralized, operates within a broader societal context and has real-world consequences.
+
+ALEX: That’s a very clear and concise summary. It's a paradigm shift for how I'll think about these systems moving forward. The idea that you *can* measure these costs, and that they are structural, not just incidental, is profound.
+
+JORDAN: It changes the nature of the conversation. It moves us from "Is crypto good or bad?" to "How can we design and govern these systems to maximize their benefits while minimizing their inherent and externalized costs?" It's a pragmatic, rather than an ideological, approach.
+
+ALEX: I really appreciate you taking the time to explain all of this, Jordan. It's given me a lot to think about, and a completely new lens through which to view the entire digital asset space.
+
+JORDAN: My pleasure, Alex. These are complex topics, and it's valuable to have discussions that delve into the nuances. The goal isn't to provide easy answers, but to ask better questions, grounded in data.
+
+ALEX: Well, you’ve definitely given me a whole new set of questions. Thanks again.
+
+JORDAN: Anytime. Take care.
+
+ALEX: You too.

@@ -1,0 +1,501 @@
+ALEX: I just, uh, I don't even know where to begin with this. I mean, we read a lot of stuff that makes you stop and think, but this one… this one just stopped me cold.
+
+JORDAN: Yeah, I know. I mean, I think I highlighted almost every page. But the *number*, right? The one that just… it just sits there, staring at you from the abstract.
+
+ALEX: The beta. Fifty point nine nine. I mean, what even *is* that?
+
+JORDAN: Right?
+
+ALEX: I'm used to, like, financial betas, you know, 1.2, maybe 2.0 if something's really volatile. But *fifty-one*?
+
+JORDAN: It’s basically the same idea, Alex, just inverted. In finance, a beta tells you how much an asset’s return moves relative to the market. Above one, it amplifies risk.
+
+ALEX: Uh-huh.
+
+JORDAN: Here, it’s a “system beta”— β<sub>W</sub>. It tells you how much *system welfare destruction* an industry causes for every dollar of private profit it generates.
+
+ALEX: So, for every dollar of private profit, this industry…
+
+JORDAN: ...destroys fifty-one dollars of system welfare. Yeah. That’s the headline. Fifty point nine nine. And the paper just calls it out: the highest system beta yet calibrated across 61 different industries they looked at.
+
+ALEX: Wait, higher than, like, fossil fuels? Or even… human trafficking? I mean, that just sounds… impossible.
+
+JORDAN: Well, they actually compare it directly. It's higher than PFAS contamination, which was 35.2. Higher than Bitcoin mining, which was 5.0.
+
+ALEX: Huh.
+
+JORDAN: It’s even higher than factory farming at 41.2. Only orbital debris and weapons of mass destruction rank technically higher, but this is the highest for any *continuously operating* industry.
+
+ALEX: Okay, that’s wild. So, if the industry makes, let’s say, ten billion dollars a year… what’s the actual welfare cost? What are we talking about in real money?
+
+JORDAN: The paper calibrates it precisely: ten billion dollars a year in private payoff for the US civilian firearms industry. Against that, the total system welfare cost is an estimated $509.9 billion per year.
+
+ALEX: Half a trillion dollars.
+
+JORDAN: Yeah. Half a trillion. And they break it down into six different channels, like, you know, mortality, healthcare, criminal justice, lost productivity, community damage, and then, uh, what they call "governance failure."
+
+ALEX: So, what’s the biggest piece of that half-trillion-dollar pie? Because I imagine, like, the actual medical costs of a gunshot wound are astronomical, but half a trillion…
+
+JORDAN: Oh, it’s not even close. The mortality channel, the deaths themselves, completely dwarfs everything else. In 2022, 48,204 Americans were killed by firearms.
+
+ALEX: Wow.
+
+JORDAN: That’s 132 people every single day, Alex. One death every eleven minutes.
+
+ALEX: One every eleven minutes. That's... yeah that's a lot. And what's the dollar figure for that?
+
+JORDAN: So, they use the EPA's standard "Value of a Statistical Life" – the VSL. And they go with a conservative $10 million per death. You multiply that by the 48,204 deaths, and you get $482 billion per year.
+
+ALEX: Four hundred and eighty-two billion. Out of the five hundred and nine billion total. So the vast majority of this cost is just… lives lost.
+
+JORDAN: It is. The mortality channel alone, they point out, exceeds the entire GDP of Denmark. And here’s the kicker, the part that stopped me cold: 60% of those firearm deaths are suicides.
+
+ALEX: Wait, really? Most gun deaths are suicides, not homicides?
+
+JORDAN: Yeah. Around 27,000 firearm suicides a year. And the reason that’s so devastating for the welfare cost is that firearms have a 90% case fatality rate in suicide attempts.
+
+ALEX: Ninety percent.
+
+JORDAN: It’s far higher than any other method. The gun, you know, converts a transient crisis into a permanent outcome with industrial efficiency.
+
+ALEX: So, if someone is in crisis, and they have a gun, they're almost certainly going to die. But if they don't have a gun, they might survive.
+
+JORDAN: That’s the entire point of the means restriction literature, which they lean on here. Most suicidal crises are impulsive. Most people who survive an attempt don’t go on to die by suicide. But the gun just... it closes that window. Permanently.
+
+ALEX: Okay. So, after mortality, what’s next?
+
+JORDAN: Then you’ve got morbidity and healthcare – about $8.7 billion a year. That’s the 172,000 nonfatal firearm injuries, the hospital costs, the long-term care for things like spinal cord injuries and traumatic brain injuries.
+
+ALEX: And who pays for that, Jordan? Because I imagine a lot of these injuries are, uh, you know, not covered by private insurance.
+
+JORDAN: You got it. Medicaid pays for 52% of all firearm injury hospital costs. So, non-gun owners are subsidizing gun injuries through their taxes. It's, like, the textbook definition of a negative externality.
+
+ALEX: That’s… that’s just infuriating. So, what else is in that half-trillion-dollar figure?
+
+JORDAN: Lost productivity is huge, $45.7 billion a year. Because firearms disproportionately kill young people. They're the leading cause of death for children and adolescents, ages 1 to 19. Not cancer, not car crashes, but bullets.
+
+ALEX: I remember that statistic. It's just so… hard to believe.
+
+JORDAN: And the actuaries, they've done the math. The average American loses 104 days of life expectancy to firearm violence. But it's not evenly distributed. Black males, for instance, lose 361.5 days. Almost a full year.
+
+ALEX: So, the cost is literally written into the life expectancy of some communities.
+
+JORDAN: Yeah. And get this: eliminating firearm deaths would add more years to American male life expectancy than curing colon cancer and prostate cancer combined. The actuaries have done the math. The legislature has not.
+
+ALEX: That’s a punchline that just… it just hangs in the air. What about the other costs? Like, you know, the ambient fear, the things that ripple out into the community?
+
+JORDAN: That's the community and property damage channel, about $11.3 billion a year. It's things like property values declining after a mass shooting – 7.8% decline, or over $15,000 per home, for properties near schools.
+
+ALEX: Wow.
+
+JORDAN: And then there's the fear economy. Three point one billion dollars a year in school security. One point three eight billion in bulletproof backpacks.
+
+ALEX: Wait—
+
+JORDAN: Ninety-six percent of American schools conduct active-shooter drills. The fear economy, Alex, is now larger than the gun industry's entire profit margin.
+
+ALEX: So, we're spending more money just trying to *protect* ourselves from gun violence than the industry is making in profit. That’s a truly perverse incentive.
+
+JORDAN: And it doesn't stop there. There's $4.9 billion in *excess life insurance premiums* that all Americans pay, including non-gun owners, because firearms compress the mortality tables.
+
+ALEX: So, everyone pays more for life insurance because of guns. Even if they don't own one.
+
+JORDAN: That's right. It's a hidden tax. And then, uh, you know, the criminal justice system costs. Police, courts, incarceration. That's $8.8 billion a year.
+
+ALEX: Okay, so that’s the scale of the problem. Half a trillion dollars. But why is it so high? I mean, why isn't the market or the government fixing this?
+
+JORDAN: That's where the paper gets really interesting. It explains why the standard economic tools, like a Pigouvian tax or Coasean bargaining, completely fail in this domain.
+
+ALEX: Pigouvian tax, that's, like, taxing the externality, right? Making the polluter pay.
+
+JORDAN: Right. So, if you wanted to internalize that $509.9 billion externality, you'd need a tax of about $34,000 per firearm. That's, like, 30 to 70 times the retail price of most civilian guns.
+
+ALEX: Whoa.
+
+JORDAN: It would effectively prohibit access, which runs straight into the Second Amendment.
+
+ALEX: So, a tax that high would be unconstitutional.
+
+JORDAN: Yeah. And even if it wasn't, the gun lobby has successfully blocked even *modest* excise tax increases for decades. Their PAC contributions, they found, surge 2,820% after a fatal school shooting near an election.
+
+ALEX: That's wild.
+
+JORDAN: The political machine doesn't just survive tragedy; it monetizes it.
+
+ALEX: So, political capture prevents the tax. What about Coasean bargaining? You know, where the parties just negotiate a solution?
+
+JORDAN: Coase requires clearly defined property rights and low transaction costs. Here, the "property right" is the constitutional right to bear arms.
+
+ALEX: Right.
+
+JORDAN: And the "transaction" would require negotiating between 400 million gun owners and 330 million Americans who bear the externality. The transaction costs are, effectively, infinite.
+
+ALEX: Yeah, that's not going to happen.
+
+JORDAN: And then there's the Protection of Lawful Commerce in Arms Act, PLCAA, from 2005. It explicitly blocks the tort system – you know, lawsuits – which is usually how Coasean bargaining happens in practice.
+
+ALEX: The one that gives gun manufacturers immunity?
+
+JORDAN: Yep. The paper cites the case of the parents of an Aurora theater shooting victim. They sued the online ammunition retailer. Not only was the case dismissed under PLCAA, but the grieving parents were ordered to pay $203,000 in the defendant's legal fees.
+
+ALEX: They were ordered to pay... for suing?
+
+JORDAN: That's PLCAA in a single sentence. The tort system doesn't just fail to internalize the externality; it *punishes* those who attempt to internalize it. No other consumer product industry in the United States enjoys blanket immunity from civil liability.
+
+ALEX: Oh?
+
+JORDAN: Automobiles don't. Pharmaceuticals don't. Tobacco didn't. Only the product designed to kill.
+
+ALEX: So, the economic tools don't work. The legal tools are blocked. It sounds like a truly intractable problem.
+
+JORDAN: And that's what the paper concludes. It introduces something called the "Lethality Impossibility Theorem."
+
+ALEX: An impossibility theorem? Like, it's mathematically impossible to fix?
+
+JORDAN: Pretty much. They say three axioms, or conditions, hold simultaneously in the US: First, "Kinetic Lethality Identity." The product's intended function and its primary externality are identical. A gun that can't kill isn't a gun.
+
+ALEX: Okay, that makes sense.
+
+JORDAN: You can't design out the lethality without making it non-functional. Second, "Constitutional Access Mandate." The Second Amendment, as interpreted by the Supreme Court, requires civilian access to firearms. You can't prohibit them.
+
+ALEX: Right, *Heller* and *Bruen*.
+
+JORDAN: And third, "Liability Nullification and Regime Capture." That's PLCAA, the state preemption laws that block local regulation, and the gun lobby's political power that just prevents any meaningful welfare-optimizing regulation.
+
+ALEX: So, because the gun's designed to kill, and people have a right to it, and the industry has protected itself from any consequences… it’s impossible to get that beta down below one?
+
+JORDAN: That’s the proof. If all three axioms hold, then no feasible intervention achieves a system beta of less than one. The four canonical pathways – taxation, prohibition, tort, and design modification – are all blocked.
+
+ALEX: So the tax is too high, prohibition unconstitutional, tort blocked, and design can't make a gun non-lethal while still a gun.
+
+JORDAN: Yeah. You got it.
+
+ALEX: So, we're stuck.
+
+JORDAN: Well, "stuck" in the sense that you can't get to β<sub>W</sub> = 1.0. The break-even welfare recovery rate, the fraction of welfare cost that would need to be eliminated to get to one, is 98%. Ninety-eight percent, Alex.
+
+ALEX: Ninety-eight percent?
+
+JORDAN: Yeah. And they looked at Australia's National Firearms Agreement, which was, like, the most aggressive reform in democratic history. They banned semi-automatic weapons, bought back 650,000 firearms, and achieved 59-65% reductions in firearm mortality.
+
+ALEX: And what did that do to their beta?
+
+JORDAN: If applied proportionally to the US, it would reduce β<sub>W</sub> from 50.99 to approximately 18.4. Still seventeen times the break-even threshold. Even the most aggressive democratic reform on Earth does not get halfway to break-even.
+
+ALEX: So, what *can* be done? If it's impossible to get to one, does that mean all efforts are futile?
+
+JORDAN: No, not at all. The paper makes a crucial distinction: it's not that nothing can be done. It's that nothing can make the ratio *one-to-one*. But between fifty-one-to-one and one-to-one lie tens of thousands of lives per year that marginal reforms could save.
+
+ALEX: So, what are those marginal reforms?
+
+JORDAN: They highlight a few. First, federal permit-to-purchase laws. Connecticut's law reduced firearm homicide by 28% and suicide by 33%. It creates a license for the buyer, not the gun, which makes it resilient to ghost guns.
+
+ALEX: Ghost guns, those untraceable, privately made firearms?
+
+JORDAN: Precisely. Those have increased 1,083% between 2017 and 2021. And they pose a huge problem for any supply-side regulation. But a permit-to-purchase attaches to the person.
+
+ALEX: Okay. What else?
+
+JORDAN: Universal Extreme Risk Protection Order laws, or "red flag laws." One suicide prevented for every 22 ERPOs issued. And then, PLCAA repeal or narrow amendment.
+
+ALEX: So, chipping away at the immunity shield.
+
+JORDAN: Yep. The Sandy Hook settlement showed that predicate exceptions are a viable pathway. And then, excise tax rebalancing. Raising the tax on handguns, which account for 80-90% of homicides, while lowering it on long guns.
+
+ALEX: Huh.
+
+JORDAN: The paper says this could achieve 40% of the welfare gain of a blanket tax, without reducing consumer surplus.
+
+ALEX: Okay, those are all steps. But they still don't get us to one.
+
+JORDAN: No, but they could reduce β<sub>W</sub> from 51 to, say, 25-35. That means 11,000 to 23,000 lives saved per year. And the cost of those interventions, combined, is less than a billion dollars a year.
+
+ALEX: Versus half a trillion in welfare destruction.
+
+JORDAN: The cost of *not* intervening, they say, is $1.40 billion per day in welfare destruction. Every day that passes without structural reform is a day the American public pays $1.40 billion to sustain a $27.4 million-a-day industry.
+
+ALEX: That's the number that really gets me. The sheer scale of that imbalance. And the paper says there's this "intervention window," right?
+
+JORDAN: Yeah. They call it the gap between the "political crossover" and the "technological crossover." The political crossover is when enough younger, more reform-minded voters come into power.
+
+ALEX: Oh?
+
+JORDAN: They found 47% of Gen Z and Millennial Republicans support stricter gun laws.
+
+ALEX: That's a huge shift from older generations.
+
+JORDAN: It is. The technological crossover is when ghost guns and 3D-printed machine gun conversion devices become so ubiquitous that traditional supply-side regulation is useless. That window is estimated at 5 to 15 years.
+
+ALEX: So, if we don't act before the technological crossover, the welfare gap becomes technologically locked.
+
+JORDAN: Precisely. The paper ends with five open questions, but the most actionable finding, they say, isn't the headline beta. It's that the governance channel, Axiom 3, is the "softest axiom."
+
+ALEX: The softest?
+
+JORDAN: PLCAA is a statute, not a constitutional right. State preemption laws are statutes. They can be repealed or amended.
+
+ALEX: So, the shield can be dismantled.
+
+JORDAN: "Every piece of the shield was built by legislation and can be dismantled by legislation." That’s a direct quote.
+
+ALEX: That's a powerful thought. This whole thing, it just… it makes you think about the price we're actually paying. Not just in dollars, but in lives, in fear, in lost potential.
+
+JORDAN: And who pays it. The industry captures ten billion. Taxpayers, insurers, homeowners, trauma surgeons, and the parents of the dead pay five hundred and twenty-six billion. The subsidy, they say, flows from the unprotected to the protected.
+
+ALEX: That's a pretty stark way to put it. So, we've got this number, this β<sub>W</sub> of 50.99. We know why it's so high, who's paying, and why it's so hard to fix. But the big question that lingers for me is, you know, is America actually willing to make that choice? Knowing the full price?
+
+JORDAN: Yeah, that's the ultimate question, isn't it? What you do with the receipt is up to you.
+
+ALEX: A lot to think about.
+
+JORDAN: Always is.
+
+ALEX: We'll see you next time.
+
+JORDAN: Bye for now.
+
+ALEX: Hey Jordan. I’ve been thinking a lot about our last conversation, about that paper. It’s really stuck with me.
+
+JORDAN: I figured it might. It’s a lot to process.
+
+ALEX: It is. Especially that "softest axiom" part. "Every piece of the shield was built by legislation and can be dismantled by legislation." That implies there's a path, even if it's incredibly difficult.
+
+JORDAN: It does. And that’s where the paper shifts from purely diagnostic to suggesting potential leverage points. If you accept the Impossibility Theorem, the only way to get *closer* to a welfare-optimizing outcome is to break one of those axioms.
+
+ALEX: Uh-huh.
+
+JORDAN: And the governance channel, Axiom 3, is the only one that isn't constitutionally enshrined or inherent to the product itself.
+
+ALEX: So, focusing on PLCAA. How exactly would you even begin to dismantle something like that? It seems so entrenched.
+
+JORDAN: It’s a multi-pronged challenge, politically and legally. One approach is full repeal, which is what advocates like the Biden administration have called for. That would immediately open up the industry to the same product liability lawsuits that other manufacturers face.
+
+ALEX: Right.
+
+JORDAN: Imagine if a car company couldn't be sued for a faulty airbag, or a pharmaceutical company for a dangerous drug. That’s essentially the protection the gun industry enjoys.
+
+ALEX: And the argument against full repeal, I assume, is that it would bankrupt the industry?
+
+JORDAN: That’s the primary argument from gun manufacturers and their lobbyists. They claim that even a few successful lawsuits would force them out of business, infringing on Second Amendment rights by making firearms unavailable.
+
+ALEX: And they argue that guns are inherently dangerous, so if they’re sued every time someone misuses one, it’s an impossible standard.
+
+JORDAN: Precisely. But that’s the point, isn't it? The paper points out the tort system isn't designed to shut down industries, but to incentivize safer products, responsible marketing, and fair compensation for harm.
+
+ALEX: So, if a manufacturer is making unsafe products, or negligently selling to straw purchasers, or marketing in ways that encourage criminal misuse, the tort system provides a mechanism for accountability.
+
+JORDAN: Exactly. Without PLCAA, the industry would have a financial incentive to invest in safety features, prevent diversion, and support responsible gun ownership, much like the auto industry invests in crash safety.
+
+ALEX: So, full repeal is one path. What about partial repeal or amendments? The paper mentioned the Sandy Hook settlement.
+
+JORDAN: Right. The Sandy Hook families successfully sued Remington, the manufacturer of the AR-15 used in the shooting, for wrongful marketing practices. They didn’t challenge PLCAA directly, but rather exploited an exception within it.
+
+ALEX: A carve-out.
+
+JORDAN: PLCAA has a carve-out for cases where a manufacturer or seller knowingly violates a state or federal statute applicable to the sale or marketing of the product. The families argued Remington’s aggressive marketing of the AR-15 to civilians, portraying it as a combat weapon, violated Connecticut’s unfair trade practices act.
+
+ALEX: So, it wasn't about the gun itself being defective, but how it was marketed?
+
+JORDAN: Exactly. And that resulted in a $73 million settlement. It showed that PLCAA isn't an impenetrable fortress; it has weak points.
+
+ALEX: Huh.
+
+JORDAN: So, another approach is to amend PLCAA to broaden those exceptions. For instance, creating explicit exceptions for negligent entrustment, or for the sale of specific types of firearms that are disproportionately used in mass shootings.
+
+ALEX: Or for manufacturers who refuse to adopt basic safety features, I imagine. That seems like a more politically feasible approach than outright repeal. Less of a "nuclear option."
+
+JORDAN: It could be. It allows for a more targeted dismantling of the shield, chipping away at the most egregious protections without necessarily exposing the entire industry to every single act of criminal misuse. But even these amendments face fierce opposition.
+
+ALEX: I'm sure. The gun lobby frames any attempt to alter PLCAA as an attack on the Second Amendment and a backdoor attempt at prohibition.
+
+JORDAN: They do. So, political will is still the biggest hurdle. And that ties into the "intervention window" you mentioned – the political crossover versus the technological crossover.
+
+ALEX: Absolutely.
+
+JORDAN: The paper argues this window is critical and closing fast. The political crossover, with younger generations showing more support for stricter gun laws, offers a glimmer of hope for building the necessary political will.
+
+ALEX: Forty-seven percent of Gen Z and Millennial Republicans supporting stricter gun laws is not insignificant. That's a demographic shift that could fundamentally alter the political landscape.
+
+JORDAN: It really could. But what about the technological crossover? Ghost guns, 3D printing… what does that really mean for the future of gun control?
+
+ALEX: That's the truly alarming part. If you think about traditional gun control, it primarily relies on regulating the supply chain: licensed manufacturers, distributors, retailers, background checks at the point of sale.
+
+JORDAN: Right. That system works when guns are manufactured in factories, stamped with serial numbers, and sold through official channels.
+
+ALEX: But ghost guns bypass all that.
+
+JORDAN: Precisely. A ghost gun is an unserialized, privately-made firearm. They’re often assembled from parts kits that can be bought online without a background check, or fabricated using 3D printers. The parts themselves aren’t legally considered firearms until assembled.
+
+ALEX: And 3D printing technology is advancing rapidly.
+
+JORDAN: We’re moving beyond just printing plastic frames to printing functional metal components. So, if anyone can essentially print a gun at home, how do you regulate that?
+
+ALEX: It becomes incredibly difficult, if not impossible, to control the supply side. Background checks become moot. Serial numbers are irrelevant. The entire framework of federal firearms licensing and tracking collapses.
+
+JORDAN: And the technological crossover isn't just about ghost guns; it's also about devices like auto sears, which can convert semi-automatic pistols and rifles into fully automatic machine guns.
+
+ALEX: Oh, wow.
+
+JORDAN: These are small, easily manufactured parts that can turn a legally purchased firearm into a weapon of war.
+
+ALEX: And those are also becoming easier to produce and distribute?
+
+JORDAN: Far easier. The paper's point is that if these technologies become widespread before we establish robust *demand-side* and *person-based* regulations, then the welfare gap becomes technologically locked.
+
+ALEX: So, you've lost the ability to control the flow of lethal products into society through traditional means. The opportunity to meaningfully reduce β<sub>W</sub> through supply-side intervention will have passed.
+
+JORDAN: Exactly. So, that emphasizes the urgency of things like permit-to-purchase laws, because they focus on the *person*, not just the gun.
+
+ALEX: A permit-to-purchase law requires an individual to obtain a license from a state authority *before* they can buy any firearm. This usually involves a background check, fingerprinting, and often safety training.
+
+JORDAN: Yeah. The license is tied to the buyer, not a specific gun. So, if you have a permit-to-purchase law, even if someone hands you a ghost gun, you’re still violating the law if you don't have that permit.
+
+ALEX: It creates a deterrent and a mechanism for accountability that's more resilient to the challenges posed by ghost guns.
+
+JORDAN: And you mentioned Connecticut's law reduced firearm homicide by 28% and suicide by 33%. Those are significant numbers.
+
+ALEX: They are.
+
+JORDAN: And it’s not just Connecticut. Studies on similar laws in other states, like Missouri, have shown significant impacts. When Missouri repealed its permit-to-purchase law in 2007, firearm homicide rates increased by 14% and firearm suicide rates increased by 16%.
+
+ALEX: Compared to projections had the law remained in place. That's strong evidence that these laws are highly effective.
+
+JORDAN: It is. What are the main arguments against permit-to-purchase laws?
+
+ALEX: Primarily, they're framed as an infringement on Second Amendment rights, an undue burden on law-abiding citizens. Opponents argue they create unnecessary bureaucracy, delays, and costs for people seeking to exercise their constitutional right to self-defense.
+
+JORDAN: And they often cite concerns about "may issue" clauses, where authorities have discretion to deny permits, leading to potential abuse or discrimination.
+
+ALEX: But if it's a "shall issue" system, where if you meet the criteria, you get the permit, that argument is weaker.
+
+JORDAN: It is, but the "burden" argument still stands. The key is balancing that burden against the demonstrated public safety benefits. And remember, the Supreme Court has consistently stated that the Second Amendment, while guaranteeing an individual right, is not unlimited.
+
+ALEX: Reasonable restrictions, like those found in permit-to-purchase laws, are generally upheld. Okay, so that’s one of the marginal reforms. What about the Extreme Risk Protection Orders, the "red flag laws"? How do those work in practice?
+
+JORDAN: ERPOs allow temporary removal of firearms from individuals deemed by a court to pose a significant risk of harm to themselves or others. Typically, a family member or law enforcement officer petitions a court, providing evidence of dangerous behavior.
+
+ALEX: And then a judge holds a hearing and, if the evidence is compelling, issues an order.
+
+JORDAN: Exactly. The order is temporary, usually for a year, and can be renewed or challenged. So, it’s a preventative measure.
+
+ALEX: It's designed to intervene during a crisis, before violence occurs. The "one suicide prevented for every 22 ERPOs issued" statistic is powerful because suicide accounts for the majority of firearm deaths, and these laws offer a specific tool to address that.
+
+JORDAN: They've also been used effectively to prevent mass shootings and domestic violence. What are the main challenges or criticisms of ERPOs?
+
+ALEX: The primary criticism revolves around due process concerns. Opponents argue that they can lead to firearms being seized without sufficient evidence or without the gun owner having a chance to present their case.
+
+JORDAN: There are also concerns about potential for misuse or false accusations.
+
+ALEX: But there's a judicial process involved, right? It's not just law enforcement taking guns away arbitrarily.
+
+JORDAN: No, it always requires a court order. Many states have implemented robust due process protections, including requiring sworn affidavits, a hearing before a judge, and ensuring the gun owner has an opportunity to be heard.
+
+ALEX: So, the challenge is often in public education and consistent implementation. Many people don't even know these laws exist or how to use them effectively.
+
+JORDAN: And law enforcement agencies need proper training and resources to implement them fairly. So, these are all about reducing the externality, chipping away at that 50.99 beta. What about the excise tax rebalancing? That sounds like a fascinating economic lever.
+
+ALEX: It is. Currently, there’s a federal excise tax on firearms: 10% on pistols and revolvers, and 11% on other firearms like rifles and shotguns, as well as ammunition. This revenue goes to wildlife conservation.
+
+JORDAN: The paper suggests rebalancing this.
+
+ALEX: So, raising the tax on handguns, which account for 80-90% of homicides, while lowering it on long guns.
+
+JORDAN: Correct. The idea is to disincentivize the purchase of firearms most commonly used in violent crime, without necessarily increasing the overall tax burden on gun owners, or even reducing it for certain types of firearms.
+
+ALEX: And the paper estimates this could achieve 40% of the welfare gain of a blanket tax, but without reducing consumer surplus overall. How does that work? How can you get a welfare gain without reducing consumer surplus?
+
+JORDAN: It’s about shifting demand. If you make handguns more expensive, some people might choose not to buy one, or buy a different, less lethal type of firearm, or delay their purchase. This reduces the negative externality associated with handgun ownership.
+
+ALEX: Okay.
+
+JORDAN: Simultaneously, by lowering the tax on long guns, you make those relatively cheaper. If people shift their purchases to long guns – which are statistically less often used in homicides and suicides – the overall societal welfare increases because the *marginal externality* of a long gun is lower than that of a handgun.
+
+ALEX: So the total consumer surplus could remain similar if the overall spending on firearms doesn't change drastically, but the societal cost due to violence decreases. That’s a clever economic argument.
+
+JORDAN: It is.
+
+ALEX: But the gun lobby has blocked even modest excise tax increases for decades. This still feels like a huge political lift.
+
+JORDAN: It absolutely is. Any tax increase, even a rebalancing, would face massive opposition. It would be framed as a "gun tax" designed to make firearms unaffordable for the working class. But the paper's argument highlights that the current tax structure is effectively a subsidy for the most dangerous types of firearms.
+
+ALEX: Rebalancing it isn't just about revenue; it's about correcting a market distortion that incentivizes lethality. So, we’ve got these marginal reforms. They won't get us to beta one, but they could save thousands of lives and billions in welfare destruction.
+
+JORDAN: Right.
+
+ALEX: But the Impossibility Theorem still looms. If β<sub>W</sub> can never be one, what does that really mean? Is it a call to despair, or just a more precise definition of the problem?
+
+JORDAN: The authors are very clear it's not a call to despair. It's a call to *clarity*. It means we should stop pursuing interventions that are fundamentally blocked by the axioms.
+
+ALEX: For instance, trying to "design out" lethality from a firearm while still having it function as a firearm is a non-starter. Trying to prohibit firearms nationwide is a non-starter under current Supreme Court interpretations.
+
+JORDAN: Exactly. Trying to implement a tax that effectively prohibits access is also a non-starter. So, it reframes the goal from "eliminate all firearm externalities" to "minimize the externality within the constraints of the system."
+
+ALEX: It forces us to acknowledge that in the US context, there will *always* be a significant welfare cost associated with civilian firearm ownership. The question then becomes, what is the *lowest achievable* beta, and what are we willing to do to get there?
+
+JORDAN: Even reducing β<sub>W</sub> from 51 to 25-35 means saving 11,000 to 23,000 lives annually. That’s an enormous moral and economic imperative. The theorem doesn't say "don't try"; it says "understand your constraints and aim for realistic, impactful improvements."
+
+ALEX: It also makes me think about the moral dimension of this. If society is implicitly accepting a β<sub>W</sub> of 51, essentially subsidizing the industry for half a trillion dollars a year, what does that say about our priorities?
+
+JORDAN: That’s the core philosophical question the paper implicitly raises. It puts a stark price tag on the trade-offs we're making. We're prioritizing unfettered access to firearms, without robust accountability, over vast amounts of human life and societal well-being.
+
+ALEX: And the lack of awareness of that cost... I mean, who knows these numbers? Who understands that $1.40 billion per day in welfare destruction?
+
+JORDAN: Very few. And that’s part of the problem. Misinformation, political polarization, and the sheer complexity of the issue obscure the true costs. The public discourse is often emotional and ideological, rather than data-driven.
+
+ALEX: These numbers, the β<sub>W</sub>, the $509.9 billion externality – they cut through the noise with an objective, economic lens. They present a "receipt" that’s hard to ignore.
+
+JORDAN: So, the challenge isn't just policy, it's also about shifting the narrative. Getting people to understand the financial and human cost of inaction.
+
+ALEX: Absolutely. It’s about making the invisible costs visible. When people understand that their tax dollars, their insurance premiums, their property values, and the general quality of life in their communities are directly impacted by this externality, it changes the conversation.
+
+JORDAN: It moves beyond abstract rights arguments to concrete economic realities that affect everyone. And the "subsidy flows from the unprotected to the protected" line… that’s just chilling. It highlights the injustice of it all.
+
+ALEX: It really does. It paints a clear picture of who benefits and who pays. The industry and its beneficiaries, protected by PLCAA and political capture, reap the profits. Everyone else, the "unprotected" citizens, bears the cost in blood and treasure.
+
+JORDAN: I'm also thinking about the historical context. Other countries, like Australia, made dramatic changes after a single mass shooting. Why hasn't something similar happened here, given the scale of the problem?
+
+ALEX: That's where the unique American context comes into play – primarily the Second Amendment as interpreted by the Supreme Court, and the deeply entrenched political power of the gun lobby.
+
+JORDAN: Australia didn't have a constitutional right to bear arms in the same way, nor did it have the same level of political organization and financial power from the gun industry. Their reforms were radical because they were politically feasible in their context.
+
+ALEX: And our Impossibility Theorem explicitly addresses why those same radical reforms aren't feasible here. So, it's not that Americans are inherently less compassionate; it's that the structural barriers are fundamentally different and more formidable.
+
+JORDAN: That's the paper's argument. It's structural, systemic, and deeply embedded in our legal and political fabric. It's why the "softest axiom" is so important.
+
+ALEX: If you can't touch the product's lethality or constitutionally prohibit it, then the only remaining lever is the governance channel – dismantling the legal and political protections that shield the industry from accountability.
+
+JORDAN: This whole discussion just makes me feel a renewed sense of urgency about that intervention window. Five to fifteen years. That's not a lot of time.
+
+ALEX: It isn't. The technological advancements, particularly in 3D printing and untraceable firearms, are accelerating faster than our political system's ability to respond. If we wait until ghost guns are truly ubiquitous, the problem becomes exponentially harder to manage.
+
+JORDAN: It's a race against time. So, what’s the immediate takeaway for you, Jordan, from all this? If you had to boil it down to one thing?
+
+ALEX: For me, it's the shift in perspective. It moves the debate from an abstract, ideological one to a concrete economic and welfare calculation. It gives us a metric, β<sub>W</sub>, that objectively measures the societal cost.
+
+JORDAN: And by identifying the Impossibility Theorem and the "softest axiom," it provides a roadmap, however challenging, for where efforts need to be focused. It's not about achieving the impossible, but about making significant, measurable progress within the defined constraints.
+
+ALEX: It's about recognizing the enormous subsidy we're paying and deciding if that's truly a choice we want to continue making. And for me, it's the idea of the "receipt." That we, as a society, are getting a receipt for this massive cost every single day.
+
+JORDAN: Yeah.
+
+ALEX: And knowing that, refusing to acknowledge it, refusing to act, feels almost like a conscious decision to perpetuate the problem.
+
+JORDAN: That’s the power of the paper. It lays out the facts, quantifies the consequences, and then leaves the ultimate decision to us. What you do with the receipt is up to you.
+
+ALEX: It really is. I appreciate you walking me through this, Jordan. It’s a lot to chew on, but it feels like essential knowledge.
+
+JORDAN: Anytime, Alex. It's the kind of work that needs to be discussed, debated, and understood. Hopefully, it can contribute to a more informed public conversation.
+
+ALEX: Here's hoping. This has been incredibly insightful, and frankly, a bit sobering.
+
+JORDAN: That’s often the case when you pull back the curtain on these kinds of societal costs. But understanding the problem is the first step towards addressing it.
+
+ALEX: Well, I’ll certainly be looking at the news differently now. And probably thinking about that $1.40 billion every morning.
+
+JORDAN: It’s hard not to, once you know.
+
+ALEX: Thanks again.
+
+JORDAN: My pleasure. Take care.
+
+ALEX: You too.

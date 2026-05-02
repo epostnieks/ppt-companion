@@ -70,11 +70,11 @@ img, svg, table {
 
   /* Reduce large headings */
   h1 {
-    font-size: 24px !important;
+    font-size: 30px !important;
   }
 
   h2 {
-    font-size: 20px !important;
+    font-size: 24px !important;
   }
 
   /* Reduce padding on content areas */
@@ -116,11 +116,11 @@ img, svg, table {
 /* ── Small mobile (≤ 480px) ─────────────────────────────────── */
 @media (max-width: 480px) {
   h1 {
-    font-size: 20px !important;
+    font-size: 26px !important;
   }
 
   h2 {
-    font-size: 18px !important;
+    font-size: 22px !important;
   }
 
   /* Further reduce padding */

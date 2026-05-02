@@ -6,8 +6,8 @@ import { CHAPTERS } from "./curriculumData";
 const M = "'JetBrains Mono',monospace";
 const S = "'Newsreader',serif";
 const GOLD = "#F59E0B";
-const MUTED = "rgba(255,255,255,0.35)";
-const DIM = "rgba(255,255,255,0.55)";
+const MUTED = "#C8C8C8";
+const DIM = "#C8C8C8";
 const TEXT = "#F5F0E8";
 const BORDER = "rgba(255,255,255,0.1)";
 
@@ -63,7 +63,7 @@ export default function GlobalSearch() {
       { label: "Paper Summaries", href: "/summaries/", keywords: "papers summaries browse all" },
       { label: "Domain Tables", href: "/tables/", keywords: "tables rankings beta domains" },
       { label: "PolicyLab", href: "/policylab/", keywords: "policy countries reform agents" },
-      { label: "Reform Pathfinder", href: "/pst-breaker/", keywords: "reform pathfinder countries sectors axioms" },
+      { label: "Reform Pathfinder", href: "/reform-pathfinder/", keywords: "reform pathfinder countries sectors axioms" },
       { label: "Executive Brief", href: "/executive/", keywords: "executive corporate exposure hollow win audit" },
       { label: "Academic Hub", href: "/academic/", keywords: "academic propositions falsification theorems" },
       { label: "Impossibility Canon", href: "/impossibility/", keywords: "impossibility intractability theorems canon" },
@@ -91,7 +91,7 @@ export default function GlobalSearch() {
       >
         <span style={{ fontSize: 13 }}>⌕</span>
         <span>Search...</span>
-        <span style={{ marginLeft: "auto", fontSize: 10, color: "rgba(255,255,255,0.2)" }}>⌘K</span>
+        <span style={{ marginLeft: "auto", fontSize: 11, color: "rgba(255,255,255,0.2)" }}>⌘K</span>
       </button>
     );
   }
@@ -131,7 +131,7 @@ export default function GlobalSearch() {
               onMouseEnter={e => e.currentTarget.style.background = "rgba(245,158,11,0.06)"}
               onMouseLeave={e => e.currentTarget.style.background = "transparent"}
               >
-                <span style={{ fontFamily: M, fontSize: 9, color: GOLD, letterSpacing: 1, width: 50, flexShrink: 0 }}>
+                <span style={{ fontFamily: M, fontSize: 11, color: GOLD, letterSpacing: 1, width: 50, flexShrink: 0 }}>
                   {r.type.toUpperCase()}
                 </span>
                 <span style={{ fontFamily: S, fontSize: 15, color: TEXT, flex: 1 }}>{r.label}</span>

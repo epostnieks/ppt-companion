@@ -1,0 +1,325 @@
+ALEX: Okay, Jordan, I just… I mean, I finished reading this paper. And I'm just sitting here, staring at the ceiling, honestly. That core finding alone, that single number… it's just, uh, it's really something else.
+
+JORDAN: Right? You mean the one where, for every dollar the global shipping industry makes, it destroys a dollar forty in system welfare? Yeah, that one kind of stopped me cold, too.
+
+ALEX: A dollar forty. I mean, that's not, like, a minor externality, is it? That's a net destructive force. How is that even possible for an industry that moves eighty percent of everything we consume?
+
+JORDAN: Well, that's, um, that's really the genius of this System Asset Pricing Model, or SAPM, that Erik Postnieks developed.
+
+ALEX: Oh, the SAPM.
+
+JORDAN: Yeah. He takes a concept from finance—the market beta, which measures risk—and applies it to society. So, instead of risk, you're measuring societal cost. The damage.
+
+ALEX: Okay, so a beta of 1.40 means it's, like, amplifying the damage?
+
+JORDAN: That's the idea. Think of it like this: in finance, a beta of 1.5 means your stock amplifies market moves by fifty percent. Here, a system beta of 1.40 means every dollar of private shipping revenue *amplifies* welfare destruction by forty percent. It’s a net welfare destroyer.
+
+ALEX: Wow. And the total number, the actual cost in dollars… I think I had to read that line three times.
+
+JORDAN: One point three six *trillion* dollars a year. That’s the system welfare cost.
+
+ALEX: Trillion.
+
+JORDAN: Yeah. And the industry's annual gross revenue? Nine hundred and sixty-nine billion. So, yeah, the destruction just dwarfs the profit. It's, um, it's disorienting, as the paper says.
+
+ALEX: Disorienting is an understatement. And the biggest chunk of that trillion dollars, the most devastating part... that's the part that really hit me.
+
+JORDAN: You're talking about the premature deaths, aren't you?
+
+ALEX: Two hundred and fifty thousand people. Every year. From breathing ship exhaust. I mean, they put this analogy in the paper, and it's just… it's brutal.
+
+JORDAN: Yeah, the Boeing 747 one. It's the equivalent of a fully loaded 747 crashing into the ocean every ninety minutes, all year long. And no one calls it an emergency.
+
+ALEX: Because the victims live in coastal cities that can't sue a Panamanian-flagged vessel burning Liberian-registered fuel. That line, Jordan. That just… *oof*.
+
+JORDAN: It's the single biggest channel of welfare destruction, Alex. Eighty-one percent of the total cost. Even after the IMO 2020 sulfur cap, which was supposed to, you know, fix things, right?
+
+ALEX: Wait, so the sulfur cap didn't fix it? I remember that being a big deal.
+
+JORDAN: It reduced atmospheric SOx by seventy-seven percent, which is good. But it also allowed ships to install these things called "scrubbers."
+
+ALEX: Oh, the scrubber loophole! That's where they dump the pollution into the ocean instead of the air, right?
+
+JORDAN: Bingo. It's compliance arbitrage. They continue burning high-sulfur fuel, capture the sulfur, and then discharge the washwater directly into the ocean. It's highly acidic—pH two to three, like battery acid—and loaded with heavy metals and carcinogens.
+
+ALEX: And the paper says that loophole transfers fifty to eighty billion dollars a year in marine ecotoxicity costs from the atmosphere to the ocean. That's like dumping a small Superfund site into the ocean with every trans-Pacific voyage.
+
+JORDAN: It’s a classic case of Pigouvian displacement, as the paper calls it. You fix one problem, but you just move the pollution to another medium. The regulatory framework targets air pollution, but not, uh, ocean pollution from exhaust.
+
+ALEX: So, the six channels of welfare destruction. We've got the premature deaths, the climate damage from CO2, the scrubber washwater. What else contributes to this massive trillion-dollar cost?
+
+JORDAN: Right. So, there's eighty-one billion from invasive species, transported in ballast water. Think zebra mussels in the Great Lakes, costing billions in infrastructure damage. Then, underwater noise, about eighteen billion, disrupting cetacean communication.
+
+ALEX: Whales, dolphins. Like, they can't talk to each other because of the constant hum of ships. That's just heartbreaking.
+
+JORDAN: It really is. But the final channel, Alex, the one that makes this a "Jurisdictional Hollow Win" as the paper classifies it, is governance failure. One hundred and eighty-nine billion dollars a year.
+
+ALEX: Governance failure as a *priced* externality? That's new. I've heard of institutional capture, but never seen it monetized like that.
+
+JORDAN: It's brilliant, really. He breaks it down: foregone tax revenue, labor exploitation, and the shadow cost of delayed decarbonization. Because the International Maritime Organization, the IMO, is supposed to regulate all this, but it's, um, it's effectively captured.
+
+ALEX: Right, the flag-of-convenience states. Seventy-three percent of the global fleet, right?
+
+JORDAN: Yeah. And their delegations to the IMO often include direct corporate representatives. So, you have these states, like Panama, Liberia, the Marshall Islands, making hundreds of millions in registration fees, and they have a structural incentive to block strong environmental regulations.
+
+ALEX: And the Marshall Islands paradox, I mean, that's just… it's wild. A low-lying island nation, facing existential threat from climate change, makes five hundred million dollars a year registering ships whose emissions are literally drowning the Marshall Islands.
+
+JORDAN: It's the ultimate jurisdictional arbitrage. A ship owned by a Greek company, registered in Panama, crewed by Filipinos, insured in London, burning fuel bought in Singapore—there's no single sovereign on Earth with both the authority *and* the incentive to price the two hundred and fifty thousand deaths its exhaust produces.
+
+ALEX: So, that's why Pigouvian taxes and Coasean bargaining fail, then. Too many jurisdictions, undefined property rights over the ocean and air. No one to sue, basically.
+
+JORDAN: Precisely. And the industry pays effective tax rates below two percent, even during record profit years. Maersk, for example, paid one point nine percent on eighteen billion in profit in two thousand twenty-two. They're shielded by the OECD's International Shipping Income exclusion.
+
+ALEX: So, they're not paying taxes, they're polluting the air and the ocean, they're exploiting labor… and the consumers are the ones who benefit from the lower freight rates.
+
+JORDAN: That's the kappa ratio, Alex. The industry retains just two point four cents of net profit for every dollar of welfare it destroys. The remaining ninety-seven point six cents flows through to consumers as lower freight rates.
+
+ALEX: Meaning eight billion beneficiaries of cheap imported goods have zero political incentive to price the two hundred and fifty thousand deaths that subsidize their shopping. Okay, that's… that's a lot to take in.
+
+JORDAN: It is. But here's the kicker, the part that gives me a sliver of hope, actually.
+
+ALEX: What's that? After all this, there's a sliver of hope?
+
+JORDAN: The break-even mitigation rate. The fraction of externalized costs that society needs to internalize for the industry to stop being a net welfare destroyer. It's twenty-eight point six percent.
+
+ALEX: Twenty-eight point six percent? That sounds… surprisingly low. Like, compared to other industries, I assume?
+
+JORDAN: It's the lowest in the entire SAPM registry. Lower than PFAS, lower than Bitcoin, lower than auto emissions. It means this trillion-dollar externality could be fixed with *partial* measures. Not some technological miracle, not deep-future discounting.
+
+ALEX: So, what would those partial measures look like?
+
+JORDAN: The paper lays them out: a global carbon levy at the EPA's social cost of carbon, phase-out of open-loop scrubbers, mandatory ballast water treatment, and vessel speed reduction to "Blue Speeds."
+
+ALEX: "Blue Speeds"? Huh.
+
+JORDAN: Yeah, limiting ship speeds to about seventy-five percent of their design speed. It reduces underwater noise by up to seventy-four percent, cuts ship strikes by fifty percent, and, get this, saves thirteen percent in fuel.
+
+ALEX: Wait, it saves fuel?
+
+JORDAN: Yeah! It's an operationally trivial intervention, but the industry's resisted it for thirty years because faster delivery means higher revenue.
+
+ALEX: So, these are all existing, proven interventions. It's not about inventing new tech. It's about implementing what we already know works.
+
+JORDAN: Precisely. Take California's CARB at-berth regulation. It mandated shore power for ships in port. Cost two point two three billion dollars to implement, but generated two point three two billion in health benefits. A one point zero four benefit-cost ratio in a single state.
+
+ALEX: Wow. That's compelling. So, it *can* be done, even at a sub-national level, if market access is at stake.
+
+JORDAN: And that's the core finding of the "Jurisdictional Hollow Win" classification. The welfare costs persist not because of a physical impossibility, but because the industry has systematically fragmented jurisdictional accountability.
+
+ALEX: It's a *designed outcome*, not an emergent one. I mean, the paper's zinger about the flag not being a flag, but a receipt...
+
+JORDAN: The ship isn't registered; it's laundered. It's a sovereignty-for-sale system designed for bootlegging during Prohibition, scaled through tax arbitrage, and now it wields veto power over decarbonization at the IMO.
+
+ALEX: So, we've got this massive externality, but it's the most correctable one. The solutions are known, they're not even that expensive relative to the damage. Why aren't we doing it?
+
+JORDAN: That, Alex, is the hundred and eighty-nine billion dollar question. It's the governance failure channel. The political will. The ability of a fragmented system to delay action.
+
+ALEX: And the cumulative cost of that delay? The Maritime Externality Debt?
+
+JORDAN: Ninety to one hundred trillion dollars since nineteen fifty. And it's growing by one point two nine trillion dollars every year that the industry operates at its current externality level. We're servicing about four to five percent of the annual flow.
+
+ALEX: So, the debt just keeps getting bigger and bigger.
+
+JORDAN: It does. And the intervention window, that twenty to twenty-five year period where policy choices can actually bend the curve? It's closing. Every vessel ordered today without zero-emission capability is a twenty-five to thirty-year commitment to burning fossil fuel.
+
+ALEX: And sixty-three to seventy-four percent of current newbuilds are still fossil-only. We're locking in decades more of this.
+
+JORDAN: Yep. The Marshall Islands, they're trying to push for a global carbon tax at the IMO. But their efforts are often diluted or delayed by the very flag states that profit from the current system. It's a tragic irony.
+
+ALEX: So, if you had to pick one thing, one intervention that would make the biggest dent, what would it be?
+
+JORDAN: The paper is unequivocal: expand Emission Control Areas to cover all major shipping lanes within two hundred nautical miles of densely populated coastlines. That targets the air pollution mortality channel directly, which is sixty percent of the problem.
+
+ALEX: Like the Mediterranean ECA that just went into effect?
+
+JORDAN: Exactly. Extend that model to East Asia, South Asia, West Africa. Each new ECA covering fifty million people reduces deaths by five to fifteen thousand per year, generating fifteen to forty-five billion in annual health benefits. The benefit-cost ratio is over three to one.
+
+ALEX: So, it's not about whether we *can* fix it, or even whether we *know how* to fix it. It's about whether we *will*.
+
+JORDAN: That's it. The bodies have been counted since two thousand seven. The scrubber discharge has been measured since twenty twenty-one. The IMO's institutional capture has been documented since twenty seventeen. The question is whether one hundred and seventy-five flag states, staffed in part by corporate lobbyists, can muster the political will to price what they have known for two decades.
+
+ALEX: Wow. That's a heavy thought to leave people with.
+
+JORDAN: It is. But that's the point of this kind of research, right? To make the invisible legible. To put a price tag on what the market refuses to print.
+
+ALEX: And make it impossible to ignore. Well, Jordan, thank you for breaking that down. It's, uh, it's a lot to process, but incredibly important.
+
+JORDAN: Always a pleasure, Alex. And a sobering reminder of the choices we face.
+
+ALEX: Indeed. We'll see you next time.
+
+JORDAN: Take care.
+
+ALEX: You know, Jordan, I couldn't stop thinking about what we discussed last time, about the shipping industry. Specifically, that line about the governance failure being monetized at one hundred and eighty-nine billion dollars a year.
+
+JORDAN: Right?
+
+ALEX: It's one thing to talk about abstract institutional capture, but to put a price tag on it, and such a staggering one, really drives home the impact. It's not just a political problem; it's an economic catastrophe in its own right.
+
+JORDAN: Yeah, and that's precisely the point the paper makes so powerfully. Governance failure isn't just an unfortunate byproduct; it's a primary driver of these externalities. It's, um, it's the deliberate design of a system that allows for the fragmentation of accountability, effectively creating a shield for polluters.
+
+ALEX: Huh.
+
+JORDAN: I mean, think about it: if the IMO were truly effective, if it weren't structurally disincentivized from imposing meaningful regulation, that one hundred and eighty-nine billion wouldn't exist in its current form. It represents the cost of *inaction*, the economic value of what we *could* have achieved had the governance been functional.
+
+ALEX: So, it's not just the cost of pollution, but the cost of the *system* that allows the pollution. And this isn't unique to shipping, is it? I mean, we see similar dynamics in other global commons issues, like deep-sea mining, or even the regulation of space debris. Where there's no clear sovereign, there's often a race to the bottom.
+
+JORDAN: You got it. The shipping industry serves as an almost perfect case study for the broader "Tragedy of the Commons" playing out on a global scale. The oceans and atmosphere are classic global commons—shared resources that no single entity owns, and therefore, no single entity has the full incentive to protect.
+
+ALEX: Right.
+
+JORDAN: When you combine that with a highly mobile industry, where assets can physically move between jurisdictions, and a regulatory body (the IMO) that operates on consensus among sovereign states, many of which benefit directly from the status quo, you create this perfect storm. The "Jurisdictional Hollow Win" isn't just a catchy phrase; it's a fundamental indictment of how we've chosen to manage shared global resources. It’s a win for the industry, but a hollow win for humanity.
+
+ALEX: And the flags of convenience are the lynchpin of that system. You mentioned Panama, Liberia, Marshall Islands. What about the role of the traditional maritime powers, though? Greece, Japan, China, Germany – they own significant portions of the global fleet. Do they have no leverage to push for change?
+
+JORDAN: That's a critical distinction, Alex. While the beneficial ownership might reside in traditional maritime nations – Greece is often cited as having the largest fleet by ownership – they still register their ships under flags of convenience.
+
+ALEX: Why?
+
+JORDAN: Because it offers them regulatory flexibility, lower operating costs, and reduced tax burdens. So, while they might be "traditional maritime powers" in terms of ownership, their *operational choices* still leverage the jurisdictional arbitrage provided by the flag states. They are part of the system that perpetuates the "hollow win." The system benefits them too, albeit indirectly, through competitive advantage.
+
+ALEX: I see.
+
+JORDAN: It’s a collective action problem at its finest. No single nation wants to unilaterally impose stricter regulations on its owned fleet if that fleet can simply re-flag elsewhere, putting its domestic industry at a competitive disadvantage. This is why global, harmonized regulation is so crucial, and so difficult to achieve.
+
+ALEX: So, the very fragmentation that allows the problem to persist also makes the solutions incredibly hard to implement. Let's talk about those solutions again. You mentioned expanding Emission Control Areas, a global carbon levy, phasing out open-loop scrubbers, mandatory ballast water treatment, and "Blue Speeds." These aren't radical, pie-in-the-sky ideas. They're proven.
+
+JORDAN: They are.
+
+ALEX: So, what's the actual political economy of *not* doing them? Who is actively blocking these, beyond the flag states?
+
+JORDAN: Excellent question, and it gets to the heart of the governance failure. Let's take the global carbon levy first. The concept is straightforward: internalize the climate externality. The IMO has been discussing market-based measures for over a decade. The primary resistance comes from a few quarters.
+
+ALEX: Okay.
+
+JORDAN: First, some developing nations, often led by China and Brazil, fear that a global levy would disproportionately impact their economies, increasing the cost of their exports and imports. They argue for "common but differentiated responsibilities," meaning developed nations should bear a greater burden.
+
+ALEX: A fair point on equity, but if the revenue is earmarked for climate adaptation or green shipping infrastructure, isn't that a solution?
+
+JORDAN: It absolutely *could* be. But the specifics of how that revenue is collected, distributed, and managed become incredibly complex. Who controls the fund? How are the adaptation projects selected? What if some nations see it as a new form of foreign aid, rather than a just redistribution of collected externalities?
+
+ALEX: Right.
+
+JORDAN: These are legitimate concerns that get weaponized in negotiations, leading to endless delays. Then you have the industry itself, which inherently resists any new costs. They argue it will raise freight rates, impact global trade, and that they need more time for technological innovation. They push for voluntary measures, or less stringent targets, always emphasizing the potential for "unintended consequences" or competitive distortions.
+
+ALEX: So, it's a combination of legitimate equity concerns, industry lobbying, and the inherent slow pace of consensus-based international bodies. What about the scrubbers? Phasing out open-loop scrubbers seems like a no-brainer given the data on marine ecotoxicity. Why are they still allowed?
+
+JORDAN: Again, it's a fascinating display of regulatory capture and inertia. When the IMO introduced the 2020 sulfur cap, it allowed two compliance pathways: burn low-sulfur fuel, or install scrubbers and continue burning cheaper high-sulfur fuel. The industry heavily lobbied for the scrubber option, arguing it was a viable and cost-effective solution.
+
+ALEX: And they invested in it.
+
+JORDAN: Many ships invested billions in installing these systems. Now, to suddenly reverse course and ban them would mean stranding those assets, leading to massive financial losses for the companies that invested. They argue that the initial approval by the IMO created a "legitimate expectation" that these systems would be allowed to operate.
+
+ALEX: Even with the new data?
+
+JORDAN: Yeah. They also claim that the environmental impact, while present, is localized and less severe than the atmospheric pollution they prevent. This is a classic example of sunk costs influencing future policy, even when new evidence emerges.
+
+ALEX: But the paper explicitly quantified that "marine ecotoxicity cost" at fifty to eighty billion dollars a year. That's not localized; that's systemic.
+
+JORDAN: You're right. But the industry's narrative is powerful, and they have direct representation in many delegations to the IMO. They can effectively slow-walk any proposal to ban scrubbers, citing the need for further studies, impact assessments, or alternative solutions. It's a delaying tactic, pure and simple, designed to extract as much value as possible from their scrubber investments before any ban potentially comes into effect. The IMO's process requires overwhelming consensus, which gives a small bloc of states, often influenced by shipping interests, effective veto power.
+
+ALEX: And "Blue Speeds"? That one seems the most benign. Reduces noise, cuts strikes, *and* saves fuel. Why on Earth would they resist saving fuel? That's a direct operational cost reduction.
+
+JORDAN: This is where the intricacies of the global supply chain come into play, Alex. While it's true that slower speeds save fuel, faster speeds mean quicker delivery times. In a "just-in-time" global economy, every day saved in transit can translate into significant revenue advantages, reduced inventory holding costs for importers, and fresher goods for consumers.
+
+ALEX: So the market rewards speed.
+
+JORDAN: The market has, for decades, rewarded speed. So, while the fuel savings are real, they are often outweighed by the perceived competitive advantage of faster transit. Importers want their goods yesterday. Retailers want to minimize time-to-shelf. The entire system is optimized for speed, and slowing down, even if environmentally beneficial and fuel-efficient, disrupts established business models and supply chain expectations. It's a classic prisoner's dilemma: if one shipping line slows down, but its competitors don't, it loses market share. So, without a universal mandate, no one wants to go first.
+
+ALEX: So, it's not just the shipping lines, but the entire global logistics ecosystem that would need to adjust. That's a massive undertaking.
+
+JORDAN: It is. And it's why these seemingly simple interventions require global coordination. Without it, the market naturally defaults to the fastest, cheapest option, irrespective of the externalities. This brings us back to the core issue: the absence of a strong, independent global authority capable of enforcing universal standards. The IMO, by its very structure, is not that authority. It's a member-driven organization, susceptible to the lowest common denominator.
+
+ALEX: You mentioned the "intervention window" is closing, with newbuilds locking in fossil fuel use for decades. What are the realistic alternatives to fossil fuels for shipping? Are we seeing any significant uptake of green technologies?
+
+JORDAN: That's another major challenge. The industry is currently in a state of flux, grappling with the "fuel dilemma." There's no single, universally agreed-upon "future fuel." You have several contenders: methanol, ammonia, hydrogen. Even LNG is still considered by some.
+
+ALEX: And what are the challenges with those?
+
+JORDAN: Methanol is gaining traction, particularly for container ships. It's cleaner burning, and "green methanol" can be produced from renewable sources. Maersk, for example, is heavily investing in methanol-powered vessels. Ammonia is seen as a strong candidate for its energy density and potential for zero-carbon combustion, but it's highly toxic and corrosive, requiring significant safety protocols and infrastructure development. Hydrogen has low energy density, making it less suitable for long-haul voyages.
+
+ALEX: Okay.
+
+JORDAN: LNG, while cleaner than heavy fuel oil in terms of sulfur, is still a fossil fuel and produces methane slip, a potent greenhouse gas. It's seen by many as a "bridge fuel" at best. And then there's nuclear propulsion, technically feasible, but, you know, public perception and regulatory challenges are immense. And wind-assisted propulsion – modern sails, rotors – these are becoming more viable as supplemental power, reducing fuel consumption, but not eliminating it entirely for large cargo ships.
+
+ALEX: So, there's a lot of options, but no clear winner yet.
+
+JORDAN: Exactly. The problem is the lack of infrastructure for these alternative fuels. You can't just switch overnight. Ports need to be equipped to bunker (refuel) with methanol or ammonia. This requires massive investment, and no one wants to build the infrastructure until there are enough ships, and no one wants to build the ships until the infrastructure is there. It's a classic chicken-and-egg problem, exacerbated by the IMO's slow pace in setting clear, long-term decarbonization targets and regulatory certainty for these new fuels.
+
+ALEX: So, without that clear signal from the IMO, shipowners are hesitant to commit to any single technology, given the thirty-year lifespan of a vessel. They're waiting for the market or the regulators to decide, which just perpetuates the delay.
+
+JORDAN: Exactly. And the cost premium for these "green" fuels is substantial right now. Green methanol or ammonia can be two to three times more expensive than heavy fuel oil. Without a carbon price or strong regulation to level the playing field, the economic incentive to switch isn't there. This is why a global carbon levy isn't just about revenue; it's about sending a clear market signal to drive investment in green fuels and technologies. Without it, the default remains fossil fuels, locking in decades more emissions.
+
+ALEX: It sounds like a perfect storm of economic disincentives, political inertia, and technological uncertainty. But you said earlier that the break-even mitigation rate is twenty-eight point six percent, the lowest in the SAPM registry. That suggests it's *more* solvable than other major externalities. Why the disconnect between solvability and actual progress?
+
+JORDAN: That's the core paradox, isn't it? The problem isn't the technical difficulty or the cost of the solutions relative to the damage. It's the *governance* that's broken. The fact that it's the lowest break-even mitigation rate means that if we could just implement those relatively straightforward measures – ECAs, carbon levy, scrubber phase-out, Blue Speeds – the industry would cease to be a net welfare destroyer.
+
+ALEX: Just those things.
+
+JORDAN: Yeah. The total cost of implementing these measures is orders of magnitude lower than the trillion-dollar externality they address. The disconnect comes from the unique structure of international shipping: a truly global industry operating in a regulatory vacuum, where the beneficiaries of the externalities (consumers of cheap goods) are entirely disconnected from the costs (premature deaths, climate damage).
+
+ALEX: So, it's not a market failure in the traditional sense, where prices don't reflect costs. It's a *governance failure* that *prevents* the market from ever being able to reflect those costs. It's a designed market distortion.
+
+JORDAN: Precisely. And this is why relying on voluntary industry initiatives or technological breakthroughs alone won't work fast enough. Without a strong regulatory hand, the path of least resistance will always be the cheapest, most polluting option. We're looking at a ninety to one hundred trillion dollar Maritime Externality Debt, growing by one point two nine trillion every year. This isn't just a future problem; it's a present and accumulating catastrophe. The "Jurisdictional Hollow Win" isn't a theoretical construct; it's playing out in real time, measured in human lives and ecosystem degradation.
+
+ALEX: Let's turn to the consumer side for a moment. Eight billion beneficiaries of cheap imported goods, zero political incentive. Is there any way to change that? To make consumers aware of this hidden cost? Could there be, say, a "true cost" label on goods, or a "sustainable shipping" certification?
+
+JORDAN: That's a fascinating area, Alex, and one that academics and NGOs are starting to explore more deeply. The challenge is the extreme opaqueness of the supply chain. Most consumers have no idea how their goods arrived, or the environmental footprint of that journey. A "true cost" label would require an incredibly robust and transparent system, tracing every leg of the journey and its associated externalities. While conceptually appealing, implementation would be a monumental task, especially given the industry's fragmentation and lack of data standardization.
+
+ALEX: Hmm.
+
+JORDAN: However, consumer pressure *could* play a role, particularly in high-value, brand-sensitive sectors. Imagine if major brands were pressured by consumers to only use "Blue Speed" vessels, or ships powered by green fuels, or to ensure their supply chain partners disclose their shipping emissions. This is where civil society and activist groups come in, trying to bridge that awareness gap. But for everyday commodities, where price is king, it's a very steep hill to climb. The cost is so diffuse and hidden that it's nearly impossible for an individual consumer to internalize it.
+
+ALEX: So, it's too much to ask for consumers to solve this, then. The onus really has to be on the regulators and the industry, however captured it might be.
+
+JORDAN: Fundamentally, yes. The scale of the externality is so vast that individual consumer choices, while important at the margins, won't drive systemic change. It requires top-down policy intervention. The most effective levers are still global or regional regulation, like the EU's inclusion of shipping in its Emissions Trading System (ETS). That's a significant development, as it forces ships calling at EU ports to pay for their carbon emissions, regardless of their flag.
+
+ALEX: Ah, the EU ETS. That's an interesting example. How does that interact with the IMO's stalled efforts? Is that a potential path forward, regional blocs acting where the global body fails?
+
+JORDAN: It's a very important precedent, and exactly what the paper calls a "Jurisdictional Mitigation." When the IMO fails to act, regional powers with significant market access leverage can step in. The EU ETS for shipping, which began phasing in in 2024, covers emissions from voyages within the EU and fifty percent of emissions from voyages to and from the EU. This creates a direct financial incentive for ships operating in European waters to reduce their emissions. It bypasses the flag-state issue because it applies to *all* ships calling at EU ports, regardless of where they're registered.
+
+ALEX: So, rather than being registered in Panama, they're now effectively regulated by Brussels if they want to do business in the EU.
+
+JORDAN: You got it. And this has a ripple effect. Shipowners operating globally now face a patchwork of regulations. They might have to comply with the EU ETS, California's CARB regulations, and potentially future ECAs in other regions. This complexity itself can become a driver for change, as it's often simpler for a global fleet to adopt a single, higher standard across the board rather than manage multiple, differing compliance regimes. The EU's action puts pressure on the IMO to accelerate its own global measures, otherwise, the shipping industry will face increasing fragmentation and competitive distortions.
+
+ALEX: That's a glimmer of hope. Regional action forcing the global hand. But what are the risks of this fragmented approach? Does it lead to trade wars or competitive disadvantages for non-EU companies?
+
+JORDAN: There are certainly risks. The industry often warns of "carbon leakage," where ships might divert away from regulated ports to unregulated ones to avoid costs. However, for major trade routes, diverting thousands of miles isn't economically viable. The EU has also been careful to structure its ETS to minimize this. The risk of trade disputes is real, but the EU's argument is that climate action is a global imperative, and if global bodies fail to act, then regional ones must. It effectively puts the ball back in the IMO's court, challenging it to come up with a truly global, harmonized solution that is at least as ambitious as the regional ones. It's a form of "constructive unilateralism" or "climate diplomacy through market power."
+
+ALEX: So, the IMO is facing increasing pressure from both the urgency of the climate crisis and now from powerful regional blocs taking matters into their own hands. Could this finally break the logjam of governance failure?
+
+JORDAN: That's the hope. The IMO's recent adoption of a revised Greenhouse Gas Strategy in 2023, which includes a target of net-zero emissions "by or around 2050," is a step forward, albeit one that many critics argue is still too weak and lacks concrete interim targets and enforcement mechanisms. But the pressure from the EU, the Marshall Islands' persistent advocacy for a robust carbon levy, and the increasing visibility of the shipping industry's environmental footprint are all contributing to a slow shift. The question is whether this shift will be fast enough to meet the intervention window before the Maritime Externality Debt becomes truly unmanageable.
+
+ALEX: It's a race against time, then. And the paper makes it clear that the cost of inaction is exponentially higher than the cost of action.
+
+JORDAN: Exponentially. The cumulative debt is staggering, and every year of delay adds another trillion-plus dollars. The economic case for action is overwhelming. The challenge, as we've discussed, is translating that economic imperative into political will within a system designed to resist it.
+
+ALEX: So, what's the end game here? If the IMO remains gridlocked, do we see a complete fragmentation of global shipping regulation? Or does a critical mass of regional actions eventually force a new global framework, perhaps even bypassing the IMO as we know it?
+
+JORDAN: That's the million-dollar question, or rather, the trillion-dollar question. If the IMO cannot evolve, we will likely see a continued proliferation of regional regulations. This could lead to a highly complex, inefficient, and potentially inequitable global shipping landscape, where ships might be subject to different rules depending on their route. It could also create a "two-speed" industry: those operating in regulated corridors and those operating in unregulated ones, potentially leading to increased pollution in less-regulated areas.
+
+ALEX: Huh.
+
+JORDAN: However, it's also possible that this patchwork eventually creates enough pressure and complexity that the industry *itself* starts demanding a harmonized global standard, even if it's a stringent one, simply for the sake of operational simplicity and predictability. Or, a critical mass of major trading blocs—the EU, the US, China, Japan—could eventually coalesce around a common set of standards, effectively dictating terms to the IMO or creating an alternative, more effective governance structure. The IMO isn't the only game in town, though it is the designated one.
+
+ALEX: It sounds like the "Jurisdictional Hollow Win" might eventually create its own undoing, through the very fragmentation it relies upon.
+
+JORDAN: A fascinating thought, isn't it? The system's strength—its ability to fragment accountability—could become its weakness if that fragmentation creates too much operational friction and cost for the industry. But that's a slow burn. The urgency of the climate crisis and the public health impact demand faster action than that gradual evolution. This is why the paper's focus on those immediate, high-impact interventions like expanding ECAs is so crucial. They don't require a complete overhaul of global governance; they leverage existing regulatory tools and market access to deliver immediate benefits.
+
+ALEX: So, for listeners trying to make sense of this, it's not a hopeless situation. The solutions *exist*, they're *cost-effective*, and there are *pathways* to implement them, even if the primary global body is struggling. It's about recognizing the hidden costs and demanding accountability.
+
+JORDAN: Exactly. The report isn't just an expose of a massive externality; it's a blueprint for action. It meticulously identifies the problem, quantifies its cost, and outlines the most impactful, shovel-ready solutions. It shifts the conversation from "can we solve it?" to "will we solve it?" The data is there. The moral imperative is there. The economic rationale is there. What remains is the political will, and that, ultimately, is a function of public awareness and advocacy.
+
+ALEX: Well, Jordan, every time we talk, I feel like I get a masterclass in global economics and environmental policy. It's truly eye-opening, and frankly, a bit unsettling, but incredibly necessary. Thank you for making these invisible costs so clear and for laying out the path forward.
+
+JORDAN: It's my pleasure, Alex. And thank you for providing a platform to bring these critical issues to light. The more people understand the true cost of our global supply chains, the greater the pressure for change will become. It's a complex beast, but not an unsolvable one.
+
+ALEX: Indeed. And that's a powerful message to end on. We've certainly given our listeners a lot to think about. We'll have to pick this up again soon, perhaps delve into another one of those SAPM registry entries.
+
+JORDAN: I look forward to it. There's no shortage of externalities waiting to be made legible.
+
+ALEX: Always something new to learn. Jordan, thank you again.
+
+JORDAN: My pleasure, Alex. Take care.
+
+ALEX: You too.

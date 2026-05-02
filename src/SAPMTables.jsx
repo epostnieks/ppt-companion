@@ -8,7 +8,7 @@ const SURFACE = "#111118";
 const CARD = "#16161E";
 const TEXT = "#F5F0E8";
 const GOLD = "#F59E0B";
-const MUTED = "rgba(255,255,255,0.35)";
+const MUTED = "#C8C8C8";
 const BORDER = "rgba(255,255,255,0.08)";
 
 // ── Severity colour ──────────────────────────────────────────────
@@ -51,7 +51,7 @@ const catCol = (c) => {
 // βW basis: Revenue (Iron Law: Π = annual industry revenue, NEVER profit)
 // MC parameters: N=10,000, seed=42, 3+ distribution types per domain
 // Known Iron Law corrections: Alcohol, Cybercrime, Factory Farming, Ultra-Processed Food, Illicit Drugs, Monoculture
-// Last synced: 2026-04-12. All 61 values cross-checked against CLAUDE.md canonical table.
+// Last synced: 2026-04-21. Public table contains 59 market-failure domains; nuclear and gig economy are controls/comparators.
 // ═══════════════════════════════════════════════════════════════
 const DOMAINS = [
   { rank:1,  slug:"firearms",          name:"Firearms",                   theorem:"Constitutional Ratchet",              type:"Intractability", cat:"Constitutional / Institutional", bw:50.99, ci:[40.50,62.50], pi:10.0,   dw:509.9   },
@@ -94,7 +94,7 @@ const DOMAINS = [
   { rank:38, slug:"alg-pricing",       name:"Algorithmic Pricing",        theorem:"Tacit Coordination Ceiling",          type:"Intractability", cat:"Computational / Legal",           bw:5.38,  ci:[3.90,6.90],   pi:40.0,   dw:215.2   },
   { rank:39, slug:"pfas",              name:"Forever Chemicals (PFAS)",   theorem:"Molecular Persistence Floor",         type:"Impossibility",  cat:"Thermodynamic",                   bw:5.31,  ci:[4.02,6.61],   pi:null,   dw:null    },
   { rank:40, slug:"pe-healthcare",     name:"Private Equity Healthcare",  theorem:"Fiduciary Contradiction",             type:"Intractability", cat:"Institutional",                   bw:5.24,  ci:[4.00,6.50],   pi:31.0,   dw:162.4   },
-  { rank:41, slug:"libor",             name:"Benchmark Rate Fixing",          theorem:"Self-Referential Pricing Trap",       type:"Intractability", cat:"Institutional / Informational",   bw:5.13,  ci:[3.42,8.16],   pi:3.2,    dw:16.4    },
+  { rank:41, slug:"fx-fixing",         name:"FX-Fixing",                      theorem:"Self-Referential Pricing Trap",       type:"Intractability", cat:"Institutional / Informational",   bw:5.13,  ci:[3.42,8.16],   pi:3.2,    dw:16.4    },
   { rank:42, slug:"bitcoin",           name:"Bitcoin / Proof-of-Work",    theorem:"Protocol Welfare Floor",              type:"Intractability", cat:"Institutional",                   bw:5.00,  ci:[3.20,7.80],   pi:42.0,   dw:210.0   },
   { rank:43, slug:"aviation",          name:"Aviation Emissions",         theorem:"Altitude Forcing Floor",              type:"Impossibility",  cat:"Physical / Thermodynamic",        bw:4.97,  ci:[3.60,6.40],   pi:100.0,  dw:497.5   },
   { rank:44, slug:"defense",           name:"Defense Procurement",        theorem:"Monopsony Lock-In",                   type:"Intractability", cat:"Institutional / Political",       bw:4.88,  ci:[4.20,5.60],   pi:33.7,   dw:164.4   },
@@ -106,22 +106,20 @@ const DOMAINS = [
   { rank:50, slug:"upf",               name:"Ultra-Processed Food",       theorem:"Palatability Ratchet",                type:"Intractability", cat:"Neurochemical / Institutional",   bw:4.06,  ci:[3.39,4.95],   pi:450.0,  dw:1829.0  },
   { rank:51, slug:"groundwater",       name:"Groundwater (Ogallala)",     theorem:"Recharge Floor",                      type:"Impossibility",  cat:"Hydrogeological",                 bw:3.46,  ci:[2.30,4.60],   pi:null,   dw:32.9    },
   { rank:52, slug:"pos",               name:"Altcoins / Proof-of-Stake",  theorem:"Cross-Chain Welfare Floor",           type:"Intractability", cat:"Institutional",                   bw:3.14,  ci:[2.31,3.98],   pi:12.0,   dw:6.0     },
-  { rank:53, slug:"nuclear",           name:"Nuclear Power",              theorem:"Persistence Floor",                   type:"Impossibility",  cat:"Physical",                        bw:2.94,  ci:[1.87,4.01],   pi:null,   dw:null    },
-  { rank:54, slug:"arms-exports",      name:"Arms Exports",               theorem:"End-Use Enforcement Impossibility",   type:"Intractability", cat:"Institutional / Jurisdictional",  bw:2.54,  ci:[1.90,3.20],   pi:29.6,   dw:75.0    },
-  { rank:55, slug:"stablecoins",       name:"Stablecoins / Shadow Banking",theorem:"Reserve Opacity Trap",              type:"Intractability", cat:"Institutional / Financial",       bw:2.53,  ci:[2.00,3.10],   pi:56.0,   dw:141.7   },
-  { rank:56, slug:"private-military",  name:"Private Military Contractors",theorem:"Accountability Void",               type:"Intractability", cat:"Jurisdictional / Legal",           bw:2.06,  ci:[1.70,2.40],   pi:260.0,  dw:536.3   },
-  { rank:57, slug:"oil-gas",           name:"Oil & Gas",                  theorem:"Combustion Floor",                    type:"Impossibility",  cat:"Thermodynamic",                   bw:1.63,  ci:[1.30,2.00],   pi:3500.0, dw:5694.6  },
-  { rank:58, slug:"shipping",          name:"Shipping & Maritime",        theorem:"Flag State Evasion Floor",            type:"Intractability", cat:"Jurisdictional / Physical",        bw:1.34,  ci:[1.10,1.60],   pi:969.0,  dw:1296.0  },
-  { rank:59, slug:"alcohol",           name:"Alcohol",                    theorem:"Prohibition Paradox",                 type:"Intractability", cat:"Neurochemical / Institutional",   bw:1.33,  ci:[1.04,1.60],   pi:1600.0, dw:2121.4  },
-  { rank:60, slug:"factory-farming",   name:"Factory Farming",            theorem:"Protein Demand Floor",                type:"Impossibility",  cat:"Biological / Thermodynamic",      bw:1.02,  ci:[0.76,1.38],   pi:2700.0, dw:2763.7  },
-  { rank:61, slug:"gig-economy",       name:"Gig Economy",                theorem:"Classification Arbitrage Floor",      type:"Intractability", cat:"Institutional / Legal",           bw:0.76,  ci:[0.60,0.90],   pi:45.0,   dw:34.4    },
+  { rank:53, slug:"arms-exports",      name:"Arms Exports",               theorem:"End-Use Enforcement Impossibility",   type:"Intractability", cat:"Institutional / Jurisdictional",  bw:2.54,  ci:[1.90,3.20],   pi:29.6,   dw:75.0    },
+  { rank:54, slug:"stablecoins",       name:"Stablecoins / Shadow Banking",theorem:"Reserve Opacity Trap",              type:"Intractability", cat:"Institutional / Financial",       bw:2.53,  ci:[2.00,3.10],   pi:56.0,   dw:141.7   },
+  { rank:55, slug:"private-military",  name:"Private Military Contractors",theorem:"Accountability Void",               type:"Intractability", cat:"Jurisdictional / Legal",           bw:2.06,  ci:[1.70,2.40],   pi:260.0,  dw:536.3   },
+  { rank:56, slug:"oil-gas",           name:"Oil & Gas",                  theorem:"Combustion Floor",                    type:"Impossibility",  cat:"Thermodynamic",                   bw:1.63,  ci:[1.30,2.00],   pi:3500.0, dw:5694.6  },
+  { rank:57, slug:"shipping",          name:"Shipping & Maritime",        theorem:"Flag State Evasion Floor",            type:"Intractability", cat:"Jurisdictional / Physical",        bw:1.34,  ci:[1.10,1.60],   pi:969.0,  dw:1296.0  },
+  { rank:58, slug:"alcohol",           name:"Alcohol",                    theorem:"Prohibition Paradox",                 type:"Intractability", cat:"Neurochemical / Institutional",   bw:1.33,  ci:[1.04,1.60],   pi:1600.0, dw:2121.4  },
+  { rank:59, slug:"factory-farming",   name:"Factory Farming",            theorem:"Protein Demand Floor",                type:"Impossibility",  cat:"Biological / Thermodynamic",      bw:1.02,  ci:[0.76,1.38],   pi:2700.0, dw:2763.7  },
 ];
 
 // Private Pareto Theorem foundational entry for Table 2
 const PPT = { name:"Private Pareto Theorem", theorem:"The Private Pareto Theorem", type:"Foundational", cat:"Logical / Mathematical" };
 
 // ── Shared styles ────────────────────────────────────────────────
-const TH = { fontFamily: M, fontSize: 10, color: "rgba(255,255,255,0.4)", letterSpacing: 2,
+const TH = { fontFamily: M, fontSize: 11, color: "rgba(255,255,255,0.4)", letterSpacing: 2,
   padding: "10px 14px", textAlign: "left", borderBottom: "1px solid rgba(255,255,255,0.1)",
   whiteSpace: "nowrap", position: "sticky", top: 0, background: "#0E0E16", zIndex: 2 };
 const TD = { fontFamily: M, fontSize: 11, padding: "8px 14px",
@@ -129,7 +127,7 @@ const TD = { fontFamily: M, fontSize: 11, padding: "8px 14px",
 
 function Badge({ label, color, bg }) {
   return (
-    <span style={{ fontFamily: M, fontSize: 9, letterSpacing: 1, padding: "2px 7px",
+    <span style={{ fontFamily: M, fontSize: 11, letterSpacing: 1, padding: "2px 7px",
       borderRadius: 2, background: bg, color, border: `1px solid ${color}33`, whiteSpace: "nowrap" }}>
       {label}
     </span>
@@ -167,7 +165,7 @@ function BetaTable() {
                   {d.name}
                 </td>
                 {/* Theorem */}
-                <td style={{ ...TD, color: "rgba(255,255,255,0.55)", fontStyle: "italic", maxWidth: 220 }}>
+                <td style={{ ...TD, color: "#C8C8C8", fontStyle: "italic", maxWidth: 220 }}>
                   {d.theorem}
                 </td>
                 {/* βW */}
@@ -190,7 +188,7 @@ function BetaTable() {
                 </td>
                 {/* Category */}
                 <td style={{ ...TD, maxWidth: 180 }}>
-                  <span style={{ fontSize: 10, color: catCol(d.cat), fontFamily: M }}>
+                  <span style={{ fontSize: 11, color: catCol(d.cat), fontFamily: M }}>
                     {d.cat}
                   </span>
                 </td>
@@ -225,7 +223,7 @@ function SectionHeader({ label, color, count, description }) {
           <span style={{ fontFamily: M, fontSize: 11, letterSpacing: 3, color, borderBottom: `2px solid ${color}`, paddingBottom: 2 }}>
             {label}
           </span>
-          <span style={{ fontFamily: M, fontSize: 10, color: "rgba(255,255,255,0.3)" }}>
+          <span style={{ fontFamily: M, fontSize: 11, color: "rgba(255,255,255,0.3)" }}>
             {count} THEOREMS
           </span>
           <span style={{ fontFamily: "'Newsreader',serif", fontSize: 12, color: "rgba(255,255,255,0.4)", fontStyle: "italic" }}>
@@ -256,8 +254,8 @@ function TheoremTable() {
                 borderBottom: "2px solid #A78BFA", paddingBottom: 2 }}>
                 FOUNDATIONAL
               </span>
-              <span style={{ fontFamily: M, fontSize: 10, color: "rgba(255,255,255,0.3)", marginLeft: 12 }}>
-                1 THEOREM — underpins all 61 domain theorems
+              <span style={{ fontFamily: M, fontSize: 11, color: "rgba(255,255,255,0.3)", marginLeft: 12 }}>
+                1 THEOREM — underpins 59 market-failure domain theorems
               </span>
             </td>
           </tr>
@@ -274,7 +272,7 @@ function TheoremTable() {
             label="IMPOSSIBILITY THEOREMS"
             color="#EF4444"
             count={IMPOSSIBILITY.length}
-            description="Constraint is physical, chemical, biological, or geochemical — no policy can solve this"
+            description="Binding physical, chemical, biological, informational, or equivalent floor — no rule-change path escapes it"
           />
           {IMPOSSIBILITY.map((d, i) => (
             <tr key={d.slug}
@@ -285,7 +283,7 @@ function TheoremTable() {
               <td style={{ ...TD, color: TEXT, fontWeight: 500 }}>{d.name}</td>
               <td style={{ ...TD, color: "#FCA5A5", fontStyle: "italic" }}>{d.theorem}</td>
               <td style={{ ...TD }}>
-                <span style={{ fontSize: 10, color: catCol(d.cat), fontFamily: M }}>{d.cat}</span>
+                <span style={{ fontSize: 11, color: catCol(d.cat), fontFamily: M }}>{d.cat}</span>
               </td>
               <td style={{ ...TD }}>
                 <Badge label="IMPOSSIBILITY" color="#EF4444" bg="rgba(239,68,68,0.08)" />
@@ -298,7 +296,7 @@ function TheoremTable() {
             label="INTRACTABILITY THEOREMS"
             color="#60A5FA"
             count={INTRACTABILITY.length}
-            description="Constraint is institutional, legal, or economic — solvable with sufficient political will"
+            description="Binding current-game floor with a policy or rule-change path out"
           />
           {INTRACTABILITY.map((d, i) => (
             <tr key={d.slug}
@@ -309,7 +307,7 @@ function TheoremTable() {
               <td style={{ ...TD, color: TEXT, fontWeight: 500 }}>{d.name}</td>
               <td style={{ ...TD, color: "#93C5FD", fontStyle: "italic" }}>{d.theorem}</td>
               <td style={{ ...TD }}>
-                <span style={{ fontSize: 10, color: catCol(d.cat), fontFamily: M }}>{d.cat}</span>
+                <span style={{ fontSize: 11, color: catCol(d.cat), fontFamily: M }}>{d.cat}</span>
               </td>
               <td style={{ ...TD }}>
                 <Badge label="INTRACTABILITY" color="#60A5FA" bg="rgba(96,165,250,0.08)" />
@@ -349,45 +347,45 @@ function Legend() {
   return (
     <div style={{ display: "flex", gap: 40, flexWrap: "wrap", padding: "20px 0", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
       <div>
-        <div style={{ fontFamily: M, fontSize: 9, letterSpacing: 2, color: MUTED, marginBottom: 8 }}>HARM SEVERITY</div>
+        <div style={{ fontFamily: M, fontSize: 11, letterSpacing: 2, color: MUTED, marginBottom: 8 }}>HARM SEVERITY</div>
         {sevItems.map(s => (
           <div key={s.label} style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
             <span style={{ width: 8, height: 8, borderRadius: 2, background: s.color, flexShrink: 0 }} />
-            <span style={{ fontFamily: M, fontSize: 10, color: s.color }}>{s.label}</span>
-            <span style={{ fontFamily: M, fontSize: 10, color: MUTED }}>{s.desc}</span>
+            <span style={{ fontFamily: M, fontSize: 11, color: s.color }}>{s.label}</span>
+            <span style={{ fontFamily: M, fontSize: 11, color: MUTED }}>{s.desc}</span>
           </div>
         ))}
       </div>
       <div>
-        <div style={{ fontFamily: M, fontSize: 9, letterSpacing: 2, color: MUTED, marginBottom: 8 }}>CONSTRAINT CATEGORY</div>
+        <div style={{ fontFamily: M, fontSize: 11, letterSpacing: 2, color: MUTED, marginBottom: 8 }}>CONSTRAINT CATEGORY</div>
         {catItems.map(c => (
           <div key={c.label} style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
             <span style={{ width: 8, height: 8, borderRadius: 2, background: c.color, flexShrink: 0 }} />
-            <span style={{ fontFamily: M, fontSize: 10, color: c.color }}>{c.label}</span>
+            <span style={{ fontFamily: M, fontSize: 11, color: c.color }}>{c.label}</span>
           </div>
         ))}
       </div>
       <div>
-        <div style={{ fontFamily: M, fontSize: 9, letterSpacing: 2, color: MUTED, marginBottom: 8 }}>THEOREM TYPE</div>
+        <div style={{ fontFamily: M, fontSize: 11, letterSpacing: 2, color: MUTED, marginBottom: 8 }}>THEOREM TYPE</div>
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
           <span style={{ width: 8, height: 8, borderRadius: 2, background: "#EF4444", flexShrink: 0 }} />
-          <span style={{ fontFamily: M, fontSize: 10, color: "#EF4444" }}>IMPOSSIBILITY</span>
-          <span style={{ fontFamily: M, fontSize: 10, color: MUTED }}>Physical/chemical/biological — unsolvable</span>
+          <span style={{ fontFamily: M, fontSize: 11, color: "#EF4444" }}>IMPOSSIBILITY</span>
+          <span style={{ fontFamily: M, fontSize: 11, color: MUTED }}>Physical/chemical/biological/informational — no escape path</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
           <span style={{ width: 8, height: 8, borderRadius: 2, background: "#60A5FA", flexShrink: 0 }} />
-          <span style={{ fontFamily: M, fontSize: 10, color: "#60A5FA" }}>INTRACTABILITY</span>
-          <span style={{ fontFamily: M, fontSize: 10, color: MUTED }}>Institutional/legal — solvable with policy reform</span>
+          <span style={{ fontFamily: M, fontSize: 11, color: "#60A5FA" }}>INTRACTABILITY</span>
+          <span style={{ fontFamily: M, fontSize: 11, color: MUTED }}>Current-game floor — policy or rule-change path exists</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
           <span style={{ width: 8, height: 8, borderRadius: 2, background: "#A78BFA", flexShrink: 0 }} />
-          <span style={{ fontFamily: M, fontSize: 10, color: "#A78BFA" }}>FOUNDATIONAL</span>
-          <span style={{ fontFamily: M, fontSize: 10, color: MUTED }}>Logical/mathematical — underpins all theorems</span>
+          <span style={{ fontFamily: M, fontSize: 11, color: "#A78BFA" }}>FOUNDATIONAL</span>
+          <span style={{ fontFamily: M, fontSize: 11, color: MUTED }}>Logical/mathematical — underpins all theorems</span>
         </div>
-        <div style={{ marginTop: 12, fontFamily: M, fontSize: 9, color: MUTED }}>
+        <div style={{ marginTop: 12, fontFamily: M, fontSize: 11, color: MUTED }}>
           Π = annual industry revenue (Iron Law — never profit)<br />
-          βW = ΔW / Π · welfare-to-payoff ratio<br />
-          22 Impossibility · 39 Intractability · 1 Foundational
+          βW = ΔW / Π · welfare-to-revenue ratio<br />
+          {IMPOSSIBILITY.length} Impossibility · {INTRACTABILITY.length} Intractability · 1 Foundational
         </div>
       </div>
     </div>
@@ -407,27 +405,27 @@ export default function SAPMTables() {
     <div style={{ background: BG, minHeight: "100vh", color: TEXT, fontFamily: M }}>
       {/* Header */}
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "48px 24px 0" }}>
-        <div style={{ fontFamily: M, fontSize: 10, letterSpacing: 4, color: GOLD, marginBottom: 10 }}>
+        <div style={{ fontFamily: M, fontSize: 11, letterSpacing: 4, color: GOLD, marginBottom: 10 }}>
           System Asset Pricing Model PROGRAM · ERIK POSTNIEKS · 2026
         </div>
         <h1 style={{ fontFamily: S, fontSize: 32, fontWeight: 300, color: TEXT, margin: "0 0 8px" }}>
           System Asset Pricing Model Master Tables
         </h1>
-        <p style={{ fontFamily: S, fontSize: 15, color: "rgba(255,255,255,0.5)", margin: "0 0 6px", fontStyle: "italic" }}>
-          61 domain welfare theorems ranked by βW · Π = annual revenue (Iron Law) · Updated 2026-04-12
+        <p style={{ fontFamily: S, fontSize: 15, color: "#C8C8C8", margin: "0 0 6px", fontStyle: "italic" }}>
+          59 market-failure domain theorems ranked by βW · Π = annual revenue (Iron Law) · Updated 2026-04-12
         </p>
 
         {/* Stats bar */}
         <div style={{ display: "flex", gap: 24, margin: "20px 0 0", flexWrap: "wrap" }}>
           {[
-            { label: "DOMAINS", val: "61" },
+            { label: "MARKET-FAILURE DOMAINS", val: "59" },
             { label: "IMPOSSIBILITY", val: imp.toString(), color: "#EF4444" },
             { label: "INTRACTABILITY", val: intr.toString(), color: "#60A5FA" },
             { label: "MAX βW", val: "50.99", color: "#EF4444" },
             { label: "TOTAL ΔW", val: "$" + (DOMAINS.reduce((s,d) => s + (d.dw||0), 0) / 1000).toFixed(0) + "T", color: "#F59E0B" },
           ].map(s => (
             <div key={s.label} style={{ background: CARD, border: `1px solid ${BORDER}`, borderRadius: 4, padding: "10px 16px" }}>
-              <div style={{ fontSize: 9, letterSpacing: 2, color: MUTED, marginBottom: 4 }}>{s.label}</div>
+              <div style={{ fontSize: 11, letterSpacing: 2, color: MUTED, marginBottom: 4 }}>{s.label}</div>
               <div style={{ fontSize: 18, fontWeight: 700, color: s.color || TEXT }}>{s.val}</div>
             </div>
           ))}
@@ -440,9 +438,9 @@ export default function SAPMTables() {
             { id: "theorem", label: "TABLE 2 — THEOREM CLASSIFICATION" },
           ].map(t => (
             <button key={t.id} onClick={() => setTab(t.id)} style={{
-              fontFamily: M, fontSize: 10, letterSpacing: 2, padding: "12px 24px",
+              fontFamily: M, fontSize: 11, letterSpacing: 2, padding: "12px 24px",
               background: "transparent", border: "none", cursor: "pointer",
-              color: tab === t.id ? GOLD : "rgba(255,255,255,0.35)",
+              color: tab === t.id ? GOLD : "#C8C8C8",
               borderBottom: tab === t.id ? `2px solid ${GOLD}` : "2px solid transparent",
               marginBottom: -1, transition: "color 0.15s",
             }}>
@@ -460,7 +458,7 @@ export default function SAPMTables() {
 
         <Legend />
 
-        <div style={{ fontFamily: M, fontSize: 9, color: "rgba(255,255,255,0.15)", marginTop: 16, textAlign: "center" }}>
+        <div style={{ fontFamily: M, fontSize: 11, color: "rgba(255,255,255,0.15)", marginTop: 16, textAlign: "center" }}>
           © 2026 Erik Postnieks · System Asset Pricing Model · All βW values revenue-denominated per Iron Law
         </div>
       </div>

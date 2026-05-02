@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 // ══════════════════════════════════════════════════════════════
-// System Asset Pricing Model NAV — All 61 Domain Dashboards + Framework Papers
+// System Asset Pricing Model NAV — 59 Market-Failure Dashboards, 2 Controls + Framework Papers
 // βW values from CLAUDE.md canonical table (2026-04-12, revenue-basis)
 // ══════════════════════════════════════════════════════════════
 
@@ -12,7 +12,7 @@ const SITES = [
   { title: "C-Adjusted GDP", url: "https://c-adjusted-gdp.vercel.app", beta: null, highlight: true, section: "hub" },
   { title: "Hollow Win Theorem", url: "https://hw-companion.vercel.app", beta: null, section: "hub" },
 
-  // ─── 61 Domain Papers (βW descending) ─────────────────────
+  // ─── Market-Failure Papers + Controls (βW descending) ─────
   { title: "Firearms", beta: 50.99, slug: "firearms", type: "intract" },
   { title: "Cybercrime & Ransomware", beta: 31.10, slug: "cybercrime", type: "intract" },
   { title: "Human Trafficking", beta: 22.62, slug: "human-trafficking", type: "intract" },
@@ -65,7 +65,7 @@ const SITES = [
   { title: "Ultra-Processed Food", beta: 4.06, slug: "upf", type: "intract" },
   { title: "Groundwater (Ogallala)", beta: 3.46, slug: "groundwater", type: "imposs" },
   { title: "Proof-of-Stake", beta: 3.14, slug: "proof-of-stake", type: "intract" },
-  { title: "Nuclear Power", beta: 2.94, slug: "nuclear", type: "imposs" },
+  { title: "Nuclear Power", beta: 0.54, slug: "nuclear", type: "control" },
   { title: "Arms Exports", beta: 2.54, slug: "arms-exports", type: "intract" },
   { title: "Stablecoins / Shadow Banking", beta: 2.53, slug: "stablecoins", type: "intract" },
   { title: "Private Military", beta: 2.06, slug: "private-military", type: "intract" },
@@ -73,7 +73,7 @@ const SITES = [
   { title: "Shipping & Maritime", beta: 1.34, slug: "shipping", type: "intract" },
   { title: "Alcohol", beta: 1.33, slug: "alcohol", type: "intract" },
   { title: "Factory Farming", beta: 1.02, slug: "factory-farming", type: "imposs" },
-  { title: "Gig Economy", beta: 0.76, slug: "gig-economy", type: "intract" },
+  { title: "Gig Economy", beta: 0.76, slug: "gig-economy", type: "control" },
 ];
 
 const bc = (b) => {
@@ -115,7 +115,7 @@ export default function SAPMNav() {
           border: "1px solid rgba(245,158,11,0.3)",
           color: open ? "#0A0A0F" : "#F59E0B",
           fontFamily: "'JetBrains Mono', monospace",
-          fontSize: 10, fontWeight: 600, cursor: "pointer",
+          fontSize: 11, fontWeight: 600, cursor: "pointer",
           display: "flex", alignItems: "center", justifyContent: "center",
           transition: "all 0.2s", letterSpacing: 1,
           boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
@@ -135,11 +135,11 @@ export default function SAPMNav() {
         }}>
           {/* Header */}
           <div style={{ padding: "24px 20px 12px" }}>
-            <div style={{ fontSize: 10, color: "#F59E0B", letterSpacing: 3, marginBottom: 8 }}>System Asset Pricing Model PROGRAM</div>
+            <div style={{ fontSize: 11, color: "#F59E0B", letterSpacing: 3, marginBottom: 8 }}>System Asset Pricing Model PROGRAM</div>
             <div style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 18, color: "rgba(255,255,255,0.9)", fontWeight: 300 }}>
-              61 Domains · 62 Theorems
+              59 Market-Failure Domains · 2 Controls
             </div>
-            <div style={{ fontSize: 10, color: "rgba(255,255,255,0.3)", marginTop: 6 }}>
+            <div style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", marginTop: 6 }}>
               Erik Postnieks · 2026
             </div>
           </div>
@@ -147,12 +147,12 @@ export default function SAPMNav() {
           {/* Filter */}
           <div style={{ padding: "4px 20px 12px", display: "flex", gap: 6 }}>
             {[
-              { id: "all", label: "ALL (61)" },
-              { id: "imposs", label: "IMPOSSIBILITY (22)", color: "#EF4444" },
-              { id: "intract", label: "INTRACTABILITY (39)", color: "#F59E0B" },
+              { id: "all", label: "ALL (59+2)" },
+              { id: "imposs", label: "IRREDUCIBLE", color: "#EF4444" },
+              { id: "intract", label: "INTRACTABILITY", color: "#F59E0B" },
             ].map(f => (
               <button key={f.id} onClick={() => setFilter(f.id)} style={{
-                fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 1,
+                fontFamily: "'JetBrains Mono', monospace", fontSize: 11, letterSpacing: 1,
                 padding: "3px 8px", border: `1px solid ${filter === f.id ? (f.color || "#F59E0B") : "rgba(255,255,255,0.1)"}`,
                 background: filter === f.id ? `${(f.color || "#F59E0B")}15` : "transparent",
                 color: filter === f.id ? (f.color || "#F59E0B") : "rgba(255,255,255,0.3)",
@@ -206,11 +206,11 @@ export default function SAPMNav() {
                   onMouseLeave={e => e.currentTarget.style.background = "transparent"}
                 >
                   {/* Rank */}
-                  <span style={{ fontSize: 9, color: "rgba(255,255,255,0.2)", width: 18, flexShrink: 0, textAlign: "right" }}>
+                  <span style={{ fontSize: 11, color: "rgba(255,255,255,0.2)", width: 18, flexShrink: 0, textAlign: "right" }}>
                     {i + 1}
                   </span>
                   {/* βW */}
-                  <span style={{ fontSize: 10, color: bc(s.beta), width: 38, flexShrink: 0, textAlign: "right", fontWeight: 600 }}>
+                  <span style={{ fontSize: 11, color: bc(s.beta), width: 38, flexShrink: 0, textAlign: "right", fontWeight: 600 }}>
                     {s.beta}
                   </span>
                   {/* Type badge */}
@@ -224,7 +224,7 @@ export default function SAPMNav() {
                   )}
                   {/* Title */}
                   <span style={{
-                    fontSize: 10, color: "rgba(255,255,255,0.6)",
+                    fontSize: 11, color: "#C8C8C8",
                     whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
                   }}>
                     {s.title}
@@ -236,7 +236,7 @@ export default function SAPMNav() {
 
           {/* Footer */}
           <div style={{ padding: "16px 20px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-            <div style={{ fontSize: 9, color: "rgba(255,255,255,0.2)", textAlign: "center" }}>
+            <div style={{ fontSize: 11, color: "rgba(255,255,255,0.2)", textAlign: "center" }}>
               {"\u00A9"} 2026 Erik Postnieks
             </div>
           </div>

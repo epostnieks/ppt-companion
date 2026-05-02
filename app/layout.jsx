@@ -1,15 +1,16 @@
 import '../src/responsive.css';
+import '../src/design-system.css';
 import SideNav, { SIDEBAR_WIDTH } from '../src/SideNav';
 import ErrorBoundary from '../src/ErrorBoundary';
 import I18nProvider from './i18n-provider';
 
 export const metadata = {
-  title: "System Asset Pricing Model Program — Private Pareto Theorem · 62 Theorems, 61 Domains, $86T Welfare Cost",
-  description: "The System Asset Pricing Model: 62 impossibility and intractability theorems across 61 domains. The Private Pareto Theorem proves bilateral analysis is structurally blind to system welfare. Monte Carlo validated. 190-country policy tools. Erik Postnieks.",
+  title: "System Asset Pricing Model Program — Private Pareto Theorem · 59 Market-Failure Domains + Controls",
+  description: "The System Asset Pricing Model: a proposed theorem and measurement program for bilateral analysis, system welfare, domain calibration, and 190-country policy translation. Erik Postnieks.",
   openGraph: {
     type: "website",
     title: "System Asset Pricing Model Program — Private Pareto Theorem",
-    description: "62 theorems across 61 domains prove that bilateral analysis cannot detect system welfare destruction. $85.3 trillion per year. Monte Carlo validated. 190-country policy implementation.",
+    description: "Theorem foundations, 59 market-failure SAPM calibrations, two control comparators, Decision Accounting, and 190-country policy translation.",
     url: "https://ppt-companion.vercel.app",
     siteName: "System Asset Pricing Model Program",
     images: [{ url: "https://ppt-companion.vercel.app/og-image.png" }],
@@ -17,7 +18,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "System Asset Pricing Model Program — Private Pareto Theorem",
-    description: "62 theorems. 61 domains. $85.3T/yr welfare destruction. The economics profession's missing dimension.",
+    description: "Theorem foundations, domain calibration, Decision Accounting, and public-policy translation for system welfare.",
     images: ["https://ppt-companion.vercel.app/og-image.png"],
   },
   alternates: {
@@ -49,7 +50,7 @@ export default function RootLayout({ children }) {
                 affiliation: "Independent Researcher",
                 sameAs: ["https://github.com/epostnieks"],
               },
-              description: "Companion website for the System Asset Pricing Model program: 62 theorems across 61 domains proving bilateral analysis is structurally blind to system welfare. Monte Carlo validated across all domains.",
+              description: "Companion website for the System Asset Pricing Model program: theorem foundations, domain calibration, Decision Accounting, and global public-policy translation.",
               about: {
                 "@type": "ScholarlyArticle",
                 name: "The Private Pareto Theorem",

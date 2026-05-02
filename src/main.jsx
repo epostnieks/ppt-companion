@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import './i18n'
 import './responsive.css'
+import './design-system.css'
 import App from './App'
 import ErrorBoundary from './ErrorBoundary'
 
